@@ -1,7 +1,7 @@
 <%@page import="pojo.Goods"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<% 
+<%  
 	List<Goods> list =(List<Goods>)request.getAttribute("shoppinglist");
 	System.out.print(list);
 %> 
