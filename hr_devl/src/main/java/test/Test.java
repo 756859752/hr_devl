@@ -9,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.ConfigPublicChar;
 import dao.ConfigPublicCharMapper;
 import service.ConfigPublicCharService;
-import service.StudentService;
 
 public class Test {
 	public static void main(String[] args) {
