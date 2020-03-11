@@ -8,9 +8,17 @@
   <description/>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring-version>3.1.2.RELEASE</spring-version>  
+        <cglib-version>2.2.2</cglib-version>  
+        <aspectj-version>1.6.9</aspectj-version>  
+        <jstl-version>1.2</jstl-version>  
+        <servlet-version>3.0.1</servlet-version>  
+        <jsp-version>2.2.1</jsp-version>  
+        <log4j-version>1.2.14</log4j-version>  
+        <junit-version>4.11</junit-version>  
   </properties>
+   <!-- j2ee工程的依赖 -->
    <dependencies>
-  	<!-- j2ee工程的依赖 -->
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>javaee-api</artifactId>
@@ -32,32 +40,32 @@
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-context</artifactId>
-    	<version>3.1.1.RELEASE</version>
+    	<version>3.1.2.RELEASE</version>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-jdbc</artifactId>
-    	<version>3.1.1.RELEASE</version>
+    	<version>3.1.2.RELEASE</version>
     </dependency>
     <dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-web</artifactId>
-  		<version>3.1.1.RELEASE</version>
+  		<version>3.1.2.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
-  		<version>3.1.1.RELEASE</version>
+  		<version>3.1.2.RELEASE</version>
   	</dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-orm</artifactId>
-    	<version>3.1.1.RELEASE</version>
+    	<version>3.1.2.RELEASE</version>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-tx</artifactId>
-    	<version>3.1.1.RELEASE</version>
+    	<version>3.1.2.RELEASE</version>
     </dependency>
     <!-- 与spring的aop相关依赖 -->
     <dependency>
@@ -103,6 +111,13 @@
   		<artifactId>log4j</artifactId>
   		<version>1.2.14</version>
   	</dependency>
+  	
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.4</version>
+		<scope>runtime</scope>
+	</dependency>
     <!-- 数据库的依赖包 -->
     <dependency>
   		<groupId>mysql</groupId>

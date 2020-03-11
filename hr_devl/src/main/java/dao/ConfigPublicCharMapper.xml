@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.ConfigPublicCharMapper">
+   
+	<resultMap type="ConfigPublicChar" id="cpc" >
+		 <id property="pbcid" column="pbc_id"  />
+		 <result  column="attribute_kind" property="attributekind "/>
+		 <result column="attribute_name" property="attributename"  />
+   </resultMap>
+   		<select id="selectConfigPublicCharById" parameterType="_int" resultMap="cpc">
+   			select * from config_public_char where pbc_id=#{id}
+   		</select>
+   		<select id="selectAllConfigPublicChar" resultMap="cpc">
+   			select * from config_public_char
+   		</select>
+  </mapper>
+  
