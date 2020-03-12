@@ -23,6 +23,7 @@
 		 <result column="check_time" property="checkTime" />
 		 <result column="check_status" property="checkStatus" />
    </resultMap>
+   
          <update id="updateBonus"  parameterType="Bouns">
            update bonus set  where  bou_id=#{bouId}
          </update>
