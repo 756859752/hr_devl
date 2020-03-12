@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.EngageAnswerMapper">
+   		<insert id="insertEngageAnswer" parameterType="EngageAnswer">
+   			insert into engage_answer(answer_number,exam_number,resume_id,interview_id,human_name,human_idcard,major_kind_id,major_kind_name,major_id,major_name,test_time,use_time,total_point)
+   			values(#{answerNumber},#{examNumber},#{resumeId},#{interviewId},#{humanName},#{humanIdcard},#{majorKindId},#{majorKindName},#{majorId},#{majorName},#{testTime},#{useTime},#{totalPoint})
+   		</insert>
+   		<delete id="deleteEngageAnswer" parameterType="_short">
+   			delete from  where ans_id=#{id}
+   		</delete>
+   		<update id="updateEngageAnswer" parameterType="EngageAnswer">
+   			update engage_answer set answer_number=#{answerNumber},exam_number=#{examNumber},resume_id=#{resumeId},interview_id=#{interviewId},human_name=#{humanName},human_idcard=#{humanIdcard},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName},major_id=#{majorId},major_name=#{majorName},test_time=#{testTime},use_time=#{useTime},total_point=#{totalPoint}
+   			where ans_id=#{ansId}
+   		</update>
+   		
+   		<resultMap type="EngageAnswer" id="tid" >
+<id property="ansId" column="ans_id"/>
+<result property="answerNumber" column="answer_number"/>
+<result property="examNumber" column="exam_number"/>
+<result property="resumeId" column="resume_id"/>
+<result property="interviewId" column="interview_id"/>
+<result property="humanName" column="human_name"/>
+<result property="humanIdcard" column="human_idcard"/>
+<result property="majorKindId" column="major_kind_id"/>
+<result property="majorKindName" column="major_kind_name"/>
+<result property="majorId" column="major_id"/>
+<result property="majorName" column="major_name"/>
+<result property="testTime" column="test_time"/>
+<result property="useTime" column="use_time"/>
+<result property="totalPoint" column="total_point"/>   </resultMap>
+   		<select id="selectEngageAnswerById" parameterType="_short" resultMap="tid">
+   			select * from  engage_answer where ans_id=#{id}
+   		</select>
+   		<select id="selectAllEngageAnswer" resultMap="tid">
+   			select * from  engage_answer
+   		</select>
+   		
+  </mapper>
+  

@@ -5,7 +5,7 @@
   <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
    <mapper namespace="dao.BonusMapper">
    
-	<resultMap type="Bouns" id="bou" >
+	<!--  <resultMap type="Bouns" id="bou" >
 		 <id  column="bon_id"    property="bonId" />
 		 <result  column="major_kind_id" property="majorKindId "/>
 		 <result column="major_kind_name" property="majorKindName"/>
@@ -33,6 +33,6 @@
    		</select>
    		<select id="selectAllBonus" resultMap="bou">
    			select * from bonus
-   		</select>
+   		</select>-->
   </mapper>
   

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.EngageInterviewMapper">
+   		<insert id="insertEngageInterview" parameterType="EngageInterview">
+   			insert into engage_interview(human_name,interview_amount,human_major_kind_id,human_major_kind_name,human_major_id,human_major_name,image_degree,native_language_degree,foreign_language_degree,response_speed_degree,EQ_degree,IQ_degree,multi_quality_degree,register,checker,registe_time,check_time,resume_id,result,interview_comment,check_comment,interview_status,check_status)
+   			values(#{humanName},#{interviewAmount},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{humanMajorName},#{imageDegree},#{nativeLanguageDegree},#{foreignLanguageDegree},#{responseSpeedDegree},#{EQDegree},#{IQDegree},#{multiQualityDegree},#{register},#{checker},#{registeTime},#{checkTime},#{resumeId},#{result},#{interviewComment},#{checkComment},#{interviewStatus},#{checkStatus})
+   		</insert>
+   		<delete id="deleteEngageInterview" parameterType="_short">
+   			delete from engage_interview where ein_id=#{id}
+   		</delete>
+   		<update id="updateEngageInterview" parameterType="EngageInterview">
+   			update engage_interview set human_name=#{humanName},interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},human_major_name=#{humanMajorName},image_degree=#{imageDegree},native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},response_speed_degree=#{responseSpeedDegree},EQ_degree=#{EQDegree},IQ_degree=#{IQDegree},multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},registe_time=#{registeTime},check_time=#{checkTime},resume_id=#{resumeId},result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},interview_status=#{interviewStatus},check_status=#{checkStatus}
+   			where ein_id=#{einId}
+   		</update>
+   		
+	<resultMap type="EngageInterview" id="tid" >
+<id property="einId" column="ein_id"/>
+<result property="humanName" column="human_name"/>
+<result property="interviewAmount" column="interview_amount"/>
+<result property="humanMajorKindId" column="human_major_kind_id"/>
+<result property="humanMajorKindName" column="human_major_kind_name"/>
+<result property="humanMajorId" column="human_major_id"/>
+<result property="humanMajorName" column="human_major_name"/>
+<result property="imageDegree" column="image_degree"/>
+<result property="nativeLanguageDegree" column="native_language_degree"/>
+<result property="foreignLanguageDegree" column="foreign_language_degree"/>
+<result property="responseSpeedDegree" column="response_speed_degree"/>
+<result property="EQDegree" column="EQ_degree"/>
+<result property="IQDegree" column="IQ_degree"/>
+<result property="multiQualityDegree" column="multi_quality_degree"/>
+<result property="register" column="register"/>
+<result property="checker" column="checker"/>
+<result property="registeTime" column="registe_time"/>
+<result property="checkTime" column="check_time"/>
+<result property="resumeId" column="resume_id"/>
+<result property="result" column="result"/>
+<result property="interviewComment" column="interview_comment"/>
+<result property="checkComment" column="check_comment"/>
+<result property="interviewStatus" column="interview_status"/>
+<result property="checkStatus" column="check_status"/>   </resultMap>
+   		
+   		<select id="selectEngageInterviewById" parameterType="_short" resultMap="tid">
+   			select * from engage_interview where ein_id=#{id}
+   		</select>
+   		
+   		<select id="selectAllEngageInterview" resultMap="tid">
+   			select * from engage_interview
+   		</select>
+  </mapper>
+  
