@@ -24,6 +24,7 @@
 		 <result column="check_status" property="checkStatus" />
    </resultMap>
    
+   
          <update id="updateBonus"  parameterType="Bouns">
            update bonus set  where  bou_id=#{bouId}
          </update>
