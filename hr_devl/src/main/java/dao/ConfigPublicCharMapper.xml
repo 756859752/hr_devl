@@ -4,7 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
    <mapper namespace="dao.ConfigPublicCharMapper">
-   
+   	<insert id="insertConfigPublicChar" parameterType="ConfigPublicChar">
+   		insert into config_public_char()
+   	</insert>
+   	
 	<resultMap type="ConfigPublicChar" id="cpc" >
 		 <id property="pbcid" column="pbc_id"  />
 		 <result  column="attribute_kind" property="attributekind "/>

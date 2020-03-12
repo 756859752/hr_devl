@@ -9,7 +9,7 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 
 	// Fields
 
-	private Short ffkId;
+	private short ffkId;
 	private String firstKindId;
 	private String firstKindName;
 	private String firstKindSalaryId;
@@ -74,6 +74,14 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 
 	public void setFirstKindSaleId(String firstKindSaleId) {
 		this.firstKindSaleId = firstKindSaleId;
+	}
+
+	@Override
+	public String toString() {
+		return "ConfigFileFirstKind [ffkId=" + ffkId + ", firstKindId="
+				+ firstKindId + ", firstKindName=" + firstKindName
+				+ ", firstKindSalaryId=" + firstKindSalaryId
+				+ ", firstKindSaleId=" + firstKindSaleId + "]";
 	}
 
 }
