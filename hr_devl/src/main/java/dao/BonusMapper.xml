@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.BonusMapper">
+   
+	<resultMap type="Bouns" id="bou" >
+		 <id  column="bon_id"    property="bonId" />
+		 <result  column="major_kind_id" property="majorKindId "/>
+		 <result column="major_kind_name" property="majorKindName"/>
+		 <result column="major_id" property="majorId" />
+		 <result column="major_name" property="majorName" />
+		 <result column="human_id" property="humanId" />
+		 <result column="human_name" property="humamName" />
+		 <result column="bonus_item" property="bonusItem" />
+		 <result column="bonus_worth" property="bonusWorth" />
+		 <result column="bonus_degree" property="bonusDegree" />
+		 <result column="remark" property="remark" />
+		 <result column="register" property="register" />
+		 <result column="checker" property="checker" />
+		 <result column="regist_time" property="regisTime" />
+		 <result column="check_time" property="checkTime" />
+		 <result column="check_status" property="checkStatus" />
+   </resultMap>
+         <update id="updateBonus"  parameterType="Bouns">
+           update bonus set  where  bou_id=#{bouId}
+         </update>
+   		<select id="selectBonusById" parameterType="_int" resultMap="bou">
+   			select * from bonus where bou_id=#{id}
+   		</select>
+   		<select id="selectAllBonus" resultMap="bou">
+   			select * from bonus
+   		</select>
+  </mapper>
+  
