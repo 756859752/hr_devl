@@ -109,7 +109,7 @@ public class Test {
 				sb.append("<result property=\"");
 			}
 			sb.append(toup(stcolumn));
-			sb.append("\"column=\"");
+			sb.append("\" column=\"");
 			sb.append(stcolumn);
 			sb.append("\"/>");
 			flag = 1;

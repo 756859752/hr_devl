@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.EngageExamMapper">
+   		<insert id="insertEngageExam" parameterType="EngageExam">
+   			insert into engage_exam(exam_number,major_kind_id,major_kind_name,major_id,major_name,register,regist_time,limite_time)
+   			values (#{examNumber},#{majorKindId},#{majorKindName},#{majorId},#{majorName},#{register},#{registTime},#{limiteTime})
+   		</insert>
+   		<delete id="deleteEngageExam" parameterType="_short">
+   			delete from engage_exam where exa_id=#{id}
+   		</delete>
+   		<update id="updateEngageExam" parameterType="EngageExam">
+   			update engage_exam set exam_number=#{examNumber},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName},major_id=#{majorId},major_name=#{majorName},register=#{register},regist_time=#{registTime},limite_time=#{limiteTime}
+   			where exa_id=#{exaId}
+   		</update>
+   		
+		<resultMap type="EngageExam" id="tid" >
+			<id property="exaId" column="exa_id"/>
+			<result property="examNumber" column="exam_number"/>
+			<result property="majorKindId" column="major_kind_id"/>
+			<result property="majorKindName" column="major_kind_name"/>
+			<result property="majorId" column="major_id"/>
+			<result property="majorName" column="major_name"/>
+			<result property="register" column="register"/>
+			<result property="registTime" column="regist_time"/>
+			<result property="limiteTime" column="limite_time"/>   </resultMap>
+   		
+   		<select id="selectEngageExamById" parameterType="_short" resultMap="tid">
+   			select * from engage_exam where exa_id=#{id}
+   		</select>
+   		
+   		<select id="selectAllEngageExam" resultMap="tid">
+   			select * from engage_exam
+   		</select>
+  </mapper>
+  

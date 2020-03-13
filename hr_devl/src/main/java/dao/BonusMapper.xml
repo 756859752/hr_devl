@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
 <mapper namespace="dao.BonusMapper">
 
@@ -50,4 +51,3 @@
 		select * from bonus
 	</select>
 </mapper>
-  

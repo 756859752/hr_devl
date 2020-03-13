@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.HumanFileDigMapper">
+   		<insert id="insertHumanFileDig" parameterType="HumanFileDig">
+   			insert into human_file_dig(human_id,first_kind_id,first_kind_name,second_kind_id,second_kind_name,third_kind_id,third_kind_name,human_name,human_address,human_postcode,human_pro_designation,human_major_kind_id,human_major_kind_name,human_major_id,hunma_major_name,human_telephone,human_mobilephone,human_bank,human_account,human_qq,human_email,human_hobby,human_speciality,human_sex,human_religion,human_party,human_nationality,human_race,human_birthday,human_birthplace,human_age,human_educated_degree,human_educated_years,human_educated_major,human_society_security_id,human_id_card,remark,salary_standard_id,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,major_change_amount,bonus_amount,training_amount,file_chang_amount,human_histroy_records,human_family_membership,human_picture,attachment_name,check_status,register,checker,changer,regist_time,check_time,change_time,lastly_change_time,delete_time,recovery_time,human_file_status)
+   			values (#{humanId},#{firstKindId},#{firstKindName},#{secondKindId},#{secondKindName},#{thirdKindId},#{thirdKindName},#{humanName},#{humanAddress},#{humanPostcode},#{humanProDesignation},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{hunmaMajorName},#{humanTelephone},#{humanMobilephone},#{humanBank},#{humanAccount},#{humanQq},#{humanEmail},#{humanHobby},#{humanSpeciality},#{humanSex},#{humanReligion},#{humanParty},#{humanNationality},#{humanRace},#{humanBirthday},#{humanBirthplace},#{humanAge},#{humanEducatedDegree},#{humanEducatedYears},#{humanEducatedMajor},#{humanSocietySecurityId},#{humanIdCard},#{remark},#{salaryStandardId},#{salaryStandardName},#{salarySum},#{demandSalaraySum},#{paidSalarySum},#{majorChangeAmount},#{bonusAmount},#{trainingAmount},#{fileChangAmount},#{humanHistroyRecords},#{humanFamilyMembership},#{humanPicture},#{attachmentName},#{checkStatus},#{register},#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},#{lastlyChangeTime},#{deleteTime},#{recoveryTime},#{humanFileStatus})
+   		</insert>
+   		<delete id="deleteHumanFileDig" parameterType="_short">
+   			delete from human_file_dig where hfd_id=#{id}
+   		</delete>
+   		<update id="updateHumanFileDig" parameterType="HumanFileDig">
+   			update human_file_dig set human_id=#{humanId},first_kind_id=#{firstKindId},first_kind_name=#{firstKindName},second_kind_id=#{secondKindId},second_kind_name=#{secondKindName},third_kind_id=#{thirdKindId},third_kind_name=#{thirdKindName},human_name=#{humanName},human_address=#{humanAddress},human_postcode=#{humanPostcode},human_pro_designation=#{humanProDesignation},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},hunma_major_name=#{hunmaMajorName},human_telephone=#{humanTelephone},human_mobilephone=#{humanMobilephone},human_bank=#{humanBank},human_account=#{humanAccount},human_qq=#{humanQq},human_email=#{humanEmail},human_hobby=#{humanHobby},human_speciality=#{humanSpeciality},human_sex=#{humanSex},human_religion=#{humanReligion},human_party=#{humanParty},human_nationality=#{humanNationality},human_race=#{humanRace},human_birthday=#{humanBirthday},human_birthplace=#{humanBirthplace},human_age=#{humanAge},human_educated_degree=#{humanEducatedDegree},human_educated_years=#{humanEducatedYears},human_educated_major=#{humanEducatedMajor},human_society_security_id=#{humanSocietySecurityId},human_id_card=#{humanIdCard},remark=#{remark},salary_standard_id=#{salaryStandardId},salary_standard_name=#{salaryStandardName},salary_sum=#{salarySum},demand_salaray_sum=#{demandSalaraySum},paid_salary_sum=#{paidSalarySum},major_change_amount=#{majorChangeAmount},bonus_amount=#{bonusAmount},training_amount=#{trainingAmount},file_chang_amount=#{fileChangAmount},human_histroy_records=#{humanHistroyRecords},human_family_membership=#{humanFamilyMembership},human_picture=#{humanPicture},attachment_name=#{attachmentName},check_status=#{checkStatus},register=#{register},checker=#{checker},changer=#{changer},regist_time=#{registTime},check_time=#{checkTime},change_time=#{changeTime},lastly_change_time=#{lastlyChangeTime},delete_time=#{deleteTime},recovery_time=#{recoveryTime},human_file_status=#{humanFileStatus}
+   			where hfd_id=#{hfdId}
+   		</update>
+   		
+   		<resultMap type="HumanFileDig" id="tid" >
+<id property="hfdId" column="hfd_id"/>
+<result property="humanId" column="human_id"/>
+<result property="firstKindId" column="first_kind_id"/>
+<result property="firstKindName" column="first_kind_name"/>
+<result property="secondKindId" column="second_kind_id"/>
+<result property="secondKindName" column="second_kind_name"/>
+<result property="thirdKindId" column="third_kind_id"/>
+<result property="thirdKindName" column="third_kind_name"/>
+<result property="humanName" column="human_name"/>
+<result property="humanAddress" column="human_address"/>
+<result property="humanPostcode" column="human_postcode"/>
+<result property="humanProDesignation" column="human_pro_designation"/>
+<result property="humanMajorKindId" column="human_major_kind_id"/>
+<result property="humanMajorKindName" column="human_major_kind_name"/>
+<result property="humanMajorId" column="human_major_id"/>
+<result property="hunmaMajorName" column="hunma_major_name"/>
+<result property="humanTelephone" column="human_telephone"/>
+<result property="humanMobilephone" column="human_mobilephone"/>
+<result property="humanBank" column="human_bank"/>
+<result property="humanAccount" column="human_account"/>
+<result property="humanQq" column="human_qq"/>
+<result property="humanEmail" column="human_email"/>
+<result property="humanHobby" column="human_hobby"/>
+<result property="humanSpeciality" column="human_speciality"/>
+<result property="humanSex" column="human_sex"/>
+<result property="humanReligion" column="human_religion"/>
+<result property="humanParty" column="human_party"/>
+<result property="humanNationality" column="human_nationality"/>
+<result property="humanRace" column="human_race"/>
+<result property="humanBirthday" column="human_birthday"/>
+<result property="humanBirthplace" column="human_birthplace"/>
+<result property="humanAge" column="human_age"/>
+<result property="humanEducatedDegree" column="human_educated_degree"/>
+<result property="humanEducatedYears" column="human_educated_years"/>
+<result property="humanEducatedMajor" column="human_educated_major"/>
+<result property="humanSocietySecurityId" column="human_society_security_id"/>
+<result property="humanIdCard" column="human_id_card"/>
+<result property="remark" column="remark"/>
+<result property="salaryStandardId" column="salary_standard_id"/>
+<result property="salaryStandardName" column="salary_standard_name"/>
+<result property="salarySum" column="salary_sum"/>
+<result property="demandSalaraySum" column="demand_salaray_sum"/>
+<result property="paidSalarySum" column="paid_salary_sum"/>
+<result property="majorChangeAmount" column="major_change_amount"/>
+<result property="bonusAmount" column="bonus_amount"/>
+<result property="trainingAmount" column="training_amount"/>
+<result property="fileChangAmount" column="file_chang_amount"/>
+<result property="humanHistroyRecords" column="human_histroy_records"/>
+<result property="humanFamilyMembership" column="human_family_membership"/>
+<result property="humanPicture" column="human_picture"/>
+<result property="attachmentName" column="attachment_name"/>
+<result property="checkStatus" column="check_status"/>
+<result property="register" column="register"/>
+<result property="checker" column="checker"/>
+<result property="changer" column="changer"/>
+<result property="registTime" column="regist_time"/>
+<result property="checkTime" column="check_time"/>
+<result property="changeTime" column="change_time"/>
+<result property="lastlyChangeTime" column="lastly_change_time"/>
+<result property="deleteTime" column="delete_time"/>
+<result property="recoveryTime" column="recovery_time"/>
+<result property="humanFileStatus" column="human_file_status"/>   </resultMap>
+   		
+   		<select id="selectHumanFileDigById" parameterType="_short" resultMap="tid">
+   			select * from human_file_dig where hfd_id=#{id}
+   		</select>
+   		
+   		<select id="selectAllHumanFileDig" resultMap="tid">
+   			select * from human_file_dig
+   		</select>
+  </mapper>
+  

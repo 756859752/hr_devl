@@ -2,8 +2,11 @@ package dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import pojo.EngageExam;
 
+@Repository
 public interface EngageExamMapper {
 	public void insertEngageExam(EngageExam EngageExam);
 

@@ -6,7 +6,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Test2 {
+
 	public static void main(String[] args) throws Exception {
 //		InputStreamReader ir=new InputStreamReader(new FileInputStream("d:/hr.txt"));
 		FileInputStream fs = new FileInputStream("d:/hr.txt");
