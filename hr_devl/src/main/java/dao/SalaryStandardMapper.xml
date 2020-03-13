@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.SalaryStandardMapper">
+	<insert id="insertSalaryStandard" parameterType="SalaryStandard">
+		insert into salary_standard
+		(ssd_id,standard_id,standard_name,designer,register,checker,changer,regist_time,check_time,change_time,salary_sum,check_status,change_status,check_comment,remark)
+		values(#{ssdId},#{standardId},#{standardName},#{designer},#{register},#{checker},#{changer},#{registTime},#{checkTime},#{changeTime},#{salarySum},#{checkStatus},#{changeStatus},#{checkComment},#{remark})
+	</insert>
+
+	<delete id="deleteSalaryStandard" parameterType="_short">
+		delete from salary_standard where ssd_id=#{id}
+	</delete>
+	<update id="updateSalaryStandard" parameterType="SalaryStandard">
+		update salary_standard set
+		ssd_id=#{ssdId},standard_id=#{standardId},standard_name=#{standardName},designer=#{designer},register=#{register},checker=#{checker},changer=#{changer},regist_time=#{registTime},check_time=#{checkTime},change_time=#{changeTime},salary_sum=#{salarySum},check_status=#{checkStatus},change_status=#{changeStatus},check_comment=#{checkComment},remark=#{remark}
+		where ssd_id=#{ssdId}
+	</update>
+	<resultMap type="SalaryStandard" id="ss" >
+		<id property="ssdId" column="ssd_id"/>
+		<result property="standardId" column="standard_id"/>
+		<result property="standardName" column="standard_name"/>
+		<result property="designer" column="designer"/>
+		<result property="register" column="register"/>
+		<result property="checker" column="checker"/>
+		<result property="changer" column="changer"/>
+		<result property="registTime" column="regist_time"/>
+		<result property="checkTime" column="check_time"/>
+		<result property="changeTime" column="change_time"/>
+		<result property="salarySum" column="salary_sum"/>
+		<result property="checkStatus" column="check_status"/>
+		<result property="changeStatus" column="change_status"/>
+		<result property="checkComment" column="check_comment"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+
+
+	<select id="selectSalaryStandardById" parameterType="_short"
+		resultMap="ss">
+		select * from salary_standard where ssd_id=#{id}
+	</select>
+	<select id="selectAllSalaryStandard" resultMap="ss">
+		select * from salary_standard
+	</select>
+</mapper>
+  

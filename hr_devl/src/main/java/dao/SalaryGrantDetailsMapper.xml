@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.SalaryGrantDetailsMapper">
+	<insert id="insertSalaryGrantDetails" parameterType="SalaryGrantDetails">
+		insert into salary_grant_details
+		(grd_id,salary_grant_id,human_id,human_name,bouns_sum,sale_sum,deduct_sum,salary_standard_sum,salary_paid_sum)
+		values(#{grdId},#{salaryGrantId},#{humanId},#{humanName},#{bounsSum},#{saleSum},#{deductSum},#{salaryStandardSum},#{salaryPaidSum})
+	</insert>
+
+	<delete id="deleteSalaryGrantDetails" parameterType="_short">
+		delete from salary_grant_details where grd_id=#{id}
+	</delete>
+	<update id="updateSalaryGrantDetails" parameterType="SalaryGrantDetails">
+		update salary_grant_details set
+		grd_id=#{grdId},salary_grant_id=#{salaryGrantId},human_id=#{humanId},human_name=#{humanName},bouns_sum=#{bounsSum},sale_sum=#{saleSum},deduct_sum=#{deductSum},salary_standard_sum=#{salaryStandardSum},salary_paid_sum=#{salaryPaidSum}
+		where grd_id=#{grdId}
+	</update>
+	<resultMap type="SalaryGrantDetails" id="sgd" >
+		<id property="grdId" column="grd_id"/>
+		<result property="salaryGrantId" column="salary_grant_id"/>
+		<result property="humanId" column="human_id"/>
+		<result property="humanName" column="human_name"/>
+		<result property="bounsSum" column="bouns_sum"/>
+		<result property="saleSum" column="sale_sum"/>
+		<result property="deductSum" column="deduct_sum"/>
+		<result property="salaryStandardSum" column="salary_standard_sum"/>
+		<result property="salaryPaidSum" column="salary_paid_sum"/>   
+	</resultMap>
+
+
+	<select id="selectSalaryGrantDetailsById" parameterType="_short"
+		resultMap="sgd">
+		select * from salary_grant_details where mch_id=#{id}
+	</select>
+	<select id="selectAllSalaryGrantDetails" resultMap="sgd">
+		select * from salary_grant_details
+	</select>
+</mapper>
+  
