@@ -6,20 +6,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'index.jsp' starting page</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<title>欢迎使用Bette伯乐人力资源管理系统</title>
-		<script language="JavaScript" type="text/JavaScript">
+<title>欢迎使用Bette伯乐人力资源管理系统</title>
+<script language="JavaScript" type="text/JavaScript">
 <!--
 function MM_reloadPage(init) {  //reloads the window if Nav4 resized
   if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
@@ -30,7 +30,7 @@ MM_reloadPage(true);
 //--
 </script>
 
-		<Script>
+<Script>
 function onClose(){
 
 if(window.screenTop>10000){
@@ -45,19 +45,20 @@ newwin.location=targeturl
 }
 window.onunload=onClose
 </Script>
-	</head>
-	<frameset rows="69,*,20" framespacing="1" border="1"
-		onunload="onClose()" >
-		<frame src="top.html" name="top" scrolling="no" marginwidth="1" marginheight="1" frameborder="0">
-		<frameset cols="200,*" frameborder="NO" border="0" framespacing="0" >
-			<frame src="left.html" name="left" scrolling="yes"
-				noresize>
-			<frame src="main.html" name="mainFrame">
-		</frameset>
-		<frame src="bottom.html" name="bottom" frameborder="0" scrolling="no" marginwidth="1" marginheight="1" >
-		<noframes>
-			<body topmargin="0" leftmargin="0" bgcolor="#b5daff">
-			</body>
-		</noframes>
+</head>
+<frameset rows="69,*,20" framespacing="1" border="1"
+	onunload="onClose()">
+	<frame src="top.html" name="top" scrolling="no" marginwidth="1"
+		marginheight="1" frameborder="0">
+	<frameset cols="200,*" frameborder="NO" border="0" framespacing="0">
+		<frame src="left.html" name="left" scrolling="yes" noresize>
+		<frame src="main.html" name="mainFrame">
 	</frameset>
+	<frame src="bottom.html" name="bottom" frameborder="0" scrolling="no"
+		marginwidth="1" marginheight="1">
+	<noframes>
+		<body topmargin="0" leftmargin="0" bgcolor="#b5daff">
+		</body>
+	</noframes>
+</frameset>
 </html>

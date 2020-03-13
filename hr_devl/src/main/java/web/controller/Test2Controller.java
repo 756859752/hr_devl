@@ -9,12 +9,12 @@ import service.ConfigFileFirstKindService;
 @Controller
 @RequestMapping("/ybc")
 public class Test2Controller {
-	
+
 	@Autowired
-	ConfigFileFirstKindService configFileFirstKindService=null;
-	
+	ConfigFileFirstKindService configFileFirstKindService = null;
+
 	@RequestMapping("/demo.do")
-	public String test222(){
+	public String test222() {
 		System.out.println(configFileFirstKindService.findAllConfigFileFirstKind());
 		return null;
 	}

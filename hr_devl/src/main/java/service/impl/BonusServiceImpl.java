@@ -10,11 +10,11 @@ import pojo.Bonus;
 import service.BonusService;
 
 @Service
-public class BonusServiceImpl implements BonusService{
-	
+public class BonusServiceImpl implements BonusService {
+
 	@Autowired
-	BonusMapper bonusMapper=null;
-	
+	BonusMapper bonusMapper = null;
+
 	@Override
 	public void addBonus(Bonus Bonus) {
 		// TODO Auto-generated method stub
@@ -44,5 +44,5 @@ public class BonusServiceImpl implements BonusService{
 		// TODO Auto-generated method stub
 		return bonusMapper.selectAllBonus();
 	}
-	
+
 }

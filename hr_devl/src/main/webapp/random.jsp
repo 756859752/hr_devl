@@ -1,4 +1,6 @@
-<%@ page autoFlush="false"  import="java.awt.*,java.awt.image.*,com.sun.image.codec.jpeg.*,java.util.*" pageEncoding="GBK"%>
+<%@ page autoFlush="false"
+	import="java.awt.*,java.awt.image.*,com.sun.image.codec.jpeg.*,java.util.*"
+	pageEncoding="GBK"%>
 
 <%
 //set Chinese Char 

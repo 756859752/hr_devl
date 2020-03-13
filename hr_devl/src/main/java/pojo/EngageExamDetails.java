@@ -1,5 +1,4 @@
-package  pojo;
-
+package pojo;
 
 /**
  * EngageExamDetails entity. @author MyEclipse Persistence Tools
@@ -34,7 +33,6 @@ public class EngageExamDetails implements java.io.Serializable {
 		this.questionAmount = questionAmount;
 	}
 
-
 	public Short getExdId() {
 		return this.exdId;
 	}
@@ -42,7 +40,6 @@ public class EngageExamDetails implements java.io.Serializable {
 	public void setExdId(Short exdId) {
 		this.exdId = exdId;
 	}
-
 
 	public String getExamNumber() {
 		return this.examNumber;
@@ -52,7 +49,6 @@ public class EngageExamDetails implements java.io.Serializable {
 		this.examNumber = examNumber;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -60,7 +56,6 @@ public class EngageExamDetails implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -70,7 +65,6 @@ public class EngageExamDetails implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -79,7 +73,6 @@ public class EngageExamDetails implements java.io.Serializable {
 		this.secondKindId = secondKindId;
 	}
 
-
 	public String getSecondKindName() {
 		return this.secondKindName;
 	}
@@ -87,7 +80,6 @@ public class EngageExamDetails implements java.io.Serializable {
 	public void setSecondKindName(String secondKindName) {
 		this.secondKindName = secondKindName;
 	}
-
 
 	public Short getQuestionAmount() {
 		return this.questionAmount;

@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigFileFirstKind entity. @author MyEclipse Persistence Tools
  */
@@ -40,7 +39,6 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 		this.ffkId = ffkId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -48,7 +46,6 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -58,7 +55,6 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getFirstKindSalaryId() {
 		return this.firstKindSalaryId;
 	}
@@ -66,7 +62,6 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 	public void setFirstKindSalaryId(String firstKindSalaryId) {
 		this.firstKindSalaryId = firstKindSalaryId;
 	}
-
 
 	public String getFirstKindSaleId() {
 		return this.firstKindSaleId;
@@ -78,10 +73,9 @@ public class ConfigFileFirstKind implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "ConfigFileFirstKind [ffkId=" + ffkId + ", firstKindId="
-				+ firstKindId + ", firstKindName=" + firstKindName
-				+ ", firstKindSalaryId=" + firstKindSalaryId
-				+ ", firstKindSaleId=" + firstKindSaleId + "]";
+		return "ConfigFileFirstKind [ffkId=" + ffkId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", firstKindSalaryId=" + firstKindSalaryId + ", firstKindSaleId=" + firstKindSaleId
+				+ "]";
 	}
 
 }

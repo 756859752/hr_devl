@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -170,7 +170,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanFileStatus = humanFileStatus;
 	}
 
-
 	public Short getHfdId() {
 		return this.hfdId;
 	}
@@ -178,7 +177,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHfdId(Short hfdId) {
 		this.hfdId = hfdId;
 	}
-
 
 	public String getHumanId() {
 		return this.humanId;
@@ -188,7 +186,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanId = humanId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -196,7 +193,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -206,7 +202,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -214,7 +209,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;
@@ -224,7 +218,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getThirdKindId() {
 		return this.thirdKindId;
 	}
@@ -232,7 +225,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setThirdKindId(String thirdKindId) {
 		this.thirdKindId = thirdKindId;
 	}
-
 
 	public String getThirdKindName() {
 		return this.thirdKindName;
@@ -242,7 +234,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.thirdKindName = thirdKindName;
 	}
 
-
 	public String getHumanName() {
 		return this.humanName;
 	}
@@ -250,7 +241,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanName(String humanName) {
 		this.humanName = humanName;
 	}
-
 
 	public String getHumanAddress() {
 		return this.humanAddress;
@@ -260,7 +250,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanAddress = humanAddress;
 	}
 
-
 	public String getHumanPostcode() {
 		return this.humanPostcode;
 	}
@@ -268,7 +257,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanPostcode(String humanPostcode) {
 		this.humanPostcode = humanPostcode;
 	}
-
 
 	public String getHumanProDesignation() {
 		return this.humanProDesignation;
@@ -278,7 +266,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanProDesignation = humanProDesignation;
 	}
 
-
 	public String getHumanMajorKindId() {
 		return this.humanMajorKindId;
 	}
@@ -286,7 +273,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanMajorKindId(String humanMajorKindId) {
 		this.humanMajorKindId = humanMajorKindId;
 	}
-
 
 	public String getHumanMajorKindName() {
 		return this.humanMajorKindName;
@@ -296,7 +282,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanMajorKindName = humanMajorKindName;
 	}
 
-
 	public String getHumanMajorId() {
 		return this.humanMajorId;
 	}
@@ -304,7 +289,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanMajorId(String humanMajorId) {
 		this.humanMajorId = humanMajorId;
 	}
-
 
 	public String getHunmaMajorName() {
 		return this.hunmaMajorName;
@@ -314,7 +298,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.hunmaMajorName = hunmaMajorName;
 	}
 
-
 	public String getHumanTelephone() {
 		return this.humanTelephone;
 	}
@@ -322,7 +305,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanTelephone(String humanTelephone) {
 		this.humanTelephone = humanTelephone;
 	}
-
 
 	public String getHumanMobilephone() {
 		return this.humanMobilephone;
@@ -332,7 +314,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanMobilephone = humanMobilephone;
 	}
 
-
 	public String getHumanBank() {
 		return this.humanBank;
 	}
@@ -340,7 +321,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanBank(String humanBank) {
 		this.humanBank = humanBank;
 	}
-
 
 	public String getHumanAccount() {
 		return this.humanAccount;
@@ -350,7 +330,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanAccount = humanAccount;
 	}
 
-
 	public String getHumanQq() {
 		return this.humanQq;
 	}
@@ -358,7 +337,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanQq(String humanQq) {
 		this.humanQq = humanQq;
 	}
-
 
 	public String getHumanEmail() {
 		return this.humanEmail;
@@ -368,7 +346,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanEmail = humanEmail;
 	}
 
-
 	public String getHumanHobby() {
 		return this.humanHobby;
 	}
@@ -376,7 +353,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanHobby(String humanHobby) {
 		this.humanHobby = humanHobby;
 	}
-
 
 	public String getHumanSpeciality() {
 		return this.humanSpeciality;
@@ -386,7 +362,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanSpeciality = humanSpeciality;
 	}
 
-
 	public String getHumanSex() {
 		return this.humanSex;
 	}
@@ -394,7 +369,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanSex(String humanSex) {
 		this.humanSex = humanSex;
 	}
-
 
 	public String getHumanReligion() {
 		return this.humanReligion;
@@ -404,7 +378,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanReligion = humanReligion;
 	}
 
-
 	public String getHumanParty() {
 		return this.humanParty;
 	}
@@ -412,7 +385,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanParty(String humanParty) {
 		this.humanParty = humanParty;
 	}
-
 
 	public String getHumanNationality() {
 		return this.humanNationality;
@@ -422,7 +394,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanNationality = humanNationality;
 	}
 
-
 	public String getHumanRace() {
 		return this.humanRace;
 	}
@@ -430,7 +401,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanRace(String humanRace) {
 		this.humanRace = humanRace;
 	}
-
 
 	public Timestamp getHumanBirthday() {
 		return this.humanBirthday;
@@ -440,7 +410,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanBirthday = humanBirthday;
 	}
 
-
 	public String getHumanBirthplace() {
 		return this.humanBirthplace;
 	}
@@ -448,7 +417,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanBirthplace(String humanBirthplace) {
 		this.humanBirthplace = humanBirthplace;
 	}
-
 
 	public Short getHumanAge() {
 		return this.humanAge;
@@ -458,7 +426,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanAge = humanAge;
 	}
 
-
 	public String getHumanEducatedDegree() {
 		return this.humanEducatedDegree;
 	}
@@ -466,7 +433,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanEducatedDegree(String humanEducatedDegree) {
 		this.humanEducatedDegree = humanEducatedDegree;
 	}
-
 
 	public Short getHumanEducatedYears() {
 		return this.humanEducatedYears;
@@ -476,7 +442,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanEducatedYears = humanEducatedYears;
 	}
 
-
 	public String getHumanEducatedMajor() {
 		return this.humanEducatedMajor;
 	}
@@ -484,7 +449,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanEducatedMajor(String humanEducatedMajor) {
 		this.humanEducatedMajor = humanEducatedMajor;
 	}
-
 
 	public String getHumanSocietySecurityId() {
 		return this.humanSocietySecurityId;
@@ -494,7 +458,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanSocietySecurityId = humanSocietySecurityId;
 	}
 
-
 	public String getHumanIdCard() {
 		return this.humanIdCard;
 	}
@@ -502,7 +465,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanIdCard(String humanIdCard) {
 		this.humanIdCard = humanIdCard;
 	}
-
 
 	public String getRemark() {
 		return this.remark;
@@ -512,7 +474,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.remark = remark;
 	}
 
-
 	public String getSalaryStandardId() {
 		return this.salaryStandardId;
 	}
@@ -520,7 +481,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setSalaryStandardId(String salaryStandardId) {
 		this.salaryStandardId = salaryStandardId;
 	}
-
 
 	public String getSalaryStandardName() {
 		return this.salaryStandardName;
@@ -530,7 +490,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.salaryStandardName = salaryStandardName;
 	}
 
-
 	public Double getSalarySum() {
 		return this.salarySum;
 	}
@@ -538,7 +497,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setSalarySum(Double salarySum) {
 		this.salarySum = salarySum;
 	}
-
 
 	public Double getDemandSalaraySum() {
 		return this.demandSalaraySum;
@@ -548,7 +506,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.demandSalaraySum = demandSalaraySum;
 	}
 
-
 	public Double getPaidSalarySum() {
 		return this.paidSalarySum;
 	}
@@ -556,7 +513,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setPaidSalarySum(Double paidSalarySum) {
 		this.paidSalarySum = paidSalarySum;
 	}
-
 
 	public Short getMajorChangeAmount() {
 		return this.majorChangeAmount;
@@ -566,7 +522,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.majorChangeAmount = majorChangeAmount;
 	}
 
-
 	public Short getBonusAmount() {
 		return this.bonusAmount;
 	}
@@ -574,7 +529,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setBonusAmount(Short bonusAmount) {
 		this.bonusAmount = bonusAmount;
 	}
-
 
 	public Short getTrainingAmount() {
 		return this.trainingAmount;
@@ -584,7 +538,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.trainingAmount = trainingAmount;
 	}
 
-
 	public Short getFileChangAmount() {
 		return this.fileChangAmount;
 	}
@@ -592,7 +545,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setFileChangAmount(Short fileChangAmount) {
 		this.fileChangAmount = fileChangAmount;
 	}
-
 
 	public String getHumanHistroyRecords() {
 		return this.humanHistroyRecords;
@@ -602,7 +554,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanHistroyRecords = humanHistroyRecords;
 	}
 
-
 	public String getHumanFamilyMembership() {
 		return this.humanFamilyMembership;
 	}
@@ -610,7 +561,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setHumanFamilyMembership(String humanFamilyMembership) {
 		this.humanFamilyMembership = humanFamilyMembership;
 	}
-
 
 	public String getHumanPicture() {
 		return this.humanPicture;
@@ -620,7 +570,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.humanPicture = humanPicture;
 	}
 
-
 	public String getAttachmentName() {
 		return this.attachmentName;
 	}
@@ -628,7 +577,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setAttachmentName(String attachmentName) {
 		this.attachmentName = attachmentName;
 	}
-
 
 	public Short getCheckStatus() {
 		return this.checkStatus;
@@ -638,7 +586,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.checkStatus = checkStatus;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -646,7 +593,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public String getChecker() {
 		return this.checker;
@@ -656,7 +602,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.checker = checker;
 	}
 
-
 	public String getChanger() {
 		return this.changer;
 	}
@@ -664,7 +609,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setChanger(String changer) {
 		this.changer = changer;
 	}
-
 
 	public Timestamp getRegistTime() {
 		return this.registTime;
@@ -674,7 +618,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.registTime = registTime;
 	}
 
-
 	public Timestamp getCheckTime() {
 		return this.checkTime;
 	}
@@ -682,7 +625,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setCheckTime(Timestamp checkTime) {
 		this.checkTime = checkTime;
 	}
-
 
 	public Timestamp getChangeTime() {
 		return this.changeTime;
@@ -692,7 +634,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.changeTime = changeTime;
 	}
 
-
 	public Timestamp getLastlyChangeTime() {
 		return this.lastlyChangeTime;
 	}
@@ -700,7 +641,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setLastlyChangeTime(Timestamp lastlyChangeTime) {
 		this.lastlyChangeTime = lastlyChangeTime;
 	}
-
 
 	public Timestamp getDeleteTime() {
 		return this.deleteTime;
@@ -710,7 +650,6 @@ public class HumanFileDig implements java.io.Serializable {
 		this.deleteTime = deleteTime;
 	}
 
-
 	public Timestamp getRecoveryTime() {
 		return this.recoveryTime;
 	}
@@ -718,7 +657,6 @@ public class HumanFileDig implements java.io.Serializable {
 	public void setRecoveryTime(Timestamp recoveryTime) {
 		this.recoveryTime = recoveryTime;
 	}
-
 
 	public Short getHumanFileStatus() {
 		return this.humanFileStatus;

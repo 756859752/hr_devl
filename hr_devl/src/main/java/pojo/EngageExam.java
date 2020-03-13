@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -54,7 +54,6 @@ public class EngageExam implements java.io.Serializable {
 		this.exaId = exaId;
 	}
 
-
 	public String getExamNumber() {
 		return this.examNumber;
 	}
@@ -62,7 +61,6 @@ public class EngageExam implements java.io.Serializable {
 	public void setExamNumber(String examNumber) {
 		this.examNumber = examNumber;
 	}
-
 
 	public String getMajorKindId() {
 		return this.majorKindId;
@@ -72,7 +70,6 @@ public class EngageExam implements java.io.Serializable {
 		this.majorKindId = majorKindId;
 	}
 
-
 	public String getMajorKindName() {
 		return this.majorKindName;
 	}
@@ -80,7 +77,6 @@ public class EngageExam implements java.io.Serializable {
 	public void setMajorKindName(String majorKindName) {
 		this.majorKindName = majorKindName;
 	}
-
 
 	public String getMajorId() {
 		return this.majorId;
@@ -90,7 +86,6 @@ public class EngageExam implements java.io.Serializable {
 		this.majorId = majorId;
 	}
 
-
 	public String getMajorName() {
 		return this.majorName;
 	}
@@ -98,7 +93,6 @@ public class EngageExam implements java.io.Serializable {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
-
 
 	public String getRegister() {
 		return this.register;
@@ -108,7 +102,6 @@ public class EngageExam implements java.io.Serializable {
 		this.register = register;
 	}
 
-
 	public Timestamp getRegistTime() {
 		return this.registTime;
 	}
@@ -116,7 +109,6 @@ public class EngageExam implements java.io.Serializable {
 	public void setRegistTime(Timestamp registTime) {
 		this.registTime = registTime;
 	}
-
 
 	public Short getLimiteTime() {
 		return this.limiteTime;

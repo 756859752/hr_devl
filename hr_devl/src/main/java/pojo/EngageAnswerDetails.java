@@ -1,5 +1,4 @@
-package  pojo;
-
+package pojo;
 
 /**
  * EngageAnswerDetails entity. @author MyEclipse Persistence Tools
@@ -45,7 +44,6 @@ public class EngageAnswerDetails implements java.io.Serializable {
 		this.answerNumber = answerNumber;
 	}
 
-
 	public Short getSubjectId() {
 		return this.subjectId;
 	}
@@ -53,7 +51,6 @@ public class EngageAnswerDetails implements java.io.Serializable {
 	public void setSubjectId(Short subjectId) {
 		this.subjectId = subjectId;
 	}
-
 
 	public String getAnswer() {
 		return this.answer;

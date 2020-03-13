@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -72,7 +72,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.subId = subId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -81,7 +80,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.firstKindId = firstKindId;
 	}
 
-
 	public String getFirstKindName() {
 		return this.firstKindName;
 	}
@@ -89,7 +87,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setFirstKindName(String firstKindName) {
 		this.firstKindName = firstKindName;
 	}
-
 
 	public String getSecondKindId() {
 		return this.secondKindId;
@@ -107,7 +104,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -115,7 +111,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public Timestamp getRegistTime() {
 		return this.registTime;
@@ -125,7 +120,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.registTime = registTime;
 	}
 
-
 	public String getDerivation() {
 		return this.derivation;
 	}
@@ -133,7 +127,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setDerivation(String derivation) {
 		this.derivation = derivation;
 	}
-
 
 	public String getContent() {
 		return this.content;
@@ -143,7 +136,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.content = content;
 	}
 
-
 	public String getKeyA() {
 		return this.keyA;
 	}
@@ -151,7 +143,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setKeyA(String keyA) {
 		this.keyA = keyA;
 	}
-
 
 	public String getKeyB() {
 		return this.keyB;
@@ -161,7 +152,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.keyB = keyB;
 	}
 
-
 	public String getKeyC() {
 		return this.keyC;
 	}
@@ -169,7 +159,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setKeyC(String keyC) {
 		this.keyC = keyC;
 	}
-
 
 	public String getKeyD() {
 		return this.keyD;
@@ -179,7 +168,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.keyD = keyD;
 	}
 
-
 	public String getKeyE() {
 		return this.keyE;
 	}
@@ -187,7 +175,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setKeyE(String keyE) {
 		this.keyE = keyE;
 	}
-
 
 	public String getCorrectKey() {
 		return this.correctKey;
@@ -197,7 +184,6 @@ public class EngageSubjects implements java.io.Serializable {
 		this.correctKey = correctKey;
 	}
 
-
 	public String getChanger() {
 		return this.changer;
 	}
@@ -205,7 +191,6 @@ public class EngageSubjects implements java.io.Serializable {
 	public void setChanger(String changer) {
 		this.changer = changer;
 	}
-
 
 	public Timestamp getChangeTime() {
 		return this.changeTime;

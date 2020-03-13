@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigQuestionSecondKind entity. @author MyEclipse Persistence Tools
  */
@@ -40,7 +39,6 @@ public class ConfigQuestionSecondKind implements java.io.Serializable {
 		this.qskId = qskId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -48,7 +46,6 @@ public class ConfigQuestionSecondKind implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -58,7 +55,6 @@ public class ConfigQuestionSecondKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -66,7 +62,6 @@ public class ConfigQuestionSecondKind implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;

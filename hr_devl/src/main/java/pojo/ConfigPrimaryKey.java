@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigPrimaryKey entity. @author MyEclipse Persistence Tools
  */
@@ -31,7 +30,6 @@ public class ConfigPrimaryKey implements java.io.Serializable {
 
 	// Property accessors
 
-
 	public Short getPrkId() {
 		return this.prkId;
 	}
@@ -40,7 +38,6 @@ public class ConfigPrimaryKey implements java.io.Serializable {
 		this.prkId = prkId;
 	}
 
-
 	public String getPrimaryKeyTable() {
 		return this.primaryKeyTable;
 	}
@@ -48,7 +45,6 @@ public class ConfigPrimaryKey implements java.io.Serializable {
 	public void setPrimaryKeyTable(String primaryKeyTable) {
 		this.primaryKeyTable = primaryKeyTable;
 	}
-
 
 	public String getPrimaryKey() {
 		return this.primaryKey;
@@ -65,7 +61,6 @@ public class ConfigPrimaryKey implements java.io.Serializable {
 	public void setKeyName(String keyName) {
 		this.keyName = keyName;
 	}
-
 
 	public Short getPrimaryKeyStatus() {
 		return this.primaryKeyStatus;

@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -74,7 +74,6 @@ public class Training implements java.io.Serializable {
 		this.traId = traId;
 	}
 
-
 	public String getMajorKindId() {
 		return this.majorKindId;
 	}
@@ -82,7 +81,6 @@ public class Training implements java.io.Serializable {
 	public void setMajorKindId(String majorKindId) {
 		this.majorKindId = majorKindId;
 	}
-
 
 	public String getMajorKindName() {
 		return this.majorKindName;
@@ -92,7 +90,6 @@ public class Training implements java.io.Serializable {
 		this.majorKindName = majorKindName;
 	}
 
-
 	public String getMajorId() {
 		return this.majorId;
 	}
@@ -100,7 +97,6 @@ public class Training implements java.io.Serializable {
 	public void setMajorId(String majorId) {
 		this.majorId = majorId;
 	}
-
 
 	public String getMajorName() {
 		return this.majorName;
@@ -110,7 +106,6 @@ public class Training implements java.io.Serializable {
 		this.majorName = majorName;
 	}
 
-
 	public String getHumanId() {
 		return this.humanId;
 	}
@@ -118,7 +113,6 @@ public class Training implements java.io.Serializable {
 	public void setHumanId(String humanId) {
 		this.humanId = humanId;
 	}
-
 
 	public String getHumanName() {
 		return this.humanName;
@@ -128,7 +122,6 @@ public class Training implements java.io.Serializable {
 		this.humanName = humanName;
 	}
 
-
 	public String getTrainingItem() {
 		return this.trainingItem;
 	}
@@ -136,7 +129,6 @@ public class Training implements java.io.Serializable {
 	public void setTrainingItem(String trainingItem) {
 		this.trainingItem = trainingItem;
 	}
-
 
 	public Timestamp getTrainingTime() {
 		return this.trainingTime;
@@ -146,7 +138,6 @@ public class Training implements java.io.Serializable {
 		this.trainingTime = trainingTime;
 	}
 
-
 	public Integer getTrainingHour() {
 		return this.trainingHour;
 	}
@@ -154,7 +145,6 @@ public class Training implements java.io.Serializable {
 	public void setTrainingHour(Integer trainingHour) {
 		this.trainingHour = trainingHour;
 	}
-
 
 	public String getTrainingDegree() {
 		return this.trainingDegree;
@@ -164,7 +154,6 @@ public class Training implements java.io.Serializable {
 		this.trainingDegree = trainingDegree;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -172,7 +161,6 @@ public class Training implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public String getChecker() {
 		return this.checker;
@@ -182,7 +170,6 @@ public class Training implements java.io.Serializable {
 		this.checker = checker;
 	}
 
-
 	public Timestamp getRegistTime() {
 		return this.registTime;
 	}
@@ -190,7 +177,6 @@ public class Training implements java.io.Serializable {
 	public void setRegistTime(Timestamp registTime) {
 		this.registTime = registTime;
 	}
-
 
 	public Timestamp getCheckTime() {
 		return this.checkTime;
@@ -200,7 +186,6 @@ public class Training implements java.io.Serializable {
 		this.checkTime = checkTime;
 	}
 
-
 	public Short getCheckstatus() {
 		return this.checkstatus;
 	}
@@ -208,7 +193,6 @@ public class Training implements java.io.Serializable {
 	public void setCheckstatus(Short checkstatus) {
 		this.checkstatus = checkstatus;
 	}
-
 
 	public String getRemark() {
 		return this.remark;

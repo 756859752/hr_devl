@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -63,7 +63,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.checkStatus = checkStatus;
 	}
 
-
 	public Short getSgrId() {
 		return this.sgrId;
 	}
@@ -71,7 +70,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setSgrId(Short sgrId) {
 		this.sgrId = sgrId;
 	}
-
 
 	public String getSalaryGrantId() {
 		return this.salaryGrantId;
@@ -81,7 +79,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.salaryGrantId = salaryGrantId;
 	}
 
-
 	public String getSalaryStandardId() {
 		return this.salaryStandardId;
 	}
@@ -89,7 +86,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setSalaryStandardId(String salaryStandardId) {
 		this.salaryStandardId = salaryStandardId;
 	}
-
 
 	public String getFirstKindId() {
 		return this.firstKindId;
@@ -99,7 +95,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.firstKindId = firstKindId;
 	}
 
-
 	public String getFirstKindName() {
 		return this.firstKindName;
 	}
@@ -107,7 +102,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setFirstKindName(String firstKindName) {
 		this.firstKindName = firstKindName;
 	}
-
 
 	public String getSecondKindId() {
 		return this.secondKindId;
@@ -117,7 +111,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.secondKindId = secondKindId;
 	}
 
-
 	public String getSecondKindName() {
 		return this.secondKindName;
 	}
@@ -125,7 +118,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setSecondKindName(String secondKindName) {
 		this.secondKindName = secondKindName;
 	}
-
 
 	public String getThirdKindId() {
 		return this.thirdKindId;
@@ -135,7 +127,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.thirdKindId = thirdKindId;
 	}
 
-
 	public String getThirdKindName() {
 		return this.thirdKindName;
 	}
@@ -143,7 +134,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setThirdKindName(String thirdKindName) {
 		this.thirdKindName = thirdKindName;
 	}
-
 
 	public Short getHumanAmount() {
 		return this.humanAmount;
@@ -153,7 +143,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.humanAmount = humanAmount;
 	}
 
-
 	public Double getSalaryStandardSum() {
 		return this.salaryStandardSum;
 	}
@@ -161,7 +150,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setSalaryStandardSum(Double salaryStandardSum) {
 		this.salaryStandardSum = salaryStandardSum;
 	}
-
 
 	public Double getSalaryPaidSum() {
 		return this.salaryPaidSum;
@@ -171,7 +159,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.salaryPaidSum = salaryPaidSum;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -179,7 +166,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public Timestamp getRegistTime() {
 		return this.registTime;
@@ -189,7 +175,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.registTime = registTime;
 	}
 
-
 	public String getChecker() {
 		return this.checker;
 	}
@@ -198,7 +183,6 @@ public class SalaryGrant implements java.io.Serializable {
 		this.checker = checker;
 	}
 
-
 	public Timestamp getCheckTime() {
 		return this.checkTime;
 	}
@@ -206,7 +190,6 @@ public class SalaryGrant implements java.io.Serializable {
 	public void setCheckTime(Timestamp checkTime) {
 		this.checkTime = checkTime;
 	}
-
 
 	public Short getCheckStatus() {
 		return this.checkStatus;

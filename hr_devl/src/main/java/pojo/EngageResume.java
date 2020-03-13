@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -154,7 +154,6 @@ public class EngageResume implements java.io.Serializable {
 		this.resId = resId;
 	}
 
-
 	public String getHumanName() {
 		return this.humanName;
 	}
@@ -162,7 +161,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanName(String humanName) {
 		this.humanName = humanName;
 	}
-
 
 	public String getEngageType() {
 		return this.engageType;
@@ -172,7 +170,6 @@ public class EngageResume implements java.io.Serializable {
 		this.engageType = engageType;
 	}
 
-
 	public String getHumanAddress() {
 		return this.humanAddress;
 	}
@@ -180,7 +177,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanAddress(String humanAddress) {
 		this.humanAddress = humanAddress;
 	}
-
 
 	public String getHumanPostcode() {
 		return this.humanPostcode;
@@ -190,7 +186,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanPostcode = humanPostcode;
 	}
 
-
 	public String getHumanMajorKindId() {
 		return this.humanMajorKindId;
 	}
@@ -198,7 +193,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanMajorKindId(String humanMajorKindId) {
 		this.humanMajorKindId = humanMajorKindId;
 	}
-
 
 	public String getHumanMajorKindName() {
 		return this.humanMajorKindName;
@@ -208,7 +202,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanMajorKindName = humanMajorKindName;
 	}
 
-
 	public String getHumanMajorId() {
 		return this.humanMajorId;
 	}
@@ -216,7 +209,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanMajorId(String humanMajorId) {
 		this.humanMajorId = humanMajorId;
 	}
-
 
 	public String getHumanMajorName() {
 		return this.humanMajorName;
@@ -226,7 +218,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanMajorName = humanMajorName;
 	}
 
-
 	public String getHumanTelephone() {
 		return this.humanTelephone;
 	}
@@ -234,7 +225,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanTelephone(String humanTelephone) {
 		this.humanTelephone = humanTelephone;
 	}
-
 
 	public String getHumanHomephone() {
 		return this.humanHomephone;
@@ -244,7 +234,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanHomephone = humanHomephone;
 	}
 
-
 	public String getHumanMobilephone() {
 		return this.humanMobilephone;
 	}
@@ -252,7 +241,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanMobilephone(String humanMobilephone) {
 		this.humanMobilephone = humanMobilephone;
 	}
-
 
 	public String getHumanEmail() {
 		return this.humanEmail;
@@ -262,7 +250,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanEmail = humanEmail;
 	}
 
-
 	public String getHumanHobby() {
 		return this.humanHobby;
 	}
@@ -270,7 +257,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanHobby(String humanHobby) {
 		this.humanHobby = humanHobby;
 	}
-
 
 	public String getHumanSpecility() {
 		return this.humanSpecility;
@@ -280,7 +266,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanSpecility = humanSpecility;
 	}
 
-
 	public String getHumanSex() {
 		return this.humanSex;
 	}
@@ -288,7 +273,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanSex(String humanSex) {
 		this.humanSex = humanSex;
 	}
-
 
 	public String getHumanReligion() {
 		return this.humanReligion;
@@ -298,7 +282,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanReligion = humanReligion;
 	}
 
-
 	public String getHumanParty() {
 		return this.humanParty;
 	}
@@ -307,7 +290,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanParty = humanParty;
 	}
 
-
 	public String getHumanNationality() {
 		return this.humanNationality;
 	}
@@ -315,7 +297,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanNationality(String humanNationality) {
 		this.humanNationality = humanNationality;
 	}
-
 
 	public String getHumanRace() {
 		return this.humanRace;
@@ -333,7 +314,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanBirthday = humanBirthday;
 	}
 
-
 	public Short getHumanAge() {
 		return this.humanAge;
 	}
@@ -341,7 +321,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanAge(Short humanAge) {
 		this.humanAge = humanAge;
 	}
-
 
 	public String getHumanEducatedDegree() {
 		return this.humanEducatedDegree;
@@ -351,7 +330,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanEducatedDegree = humanEducatedDegree;
 	}
 
-
 	public Short getHumanEducatedYears() {
 		return this.humanEducatedYears;
 	}
@@ -359,7 +337,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanEducatedYears(Short humanEducatedYears) {
 		this.humanEducatedYears = humanEducatedYears;
 	}
-
 
 	public String getHumanEducatedMajor() {
 		return this.humanEducatedMajor;
@@ -369,7 +346,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanEducatedMajor = humanEducatedMajor;
 	}
 
-
 	public String getHumanCollege() {
 		return this.humanCollege;
 	}
@@ -377,7 +353,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanCollege(String humanCollege) {
 		this.humanCollege = humanCollege;
 	}
-
 
 	public String getHumanIdcard() {
 		return this.humanIdcard;
@@ -387,7 +362,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanIdcard = humanIdcard;
 	}
 
-
 	public String getHumanBirthplace() {
 		return this.humanBirthplace;
 	}
@@ -395,7 +369,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanBirthplace(String humanBirthplace) {
 		this.humanBirthplace = humanBirthplace;
 	}
-
 
 	public Double getDemandSalaryStandard() {
 		return this.demandSalaryStandard;
@@ -405,7 +378,6 @@ public class EngageResume implements java.io.Serializable {
 		this.demandSalaryStandard = demandSalaryStandard;
 	}
 
-
 	public String getHumanHistoryRecords() {
 		return this.humanHistoryRecords;
 	}
@@ -413,7 +385,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setHumanHistoryRecords(String humanHistoryRecords) {
 		this.humanHistoryRecords = humanHistoryRecords;
 	}
-
 
 	public String getRemark() {
 		return this.remark;
@@ -423,7 +394,6 @@ public class EngageResume implements java.io.Serializable {
 		this.remark = remark;
 	}
 
-
 	public String getRecomandation() {
 		return this.recomandation;
 	}
@@ -431,7 +401,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setRecomandation(String recomandation) {
 		this.recomandation = recomandation;
 	}
-
 
 	public String getHumanPicture() {
 		return this.humanPicture;
@@ -441,7 +410,6 @@ public class EngageResume implements java.io.Serializable {
 		this.humanPicture = humanPicture;
 	}
 
-
 	public String getAttachmentName() {
 		return this.attachmentName;
 	}
@@ -449,7 +417,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setAttachmentName(String attachmentName) {
 		this.attachmentName = attachmentName;
 	}
-
 
 	public Short getCheckStatus() {
 		return this.checkStatus;
@@ -459,7 +426,6 @@ public class EngageResume implements java.io.Serializable {
 		this.checkStatus = checkStatus;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -467,7 +433,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public Timestamp getRegistTime() {
 		return this.registTime;
@@ -477,7 +442,6 @@ public class EngageResume implements java.io.Serializable {
 		this.registTime = registTime;
 	}
 
-
 	public String getChecker() {
 		return this.checker;
 	}
@@ -485,7 +449,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setChecker(String checker) {
 		this.checker = checker;
 	}
-
 
 	public Timestamp getCheckTime() {
 		return this.checkTime;
@@ -495,7 +458,6 @@ public class EngageResume implements java.io.Serializable {
 		this.checkTime = checkTime;
 	}
 
-
 	public Short getInterviewStatus() {
 		return this.interviewStatus;
 	}
@@ -503,7 +465,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setInterviewStatus(Short interviewStatus) {
 		this.interviewStatus = interviewStatus;
 	}
-
 
 	public Double getTotalPoints() {
 		return this.totalPoints;
@@ -513,7 +474,6 @@ public class EngageResume implements java.io.Serializable {
 		this.totalPoints = totalPoints;
 	}
 
-
 	public Short getTestAmount() {
 		return this.testAmount;
 	}
@@ -521,7 +481,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setTestAmount(Short testAmount) {
 		this.testAmount = testAmount;
 	}
-
 
 	public String getTestChecker() {
 		return this.testChecker;
@@ -531,7 +490,6 @@ public class EngageResume implements java.io.Serializable {
 		this.testChecker = testChecker;
 	}
 
-
 	public Timestamp getTestCheckTime() {
 		return this.testCheckTime;
 	}
@@ -539,7 +497,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setTestCheckTime(Timestamp testCheckTime) {
 		this.testCheckTime = testCheckTime;
 	}
-
 
 	public String getPassRegister() {
 		return this.passRegister;
@@ -549,7 +506,6 @@ public class EngageResume implements java.io.Serializable {
 		this.passRegister = passRegister;
 	}
 
-
 	public Timestamp getPassRegistTime() {
 		return this.passRegistTime;
 	}
@@ -557,7 +513,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setPassRegistTime(Timestamp passRegistTime) {
 		this.passRegistTime = passRegistTime;
 	}
-
 
 	public String getPassChecker() {
 		return this.passChecker;
@@ -567,7 +522,6 @@ public class EngageResume implements java.io.Serializable {
 		this.passChecker = passChecker;
 	}
 
-
 	public Timestamp getPassCheckTime() {
 		return this.passCheckTime;
 	}
@@ -576,7 +530,6 @@ public class EngageResume implements java.io.Serializable {
 		this.passCheckTime = passCheckTime;
 	}
 
-
 	public Short getPassCheckStatus() {
 		return this.passCheckStatus;
 	}
@@ -584,7 +537,6 @@ public class EngageResume implements java.io.Serializable {
 	public void setPassCheckStatus(Short passCheckStatus) {
 		this.passCheckStatus = passCheckStatus;
 	}
-
 
 	public String getPassCheckComment() {
 		return this.passCheckComment;

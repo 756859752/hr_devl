@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigFileSecondKind entity. @author MyEclipse Persistence Tools
  */
@@ -44,7 +43,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 		this.fskId = fskId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -52,7 +50,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -62,7 +59,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -70,7 +66,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;
@@ -80,7 +75,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getSecondSalaryId() {
 		return this.secondSalaryId;
 	}
@@ -88,7 +82,6 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 	public void setSecondSalaryId(String secondSalaryId) {
 		this.secondSalaryId = secondSalaryId;
 	}
-
 
 	public String getSecondSaleId() {
 		return this.secondSaleId;

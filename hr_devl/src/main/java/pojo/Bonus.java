@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class Bonus implements java.io.Serializable {
 
 	// Fields
-
+   
 	private Short bonId;
 	private String majorKindId;
 	private String majorKindName;
@@ -62,7 +62,6 @@ public class Bonus implements java.io.Serializable {
 
 	// Property accessors
 
-
 	public Short getBonId() {
 		return this.bonId;
 	}
@@ -70,7 +69,6 @@ public class Bonus implements java.io.Serializable {
 	public void setBonId(Short bonId) {
 		this.bonId = bonId;
 	}
-
 
 	public String getMajorKindId() {
 		return this.majorKindId;
@@ -80,7 +78,6 @@ public class Bonus implements java.io.Serializable {
 		this.majorKindId = majorKindId;
 	}
 
-
 	public String getMajorKindName() {
 		return this.majorKindName;
 	}
@@ -88,7 +85,6 @@ public class Bonus implements java.io.Serializable {
 	public void setMajorKindName(String majorKindName) {
 		this.majorKindName = majorKindName;
 	}
-
 
 	public String getMajorId() {
 		return this.majorId;
@@ -98,7 +94,6 @@ public class Bonus implements java.io.Serializable {
 		this.majorId = majorId;
 	}
 
-
 	public String getMajorName() {
 		return this.majorName;
 	}
@@ -106,7 +101,6 @@ public class Bonus implements java.io.Serializable {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
-
 
 	public String getHumanId() {
 		return this.humanId;
@@ -116,7 +110,6 @@ public class Bonus implements java.io.Serializable {
 		this.humanId = humanId;
 	}
 
-
 	public String getHumanName() {
 		return this.humanName;
 	}
@@ -124,7 +117,6 @@ public class Bonus implements java.io.Serializable {
 	public void setHumanName(String humanName) {
 		this.humanName = humanName;
 	}
-
 
 	public String getBonusItem() {
 		return this.bonusItem;
@@ -142,7 +134,6 @@ public class Bonus implements java.io.Serializable {
 		this.bonusWorth = bonusWorth;
 	}
 
-
 	public String getBonusDegree() {
 		return this.bonusDegree;
 	}
@@ -150,7 +141,6 @@ public class Bonus implements java.io.Serializable {
 	public void setBonusDegree(String bonusDegree) {
 		this.bonusDegree = bonusDegree;
 	}
-
 
 	public String getRemark() {
 		return this.remark;
@@ -160,7 +150,6 @@ public class Bonus implements java.io.Serializable {
 		this.remark = remark;
 	}
 
-
 	public String getRegister() {
 		return this.register;
 	}
@@ -168,7 +157,6 @@ public class Bonus implements java.io.Serializable {
 	public void setRegister(String register) {
 		this.register = register;
 	}
-
 
 	public String getChecker() {
 		return this.checker;
@@ -178,7 +166,6 @@ public class Bonus implements java.io.Serializable {
 		this.checker = checker;
 	}
 
-
 	public Timestamp getRegistTime() {
 		return this.registTime;
 	}
@@ -186,7 +173,6 @@ public class Bonus implements java.io.Serializable {
 	public void setRegistTime(Timestamp registTime) {
 		this.registTime = registTime;
 	}
-
 
 	public Timestamp getCheckTime() {
 		return this.checkTime;
@@ -196,7 +182,6 @@ public class Bonus implements java.io.Serializable {
 		this.checkTime = checkTime;
 	}
 
-
 	public Short getCheckStatus() {
 		return this.checkStatus;
 	}
@@ -205,4 +190,14 @@ public class Bonus implements java.io.Serializable {
 		this.checkStatus = checkStatus;
 	}
 
+	@Override
+	public String toString() {
+		return "Bonus [bonId=" + bonId + ", majorKindId=" + majorKindId + ", majorKindName=" + majorKindName
+				+ ", majorId=" + majorId + ", majorName=" + majorName + ", humanId=" + humanId + ", humanName="
+				+ humanName + ", bonusItem=" + bonusItem + ", bonusWorth=" + bonusWorth + ", bonusDegree=" + bonusDegree
+				+ ", remark=" + remark + ", register=" + register + ", checker=" + checker + ", registTime="
+				+ registTime + ", checkTime=" + checkTime + ", checkStatus=" + checkStatus + "]";
+	}
+ 
+	
 }

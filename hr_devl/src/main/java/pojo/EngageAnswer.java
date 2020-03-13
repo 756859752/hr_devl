@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -55,7 +55,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.totalPoint = totalPoint;
 	}
 
-
 	public Short getAnsId() {
 		return this.ansId;
 	}
@@ -63,7 +62,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setAnsId(Short ansId) {
 		this.ansId = ansId;
 	}
-
 
 	public String getAnswerNumber() {
 		return this.answerNumber;
@@ -73,7 +71,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.answerNumber = answerNumber;
 	}
 
-
 	public String getExamNumber() {
 		return this.examNumber;
 	}
@@ -81,7 +78,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setExamNumber(String examNumber) {
 		this.examNumber = examNumber;
 	}
-
 
 	public Short getResumeId() {
 		return this.resumeId;
@@ -91,7 +87,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.resumeId = resumeId;
 	}
 
-
 	public Short getInterviewId() {
 		return this.interviewId;
 	}
@@ -99,7 +94,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setInterviewId(Short interviewId) {
 		this.interviewId = interviewId;
 	}
-
 
 	public String getHumanName() {
 		return this.humanName;
@@ -109,7 +103,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.humanName = humanName;
 	}
 
-
 	public String getHumanIdcard() {
 		return this.humanIdcard;
 	}
@@ -117,7 +110,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setHumanIdcard(String humanIdcard) {
 		this.humanIdcard = humanIdcard;
 	}
-
 
 	public String getMajorKindId() {
 		return this.majorKindId;
@@ -127,7 +119,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.majorKindId = majorKindId;
 	}
 
-
 	public String getMajorKindName() {
 		return this.majorKindName;
 	}
@@ -135,7 +126,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setMajorKindName(String majorKindName) {
 		this.majorKindName = majorKindName;
 	}
-
 
 	public String getMajorId() {
 		return this.majorId;
@@ -145,7 +135,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.majorId = majorId;
 	}
 
-
 	public String getMajorName() {
 		return this.majorName;
 	}
@@ -153,7 +142,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
-
 
 	public Timestamp getTestTime() {
 		return this.testTime;
@@ -163,7 +151,6 @@ public class EngageAnswer implements java.io.Serializable {
 		this.testTime = testTime;
 	}
 
-
 	public String getUseTime() {
 		return this.useTime;
 	}
@@ -171,7 +158,6 @@ public class EngageAnswer implements java.io.Serializable {
 	public void setUseTime(String useTime) {
 		this.useTime = useTime;
 	}
-
 
 	public Double getTotalPoint() {
 		return this.totalPoint;

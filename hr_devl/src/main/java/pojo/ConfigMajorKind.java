@@ -24,7 +24,6 @@ public class ConfigMajorKind implements java.io.Serializable {
 		this.majorKindName = majorKindName;
 	}
 
-
 	public Short getMfkId() {
 		return this.mfkId;
 	}
@@ -33,7 +32,6 @@ public class ConfigMajorKind implements java.io.Serializable {
 		this.mfkId = mfkId;
 	}
 
-
 	public String getMajorKindId() {
 		return this.majorKindId;
 	}
@@ -41,7 +39,6 @@ public class ConfigMajorKind implements java.io.Serializable {
 	public void setMajorKindId(String majorKindId) {
 		this.majorKindId = majorKindId;
 	}
-
 
 	public String getMajorKindName() {
 		return this.majorKindName;

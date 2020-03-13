@@ -13,31 +13,31 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-public class CharacterEncodingFilter implements Filter{
+public class CharacterEncodingFilter implements Filter {
 	private String oldEncoding = null;
 	private String newEncoding = null;
+
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1,
-			FilterChain arg2) throws IOException, ServletException {
-		HttpServletRequest request = (HttpServletRequest)arg0;
-		HttpServletResponse response = (HttpServletResponse)arg1;
+	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+			throws IOException, ServletException {
+		HttpServletRequest request = (HttpServletRequest) arg0;
+		HttpServletResponse response = (HttpServletResponse) arg1;
 		String method = request.getMethod();
-		if("POST".equalsIgnoreCase(method)){
+		if ("POST".equalsIgnoreCase(method)) {
 			request.setCharacterEncoding(newEncoding);
-		}else{
-			Map<String,String[]> maps = request.getParameterMap();
+		} else {
+			Map<String, String[]> maps = request.getParameterMap();
 			Iterator<String[]> it = maps.values().iterator();
-			while(it.hasNext()){
+			while (it.hasNext()) {
 				String[] strs = it.next();
 				for (int i = 0; i < strs.length; i++) {
-					strs[i] = new String(strs[i].getBytes(oldEncoding),newEncoding);
+					strs[i] = new String(strs[i].getBytes(oldEncoding), newEncoding);
 				}
 			}
 		}
@@ -51,5 +51,5 @@ public class CharacterEncodingFilter implements Filter{
 		oldEncoding = arg0.getInitParameter("oldEncoding");
 		newEncoding = arg0.getInitParameter("newEncoding");
 	}
-	
+
 }

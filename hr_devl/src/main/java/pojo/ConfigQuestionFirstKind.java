@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigQuestionFirstKind entity. @author MyEclipse Persistence Tools
  */
@@ -25,7 +24,6 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public Short getQfkId() {
 		return this.qfkId;
 	}
@@ -34,7 +32,6 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 		this.qfkId = qfkId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -42,7 +39,6 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;

@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -115,7 +115,6 @@ public class MajorChange implements java.io.Serializable {
 		this.mchId = mchId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -123,7 +122,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -133,7 +131,6 @@ public class MajorChange implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -141,7 +138,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;
@@ -151,7 +147,6 @@ public class MajorChange implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getThirdKindId() {
 		return this.thirdKindId;
 	}
@@ -159,7 +154,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setThirdKindId(String thirdKindId) {
 		this.thirdKindId = thirdKindId;
 	}
-
 
 	public String getThirdKindName() {
 		return this.thirdKindName;
@@ -169,7 +163,6 @@ public class MajorChange implements java.io.Serializable {
 		this.thirdKindName = thirdKindName;
 	}
 
-
 	public String getMajorKindId() {
 		return this.majorKindId;
 	}
@@ -177,7 +170,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setMajorKindId(String majorKindId) {
 		this.majorKindId = majorKindId;
 	}
-
 
 	public String getMajorKindName() {
 		return this.majorKindName;
@@ -187,7 +179,6 @@ public class MajorChange implements java.io.Serializable {
 		this.majorKindName = majorKindName;
 	}
 
-
 	public String getMajorId() {
 		return this.majorId;
 	}
@@ -195,7 +186,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setMajorId(String majorId) {
 		this.majorId = majorId;
 	}
-
 
 	public String getMajorName() {
 		return this.majorName;
@@ -205,7 +195,6 @@ public class MajorChange implements java.io.Serializable {
 		this.majorName = majorName;
 	}
 
-
 	public String getNewFirstKindId() {
 		return this.newFirstKindId;
 	}
@@ -213,7 +202,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewFirstKindId(String newFirstKindId) {
 		this.newFirstKindId = newFirstKindId;
 	}
-
 
 	public String getNewFirstKindName() {
 		return this.newFirstKindName;
@@ -223,7 +211,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newFirstKindName = newFirstKindName;
 	}
 
-
 	public String getNewSecondKindId() {
 		return this.newSecondKindId;
 	}
@@ -231,7 +218,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewSecondKindId(String newSecondKindId) {
 		this.newSecondKindId = newSecondKindId;
 	}
-
 
 	public String getNewSecondKindName() {
 		return this.newSecondKindName;
@@ -241,7 +227,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newSecondKindName = newSecondKindName;
 	}
 
-
 	public String getNewThirdKindId() {
 		return this.newThirdKindId;
 	}
@@ -249,7 +234,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewThirdKindId(String newThirdKindId) {
 		this.newThirdKindId = newThirdKindId;
 	}
-
 
 	public String getNewThirdKindName() {
 		return this.newThirdKindName;
@@ -259,7 +243,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newThirdKindName = newThirdKindName;
 	}
 
-
 	public String getNewMajorKindId() {
 		return this.newMajorKindId;
 	}
@@ -267,7 +250,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewMajorKindId(String newMajorKindId) {
 		this.newMajorKindId = newMajorKindId;
 	}
-
 
 	public String getNewMajorKindName() {
 		return this.newMajorKindName;
@@ -277,7 +259,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newMajorKindName = newMajorKindName;
 	}
 
-
 	public String getNewMajorId() {
 		return this.newMajorId;
 	}
@@ -285,7 +266,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewMajorId(String newMajorId) {
 		this.newMajorId = newMajorId;
 	}
-
 
 	public String getNewMajorName() {
 		return this.newMajorName;
@@ -295,7 +275,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newMajorName = newMajorName;
 	}
 
-
 	public String getHumanId() {
 		return this.humanId;
 	}
@@ -303,7 +282,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setHumanId(String humanId) {
 		this.humanId = humanId;
 	}
-
 
 	public String getHumanName() {
 		return this.humanName;
@@ -321,7 +299,6 @@ public class MajorChange implements java.io.Serializable {
 		this.salaryStandardId = salaryStandardId;
 	}
 
-
 	public String getSalaryStandardName() {
 		return this.salaryStandardName;
 	}
@@ -329,7 +306,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setSalaryStandardName(String salaryStandardName) {
 		this.salaryStandardName = salaryStandardName;
 	}
-
 
 	public Double getSalarySum() {
 		return this.salarySum;
@@ -339,7 +315,6 @@ public class MajorChange implements java.io.Serializable {
 		this.salarySum = salarySum;
 	}
 
-
 	public String getNewSalaryStandardId() {
 		return this.newSalaryStandardId;
 	}
@@ -347,7 +322,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewSalaryStandardId(String newSalaryStandardId) {
 		this.newSalaryStandardId = newSalaryStandardId;
 	}
-
 
 	public String getNewSalaryStandardName() {
 		return this.newSalaryStandardName;
@@ -357,7 +331,6 @@ public class MajorChange implements java.io.Serializable {
 		this.newSalaryStandardName = newSalaryStandardName;
 	}
 
-
 	public Double getNewSalarySum() {
 		return this.newSalarySum;
 	}
@@ -365,7 +338,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setNewSalarySum(Double newSalarySum) {
 		this.newSalarySum = newSalarySum;
 	}
-
 
 	public String getChangeReason() {
 		return this.changeReason;
@@ -375,7 +347,6 @@ public class MajorChange implements java.io.Serializable {
 		this.changeReason = changeReason;
 	}
 
-
 	public String getCheckReason() {
 		return this.checkReason;
 	}
@@ -384,7 +355,6 @@ public class MajorChange implements java.io.Serializable {
 		this.checkReason = checkReason;
 	}
 
-
 	public Short getCheckStatus() {
 		return this.checkStatus;
 	}
@@ -392,7 +362,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setCheckStatus(Short checkStatus) {
 		this.checkStatus = checkStatus;
 	}
-
 
 	public String getRegister() {
 		return this.register;
@@ -410,7 +379,6 @@ public class MajorChange implements java.io.Serializable {
 		this.checker = checker;
 	}
 
-
 	public Timestamp getRegistTime() {
 		return this.registTime;
 	}
@@ -418,7 +386,6 @@ public class MajorChange implements java.io.Serializable {
 	public void setRegistTime(Timestamp registTime) {
 		this.registTime = registTime;
 	}
-
 
 	public Timestamp getCheckTime() {
 		return this.checkTime;

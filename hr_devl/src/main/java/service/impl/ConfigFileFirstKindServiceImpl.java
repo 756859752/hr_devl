@@ -5,17 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pojo.ConfigFileFirstKind;
 import dao.ConfigFileFirstKindMapper;
+import pojo.ConfigFileFirstKind;
 import service.ConfigFileFirstKindService;
 
 @Service
-public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindService{
+public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindService {
 
 	@Autowired
-	ConfigFileFirstKindMapper configFileFirstKindMapper=null;
-	
-	
+	ConfigFileFirstKindMapper configFileFirstKindMapper = null;
 
 	@Override
 	public void removeConfigFileFirstKind(short id) {
@@ -24,8 +22,7 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 	}
 
 	@Override
-	public void alterConfigPublicChar(
-			pojo.ConfigFileFirstKind ConfigFileFirstKind) {
+	public void alterConfigFileFirstKind(pojo.ConfigFileFirstKind ConfigFileFirstKind) {
 		// TODO Auto-generated method stub
 		configFileFirstKindMapper.updateConfigFileFirstKind(ConfigFileFirstKind);
 	}
@@ -47,5 +44,5 @@ public class ConfigFileFirstKindServiceImpl implements ConfigFileFirstKindServic
 		// TODO Auto-generated method stub
 		configFileFirstKindMapper.insertConfigFileFirstKind(ConfigFileFirstKind);
 	}
-	
+
 }
