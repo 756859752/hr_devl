@@ -8,10 +8,9 @@
 </head>
 <body>
 	<center>
-		<h3>
-			${error.errormsg} 
+		<h3>${msg.massagetext} </h3>
 			<a href="${error.backurl}">返回</a>
-		</h3>
+		
 	</center>
 </body>
 </html>

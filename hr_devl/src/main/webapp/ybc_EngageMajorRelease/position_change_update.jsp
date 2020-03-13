@@ -3,10 +3,10 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+ <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My JSP 'position_release_search.jsp' starting page</title>
-     <link rel="stylesheet"
+
+		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
@@ -28,29 +28,48 @@
 	 <script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
+		
+		<script type="text/javascript">
+		function doDelete(mid){
+		if(window.confirm("确认删除该项纪录？")){
+		$.ajax({
+			url:'releasedelete.do?mid='+mid,
+			type:'get',
+			success:function(data){
+					if(data == 'ok'){
+						$("#"+mid).remove();
+					}
+				}
+			});
+		}
+		
+		}
+		</script>
+		
 		</head>
+
 	<body>
-		<form method="post" action="/HR_Fist/recruit/recruitAction!searchPosition" name="fm">
+		<form method="post" action="/HR_Fist/recruit/recruitAction!findMajor" name="fm">
 		<input type="hidden" name="utilBean.currPage" id="page"/>
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="black">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布查询 
+						<font color="black">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布变更 
 						</font>
 					</td>
 				</tr>
 			 
 			</table>
-			当前可变更是职位发布总数：2例
+			当前可变更是职位发布总数：${count }例
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td width="20%" class="TD_STYLE1">
+					<td width="15%" class="TD_STYLE1">
 						职位名称
 					</td>
-					<td width="10%" class="TD_STYLE1">
-						机构名称
+					<td width="20%" class="TD_STYLE1">
+						公司名称
 					</td>
 					<td width="10%" class="TD_STYLE1">
 						招聘人数
@@ -58,41 +77,46 @@
 					<td width="20%" class="TD_STYLE1">
 						发布时间
 					</td>
-					<td width="15%" class="TD_STYLE1">
+					<td width="20%" class="TD_STYLE1">
 						截止时间
 					</td>
-					<td width="10%" class="TD_STYLE1">
-						申请职位
+					<td width="8%" class="TD_STYLE1">
+						修改
 					</td>
-					 
+					<td width="8%" class="TD_STYLE1">
+						删除
+					</td>
 				</tr>
-				<c:forEach items="${mrlist}" var="mr">			
-				<tr>
-						<td class="TD_STYLE2">
-							${mr.majorName }
-						</td>
-						<td class="TD_STYLE2">
-							${mr.secondKindName }
-						</td>
-						<td class="TD_STYLE2">
-							${mr.humanAmount }
-						</td>
-						<td class="TD_STYLE2">
-							${mr.registTime } 
-						</td>
-						<td class="TD_STYLE2">
-							${mr.deadline }  
-						</td>
-						<td class="TD_STYLE2">
-							<a href="queryByIdMajorReleaseToDetails?mid=${mr.mreId }">申请该职位</a>
-						</td>
-						 
-					</tr>
-				</c:forEach>	
+				
+				<c:forEach items="${mrlist}" var="mr">
+				<tr id="${mr.mreId }">
+					<td width="15%" class="TD_STYLE1">
+						${mr.majorName }
+					</td>
+					<td width="20%" class="TD_STYLE1">
+						${mr.secondKindName }
+					</td>
+					<td width="10%" class="TD_STYLE1">
+						${mr.humanAmount }
+					</td>
+					<td width="20%" class="TD_STYLE1">
+						${mr.registTime }
+					</td>
+					<td width="20%" class="TD_STYLE1">
+						${mr.deadline }
+					</td>
+					<td class="TD_STYLE1">
+						<a href="releasechangedetails.do?mid=${mr.mreId }">修改</a>
+					</td>
+					<td class="TD_STYLE1">
+						<a href="javascript:doDelete(${mr.mreId })">删除</a>
+					</td>
+				</tr>
+				</c:forEach>
 			</table>
 		</form>
 		<script type="text/javascript">
-		function up(currPage,row){  
+		function up(currPage){  
 		if(currPage<=0){
 		document.getElementById("page").value = row;
 		}else{

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pojo.ConfigFileFirstKind;
@@ -24,7 +25,7 @@ import service.EngageMajorReleaseService;
 
 @Controller
 @RequestMapping("/ybc")
-public class EngageController {
+public class EngageMajorReleaseController {
 
 	@Autowired
 	ConfigFileFirstKindService configFileFirstKindService=null;
@@ -97,10 +98,47 @@ public class EngageController {
 		return configMajorlist;
 	}
 	
-	//提交表单
+	//职位发布登记提交表单
 	@RequestMapping(value="submitengagemajorrelease.do")
 	public String submitEngageMajorRelease(EngageMajorRelease e){
 		engageMajorReleaseService.addEngageMajorReleaseAutowrite(e);
 		return null;
 	}
+	
+	//职位发布变更查询数据 查询出所有的职位发布
+	@RequestMapping("releasechangeselect.do")
+	public String engageMajorReleaseChangeselect(@RequestParam String operate, Model model){
+		List<EngageMajorRelease> mrlist=engageMajorReleaseService.findAllEngageMajorRelease();
+		model.addAttribute("mrlist", mrlist);
+		if("toEdit".equals(operate)){
+			return "forward:/ybc_EngageMajorRelease/position_change_update.jsp";
+		}else if("list".equals(operate)){
+			return "forward:/ybc_EngageMajorRelease/position_release_search.jsp";
+		}
+		return null;
+	}
+	//职位发布的删除
+	@RequestMapping("releasedelete.do")
+	@ResponseBody
+	public String engageMajorReleasedelete(@RequestParam Short mid){
+		engageMajorReleaseService.removeEngageMajorRelease(mid);
+		return "ok";
+	}
+	//职位发布变更提交
+	
+	@RequestMapping("releaseupdatesubmit.do")
+	public String engageMajorReleaseUpdateSubmit(EngageMajorRelease e,Model model){
+		engageMajorReleaseService.alterEngageMajorRelease(e);
+		model.addAttribute("msg", new Massage("修改成功", "ybc/releasechangeselect.do?opreate=toEdit"));
+		return "forward:/ybc_EngageMajorRelease/massage.jsp";
+	}
+	
+	//发布变更的细节
+	@RequestMapping("releasechangedetails.do")
+	public String engageMajorReleaseChangeDetails(@RequestParam Short mid,Model model){
+		EngageMajorRelease e=engageMajorReleaseService.findEngageMajorReleaseById(mid);
+		model.addAttribute("mr", e);
+		return "forward:/ybc_EngageMajorRelease/position_release_change.jsp";
+	}
+	
 }

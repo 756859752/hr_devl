@@ -30,7 +30,7 @@ public class LoginController {
 				}
 			}
 		}
-		model.addAttribute("error", new ErrorMassage("账号密码错误","login.jsp"));
+		model.addAttribute("error", new Massage("账号密码错误","login.jsp"));
 		
 		return "redirect:/ybc_EngageMajorRelease/error.jsp";
 	}
