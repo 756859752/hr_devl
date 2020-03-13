@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.TrainingMapper">
+	<insert id="insertTraining" parameterType="Training">
+		insert into training
+		(tra_id,major_kind_id,major_kind_name,major_id,major_name,human_id,human_name,training_item,training_time,training_hour,training_degree,register,checker,regist_time,check_time,checkstatus,remark)
+		values(#{traId},#{majorKindId},#{majorKindName},#{majorId},#{majorName},#{humanId},#{humanName},#{trainingItem},#{trainingTime},#{trainingHour},#{trainingDegree},#{register},#{checker},#{registTime},#{checkTime},#{checkstatus},#{remark})
+	</insert>
+
+	<delete id="deleteTraining" parameterType="_short">
+		delete from training where tra_id=#{id}
+	</delete>
+	<update id="updateTraining" parameterType="Training">
+		update training set
+		tra_id=#{traId},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName},major_id=#{majorId},major_name=#{majorName},human_id=#{humanId},human_name=#{humanName},training_item=#{trainingItem},training_time=#{trainingTime},training_hour=#{trainingHour},training_degree=#{trainingDegree},register=#{register},checker=#{checker},regist_time=#{registTime},check_time=#{checkTime},checkstatus=#{checkstatus},remark=#{remark}
+		where tra_id=#{traId}
+	</update>
+	<resultMap type="Training" id="t" >
+		<id property="traId" column="tra_id"/>
+		<result property="majorKindId" column="major_kind_id"/>
+		<result property="majorKindName" column="major_kind_name"/>
+		<result property="majorId" column="major_id"/>
+		<result property="majorName" column="major_name"/>
+		<result property="humanId" column="human_id"/>
+		<result property="humanName" column="human_name"/>
+		<result property="trainingItem" column="training_item"/>
+		<result property="trainingTime" column="training_time"/>
+		<result property="trainingHour" column="training_hour"/>
+		<result property="trainingDegree" column="training_degree"/>
+		<result property="register" column="register"/>
+		<result property="checker" column="checker"/>
+		<result property="registTime" column="regist_time"/>
+		<result property="checkTime" column="check_time"/>
+		<result property="checkstatus" column="checkstatus"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+
+
+	<select id="selectTrainingById" parameterType="_short"
+		resultMap="t">
+		select * from training where ssd_id=#{id}
+	</select>
+	<select id="selectAllTraining" resultMap="t">
+		select * from training
+	</select>
+</mapper>
+  

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.SalaryStandardDetailsMapper">
+	<insert id="insertSalaryStandardDetails" parameterType="SalaryStandardDetails">
+		insert into salary_standard_details
+		(sdt_id,standard_id,standard_name,item_id,item_name,salary)
+		values(#{sdtId},#{standardId},#{standardName},#{itemId},#{itemName},#{salary})
+	</insert>
+
+	<delete id="deleteSalaryStandardDetails" parameterType="_short">
+		delete from salary_standard_details where sdt_id=#{id}
+	</delete>
+	<update id="updateSalaryStandardDetails" parameterType="SalaryStandardDetails">
+		update salary_standard_details set
+		sdt_id=#{sdtId},standard_id=#{standardId},standard_name=#{standardName},item_id=#{itemId},item_name=#{itemName},salary=#{salary}
+		where sdt_id=#{sdtId}
+	</update>
+	<resultMap type="SalaryStandardDetails" id="ssd" >
+		<id property="sdtId" column="sdt_id"/>
+		<result property="standardId" column="standard_id"/>
+		<result property="standardName" column="standard_name"/>
+		<result property="itemId" column="item_id"/>
+		<result property="itemName" column="item_name"/>
+		<result property="salary" column="salary"/>   
+	</resultMap>
+
+
+	<select id="selectSalaryStandardDetailsById" parameterType="_short"
+		resultMap="ssd">
+		select * from salary_standard_details where sdt_id=#{id}
+	</select>
+	<select id="selectAllSalaryStandardDetails" resultMap="ssd">
+		select * from salary_standard_details
+	</select>
+</mapper>
+  

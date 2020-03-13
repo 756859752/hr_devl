@@ -4,7 +4,7 @@ import java.util.List;
 
 import pojo.SalaryGrantDetails;
 
-public interface SalaryGrantDetailMapper {
+public interface SalaryGrantDetailsMapper {
 	public void insertSalaryGrantDetails(SalaryGrantDetails SalaryGrantDetail);
 
 	public void deleteSalaryGrantDetails(short id);
