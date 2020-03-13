@@ -14,4 +14,6 @@ public interface EngageMajorReleaseMapper {
 	public EngageMajorRelease selectEngageMajorReleaseById(short id);
 
 	public List<EngageMajorRelease> selectAllEngageMajorRelease();
+	
+	public void insertEngageMajorReleaseAutowrite(EngageMajorRelease EngageMajorRelease);
 }

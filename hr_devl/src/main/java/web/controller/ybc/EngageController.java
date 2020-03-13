@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.ConfigFileFirstKind;
 import pojo.ConfigFileSecondKind;
 import pojo.ConfigFileThirdKind;
+import pojo.ConfigMajor;
 import pojo.ConfigMajorKind;
+import pojo.EngageMajorRelease;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
 import service.ConfigMajorKindService;
 import service.ConfigMajorService;
+import service.EngageMajorReleaseService;
 
 @Controller
 @RequestMapping("/ybc")
@@ -34,6 +37,9 @@ public class EngageController {
 	@Autowired
 	ConfigMajorService configMajorService=null;
 	
+	@Autowired
+	EngageMajorReleaseService engageMajorReleaseService=null;
+	
 	@RequestMapping("/engagemajorrelease.do")
 	public String loadEngageNajorReleasePage(Model model){
 		//加载职位登记页面的数据
@@ -49,12 +55,12 @@ public class EngageController {
 	//查询二级机构
 	@RequestMapping("/selectscondkind.do")
 	@ResponseBody
-	public List<ConfigFileSecondKind> loadSecondKindinAjax(Integer fid){
+	public List<ConfigFileSecondKind> loadSecondKindinAjax(String fid){
 		List<ConfigFileSecondKind> list= configFileSecondKindService.findAllConfigFileSecondKind();
 		List<ConfigFileSecondKind> fileSecondKindlist=new ArrayList<ConfigFileSecondKind>();
 		
 		for (ConfigFileSecondKind configFileSecondKind : list) {
-			if(Integer.parseInt(configFileSecondKind.getFirstKindId())==fid){
+			if(configFileSecondKind.getFirstKindId().equals(fid)){
 				fileSecondKindlist.add(configFileSecondKind);
 			}
 		}
@@ -64,12 +70,13 @@ public class EngageController {
 	//查询三级机构
 	@RequestMapping("/selectthirdkind.do")
 	@ResponseBody
-	public List<ConfigFileThirdKind> loadThirdKindinAjax(Integer tid){
+	public List<ConfigFileThirdKind> loadThirdKindinAjax(String sid){
 		List<ConfigFileThirdKind> list=configFileThirdKindService.findAllConfigFileThirdKind();
 		List<ConfigFileThirdKind> fileThirdKindlist=new ArrayList<ConfigFileThirdKind>();
-		
+		System.out.println(sid);
+		System.out.println(list);
 		for (ConfigFileThirdKind configFileThirdKind : list) {
-			if(Integer.parseInt(configFileThirdKind.getSecondKindId())==tid){
+			if(configFileThirdKind.getSecondKindId().equals(sid)){
 				fileThirdKindlist.add(configFileThirdKind);
 			}
 		}
@@ -77,5 +84,23 @@ public class EngageController {
 	}
 	
 	//查询职位
+	@RequestMapping("selectmajor.do")
+	@ResponseBody
+	public List<ConfigMajor> loadConfigMajorinAjax(String mid){
+		List<ConfigMajor> list=configMajorService.findAllConfigMajor();
+		List<ConfigMajor> configMajorlist=new ArrayList<ConfigMajor>();
+		for (ConfigMajor configMajor : list) {
+			if(configMajor.getMajorKindId().equals(mid)){
+				configMajorlist.add(configMajor);
+			}
+		}
+		return configMajorlist;
+	}
 	
+	//提交表单
+	@RequestMapping(value="submitengagemajorrelease.do")
+	public String submitEngageMajorRelease(EngageMajorRelease e){
+		engageMajorReleaseService.addEngageMajorReleaseAutowrite(e);
+		return null;
+	}
 }
