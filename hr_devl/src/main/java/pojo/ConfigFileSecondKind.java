@@ -91,4 +91,13 @@ public class ConfigFileSecondKind implements java.io.Serializable {
 		this.secondSaleId = secondSaleId;
 	}
 
+	@Override
+	public String toString() {
+		return "ConfigFileSecondKind [fskId=" + fskId + ", firstKindId="
+				+ firstKindId + ", firstKindName=" + firstKindName
+				+ ", secondKindId=" + secondKindId + ", secondKindName="
+				+ secondKindName + ", secondSalaryId=" + secondSalaryId
+				+ ", secondSaleId=" + secondSaleId + "]";
+	}
+
 }

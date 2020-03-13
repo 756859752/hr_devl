@@ -44,5 +44,12 @@ public class EngageMajorReleaseServiceImpl implements EngageMajorReleaseService{
 		// TODO Auto-generated method stub
 		return engageMajorReleaseMapper.selectAllEngageMajorRelease();
 	}
+
+	@Override
+	public void addEngageMajorReleaseAutowrite(
+			EngageMajorRelease EngageMajorRelease) {
+		// TODO Auto-generated method stub
+		engageMajorReleaseMapper.insertEngageMajorReleaseAutowrite(EngageMajorRelease);
+	}
 	
 }

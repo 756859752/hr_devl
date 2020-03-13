@@ -46,5 +46,31 @@
    		<select id="selectAllEngageMajorRelease" resultMap="tid">
    			select * from engage_major_Release
    		</select>
+   		
+   		<insert id="insertEngageMajorReleaseAutowrite" parameterType="EngageMajorRelease">
+   			insert into engage_major_Release(first_kind_id,first_kind_name,second_kind_id,second_kind_name,third_kind_id,third_kind_name,major_kind_id,major_kind_name,major_id,major_name,human_amount,engage_type,deadline,register,changer,regist_time,change_time,major_describe,engage_required)
+   			values(
+   				#{firstKindId},
+   				(select first_kind_name from config_file_first_kind where first_kind_id=#{firstKindId}),
+   				#{secondKindId},
+   				(select second_kind_name from config_file_second_kind where second_kind_id=#{secondKindId}),
+   				#{thirdKindId},
+   				(select third_kind_name from config_file_third_kind where third_kind_id=#{thirdKindId}),
+   				#{majorKindId},
+   				(select major_kind_name from config_major_kind where major_kind_id=#{majorKindId}),
+   				#{majorId},
+   				(select major_name from config_major where major_id=#{majorId} and major_kind_id=#{majorKindId}),
+   				#{humanAmount},
+   				#{engageType},
+   				#{deadline},
+   				#{register},
+   				#{changer},
+   				#{registTime},
+   				#{changeTime},
+   				#{majorDescribe},
+   				#{engageRequired}
+   			)
+   		</insert>
+   		
   </mapper>
   

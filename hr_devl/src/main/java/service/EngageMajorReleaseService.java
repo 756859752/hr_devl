@@ -10,4 +10,5 @@ public interface EngageMajorReleaseService {
 	public void alterEngageMajorRelease(EngageMajorRelease EngageMajorRelease);
 	public EngageMajorRelease findEngageMajorReleaseById(short id);
 	public List<EngageMajorRelease> findAllEngageMajorRelease();
+	public void addEngageMajorReleaseAutowrite(EngageMajorRelease EngageMajorRelease);
 }
