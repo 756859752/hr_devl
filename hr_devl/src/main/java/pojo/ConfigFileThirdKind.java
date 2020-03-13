@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigFileThirdKind entity. @author MyEclipse Persistence Tools
  */
@@ -48,7 +47,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 		this.ftkId = ftkId;
 	}
 
-
 	public String getFirstKindId() {
 		return this.firstKindId;
 	}
@@ -56,7 +54,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 	public void setFirstKindId(String firstKindId) {
 		this.firstKindId = firstKindId;
 	}
-
 
 	public String getFirstKindName() {
 		return this.firstKindName;
@@ -66,7 +63,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -74,7 +70,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;
@@ -84,7 +79,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getThirdKindId() {
 		return this.thirdKindId;
 	}
@@ -92,7 +86,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 	public void setThirdKindId(String thirdKindId) {
 		this.thirdKindId = thirdKindId;
 	}
-
 
 	public String getThirdKindName() {
 		return this.thirdKindName;
@@ -102,7 +95,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 		this.thirdKindName = thirdKindName;
 	}
 
-
 	public String getThirdKindSaleId() {
 		return this.thirdKindSaleId;
 	}
@@ -111,7 +103,6 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 		this.thirdKindSaleId = thirdKindSaleId;
 	}
 
-
 	public String getThirdKindIsRetail() {
 		return this.thirdKindIsRetail;
 	}
@@ -119,5 +110,15 @@ public class ConfigFileThirdKind implements java.io.Serializable {
 	public void setThirdKindIsRetail(String thirdKindIsRetail) {
 		this.thirdKindIsRetail = thirdKindIsRetail;
 	}
+
+	@Override
+	public String toString() {
+		return "ConfigFileThirdKind [ftkId=" + ftkId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", secondKindId=" + secondKindId + ", secondKindName=" + secondKindName
+				+ ", thirdKindId=" + thirdKindId + ", thirdKindName=" + thirdKindName + ", thirdKindSaleId="
+				+ thirdKindSaleId + ", thirdKindIsRetail=" + thirdKindIsRetail + "]";
+	}
+	
+	
 
 }

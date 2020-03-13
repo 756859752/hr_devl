@@ -1,5 +1,4 @@
-package  pojo;
-
+package pojo;
 
 /**
  * SalaryGrantDetails entity. @author MyEclipse Persistence Tools
@@ -56,7 +55,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 		this.salaryGrantId = salaryGrantId;
 	}
 
-
 	public String getHumanId() {
 		return this.humanId;
 	}
@@ -64,7 +62,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 	public void setHumanId(String humanId) {
 		this.humanId = humanId;
 	}
-
 
 	public String getHumanName() {
 		return this.humanName;
@@ -74,7 +71,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 		this.humanName = humanName;
 	}
 
-
 	public Double getBounsSum() {
 		return this.bounsSum;
 	}
@@ -82,7 +78,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 	public void setBounsSum(Double bounsSum) {
 		this.bounsSum = bounsSum;
 	}
-
 
 	public Double getSaleSum() {
 		return this.saleSum;
@@ -92,7 +87,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 		this.saleSum = saleSum;
 	}
 
-
 	public Double getDeductSum() {
 		return this.deductSum;
 	}
@@ -101,7 +95,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 		this.deductSum = deductSum;
 	}
 
-
 	public Double getSalaryStandardSum() {
 		return this.salaryStandardSum;
 	}
@@ -109,7 +102,6 @@ public class SalaryGrantDetails implements java.io.Serializable {
 	public void setSalaryStandardSum(Double salaryStandardSum) {
 		this.salaryStandardSum = salaryStandardSum;
 	}
-
 
 	public Double getSalaryPaidSum() {
 		return this.salaryPaidSum;

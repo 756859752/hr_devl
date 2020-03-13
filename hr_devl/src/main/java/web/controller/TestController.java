@@ -9,13 +9,13 @@ import service.BonusService;
 
 @Controller
 public class TestController {
-	
+
 	@Autowired
-	BonusService bonusService=null;
-	
+	BonusService bonusService = null;
+
 	@RequestMapping("mytest1.do")
-	public String test1(){
-		
+	public String test1() {
+
 		bonusService.findAllBonus();
 		return null;
 	}

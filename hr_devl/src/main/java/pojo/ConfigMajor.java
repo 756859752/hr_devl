@@ -1,6 +1,5 @@
 package pojo;
 
-
 /**
  * ConfigMajor entity. @author MyEclipse Persistence Tools
  */
@@ -41,7 +40,6 @@ public class ConfigMajor implements java.io.Serializable {
 		this.makId = makId;
 	}
 
-
 	public String getMajorKindId() {
 		return this.majorKindId;
 	}
@@ -49,7 +47,6 @@ public class ConfigMajor implements java.io.Serializable {
 	public void setMajorKindId(String majorKindId) {
 		this.majorKindId = majorKindId;
 	}
-
 
 	public String getMajorKindName() {
 		return this.majorKindName;
@@ -59,7 +56,6 @@ public class ConfigMajor implements java.io.Serializable {
 		this.majorKindName = majorKindName;
 	}
 
-
 	public String getMajorId() {
 		return this.majorId;
 	}
@@ -68,7 +64,6 @@ public class ConfigMajor implements java.io.Serializable {
 		this.majorId = majorId;
 	}
 
-
 	public String getMajorName() {
 		return this.majorName;
 	}
@@ -76,7 +71,6 @@ public class ConfigMajor implements java.io.Serializable {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
-
 
 	public Short getTestAmount() {
 		return this.testAmount;

@@ -20,9 +20,14 @@ import service.HumanFileService;
 @Controller
 @RequestMapping("/ybc")
 public class Test2Controller {
+
 	
 
 	@Autowired
+
+	ConfigFileFirstKindService configFileFirstKindService = null;
+
+
 	EngageSubjectsService engageSubjectsService=null;
 	@Autowired
 	EngageResumeService engageResumeService=null;
@@ -30,10 +35,14 @@ public class Test2Controller {
 	HumanFileDigService humanFileDigService=null;
 	@Autowired
 	HumanFileService humanFileService=null;
+
 	@RequestMapping("/demo.do")
+
+
 	public String test222(){
 		short id=1;
 		System.out.println(humanFileService.findHumanFileById(id));
+
 		return null;
 	}
 }

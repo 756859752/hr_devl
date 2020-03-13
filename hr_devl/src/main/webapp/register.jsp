@@ -6,19 +6,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'index.jsp' starting page</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link href="table.css" rel="stylesheet"/>
+<link href="table.css" rel="stylesheet" />
 <title>Better伯乐HR系统用户注册</title>
 <style type="text/css">
 <!--
@@ -100,50 +100,63 @@ function doAdd()
 </head>
 
 <body bgcolor="#E9F8F3">
-<form method="post" action="users.do" name="register">
-<table width="100%">
-  <tr>
-    <td height="169" colspan="3" align="center">
-      <p >&nbsp;</p>
-      <p >&nbsp;</p>
-      <p >&nbsp;</p>
-      <p class="style1">Better伯乐HR系统用户注册</p></td>
-  </tr>
-  <tr>
-  <td width="18%" height="166">&nbsp;</td>
-  <td width="62%">
-  <table width="95%" border="1" cellpadding=0 cellspacing=1 bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
-  <tr>
-    <td width="20%" class="TD_STYLE1">使用单位简称</td>
-    <td width="80%" class="TD_STYLE2"><input name="profix" type="text" class="INPUT_STYLE1" value="better" readonly="readonly"></td>
-  </tr>
-  <tr>
-    <td width="20%" class="TD_STYLE1">用户名</td>
-    <td width="80%" class="TD_STYLE2"><input type="text" name="item.UName" value="better_wanghao" class="INPUT_STYLE1">&nbsp;<a href="javascript:prochk();">用户名是否可用</a></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">真实姓名</td>
-    <td class="TD_STYLE2"><input type="text" name="item.UTrueName" value="" class="INPUT_STYLE1"></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">密码</td>
-    <td class="TD_STYLE2"><input type="password" name="item.UPassword" value="" style="background-color: #DEEBF7" class="INPUT_STYLE1"></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">确认密码</td>
-    <td class="TD_STYLE2"><input name="surPwd" type="password" class="INPUT_STYLE1" style="background-color: #DEEBF7"></td>
-  </tr>
-  </table>
-  </td>
-  <td width="20%" >&nbsp;</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td align="center"><input type="button" value="注册" class="BUTTON_STYLE1" onclick="javascript:doAdd();"> &nbsp;
-      <input type="button" value="返回" onclick="history.back();" class="BUTTON_STYLE1"></td>
-	  <td></td>
-  </tr>
-</table>
-</form>      
+	<form method="post" action="users.do" name="register">
+		<table width="100%">
+			<tr>
+				<td height="169" colspan="3" align="center">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p class="style1">Better伯乐HR系统用户注册</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" height="166">&nbsp;</td>
+				<td width="62%">
+					<table width="95%" border="1" cellpadding=0 cellspacing=1
+						bordercolorlight=#848284 bordercolordark=#eeeeee
+						class="TABLE_STYLE1">
+						<tr>
+							<td width="20%" class="TD_STYLE1">使用单位简称</td>
+							<td width="80%" class="TD_STYLE2"><input name="profix"
+								type="text" class="INPUT_STYLE1" value="better"
+								readonly="readonly"></td>
+						</tr>
+						<tr>
+							<td width="20%" class="TD_STYLE1">用户名</td>
+							<td width="80%" class="TD_STYLE2"><input type="text"
+								name="item.UName" value="better_wanghao" class="INPUT_STYLE1">&nbsp;<a
+								href="javascript:prochk();">用户名是否可用</a></td>
+						</tr>
+						<tr>
+							<td class="TD_STYLE1">真实姓名</td>
+							<td class="TD_STYLE2"><input type="text"
+								name="item.UTrueName" value="" class="INPUT_STYLE1"></td>
+						</tr>
+						<tr>
+							<td class="TD_STYLE1">密码</td>
+							<td class="TD_STYLE2"><input type="password"
+								name="item.UPassword" value="" style="background-color: #DEEBF7"
+								class="INPUT_STYLE1"></td>
+						</tr>
+						<tr>
+							<td class="TD_STYLE1">确认密码</td>
+							<td class="TD_STYLE2"><input name="surPwd" type="password"
+								class="INPUT_STYLE1" style="background-color: #DEEBF7"></td>
+						</tr>
+					</table>
+				</td>
+				<td width="20%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td align="center"><input type="button" value="注册"
+					class="BUTTON_STYLE1" onclick="javascript:doAdd();"> &nbsp;
+					<input type="button" value="返回" onclick="history.back();"
+					class="BUTTON_STYLE1"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

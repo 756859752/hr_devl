@@ -1,4 +1,4 @@
-package  pojo;
+package pojo;
 
 import java.sql.Timestamp;
 
@@ -70,7 +70,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.engageRequired = engageRequired;
 	}
 
-
 	public Short getMreId() {
 		return this.mreId;
 	}
@@ -78,7 +77,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setMreId(Short mreId) {
 		this.mreId = mreId;
 	}
-
 
 	public String getFirstKindId() {
 		return this.firstKindId;
@@ -96,7 +94,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
-
 	public String getSecondKindId() {
 		return this.secondKindId;
 	}
@@ -104,7 +101,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setSecondKindId(String secondKindId) {
 		this.secondKindId = secondKindId;
 	}
-
 
 	public String getSecondKindName() {
 		return this.secondKindName;
@@ -114,7 +110,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
-
 	public String getThirdKindId() {
 		return this.thirdKindId;
 	}
@@ -122,7 +117,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setThirdKindId(String thirdKindId) {
 		this.thirdKindId = thirdKindId;
 	}
-
 
 	public String getThirdKindName() {
 		return this.thirdKindName;
@@ -132,7 +126,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.thirdKindName = thirdKindName;
 	}
 
-
 	public String getMajorKindId() {
 		return this.majorKindId;
 	}
@@ -140,7 +133,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setMajorKindId(String majorKindId) {
 		this.majorKindId = majorKindId;
 	}
-
 
 	public String getMajorKindName() {
 		return this.majorKindName;
@@ -150,7 +142,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.majorKindName = majorKindName;
 	}
 
-
 	public String getMajorId() {
 		return this.majorId;
 	}
@@ -158,7 +149,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setMajorId(String majorId) {
 		this.majorId = majorId;
 	}
-
 
 	public String getMajorName() {
 		return this.majorName;
@@ -168,7 +158,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.majorName = majorName;
 	}
 
-
 	public Short getHumanAmount() {
 		return this.humanAmount;
 	}
@@ -176,7 +165,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setHumanAmount(Short humanAmount) {
 		this.humanAmount = humanAmount;
 	}
-
 
 	public String getEngageType() {
 		return this.engageType;
@@ -186,7 +174,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.engageType = engageType;
 	}
 
-
 	public Timestamp getDeadline() {
 		return this.deadline;
 	}
@@ -194,7 +181,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setDeadline(Timestamp deadline) {
 		this.deadline = deadline;
 	}
-
 
 	public String getRegister() {
 		return this.register;
@@ -204,7 +190,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.register = register;
 	}
 
-
 	public String getChanger() {
 		return this.changer;
 	}
@@ -212,7 +197,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setChanger(String changer) {
 		this.changer = changer;
 	}
-
 
 	public Timestamp getRegistTime() {
 		return this.registTime;
@@ -222,7 +206,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.registTime = registTime;
 	}
 
-
 	public Timestamp getChangeTime() {
 		return this.changeTime;
 	}
@@ -231,7 +214,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 		this.changeTime = changeTime;
 	}
 
-
 	public String getMajorDescribe() {
 		return this.majorDescribe;
 	}
@@ -239,7 +221,6 @@ public class EngageMajorRelease implements java.io.Serializable {
 	public void setMajorDescribe(String majorDescribe) {
 		this.majorDescribe = majorDescribe;
 	}
-
 
 	public String getEngageRequired() {
 		return this.engageRequired;

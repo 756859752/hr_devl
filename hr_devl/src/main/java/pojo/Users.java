@@ -1,5 +1,4 @@
-package  pojo;
-
+package pojo;
 
 /**
  * Users entity. @author MyEclipse Persistence Tools
@@ -27,7 +26,6 @@ public class Users implements java.io.Serializable {
 		this.UPassword = UPassword;
 	}
 
-
 	public Short getUId() {
 		return this.UId;
 	}
@@ -44,7 +42,6 @@ public class Users implements java.io.Serializable {
 		this.UName = UName;
 	}
 
-
 	public String getUTrueName() {
 		return this.UTrueName;
 	}
@@ -52,7 +49,6 @@ public class Users implements java.io.Serializable {
 	public void setUTrueName(String UTrueName) {
 		this.UTrueName = UTrueName;
 	}
-
 
 	public String getUPassword() {
 		return this.UPassword;

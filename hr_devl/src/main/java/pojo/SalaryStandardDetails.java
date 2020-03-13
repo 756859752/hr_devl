@@ -1,5 +1,4 @@
-package  pojo;
-
+package pojo;
 
 /**
  * SalaryStandardDetails entity. @author MyEclipse Persistence Tools
@@ -41,7 +40,6 @@ public class SalaryStandardDetails implements java.io.Serializable {
 		this.sdtId = sdtId;
 	}
 
-
 	public String getStandardId() {
 		return this.standardId;
 	}
@@ -49,7 +47,6 @@ public class SalaryStandardDetails implements java.io.Serializable {
 	public void setStandardId(String standardId) {
 		this.standardId = standardId;
 	}
-
 
 	public String getStandardName() {
 		return this.standardName;
@@ -59,7 +56,6 @@ public class SalaryStandardDetails implements java.io.Serializable {
 		this.standardName = standardName;
 	}
 
-
 	public Short getItemId() {
 		return this.itemId;
 	}
@@ -68,7 +64,6 @@ public class SalaryStandardDetails implements java.io.Serializable {
 		this.itemId = itemId;
 	}
 
-
 	public String getItemName() {
 		return this.itemName;
 	}
@@ -76,7 +71,6 @@ public class SalaryStandardDetails implements java.io.Serializable {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-
 
 	public Double getSalary() {
 		return this.salary;
