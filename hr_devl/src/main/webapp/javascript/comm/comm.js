@@ -57,8 +57,7 @@ function finish3()
 }
 function toAdd()
 {
-		document.forms[0].action = document.forms[0].action + "?operate=toAdd";
-		document.forms[0].submit();
+	window.location.href="top.jsp";
 }
 
 function doAdd()

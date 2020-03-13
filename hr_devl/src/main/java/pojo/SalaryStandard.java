@@ -9,7 +9,6 @@ import java.sql.Timestamp;
 public class SalaryStandard implements java.io.Serializable {
 
 	// Fields
-
 	private Short ssdId;
 	private String standardId;
 	private String standardName;

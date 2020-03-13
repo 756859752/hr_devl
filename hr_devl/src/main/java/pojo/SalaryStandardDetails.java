@@ -7,7 +7,6 @@ package pojo;
 public class SalaryStandardDetails implements java.io.Serializable {
 
 	// Fields
-
 	private Short sdtId;
 	private String standardId;
 	private String standardName;
