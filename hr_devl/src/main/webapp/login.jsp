@@ -96,7 +96,7 @@ BR {
  	if(infchk())
  	{
  		//document.forms[0].action = document.forms[0].action + "?operate=doLogin";
-		document.forms[0].action = "index.html";
+		document.forms[0].action = "ybc/login.do";
  		document.forms[0].submit();
  	}
  }
@@ -108,8 +108,8 @@ BR {
  }
  function infchk()
 {
-	var name = document.forms[0].elements["item.UName"];
-	var pwd = document.forms[0].elements["item.UPassword"];
+	var name = document.forms[0].elements["UName"];
+	var pwd = document.forms[0].elements["UPassword"];
 	var num = document.forms[0].elements["validatorNum"];
 	if(name.value == "")
 	{
@@ -189,7 +189,7 @@ BR {
 								<p style="line-height: 200%">
 									<font color="#30358D"><b>用户名:</b> </font>
 							</td>
-							<td><input type="text" name="item.UName" value=""
+							<td><input type="text" name="UName" value=""
 								style="width:150px"></td>
 						</tr>
 						<tr class="TR_STYLE1">
@@ -197,7 +197,7 @@ BR {
 								<p style="line-height: 200%">
 									<font color="#30358D"><b>密码:</b> </font>
 							</td>
-							<td><input type="password" name="item.UPassword" value=""
+							<td><input type="password" name="UPassword" value=""
 								style="width:150px"></td>
 						</tr>
 						<tr class="TR_STYLE1">

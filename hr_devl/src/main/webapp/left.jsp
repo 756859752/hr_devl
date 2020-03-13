@@ -459,7 +459,7 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engagemajorrelease.do?operate=toAdd"
+												href="ybc/engagemajorrelease.do"
 												target="mainFrame">职位发布登记</a></td>
 										</tr>
 										<tr>

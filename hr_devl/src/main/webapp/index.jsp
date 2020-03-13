@@ -48,13 +48,13 @@ window.onunload=onClose
 </head>
 <frameset rows="69,*,20" framespacing="1" border="1"
 	onunload="onClose()">
-	<frame src="top.html" name="top" scrolling="no" marginwidth="1"
+	<frame src="top.jsp" name="top" scrolling="no" marginwidth="1"
 		marginheight="1" frameborder="0">
 	<frameset cols="200,*" frameborder="NO" border="0" framespacing="0">
-		<frame src="left.html" name="left" scrolling="yes" noresize>
-		<frame src="main.html" name="mainFrame">
+		<frame src="left.jsp" name="left" scrolling="yes" noresize>
+		<frame src="main.jsp" name="mainFrame">
 	</frameset>
-	<frame src="bottom.html" name="bottom" frameborder="0" scrolling="no"
+	<frame src="bottom.jsp" name="bottom" frameborder="0" scrolling="no"
 		marginwidth="1" marginheight="1">
 	<noframes>
 		<body topmargin="0" leftmargin="0" bgcolor="#b5daff">
