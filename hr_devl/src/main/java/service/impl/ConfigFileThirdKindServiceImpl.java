@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.ConfigFileThirdKindMapper;
+import pojo.ConfigFileFirstKind;
 import pojo.ConfigFileThirdKind;
 import service.ConfigFileThirdKindService;
 
@@ -44,6 +45,18 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	public List<ConfigFileThirdKind> findAllConfigFileThirdKind() {
 		// TODO Auto-generated method stub
 		return ConfigFileThirdKindMapper.selectAllConfigFileThirdKind();
+	}
+
+	@Override
+	public void removeConfigFileThirdKindByfirstKindId(String firstKindId) {
+		// TODO Auto-generated method stub
+		ConfigFileThirdKindMapper.deleteConfigFileThirdKindByfirstkindid(firstKindId);
+	}
+
+	@Override
+	public void alterConfigFileThirdKindBycffk(ConfigFileFirstKind cffk) {
+		// TODO Auto-generated method stub
+		ConfigFileThirdKindMapper.updateConfigFileFirstKindBycffk(cffk);
 	}
 
 
