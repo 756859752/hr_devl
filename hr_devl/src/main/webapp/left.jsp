@@ -106,7 +106,8 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="first_kind.html"
+											
+											<td width="98%"><a href="xxk/cffkselectall.do"
 												target="mainFrame">I级机构设置</a></td>
 										</tr>
 										<tr>

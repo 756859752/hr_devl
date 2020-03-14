@@ -2,7 +2,10 @@ package dao;
 
 import java.util.List;
 
+import pojo.ConfigFileFirstKind;
 import pojo.ConfigFileSecondKind;
+
+
 
 public interface ConfigFileSecondKindMapper {
 	public void insertConfigFileSecondKind(ConfigFileSecondKind ConfigFileSecondKind);
@@ -14,4 +17,8 @@ public interface ConfigFileSecondKindMapper {
 	public ConfigFileSecondKind selectConfigFileSecondKindById(short id);
 
 	public List<ConfigFileSecondKind> selectAllConfigFileSecondKind();
+
+    public void deleteConfigFileSecondKindByfirstkindid(String firstKindId );
+    
+    public void updateConfigFileSecondKindBycffk(ConfigFileFirstKind ff);    
 }

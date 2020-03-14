@@ -20,9 +20,11 @@
 		(ffk_id,first_kind_id,first_kind_name,first_kind_salary_id,first_kind_sale_id)
 		values(#{ffkId},#{firstKindId},#{firstKindName},#{firstKindSalaryId},#{firstKindSaleId})
 	</insert>
-	<delete id="deleteConfigFileFirstKind" parameterType="_short">
+	<delete id="deleteConfigFileFirstKind" parameterType="short">
 		delete from config_file_first_kind where ffk_id=#{id}
 	</delete>
+	
+	
 	
 	<update id="updateConfigFileFirstKind"
 		parameterType="ConfigFileFirstKind">
@@ -33,7 +35,7 @@
 	
 
 	<select id="selectConfigFileFirstKindById"
-		parameterType="_short" resultMap="tid">
+		parameterType="short" resultMap="tid">
 		select * from config_file_first_kind where ffk_id=#{id}
 	</select>
 	

@@ -3,92 +3,107 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+ <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My JSP 'position_release_search.jsp' starting page</title>
-     <link rel="stylesheet"
-			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
+    <title>My JSP 'resume-list.jsp' starting page</title>
+	 <link rel="stylesheet"
+			href="css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
+			href="css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
-		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/comm/list.js">
+			src="javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
+			src="javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
+			src="javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/locate.js">
+			src="javascript/jquery-1.7.2.js">
 		</script>
-	 <script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/select.js">
+		<script type="text/javascript"
+			src="javascript/locate.js">
 		</script>
-		</head>
+		<script type="text/javascript"
+			src="javascript/select.js">
+		</script>
+	  </head>
 	<body>
-		<form method="post" action="/HR_Fist/recruit/recruitAction!searchPosition" name="fm">
+		<form method="post" name="fm" action="/HR_Fist/recruit/recruitAction!toResumeList?a=list">
 		<input type="hidden" name="utilBean.currPage" id="page"/>
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="black">您正在做的业务是：人力资源--招聘管理--职位发布管理--职位发布查询 
+						<font color="black">您正在做的业务是：人力资源--招聘管理--简历管理--简历筛选--简历筛选列表 
 						</font>
 					</td>
 				</tr>
-			 
-			</table>
-			当前可变更是职位发布总数：2例
+			  <tr>
+					<td align="right"> 
+						<input type="button" value="返回" class="BUTTON_STYLE1" onclick="window.location.href='toChoose'">
+					</td>
+				</tr>
+			</table> 
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
 				<tr>
-					<td width="20%" class="TD_STYLE1">
-						职位名称
+					<td width="15%" class="TD_STYLE1">
+						档案编号
 					</td>
 					<td width="10%" class="TD_STYLE1">
-						机构名称
+						姓名
 					</td>
 					<td width="10%" class="TD_STYLE1">
-						招聘人数
-					</td>
-					<td width="20%" class="TD_STYLE1">
-						发布时间
+						性别
 					</td>
 					<td width="15%" class="TD_STYLE1">
-						截止时间
+						职位分类
 					</td>
-					<td width="10%" class="TD_STYLE1">
-						申请职位
+					<td width="5%" class="TD_STYLE1">
+						职位名称
 					</td>
-					 
+					<td width="5%" class="TD_STYLE1">
+						电话号码
+					</td>
+					<td width="5%" class="TD_STYLE1">
+						复核状态
+					</td>
+					<td width="5%" class="TD_STYLE1">
+						复核 
+					</td>
 				</tr>
-				<c:forEach items="${mrlist}" var="mr">			
-				<tr>
+				<c:forEach items="${resultList}" var="re">
+					<tr>
 						<td class="TD_STYLE2">
-							${mr.majorName }
+							${re.resid}
 						</td>
 						<td class="TD_STYLE2">
-							${mr.secondKindName }
+							${re.humanname}
 						</td>
 						<td class="TD_STYLE2">
-							${mr.humanAmount }
+							${re.humansex}
 						</td>
 						<td class="TD_STYLE2">
-							${mr.registTime } 
+						${re.humanmajorkindname}
 						</td>
 						<td class="TD_STYLE2">
-							${mr.deadline }  
+						${re.humanmajorname}
 						</td>
 						<td class="TD_STYLE2">
-							<a href="majorreleaseshenqing.do?mid=${mr.mreId }">申请该职位</a>
+						${re.humanmobilephone}
 						</td>
-						 
+						<td class="TD_STYLE2">
+						<c:if test="${re.checkstatus == 0}">待复核</c:if>
+						<c:if test="${re.checkstatus == 1}">已复核</c:if>
+						</td>
+						<td class="TD_STYLE2">
+							<c:if test="${re.checkstatus == 0}"><a href="findValidResumeById?resid=${re.resid}">复核</a></c:if>
+							<c:if test="${re.checkstatus == 1}">复核</c:if>
 					</tr>
-				</c:forEach>	
+				</c:forEach>
+				
 			</table>
 		</form>
 		<script type="text/javascript">

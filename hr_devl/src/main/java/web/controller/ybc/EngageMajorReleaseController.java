@@ -117,6 +117,7 @@ public class EngageMajorReleaseController {
 		}
 		return null;
 	}
+	
 	//职位发布的删除
 	@RequestMapping("releasedelete.do")
 	@ResponseBody
@@ -128,6 +129,8 @@ public class EngageMajorReleaseController {
 	
 	@RequestMapping("releaseupdatesubmit.do")
 	public String engageMajorReleaseUpdateSubmit(EngageMajorRelease e,Model model){
+		
+		System.out.println(e);
 		engageMajorReleaseService.alterEngageMajorRelease(e);
 		model.addAttribute("msg", new Massage("修改成功", "ybc/releasechangeselect.do?opreate=toEdit"));
 		return "forward:/ybc_EngageMajorRelease/massage.jsp";
@@ -141,4 +144,11 @@ public class EngageMajorReleaseController {
 		return "forward:/ybc_EngageMajorRelease/position_release_change.jsp";
 	}
 	
+	//职位申请
+	@RequestMapping("majorreleaseshenqing.do")
+	public String engageMajorReleaseShenqing(Short mid,Model model){
+		EngageMajorRelease e=engageMajorReleaseService.findEngageMajorReleaseById(mid);
+		model.addAttribute("mr", e);
+		return "foward:/ybc_EngageMajorRelease/resume/register.jsp";
+	}
 }
