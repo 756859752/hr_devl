@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,12 @@ public class SalaryStandardDetailsServiceImpl implements SalaryStandardDetailsSe
 	public List<SalaryStandardDetails> findAllSalaryStandardDetails() {
 		// TODO Auto-generated method stub
 		return SalaryStandardDetailsMapper.selectAllSalaryStandardDetails();
+	}
+//	根据薪酬标准编号查询
+	@Override
+	public ArrayList<SalaryStandardDetails> findManySalaryStandardDetails(String sid) {
+		
+		return SalaryStandardDetailsMapper.selectSalaryStandardDetailsBySsid(sid);
 	}
 	
 }

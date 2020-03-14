@@ -32,8 +32,15 @@
 		resultMap="ssd">
 		select * from salary_standard_details where sdt_id=#{id}
 	</select>
+	
 	<select id="selectAllSalaryStandardDetails" resultMap="ssd">
 		select * from salary_standard_details
+	</select>
+	
+	<!-- 根据薪酬标准的编号查询细节 -->
+	<select id="selectSalaryStandardDetailsBySsid" parameterType="string"
+		resultMap="ssd">
+		select * from salary_standard_details where standard_id=#{sid}
 	</select>
 </mapper>
   

@@ -44,5 +44,28 @@
 	<select id="selectAllSalaryStandard" resultMap="ss">
 		select * from salary_standard
 	</select>
+	<!-- 多条件筛选薪酬标准 -->
+	<select id="seletCoditionsSalaryStandard" parameterType="hashmap" resultMap="ss">
+	    select * from salary_standard
+	    <where>
+	       <if test="salid!=null&amp;salid!=''">
+	           and standard_id=#{salid}
+	       </if>
+	       <if test="salnam!=null&amp;salnam!=''">
+	          <bind name="condition" value="'%'+salnam+'%'"/>
+	          and standard_name like #{condition}
+	       </if>
+	        <if test="mintime!=null">
+	         and regist_time &gt; #{mintime} 
+	       </if>
+	       <if test="maxtime!=null">
+	         and regist_time &lt; #{maxtime} 
+	       </if>
+	    </where>
+	</select>
+	<!-- 查询未通过审核的薪酬标准 -->
+	<select id="seletStateSalaryStandard" resultMap="ss">
+	    select * from salary_standard where check_status=0
+	</select>
 </mapper>
   
