@@ -78,7 +78,7 @@
 		</tx:attributes>
 	</tx:advice>
 
-	<!-- 创建切面 -->
+	<!-- 创建切面 -->	
 	<aop:config>
 		<aop:pointcut
 			expression="execution(* service.impl.*.*(..))" id="myPoint" />
