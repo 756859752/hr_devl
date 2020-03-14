@@ -82,7 +82,7 @@
 </head>
 	<body>
 		<form id="recruitAction!applyPosition" name="humanfileForm" action="releaseupdatesubmit.do" method="post">
-			<input type="hidden" name ="mreid" value="${mr.mreId }"/>
+			<input type="hidden" name ="mreId" value="${mr.mreId }"/>
 			<table width="100%">
 				<tr>
 					<td>
@@ -105,31 +105,31 @@
 						I级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-					<input type="hidden" name ="firstkindname" value="${mr.firstKindName }"/>
-					<input type="hidden" name="firstkindid" value="${mr.firstKindId }"/>
+					<input type="hidden" name ="firstKindName" value="${mr.firstKindName }"/>
+					<input type="hidden" name="firstKindId" value="${mr.firstKindId }"/>
 					${mr.firstKindName }
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						II级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-					<input type="hidden" name="secondkindname" value="${mr.secondKindName }"/>
-					<input type="hidden" name="secondkindid" value="${mr.secondKindId }"/>
+					<input type="hidden" name="secondKindName" value="${mr.secondKindName }"/>
+					<input type="hidden" name="secondKindId" value="${mr.secondKindId }"/>
 					${mr.secondKindName }
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						III级机构
 					</td>
 					<td class="TD_STYLE2"  >
-					<input type="hidden" name="thirdkindname" value="${mr.thirdKindName }"/>
-					<input type="hidden" name="thirdkindid" value="${mr.thirdKindId }"/>
+					<input type="hidden" name="thirdKindName" value="${mr.thirdKindName }"/>
+					<input type="hidden" name="thirdKindId" value="${mr.thirdKindId }"/>
 						${mr.thirdKindName }
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						招聘类型
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-				 	<select name="engagetype" id="engageType" class="SELECT_STYLE1">
+				 	<select name="engageType" id="engageType" class="SELECT_STYLE1">
 				 			<c:if test="${mr.engageType == '校园招聘'}">
 				 				<option value="校园招聘" selected="selected" >校园招聘</option>  
 				 				<option value="社会招聘"  >社会招聘</option>
@@ -177,7 +177,8 @@
 						变更人
 					</td>
 					<td  class="TD_STYLE2">
-						 <input type="text" name="changer" value="${userlogin.user_true_name }" class="INPUT_STYLE2">
+						<input type="hidden" name="register" value="${mr.register }"/> 
+						<input type="text" name="changer" value="${userlogin.user_true_name }" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						变更时间
@@ -208,7 +209,7 @@
 						招聘要求
 					</td>
 					<td class="TD_STYLE2" colspan="8">
-						<textarea name="engagerequired" rows="4"  cols="100%" class="TEXTAREA_STYLE1"   >${mr.engageRequired }</textarea>
+						<textarea name="engageRequired" rows="4"  cols="100%" class="TEXTAREA_STYLE1"   >${mr.engageRequired }</textarea>
 					</td>
 					 
 				</tr>
