@@ -8,29 +8,29 @@
 		<title>My JSP 'resume-choose.jsp' starting page</title>
 
 		 <link rel="stylesheet"
-			href="css/table.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="css/cwcalendar.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="javascript/comm/comm.js">
+			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/comm/list.js">
+			src="${pageContext.request.contextPath}/javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/calendar-ch.js">
+			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/jquery-1.7.2.js">
+			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/locate.js">
+			src="${pageContext.request.contextPath}/javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/select.js">
+			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
 	   <script type="text/javascript"
-			src="javascript/comm/time.js">
+			src="${pageContext.request.contextPath}/javascript/comm/time.js">
 			</script>
 		<script type="text/javascript">
 	function search() {
@@ -49,12 +49,12 @@
 			majorSelect.append("<option value=''>--请选择--</option>");
 			if(mid != 0){
 				$.ajax({
-					url:'ByIdQueryMajor?mid='+mid,
+					url:'findconfigmajorbyconfigmajorkind.do?mid='+mid,
 					type:'get',
 					success:function(data){
 			 			for(var i=0;i<data.length;i++){
 							var eachMajor = data[i];
-							majorSelect.append("<option>"+eachMajor.majorname+"</option>");
+							majorSelect.append("<option value='"+eachMajor.majorId+"'>"+eachMajor.majorName+"</option>");
 						}
 			 			}
 				});
@@ -64,7 +64,7 @@
 	</head>
 
 	<body>
-		<form id="recruitAction!findEngageResume?a=list" name="resumeChooseForm" action="chooseQuery" method="post">
+		<form id="recruitAction!findEngageResume?a=list" name="resumeChooseForm" action="starttoshaixuan.do" method="post">
 			<input type="hidden" name="engageResume.checkStatus" value="false" /> 
 			<input type="hidden"  id="humanMajorKindId" name="humanmajorkindname" />
 			<input type="hidden"  name="checkstatus" value="0" />
@@ -91,10 +91,10 @@
 					 style="width: 290;height: 100" class="SELECT_STYLE2"> 
 						<option value="0">--请选择--</option>
 					<c:forEach items="${mklist}" var="m">
-						<option  value="${m.majorkindid }" id="humanMajorKind${m.majorkindid }">${m.majorkindname }</option>
+						<option  value="${m.majorKindId }" id="humanMajorKind${m.majorKindId }">${m.majorKindName }</option>
 					</c:forEach>
 					 </select>
-						<select name="humanmajorname" multiple="multiple" id="humanMajorId"
+						<select name="humanMajorId" multiple="multiple" id="humanMajorId"
 						 style="width: 290;height: 100" size="5" class="SELECT_STYLE2">
 							<option>--请选择--</option>
 						</select>
@@ -107,7 +107,7 @@
 						请输入关键字
 					</td>
 					<td width="84%">
-						<input type="text" name="primarkey" class="INPUT_STYLE2" />
+						<input type="text" name="primarKey" class="INPUT_STYLE2" />
 					</td>
 				</tr>
 
@@ -116,10 +116,10 @@
 						请输入登记时间
 					</td>
 					<td width="84%" class="TD_STYLE2">
-						<input type="text" name="startdate"   onclick="aa('startdate')" 
+						<input type="text" name="startDate"   onclick="aa('startdate')" 
 							style="width: 14%" class="INPUT_STYLE2">
 						至
-						<input type="text" name="enddate" 
+						<input type="text" name="endDate" 
 							style="width: 14%" class="INPUT_STYLE2" onclick="aa('enddate')">
 						（YYYY-MM-DD）
 					</td>

@@ -149,6 +149,6 @@ public class EngageMajorReleaseController {
 	public String engageMajorReleaseShenqing(Short mid,Model model){
 		EngageMajorRelease e=engageMajorReleaseService.findEngageMajorReleaseById(mid);
 		model.addAttribute("mr", e);
-		return "foward:/ybc_EngageMajorRelease/resume/register.jsp";
+		return "forward:/ybc_EngageMajorRelease/resume/register.jsp";
 	}
 }

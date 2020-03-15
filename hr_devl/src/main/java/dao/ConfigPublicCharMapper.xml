@@ -32,5 +32,18 @@
 	<select id="selectAllConfigPublicChar" resultMap="cpc">
 		select * from config_public_char
 	</select>
+	
+	<select id="selecAllConfigPublicCharByCondition" parameterType="ConfigPublicChar" resultMap="cpc">
+			select * from 	config_public_char where attribute_kind=#{attributekind}
+			<!--  <trim prefix="where" prefixOverrides="and|or">
+				<if test="attributekind!=null">
+					and attribute_kind=#{attributekind}
+				</if>
+				<if test="attributekind!=null">
+					and attribute_name=#{attributename}
+				</if>
+			</trim>-->
+	</select>
+	
 </mapper>
   

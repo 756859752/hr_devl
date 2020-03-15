@@ -84,7 +84,7 @@
 							${mr.deadline }  
 						</td>
 						<td class="TD_STYLE2">
-							<a href="majorreleaseshenqing.do?mid=${mr.mreId }">申请该职位</a>
+							<a href="${pageContext.request.contextPath}/ybcresume/majorreleaseshenqing.do?mid=${mr.mreId }">申请该职位</a>
 						</td>
 						 
 					</tr>

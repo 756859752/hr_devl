@@ -489,13 +489,13 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="engageresume.do?operate=toAdd"
+											<td width="98%"><a href="ybcresume/engageresume.do?operate=toAdd"
 												target="mainFrame">简历登记</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td><a
-												href="engageresume.do?operate=locate&method=check"
+												href="ybcresume/resumeshaixuan.do?operate=locate&method=check"
 												target="mainFrame">简历筛选</a></td>
 										</tr>
 										<tr>

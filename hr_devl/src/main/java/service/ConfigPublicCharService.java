@@ -15,4 +15,6 @@ public interface ConfigPublicCharService {
 	public ConfigPublicChar findConfigPublicCharById(int id);
 
 	public List<ConfigPublicChar> findAllConfigPublicChar();
-}
+	
+	public List<ConfigPublicChar> findAllConfigPublicCharByCondition(ConfigPublicChar ConfigPublicChar);
+} 
