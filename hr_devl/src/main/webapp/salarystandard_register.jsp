@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td width="74" class="TD_STYLE1">薪酬标准编号</td>
 				<td width="168" class="TD_STYLE2"><input type="text"
-					name="Ss.standardId" value="1000001" readonly="readonly"
+					name="Ss.standardId" value="3" readonly="readonly"
 					class="INPUT_STYLE2"></td>
 				<td width="83" class="TD_STYLE1">薪酬标准名称</td>
 				<td width="171" class="TD_STYLE2"><input type="text"
@@ -198,7 +198,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				sum=sum+ff[i].value*1;
 		}
 	   }
-	   $("#salesum").val(sum);
+	   $("#salesum").val(sum.toFixed(2));
    })
 
 </script>

@@ -1,7 +1,9 @@
 package web.controller.dcf;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,10 +84,38 @@ public class SalaryStandardCotroller {
     	return "redirect:/salarystandard_query.jsp";
     }
 // 展示所有待审核的薪酬标准
-    @RequestMapping("checkSalaryStandard.do")
+    @RequestMapping("/checkSalaryStandard.do")
     @ResponseBody
-    public List<SalaryStandard> queryCheck(@RequestBody Salary s) {
+    public List<SalaryStandard> queryCheck(HttpSession session) {
     	List<SalaryStandard> list=sss.findStateSalaryStandards();
+    	session.setAttribute("moreSalaryStandard", list);
     	return list;
+    }
+ // 展示一个待审核的薪酬标准
+    @RequestMapping("/checkSalaryStandardOne/{sid}.do")
+    public String queryCheckOne(@PathVariable String sid,HttpSession session) {
+    	Salary s=new Salary();
+    	ArrayList<SalaryStandard> list1=(ArrayList)session.getAttribute("moreSalaryStandard");
+    	for (SalaryStandard ss : list1) {
+			if(ss.getStandardId().equals(sid)) {
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String nowtime=sdf.format(new Date());
+				ss.setChangeTime(Timestamp.valueOf(nowtime));
+				s.setSs(ss);
+			}
+		}
+    	ArrayList<SalaryStandardDetails> list2=ssds.findManySalaryStandardDetails(sid);
+    	s.setList(list2);
+    	session.setAttribute("moreSalary", s);
+    	return "redirect:/salarystandard_check.jsp";
+    }
+//    通过复核一个薪酬标准
+    @RequestMapping("/checkone.do")
+    public String checkOneSalaryStandard(@ModelAttribute Salary s) {
+    	SalaryStandard ss=s.getSs();
+    	ss.setCheckStatus((short)1);
+    	sss.alterSalaryStandard(ss);
+    	ArrayList<SalaryStandardDetails> list=s.getList();
+    	return "redirect:/salarystandard_check_success.jsp";
     }
 }

@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td>当前等待复核的薪酬标准总数: 3 例</td>
+				<td>当前等待复核的薪酬标准总数:<span id="sum"></span> 例</td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -53,35 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="13%" class="TD_STYLE1">薪酬总额</td>
 				<td width="4%" class="TD_STYLE1">复核</td>
 			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1000001</td>
-				<td></td>
-				<td></td>
-				<td>2010-05-29 00:00:00.0</td>
-				<td>0.0</td>
-				<td><a href="salarystandard_check.html">复核</a></td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1000001</td>
-				<td></td>
-				<td></td>
-				<td>2010-05-29 00:00:00.0</td>
-				<td>0.0</td>
-				<td><a href="salarystandard_check.html">复核</a></td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1000001</td>
-				<td></td>
-				<td></td>
-				<td>2010-05-29 00:00:00.0</td>
-				<td>0.0</td>
-				<td><a
-					href="salarystandard.do?operate=toEdit&id=3&method=check">复核</a></td>
-			</tr>
-
 		</table>
 		<p>
 			&nbsp;&nbsp;总数：3例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
@@ -91,17 +62,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</form>
 </body>
 </html>
-<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="javascript/jquery-1.7.2.js"></script>
 <script type="text/javascript">
-
 (function(){
-	$.get('dcf/salarystandard/checkSalaryStandard.do',{
-				
-	},function(result){
-		
-		obj=JSON.parse(result);
-	  });
-	}
-)();
+	$.ajax({
+		url:'dcf/salarystandard/checkSalaryStandard.do',	
+		type:"POST",
+		contentType:"application/json;charset=utf-8",
+	    success:function(result){
+	    	console.log(result);
+          var str ='';
+          var sum=0;
+          for(var i=0;i<result.length;i++){
+        	  sum++;
+        	  var uu=new Date(result[i].registTime);
+        	  str += '<tr class="TD_STYLE2"><td>'+result[i].standardId+'</td><td>'+result[i].standardName+'</td><td>'+result[i].designer+'</td><td>'+uu.toLocaleString()+'</td><td>'+result[i].salarySum+'</td><td><a href="dcf/salarystandard/checkSalaryStandardOne/'+result[i].standardId+'.do">复核</a></td></tr>';
+          }
+          $(".TABLE_STYLE1").append(str);
+		  $("#sum").html(sum);
+	  }
+	});
+})();
+
 
 </script>
