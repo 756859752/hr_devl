@@ -23,6 +23,7 @@ import service.ConfigMajorService;
 import service.ConfigPublicCharService;
 import service.EngageMajorReleaseService;
 import service.EngageResumeService;
+import web.controller.ybc.dto.Massage;
 
 @Service
 @RequestMapping("/ybcresume")
@@ -43,16 +44,39 @@ public class ResumeRegisterController {
 		EngageMajorRelease e=engageMajorReleaseService.findEngageMajorReleaseById(mid);
 		model.addAttribute("mr", e);
 		selectPublicCharInsertModel(model);
-//		ConfigPublicChar cpc=new ConfigPublicChar();
-//		configPublicCharService.addConfigPublicChar(cpc);
 		return "forward:/ybc_EngageMajorRelease/resume/register.jsp";
 	}
+	
+	//简历登记
+	@RequestMapping("resumeregister.do")
+	public String engageResumeRegister(Model model){
+		List <ConfigMajorKind> mklist=configMajorKindService.findAllConfigMajorKind();
+		model.addAttribute("mklist", mklist);
+		selectPublicCharInsertModel(model);
+		return "forward:/ybc_EngageMajorRelease/resume/resume-register.jsp";
+	}
+	
+	//简历登记查询职位名AJax
+	@RequestMapping("engageresumefinmajorinajax.do")
+	@ResponseBody
+	public List <ConfigMajor> engageResumefinMajorinAjax(String mid){
+		List <ConfigMajor> list=configMajorService.findAllConfigMajor();
+		List <ConfigMajor> mlist=new ArrayList<ConfigMajor>();
+		System.out.println("此时拿到mid是"+mid);
+		for (ConfigMajor configMajor : list) {
+			if(configMajor.getMajorKindId().equals(mid)){
+				mlist.add(configMajor);
+			}
+		}
+		return mlist;
+	}
+	
 	
 	//简历登记提交
 	@RequestMapping("resumeregistersubmit.do")
 	public String  engageResumeRegisterSubmit(EngageResume e){
-		Timestamp t=new Timestamp(new Date().getTime());
-		e.setRegistTime(t);
+//		Timestamp t=new Timestamp(new Date().getTime());
+//		e.setRegistTime(t);
 		engageResumeService.addEngageResume(e);
 		return null;
 	}
@@ -89,13 +113,38 @@ public class ResumeRegisterController {
 		hashmap.put("humanMajorId", humanMajorId);
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
-		System.out.println(humanMajorId);
 		List<EngageResume> resultList=engageResumeService.findAllEngageResumeByConditon(hashmap);
 		model.addAttribute("resultList", resultList);
 		
-		System.out.println(resultList);
 		return "forward:/ybc_EngageMajorRelease/resume/resume-list.jsp";
 	}
+	
+	//简历复核
+	@RequestMapping("engageresumecheck.do")
+	public String engageResumeCheck(Short resId,Model model){
+		
+		System.out.println("resid:"+resId);
+		 EngageResume re= engageResumeService.findEngageResumeById(resId);
+		model.addAttribute("re",re);
+		return "forward:/ybc_EngageMajorRelease/resume/resume-details.jsp";
+	}
+	
+	//推荐面试
+	@RequestMapping("engageResumetuijianmianshi.do")
+	public String engageResumetuijianmianshi(EngageResume e,Model model){
+		engageResumeService.alterEngageResume(e);
+		model.addAttribute("msg", new Massage("推荐成功","index.jsp"));
+		return "forward:/ybc_EngageMajorRelease/massage.jsp";
+	}
+	
+	//有效简历查询
+	@RequestMapping("engageValidResumeSelect.do")
+	public String engageValidResumeSelect(Model model){
+		List<EngageResume> resultList=engageResumeService.findAllEngageResume();
+		model.addAttribute("resultList",resultList);
+		return "forward:/ybc_EngageMajorRelease/resume/valid-list.jsp";
+	}
+	
 	
 	//查找公共字段的方法
 	public void selectPublicCharInsertModel(Model model){

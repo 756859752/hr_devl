@@ -1,4 +1,4 @@
-package web.controller.ybc;
+package web.controller.ybc.dto;
 
 import java.io.Serializable;
 

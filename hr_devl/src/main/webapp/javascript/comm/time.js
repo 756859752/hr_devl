@@ -1,4 +1,6 @@
-
+function aa(startTime) {
+			displayDatePicker(startTime,false,"ymd","");
+		}
 function getDateTime(myName)
 {
 var now = new Date();

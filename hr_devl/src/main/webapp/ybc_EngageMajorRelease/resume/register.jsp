@@ -139,8 +139,8 @@
 	 		<input type="hidden" name="passcheckstatus" value="0"/> -->
 	 		<input type="hidden" name="checkStatus" value="0">
 	 		<input type="hidden"  id="humanMajorKindId" name="humanMajorKindId" value="${mr.majorKindId }" />
-	 		<input type="hidden"  name="humanMajorName" id="humanMajorName" value="${mr.majorId }"/>
-	 		<input type="hidden"  name="interviewStatus" value="1"/>
+	 		<input type="hidden"  name="humanMajorId" id="humanMajorName" value="${mr.majorId }"/>
+	 		<input type="hidden"  name="interviewStatus" value="2"/>
 	 		<input type="hidden" value="${userlogin.user_true_name }" name="register">
 			<table width="100%">
 				<tr>
@@ -165,7 +165,7 @@
 						职位分类
 					</td>
 					<td class="TD_STYLE2">  
-					<select name="humanMajorKind" class="SELECT_STYLE1" id="humanMajorKind">
+					<select name="humanMajorKindName" class="SELECT_STYLE1" id="humanMajorKind">
 					<option>${mr.majorKindName }</option>
 					</select>		
 					</td>

@@ -22,6 +22,7 @@ import service.ConfigFileThirdKindService;
 import service.ConfigMajorKindService;
 import service.ConfigMajorService;
 import service.EngageMajorReleaseService;
+import web.controller.ybc.dto.Massage;
 
 @Controller
 @RequestMapping("/ybc")
@@ -37,7 +38,6 @@ public class EngageMajorReleaseController {
 	ConfigMajorKindService configMajorKindService=null;
 	@Autowired
 	ConfigMajorService configMajorService=null;
-	
 	@Autowired
 	EngageMajorReleaseService engageMajorReleaseService=null;
 	

@@ -6,13 +6,13 @@
    <mapper namespace="dao.EngageInterviewMapper">
    		<insert id="insertEngageInterview" parameterType="EngageInterview">
    			insert into engage_interview(human_name,interview_amount,human_major_kind_id,human_major_kind_name,human_major_id,human_major_name,image_degree,native_language_degree,foreign_language_degree,response_speed_degree,EQ_degree,IQ_degree,multi_quality_degree,register,checker,registe_time,check_time,resume_id,result,interview_comment,check_comment,interview_status,check_status)
-   			values(#{humanName},#{interviewAmount},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{humanMajorName},#{imageDegree},#{nativeLanguageDegree},#{foreignLanguageDegree},#{responseSpeedDegree},#{EQDegree},#{IQDegree},#{multiQualityDegree},#{register},#{checker},#{registeTime},#{checkTime},#{resumeId},#{result},#{interviewComment},#{checkComment},#{interviewStatus},#{checkStatus})
+   			values(#{humanName},#{interviewAmount},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{humanMajorName},#{imageDegree},#{nativeLanguageDegree},#{foreignLanguageDegree},#{responseSpeedDegree},#{eqDegree},#{iqDegree},#{multiQualityDegree},#{register},#{checker},#{registeTime},#{checkTime},#{resumeId},#{result},#{interviewComment},#{checkComment},#{interviewStatus},#{checkStatus})
    		</insert>
    		<delete id="deleteEngageInterview" parameterType="_short">
    			delete from engage_interview where ein_id=#{id}
    		</delete>
    		<update id="updateEngageInterview" parameterType="EngageInterview">
-   			update engage_interview set human_name=#{humanName},interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},human_major_name=#{humanMajorName},image_degree=#{imageDegree},native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},response_speed_degree=#{responseSpeedDegree},EQ_degree=#{EQDegree},IQ_degree=#{IQDegree},multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},registe_time=#{registeTime},check_time=#{checkTime},resume_id=#{resumeId},result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},interview_status=#{interviewStatus},check_status=#{checkStatus}
+   			update engage_interview set human_name=#{humanName},interview_amount=#{interviewAmount},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},human_major_name=#{humanMajorName},image_degree=#{imageDegree},native_language_degree=#{nativeLanguageDegree},foreign_language_degree=#{foreignLanguageDegree},response_speed_degree=#{responseSpeedDegree},EQ_degree=#{eqDegree},IQ_degree=#{iqDegree},multi_quality_degree=#{multiQualityDegree},register=#{register},checker=#{checker},registe_time=#{registeTime},check_time=#{checkTime},resume_id=#{resumeId},result=#{result},interview_comment=#{interviewComment},check_comment=#{checkComment},interview_status=#{interviewStatus},check_status=#{checkStatus}
    			where ein_id=#{einId}
    		</update>
    		
@@ -28,8 +28,8 @@
 <result property="nativeLanguageDegree" column="native_language_degree"/>
 <result property="foreignLanguageDegree" column="foreign_language_degree"/>
 <result property="responseSpeedDegree" column="response_speed_degree"/>
-<result property="EQDegree" column="EQ_degree"/>
-<result property="IQDegree" column="IQ_degree"/>
+<result property="eqDegree" column="EQ_degree"/>
+<result property="iqDegree" column="IQ_degree"/>
 <result property="multiQualityDegree" column="multi_quality_degree"/>
 <result property="register" column="register"/>
 <result property="checker" column="checker"/>
@@ -49,5 +49,66 @@
    		<select id="selectAllEngageInterview" resultMap="tid">
    			select * from engage_interview
    		</select>
+   		
+   		
+   		<select id="selectEngageInterviewByIdWithResume" parameterType="_short" resultMap="tidp">
+   			select * from engage_interview where ein_id=#{id}
+   		</select>
+   		
+   		<resultMap type="EngageInterview" id="tidp" extends="tid">
+   			<association property="resumeid" javaType="EngageResume">
+   				<id property="resId" column="res_id"/>
+<result property="humanName" column="human_name"/>
+<result property="engageType" column="engage_type"/>
+<result property="humanAddress" column="human_address"/>
+<result property="humanPostcode" column="human_postcode"/>
+<result property="humanMajorKindId" column="human_major_kind_id"/>
+<result property="humanMajorKindName" column="human_major_kind_name"/>
+<result property="humanMajorId" column="human_major_id"/>
+<result property="humanMajorName" column="human_major_name"/>
+<result property="humanTelephone" column="human_telephone"/>
+<result property="humanHomephone" column="human_homephone"/>
+<result property="humanMobilephone" column="human_mobilephone"/>
+<result property="humanEmail" column="human_email"/>
+<result property="humanHobby" column="human_hobby"/>
+<result property="humanSpecility" column="human_specility"/>
+<result property="humanSex" column="human_sex"/>
+<result property="humanReligion" column="human_religion"/>
+<result property="humanParty" column="human_party"/>
+<result property="humanNationality" column="human_nationality"/>
+<result property="humanRace" column="human_race"/>
+<result property="humanBirthday" column="human_birthday"/>
+<result property="humanAge" column="human_age"/>
+<result property="humanEducatedDegree" column="human_educated_degree"/>
+<result property="humanEducatedYears" column="human_educated_years"/>
+<result property="humanEducatedMajor" column="human_educated_major"/>
+<result property="humanCollege" column="human_college"/>
+<result property="humanIdcard" column="human_idcard"/>
+<result property="humanBirthplace" column="human_birthplace"/>
+<result property="demandSalaryStandard" column="demand_salary_standard"/>
+<result property="humanHistoryRecords" column="human_history_records"/>
+<result property="remark" column="remark"/>
+<result property="recomandation" column="recomandation"/>
+<result property="humanPicture" column="human_picture"/>
+<result property="attachmentName" column="attachment_name"/>
+<result property="checkStatus" column="check_status"/>
+<result property="register" column="register"/>
+<result property="registTime" column="regist_time"/>
+<result property="checker" column="checker"/>
+<result property="checkTime" column="check_time"/>
+<result property="interviewStatus" column="interview_status"/>
+<result property="totalPoints" column="total_points"/>
+<result property="testAmount" column="test_amount"/>
+<result property="testChecker" column="test_checker"/>
+<result property="testCheckTime" column="test_check_time"/>
+<result property="passRegister" column="pass_register"/>
+<result property="passRegistTime" column="pass_regist_time"/>
+<result property="passChecker" column="pass_checker"/>
+<result property="passCheckTime" column="pass_check_time"/>
+<result property="passCheckStatus" column="pass_check_status"/>
+<result property="passCheckComment" column="pass_checkComment"/>
+<result property="passPassComment" column="pass_passComment"/> 
+   			</association>
+   		</resultMap>
   </mapper>
   

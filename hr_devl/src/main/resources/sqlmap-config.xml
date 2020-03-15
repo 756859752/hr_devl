@@ -4,12 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 取别名 一般在mapper文件的参数类型那里使用 -->
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="true"/>
+	</settings>
 	<typeAliases>
 		<!-- 给一个起别名<typeAlias alias="Student" type="pojo.student"/> -->
 		<!-- 一次性给所有实体取别名 就是实体类名 -->
 		<package name="pojo" />
 	</typeAliases>
-
-
 	<!-- 加载映射文件 实际上是存放sql语句与对应查询结果的映射文件 -->
 </configuration>

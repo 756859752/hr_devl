@@ -71,11 +71,11 @@
 <result property="passCheckComment" column="pass_checkComment"/>
 <result property="passPassComment" column="pass_passComment"/>   </resultMap>
    		
-   		<select id="findEngageResumeById" parameterType="_short" resultMap="tid">
+   		<select id="selectEngageResumeById" parameterType="_short" resultMap="tid">
    			select * from  engage_resume where res_id=#{id}
    		</select>
    		
-   		<select id="selectEngageResumeById" resultMap="tid">
+   		<select id="selectAllEngageResume" resultMap="tid">
    			select * from engage_resume
    		</select>
    		

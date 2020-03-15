@@ -7,26 +7,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>My JSP 'resume-details.jsp' starting page</title>
 		 <link rel="stylesheet"
-			href="css/table.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="css/cwcalendar.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="javascript/comm/comm.js">
+			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/comm/list.js">
+			src="${pageContext.request.contextPath}/javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/calendar-ch.js">
+			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/jquery-1.7.2.js">
+			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/locate.js">
+			src="${pageContext.request.contextPath}/javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/select.js">
+			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
 		<script type="text/javascript">
  			window.onload=check;
@@ -76,10 +76,12 @@
 	</head>
 
 	<body>
-		<form name="humanfileForm" method="post" action="updateResume">
-			<input type="hidden" id="majorKindName" name="humanmajorkindid" value="${re.humanmajorkindid }">
-			<input type="hidden" id="majorName" name="humanmajorid" value="${re.humanmajorid }">
-			<input type="hidden" name ="resid" value="${re.resid }"/>
+		<form name="humanfileForm" method="post" action="engageResumetuijianmianshi.do">
+			<input type="hidden" id="majorKindName" name="humanMajorKindId" value="${re.humanMajorKindId }">
+			<input type="hidden" id="majorName" name="humanMajorId" value="${re.humanMajorId }">
+			<input type="hidden" name ="resId" value="${re.resId }"/>
+			<input type="hidden" name="interviewStatus" value="1">
+			<input type="hidden" name="checkStatus" value="1">
 			<input type="hidden" name="viewnotice" value="0">
 			<table width="100%">
 				<tr>
@@ -105,24 +107,24 @@
 					</td>
 					<td class="TD_STYLE2">
 
-						<select name="humanmajorkindname">
-								<option>${re.humanmajorkindname }</option>
+						<select name="humanMajorKindName">
+								<option>${re.humanMajorKindName }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						职位名称
 					</td>
 					<td class="TD_STYLE2" width="20%">
-						<select name="humanmajorname">
-							<option>${re.humanmajorname }</option>
+						<select name="humanMajorName">
+							<option>${re.humanMajorName }</option>
 						</select>
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						招聘类型
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-						<select name="engagetype" class="SELECT_STYLE1">
-							<option value="${re.engagetype }">${re.engagetype }</option>
+						<select name="engageType" class="SELECT_STYLE1">
+							<option value="${re.engageType }">${re.engageType }</option>
 						</select>
 					</td>
 					<td rowspan="6">
@@ -135,23 +137,23 @@
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text"
-							value="${re.humanname}"
-							name="humanname" class="INPUT_STYLE2" />
+							value="${re.humanName}"
+							name="humanName" class="INPUT_STYLE2" />
 					</td>
 					<td class="TD_STYLE1">
 						性别
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humansex" class="SELECT_STYLE1">
-							<option value="${re.humansex }">${re.humansex }</option>
+						<select name="humanNex" class="SELECT_STYLE1">
+							<option value="${re.humanSex }">${re.humanSex }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						EMAIL
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanemail"
-							value="${re.humanemail }"
+						<input type="text" name="humanEmail"
+							value="${re.humanEmail }"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -160,24 +162,24 @@
 						电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humantelephone"
-							value="${re.humantelephone }"
+						<input type="text" name="humanTelephone"
+							value="${re.humanTelephone }"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						家庭电话
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanhomephone"
-							value="${re.humanhomephone }"
+						<input type="text" name="humanHomephone"
+							value="${re.humanHomephone }"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						手机
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanmobilephone"
-							value="${re.humanmobilephone }"
+						<input type="text" name="humanMobilephone"
+							value="${re.humanMobilephone }"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -186,8 +188,8 @@
 						住址
 					</td>
 					<td colspan="3" class="TD_STYLE2">
-						<input type="text" name="humanaddress"
-							value="${re.humanaddress }"
+						<input type="text" name="humanAddress"
+							value="${re.humanAddress }"
 							class="INPUT_STYLE2">
 					</td>
 
@@ -195,8 +197,8 @@
 						邮编
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanpostcode"
-							value="${re.humanpostcode }"
+						<input type="text" name="humanPostcode"
+							value="${re.humanPostcode }"
 							class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -206,24 +208,24 @@
 						国籍
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humannationality" class="SELECT_STYLE1">
-							<option value="${re.humannationality }">${re.humannationality }</option>
+						<select name="humanNationality" class="SELECT_STYLE1">
+							<option value="${re.humanNationality }">${re.humanNationality }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						出生地
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanbirthplace"
-							value="${re.humanbirthplace }"
+						<input type="text" name="humanBirthplace"
+							value="${re.humanBirthplace }"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						生日
 					</td>
 					<td width="13%" colspan="2" class="TD_STYLE2">
-						<input type="text" name="humanbirthday"
-							value="${re.humanbirthday }"
+						<input type="text" name="humanBirthday"
+							value="${re.humanBirthday }"
 							class="INPUT_STYLE2" id="date_start">
 							
 							
@@ -235,24 +237,24 @@
 						民族
 					</td>
 					<td class="TD_STYLE2" width="14%">
-						<select name="humanrace" class="SELECT_STYLE1">
-							<option value="${re.humanrace }">${re.humanrace }</option>
+						<select name="humanRace" class="SELECT_STYLE1">
+							<option value="${re.humanRace }">${re.humanRace }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						宗教信仰
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanreligion" class="SELECT_STYLE1">
-							<option value="${re.humanreligion }">${re.humanreligion }</option>
+						<select name="humanReligion" class="SELECT_STYLE1">
+							<option value="${re.humanReligion }">${re.humanReligion }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						政治面貌
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-						<select name="humanparty" class="SELECT_STYLE1">
-							<option value="${re.humanparty }">${re.humanparty }</option>
+						<select name="humanParty" class="SELECT_STYLE1">
+							<option value="${re.humanParty }">${re.humanParty }</option>
 						</select>
 					</td>
 
@@ -263,24 +265,24 @@
 						身份证号码
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanidcard"
-							value="${re.humanidcard }"
+						<input type="text" name="humanIdcard"
+							value="${re.humanIdcard }"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						年龄
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humanage"
-							value="${re.humanage }"
+						<input type="text" name="humanAge"
+							value="${re.humanAge }"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						毕业院校
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="humancollege"
-							value="${re.humancollege }"
+						<input type="text" name="humanCollege"
+							value="${re.humanCollege }"
 							class="INPUT_STYLE2" />
 					</td>
 
@@ -288,9 +290,9 @@
 						学历
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humaneducateddegree "
+						<select name="humanEducatedDegree "
 							class="SELECT_STYLE1">
-							<option value="${re.humaneducateddegree }">${re.humaneducateddegree }</option>
+							<option value="${re.humanEducatedDegree }">${re.humanEducatedDegree }</option>
 						</select>
 					</td>
 
@@ -300,18 +302,18 @@
 						教育年限
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humaneducatedyears"
+						<select name="humanEducatedYears"
 							class="SELECT_STYLE1">
-							<option value="${re.humaneducatedyears }">${re.humaneducatedyears }</option>
+							<option value="${re.humanEducatedYears }">${re.humanEducatedYears }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						学历专业
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humaneducatedmajor"
+						<select name="humanEducatedMajor"
 							class="SELECT_STYLE1">
-							<option value="${re.humaneducatedmajor }">${re.humaneducatedmajor }</option>
+							<option value="${re.humanEducatedMajor }">${re.humanEducatedMajor }</option>
 						</select>
 					</td>
 
@@ -319,15 +321,15 @@
 						薪酬要求
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="demandsalarystandard"
-							value="${re.demandsalarystandard }"
+						<input type="text" name="demandSalaryStandard"
+							value="${re.demandSalaryStandard }"
 							class="INPUT_STYLE2" />
 					</td>
 					<td class="TD_STYLE1">
 						注册时间
 					</td>
 					<td class="TD_STYLE2">
-						<input class="INPUT_STYLE2" value="${re.registtime }" readonly="readonly" name="registtime">
+						<input class="INPUT_STYLE2" value="${re.registTime }" readonly="readonly" name="registTime">
 					</td>
 
 				</tr>
@@ -337,16 +339,16 @@
 						特长
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanspecility" class="SELECT_STYLE1">
-							<option value="${re.humanspecility }">${re.humanspecility }</option>
+						<select name="humanSpecility" class="SELECT_STYLE1">
+							<option value="${re.humanSpecility }">${re.humanSpecility }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
 						爱好
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanhobby" class="SELECT_STYLE1">
-							<option value="${re.humanhobby }">${re.humanhobby }</option>
+						<select name="humanHobby" class="SELECT_STYLE1">
+							<option value="${re.humanHobby }">${re.humanHobby }</option>
 						</select>
 					</td>
 					<td class="TD_STYLE1">
@@ -362,7 +364,7 @@
 						推荐时间
 					</td>
 					<td class="TD_STYLE2">
-					<input type="text" name="checktime"
+					<input type="text" name="checkTime"
 							  id="nowTime" readonly="readonly"
 							class="INPUT_STYLE2">
 						 
@@ -374,7 +376,7 @@
 					</td> 
 					<td colspan="7" class="TD_STYLE2">
 						<textarea name="humanhistoryrecords" rows="4" readonly="readonly"
-							class="TEXTAREA_STYLE1">${re.humanhistoryrecords }
+							class="TEXTAREA_STYLE1">${re.humanHistoryRecords }
 						</textarea>
 					</td>
 				</tr>

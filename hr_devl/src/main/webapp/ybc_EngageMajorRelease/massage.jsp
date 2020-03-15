@@ -9,7 +9,7 @@
 <body>
 	<center>
 		<h3>${msg.massagetext} </h3>
-			<a href="${error.backurl}">返回</a>
+			<a href="/${error.backurl}">返回</a>
 		
 	</center>
 </body>
