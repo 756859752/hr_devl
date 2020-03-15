@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.ConfigFileSecondKindMapper;
+import pojo.ConfigFileFirstKind;
 import pojo.ConfigFileSecondKind;
 
 import service.ConfigFileSecondKindService;
@@ -44,6 +45,18 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 	public List<ConfigFileSecondKind> findAllConfigFileSecondKind() {
 		// TODO Auto-generated method stub
 		return configFileSecondKindMapper.selectAllConfigFileSecondKind();
+	}
+
+	@Override
+	public void removeConfigFileSecondKindByfirstkindid(String firstkinfid) {
+		// TODO Auto-generated method stub
+		configFileSecondKindMapper.deleteConfigFileSecondKindByfirstkindid(firstkinfid);
+	}
+
+	@Override
+	public void alterConfigFileSecondKindBycffk(ConfigFileFirstKind ff) {
+		// TODO Auto-generated method stub
+		configFileSecondKindMapper.updateConfigFileSecondKindBycffk(ff);
 	}
 
 	

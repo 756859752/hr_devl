@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<form class="salarystandardForm" name="salarystandardForm" method="post"
-		action="dcf/salarystandard.do">
+		action="dcf/salarystandard/saveSalStan.do">
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是：人力资源--薪酬标准管理--薪酬标准登记
@@ -47,10 +47,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					class="INPUT_STYLE2"></td>
 				<td width="83" class="TD_STYLE1">薪酬标准名称</td>
 				<td width="171" class="TD_STYLE2"><input type="text"
-					name="Ss.standardName" value="" class="INPUT_STYLE2"></td>
+					name="Ss.standardName" value="" class="INPUT_STYLE2" id="salname"></td>
 				<td width="170" class="TD_STYLE1">薪酬总额</td>
 				<td width="138" class="TD_STYLE2"><input id="salesum" type="text"
-					name="Ss.salarySum" value=""
+					name="Ss.salarySum" value="0.00"
 					readonly="readonly" class="INPUT_STYLE2"></td>
 				<td width="103" class="TD_STYLE1">&nbsp;</td>
 				<td width="95" height="26" class="TD_STYLE2">&nbsp;</td>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td class="TD_STYLE1">制定人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.designer"
-					value="" class="INPUT_STYLE2"></td>
+					value="" class="INPUT_STYLE2" id="chename"></td>
 				<td class="TD_STYLE1">登记人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.register"
 					value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
@@ -171,6 +171,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		return year+'-'+month+'-'+da+' '+hour+':'+min+':'+tt;
 	}
    function addSalary(){
+	   var salname=$("#salname").val();
+	   if(salname==null|salname==""){
+		   alert("请填写标准名字");
+		   return;
+	   }
+	   var chename=$("#chename").val();
+	   if(chename==null|chename==""){
+		   alert("请填写制定人");
+		   return;
+	   }
+	   var sal=$(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2");
+	   for (var i=0;i<sal.length;i++) {
+			if (sal[i].value==null||sal[i].value=="") {
+				alert("请检查，薪酬项目金额不能为空");
+				return;
+		}
+	   }
 	   $(".salarystandardForm").submit();
    }
    $(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2").blur(function(){

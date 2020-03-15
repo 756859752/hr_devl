@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -43,142 +43,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
 				<td width="12%" class="TD_STYLE1">薪酬编号</td>
-				<td width="15%" class="TD_STYLE2">1000001</td>
+				<td width="15%" class="TD_STYLE2">${salinfo.ss.standardId}</td>
 				<td width="12%" class="TD_STYLE1">薪酬标准名称</td>
-				<td width="11%" class="TD_STYLE2"></td>
+				<td width="11%" class="TD_STYLE2">${salinfo.ss.standardName}</td>
 				<td width="11%" class="TD_STYLE1">薪酬总额</td>
-				<td width="17%" class="TD_STYLE2">0.0</td>
+				<td width="17%" class="TD_STYLE2">${salinfo.ss.salarySum}</td>
 				<td class="TD_STYLE1" width="12%">&nbsp;</td>
 				<td class="TD_STYLE2" width="10%">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">制定人</td>
-				<td class="TD_STYLE2"></td>
+				<td class="TD_STYLE2">${salinfo.ss.register} </td>
 				<td class="TD_STYLE1">复核人</td>
-				<td class="TD_STYLE2">better_wanghao</td>
+				<td class="TD_STYLE2">${salinfo.ss.checker}</td>
 				<td class="TD_STYLE1">复核时间</td>
-				<td class="TD_STYLE2">2010-05-29 00:00:00.0</td>
+				<td class="TD_STYLE2">${salinfo.ss.checkTime}</td>
 				<td class="TD_STYLE1">&nbsp;</td>
 				<td class="TD_STYLE2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">备注</td>
-				<td colspan="7" class="TD_STYLE2" height="68"></td>
+				<td colspan="7" class="TD_STYLE2" height="68">${salinfo.ss.remark}</td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">序号</td>
 				<td colspan="3" class="TD_STYLE1">薪酬项目名称</td>
 				<td colspan="4" class="TD_STYLE1">金额</td>
 			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1</td>
-				<td colspan="3">出差补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>2</td>
-				<td colspan="3">交通补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>3</td>
-				<td colspan="3">住房补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>4</td>
-				<td colspan="3">基本工资</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>5</td>
-				<td colspan="3">年终奖</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>6</td>
-				<td colspan="3">误餐补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1</td>
-				<td colspan="3">出差补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>2</td>
-				<td colspan="3">交通补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>3</td>
-				<td colspan="3">住房补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>4</td>
-				<td colspan="3">基本工资</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>5</td>
-				<td colspan="3">年终奖</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>6</td>
-				<td colspan="3">误餐补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>1</td>
-				<td colspan="3">出差补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>2</td>
-				<td colspan="3">交通补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>3</td>
-				<td colspan="3">住房补贴</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>4</td>
-				<td colspan="3">基本工资</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>5</td>
-				<td colspan="3">年终奖</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td>6</td>
-				<td colspan="3">误餐补助</td>
-				<td colspan="4">0.0</td>
-			</tr>
-
+            <c:forEach items="${salinfo.list}" var="info" varStatus="i">
+			  <tr class="TD_STYLE2">
+				<td>${info.itemId}</td>
+				<td colspan="3">${info.itemName}</td>
+				<td colspan="4">${info.salary}</td>
+			   </tr>
+			</c:forEach>
 		</table>
 	</form>
 </body>

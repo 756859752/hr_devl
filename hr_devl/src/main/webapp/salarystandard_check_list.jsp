@@ -91,3 +91,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</form>
 </body>
 </html>
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+
+(function(){
+	$.get('dcf/salarystandard/checkSalaryStandard.do',{
+				
+	},function(result){
+		
+		obj=JSON.parse(result);
+	  });
+	}
+)();
+
+</script>

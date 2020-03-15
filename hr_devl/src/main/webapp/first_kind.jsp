@@ -3,11 +3,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
+    <base href="<%=basePath%>">
 
 <title>My JSP 'index.jsp' starting page</title>
 <meta http-equiv="pragma" content="no-cache">
@@ -21,8 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 </head>
-
-<body>
+       
+       
+<body> 
+     
 	<form method="post" action="configfilefirstkind.do">
 		<table width="100%">
 			<tr>
@@ -32,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right"><input type="button" value="添加"
 					class="BUTTON_STYLE1"
-					onclick="window.location.href='first_kind_register.html'" /></td>
+					onclick="window.location.href='first_kind_register.jsp'" /></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -45,15 +47,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="5%" class="TD_STYLE1">变更</td>
 				<td width="5%" class="TD_STYLE1">删除</td>
 			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">集团</td>
-				<td class="TD_STYLE2">1</td>
-				<td class="TD_STYLE2">1</td>
-				<td class="TD_STYLE2"><a href="first_kind_change.html">变更</a></td>
-				<td class="TD_STYLE2"><a href="first_kind_delete.html">删除</a></td>
-			</tr>
+                    
+			
+			<c:forEach items="${configFileFirstKind}" var="i" >
+			 <tr>
+				<td class="TD_STYLE2">${i.firstKindId }</td>
+				<td class="TD_STYLE2">${i.firstKindName }</td>
+				<td class="TD_STYLE2">${i.firstKindSalaryId }</td>
+				<td class="TD_STYLE2">${i.firstKindSaleId }</td>
+				<td class="TD_STYLE2"><a href="xxk/${i.ffkId}/cffkselectbyid.do">变更</a></td>
+				<td class="TD_STYLE2"><a href="xxk/${i.ffkId}/deleteprocess.do ">删除</a></td>
+			  </tr>
+			</c:forEach>
+			
+			
 
 		</table>
 		<p>

@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -40,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td>符合条件的薪酬标准总数: 1 例</td>
+				<td id="sum">符合条件的薪酬标准总数: <span></span>例</td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -52,15 +53,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="30%" class="TD_STYLE1"><span>登记时间</span></td>
 				<td class="TD_STYLE1" width="15%">薪酬总额</td>
 			</tr>
-
-			<tr class="TD_STYLE2">
-				<td><a href="salarystandard_query.html">1000001</a></td>
-				<td></td>
-				<td></td>
-				<td>2010-05-29 00:00:00.0</td>
-				<td>0.0</td>
-			</tr>
-
+            <c:forEach items="${list}" var="l">
+				<tr class="TD_STYLE2">
+				    <td><a href="dcf/salarystandard/queryone/${l.standardId}.do">${l.standardId}</td>
+					<td><span>${l.standardName }</span></td>
+					<td><span>${l.register}</span></td>
+					<td><span>${l.registTime }</span></td>
+					<td>${l.salarySum}</td>
+				</tr>
+			 </c:forEach>
 		</table>
 		<p>
 			&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
@@ -70,3 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</form>
 </body>
 </html>
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+   var a=$(".TABLE_STYLE1 tr");
+   $("#sum span").html((a.length-1));
+</script>

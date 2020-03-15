@@ -18,20 +18,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link rel="stylesheet" href="table.css" type="text/css">
-<script type="text/javascript" src="javascript/comm/comm.js"></script>
+ <link rel="stylesheet" href="table.css" type="text/css">
+ <script type="text/javascript" src="javascript/comm/comm.js"></script>
+ <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+
+ <script type="text/javascript" >
+   function deleteone(){
+    $("#configFileFirstkind").submit();    
+   }
+ </script>
 </head>
 <body>
-	<form method="post" action="configfilefirstkind.do">
+	<form  id="configFileFirstkind"  method="post" action="xxk/${deleteprocess.ffkId}/cffkdelete.do">
 		<table width="100%">
 			<tr>
 				<td colspan="2"><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--I级机构设置
 				</font></td>
 			</tr>
-			<tr>
-				<td width="49%">您确认删除 01 / 集团 这条记录吗?</td>
+			<tr>                          
+				<td width="49%">您确认删除 <b> ${deleteprocess. firstKindId} / ${deleteprocess.firstKindName}</b>这条记录吗?</td>
 				<td width="51%" align="right"><input type="button" value="删除"
-					class="BUTTON_STYLE1" onclick="javascript:doDel('2')"> <input
+					class="BUTTON_STYLE1" onclick="deleteone()"> <input
 					type="button" value="返回" class="BUTTON_STYLE1"
 					onclick="history.back();"></td>
 			</tr>
