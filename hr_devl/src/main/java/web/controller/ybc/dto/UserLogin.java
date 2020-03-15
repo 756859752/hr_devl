@@ -1,4 +1,4 @@
-package web.controller.ybc;
+package web.controller.ybc.dto;
 
 public class UserLogin {
 	String user_true_name=null;

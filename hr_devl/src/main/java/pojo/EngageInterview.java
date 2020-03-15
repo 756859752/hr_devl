@@ -34,8 +34,16 @@ public class EngageInterview implements java.io.Serializable {
 	private String checkComment;
 	private Short interviewStatus;
 	private Short checkStatus;
-
+	private EngageResume resumeid;
 	// Constructors
+
+	public EngageResume getResumeid() {
+		return resumeid;
+	}
+
+	public void setResumeid(EngageResume resumeid) {
+		this.resumeid = resumeid;
+	}
 
 	/** default constructor */
 	public EngageInterview() {
@@ -271,6 +279,27 @@ public class EngageInterview implements java.io.Serializable {
 
 	public void setCheckStatus(Short checkStatus) {
 		this.checkStatus = checkStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "EngageInterview [einId=" + einId + ", humanName=" + humanName
+				+ ", interviewAmount=" + interviewAmount
+				+ ", humanMajorKindId=" + humanMajorKindId
+				+ ", humanMajorKindName=" + humanMajorKindName
+				+ ", humanMajorId=" + humanMajorId + ", humanMajorName="
+				+ humanMajorName + ", imageDegree=" + imageDegree
+				+ ", nativeLanguageDegree=" + nativeLanguageDegree
+				+ ", foreignLanguageDegree=" + foreignLanguageDegree
+				+ ", responseSpeedDegree=" + responseSpeedDegree
+				+ ", eqDegree=" + eqDegree + ", iqDegree=" + iqDegree
+				+ ", multiQualityDegree=" + multiQualityDegree + ", register="
+				+ register + ", checker=" + checker + ", registeTime="
+				+ registeTime + ", checkTime=" + checkTime + ", resumeId="
+				+ resumeId + ", result=" + result + ", interviewComment="
+				+ interviewComment + ", checkComment=" + checkComment
+				+ ", interviewStatus=" + interviewStatus + ", checkStatus="
+				+ checkStatus + ", resumeid=" + resumeid + "]";
 	}
 
 }

@@ -14,4 +14,6 @@ public interface EngageInterviewMapper {
 	public EngageInterview selectEngageInterviewById(short id);
 
 	public List<EngageInterview> selectAllEngageInterview();
+	
+	public EngageInterview selectEngageInterviewByIdWithResume(short id);
 }

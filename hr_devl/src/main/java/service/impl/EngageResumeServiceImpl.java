@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,13 @@ public class EngageResumeServiceImpl implements EngageResumeService{
 	public List<EngageResume> findAllEngageResume() {
 		// TODO Auto-generated method stub
 		return engageResumeMapper.selectAllEngageResume();
+	}
+
+	@Override
+	public List<EngageResume> findAllEngageResumeByConditon(
+			HashMap<String, String> hashmap) {
+		// TODO Auto-generated method stub
+		return engageResumeMapper.selectAllEngageResumeByConditon(hashmap);
 	}
 	
 }

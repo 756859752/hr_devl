@@ -71,12 +71,29 @@
 <result property="passCheckComment" column="pass_checkComment"/>
 <result property="passPassComment" column="pass_passComment"/>   </resultMap>
    		
-   		<select id="findEngageResumeById" parameterType="_short" resultMap="tid">
+   		<select id="selectEngageResumeById" parameterType="_short" resultMap="tid">
    			select * from  engage_resume where res_id=#{id}
    		</select>
    		
-   		<select id="selectEngageResumeById" resultMap="tid">
+   		<select id="selectAllEngageResume" resultMap="tid">
    			select * from engage_resume
+   		</select>
+   		
+   		<select id="selectAllEngageResumeByConditon" parameterType="hashmap" resultMap="tid">
+   			select * from engage_resume
+   			<trim prefix="where" prefixOverrides="and|or">
+   				<if test="humanMajorId!=''">
+   					and human_major_id=#{humanMajorId}
+   				</if>
+   				<if test="startDate!=''">
+   					and  unix_timestamp(regist_time)> unix_timestamp(#{startDate})
+   				</if>
+   				<if test="endDate!=''">
+	   				<![CDATA[
+	   					and unix_timestamp(regist_time)<unix_timestamp(#{startDate})
+	  			 	]]>
+   				</if>
+   			</trim>
    		</select>
   </mapper>
   

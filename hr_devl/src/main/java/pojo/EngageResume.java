@@ -554,4 +554,43 @@ public class EngageResume implements java.io.Serializable {
 		this.passPassComment = passPassComment;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageResume [resId=" + resId + ", humanName=" + humanName
+				+ ", engageType=" + engageType + ", humanAddress="
+				+ humanAddress + ", humanPostcode=" + humanPostcode
+				+ ", humanMajorKindId=" + humanMajorKindId
+				+ ", humanMajorKindName=" + humanMajorKindName
+				+ ", humanMajorId=" + humanMajorId + ", humanMajorName="
+				+ humanMajorName + ", humanTelephone=" + humanTelephone
+				+ ", humanHomephone=" + humanHomephone + ", humanMobilephone="
+				+ humanMobilephone + ", humanEmail=" + humanEmail
+				+ ", humanHobby=" + humanHobby + ", humanSpecility="
+				+ humanSpecility + ", humanSex=" + humanSex
+				+ ", humanReligion=" + humanReligion + ", humanParty="
+				+ humanParty + ", humanNationality=" + humanNationality
+				+ ", humanRace=" + humanRace + ", humanBirthday="
+				+ humanBirthday + ", humanAge=" + humanAge
+				+ ", humanEducatedDegree=" + humanEducatedDegree
+				+ ", humanEducatedYears=" + humanEducatedYears
+				+ ", humanEducatedMajor=" + humanEducatedMajor
+				+ ", humanCollege=" + humanCollege + ", humanIdcard="
+				+ humanIdcard + ", humanBirthplace=" + humanBirthplace
+				+ ", demandSalaryStandard=" + demandSalaryStandard
+				+ ", humanHistoryRecords=" + humanHistoryRecords + ", remark="
+				+ remark + ", recomandation=" + recomandation
+				+ ", humanPicture=" + humanPicture + ", attachmentName="
+				+ attachmentName + ", checkStatus=" + checkStatus
+				+ ", register=" + register + ", registTime=" + registTime
+				+ ", checker=" + checker + ", checkTime=" + checkTime
+				+ ", interviewStatus=" + interviewStatus + ", totalPoints="
+				+ totalPoints + ", testAmount=" + testAmount + ", testChecker="
+				+ testChecker + ", testCheckTime=" + testCheckTime
+				+ ", passRegister=" + passRegister + ", passRegistTime="
+				+ passRegistTime + ", passChecker=" + passChecker
+				+ ", passCheckTime=" + passCheckTime + ", passCheckStatus="
+				+ passCheckStatus + ", passCheckComment=" + passCheckComment
+				+ ", passPassComment=" + passPassComment + "]";
+	}
+
 }

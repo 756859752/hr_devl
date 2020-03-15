@@ -7,26 +7,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My JSP 'valid-list.jsp' starting page</title>
 		 <link rel="stylesheet"
-			href="css/table.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="css/cwcalendar.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="javascript/comm/comm.js">
+			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/comm/list.js">
+			src="${pageContext.request.contextPath}/javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/calendar-ch.js">
+			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/jquery-1.7.2.js">
+			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/locate.js">
+			src="${pageContext.request.contextPath}/javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/select.js">
+			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
      </head>
 
@@ -81,35 +81,34 @@
 							<c:forEach items="${resultList}" var="re">
 					<tr>
 						<td class="TD_STYLE2">
-							<a href="ValidResumeById?resid=${re.resid}">
-								${re.resid}</a>
+							<a href="ValidResumeById?resid=${re.resId}">
+								${re.resId}</a>
 						</td>
 						<td class="TD_STYLE2">
-							${re.humanname}
+							${re.humanName}
 						</td>
 						<td class="TD_STYLE2">
-							${re.humansex}
+							${re.humanSex}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmajorkindname}
+						${re.humanMajorKindName}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmajorname}
+						${re.humanMajorName}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmobilephone}
+						${re.humanMobilephone}
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.checkstatus == 0}">未通过</c:if>
-						<c:if test="${re.checkstatus == 1}">通过</c:if>
+						<c:if test="${re.checkStatus == 0}">未通过</c:if>
+						<c:if test="${re.checkStatus == 1}">通过</c:if>
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.interviewstatus == 1}">待面试</c:if>
-						<c:if test="${re.interviewstatus == 2}">不可面试</c:if>
+						<c:if test="${re.interviewStatus == 1}">待面试</c:if>
+						<c:if test="${re.interviewStatus == 2}">不可面试</c:if>
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.viewnotice == 0}"><a href="toSendmail?resid=${re.resid}">${re.humanemail}</a></c:if>
-						<c:if test="${re.viewnotice == 1}">已通知</c:if>
+							已通知
 						</td>
 					</tr>
 				</c:forEach>

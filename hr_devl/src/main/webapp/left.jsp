@@ -490,19 +490,19 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="engageresume.do?operate=toAdd"
+											<td width="98%"><a href="ybcresume/resumeregister.do?operate=toAdd"
 												target="mainFrame">简历登记</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td><a
-												href="engageresume.do?operate=locate&method=check"
+												href="ybcresume/resumeshaixuan.do?operate=locate&method=check"
 												target="mainFrame">简历筛选</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td><a
-												href="engageresume.do?operate=locate&method=query"
+												href="ybcresume/engageValidResumeSelect.do?operate=locate&method=query"
 												target="mainFrame">有效简历查询</a></td>
 										</tr>
 									</table>
@@ -523,12 +523,12 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engageresume.do?operate=locate&method=interview"
+												href="ybcinterview/interviewResultRegisterSelectMajorKind.do?operate=locate&method=interview"
 												target="mainFrame">面试结果登记</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="engageinterview.do?operate=list"
+											<td><a href="ybcinterview/interviewResultShaixuan.do?operate=list"
 												target="mainFrame">面试筛选</a></td>
 										</tr>
 									</table>

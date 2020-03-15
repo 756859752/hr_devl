@@ -45,4 +45,12 @@ public class EngageInterviewServiceImpl implements EngageInterviewService{
 		return engageInterviewMapper.selectAllEngageInterview();
 	}
 
+	@Override
+	public EngageInterview findEngageInterviewByIdWithResume(short id) {
+		// TODO Auto-generated method stub
+		return engageInterviewMapper.selectEngageInterviewByIdWithResume(id);
+	}
+
+	
+
 }

@@ -7,26 +7,26 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My JSP 'resume-list.jsp' starting page</title>
 	 <link rel="stylesheet"
-			href="css/table.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
-			href="css/cwcalendar.css" type="text/css">
+			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
-			src="javascript/comm/comm.js">
+			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/comm/list.js">
+			src="${pageContext.request.contextPath}/javascript/comm/list.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/calendar-ch.js">
+			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/jquery-1.7.2.js">
+			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/locate.js">
+			src="${pageContext.request.contextPath}/javascript/locate.js">
 		</script>
 		<script type="text/javascript"
-			src="javascript/select.js">
+			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
 	  </head>
 	<body>
@@ -77,30 +77,30 @@
 				<c:forEach items="${resultList}" var="re">
 					<tr>
 						<td class="TD_STYLE2">
-							${re.resid}
+							${re.resId}
 						</td>
 						<td class="TD_STYLE2">
-							${re.humanname}
+							${re.humanName}
 						</td>
 						<td class="TD_STYLE2">
-							${re.humansex}
+							${re.humanSex}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmajorkindname}
+						${re.humanMajorKindName}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmajorname}
+						${re.humanMajorName}
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanmobilephone}
+						${re.humanMobilephone}
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.checkstatus == 0}">待复核</c:if>
-						<c:if test="${re.checkstatus == 1}">已复核</c:if>
+						<c:if test="${re.checkStatus == 0}">待复核</c:if>
+						<c:if test="${re.checkStatus == 1}">已复核</c:if>
 						</td>
 						<td class="TD_STYLE2">
-							<c:if test="${re.checkstatus == 0}"><a href="findValidResumeById?resid=${re.resid}">复核</a></c:if>
-							<c:if test="${re.checkstatus == 1}">复核</c:if>
+							<c:if test="${re.checkStatus == 0}"><a href="engageresumecheck.do?resId=${re.resId}">复核</a></c:if>
+							<c:if test="${re.checkStatus == 1}">复核</c:if>
 					</tr>
 				</c:forEach>
 				

@@ -10,4 +10,5 @@ public interface EngageInterviewService {
 	public void alterEngageInterview(EngageInterview EngageInterview);
 	public EngageInterview findEngageInterviewById(short id);
 	public List<EngageInterview> findAllEngageInterview();
+	public  EngageInterview findEngageInterviewByIdWithResume(short id);
 }
