@@ -37,7 +37,7 @@
 		select * from salary_standard_details
 	</select>
 	
-	<!-- 根据薪酬标准的编号查询细节 -->
+	<!-- 根据薪酬发放编号查询细节 -->
 	<select id="selectSalaryStandardDetailsBySsid" parameterType="string"
 		resultMap="ssd">
 		select * from salary_standard_details where standard_id=#{sid}

@@ -74,5 +74,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript">
    var a=$(".TABLE_STYLE1 tr");
-   $("#sum span").html((a.length-1));
+   $("#sum").html((a.length-1));
 </script>

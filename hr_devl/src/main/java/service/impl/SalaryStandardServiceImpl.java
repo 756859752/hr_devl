@@ -52,7 +52,7 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 		
 		return SalaryStandardMapper.seletCoditionsSalaryStandard(map);
 	}
-
+//查询多个薪酬标注细节
 	@Override
 	public List<SalaryStandard> findStateSalaryStandards() {
 		return SalaryStandardMapper.seletStateSalaryStandard();

@@ -38,5 +38,10 @@
 	<select id="selectAllSalaryGrantDetails" resultMap="sgd">
 		select * from salary_grant_details
 	</select>
+	
+	<!-- 根据薪酬标准编号查询 -->
+	<select id="selectSalaryGrandDetailsBySsid" parameterType="string" resultMap="sgd">
+		select * from salary_grant_details where salary_grant_id=#{ssid}
+	</select>
 </mapper>
   

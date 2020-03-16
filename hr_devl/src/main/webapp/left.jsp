@@ -300,22 +300,22 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="salarystandard_register.html"
+							<td width="98%"><a href="salarystandard_register.jsp"
 								target="mainFrame">薪酬标准登记</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_check_list.html"
+							<td><a href="salarystandard_check_list.jsp"
 								target="mainFrame">薪酬标准登记复核</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_query_locate.html"
+							<td><a href="salarystandard_query_locate.jsp"
 								target="mainFrame">薪酬标准查询</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_change_locate.html"
+							<td><a href="salarystandard_change_locate.jsp"
 								target="mainFrame">薪酬标准变更</a></td>
 						</tr>
 					</table>
@@ -335,15 +335,18 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%">薪酬发放登记</td>
+							<td width="98%"><a href="dcf_SalaryGrant/register_list.jsp"
+								target="mainFrame">薪酬发放登记</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td>薪酬发放登记复核</td>
+							<td><a href="dcf_SalaryGrant/check_list.jsp"
+								target="mainFrame">薪酬发放登记复核</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td>薪酬发放查询</td>
+							<td><a href="dcf_SalaryGrant/query_locate.jsp"
+								target="mainFrame">薪酬发放查询</td>
 						</tr>
 					</table>
 			</span></td>

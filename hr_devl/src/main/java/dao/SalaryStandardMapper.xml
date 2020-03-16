@@ -44,10 +44,13 @@
 	<select id="selectAllSalaryStandard" resultMap="ss">
 		select * from salary_standard
 	</select>
-	<!-- 多条件筛选薪酬标准 -->
+	<!-- 多条件筛选薪酬标准，1表示审核通过的 -->
 	<select id="seletCoditionsSalaryStandard" parameterType="hashmap" resultMap="ss">
 	    select * from salary_standard
 	    <where>
+	       <if test="pass!=null&amp;pass!=''">
+	           and check_status=#{pass}
+	       </if>
 	       <if test="salid!=null&amp;salid!=''">
 	           and standard_id=#{salid}
 	       </if>
@@ -62,6 +65,7 @@
 	         and regist_time &lt; #{maxtime} 
 	       </if>
 	    </where>
+	      
 	</select>
 	<!-- 查询未通过审核的薪酬标准 -->
 	<select id="seletStateSalaryStandard" resultMap="ss">

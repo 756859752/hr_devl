@@ -48,13 +48,15 @@ public class SalaryStandardCotroller {
     	return "redirect:/salarystandard_register_success.jsp";
     }
     
-//查询现有的薪酬标准
+//查询现有通过审核的薪酬标准
     @RequestMapping("/querySalStan.do")
     public String querySalaryStandards(@RequestParam String salid,@RequestParam String salinfo,
     		@RequestParam String starttime,@RequestParam String endtime,Model model) {
     	HashMap<String, Object> map=new HashMap<String, Object>();
     	map.put("salid", salid);
     	map.put("salnam", salinfo);
+//   添加通过审核的薪酬标准状态 	
+    	map.put("pass", (short)1);
     	if(starttime!=""&&endtime!="") {
     		if(Timestamp.valueOf((starttime+" 00:00:00")).after(Timestamp.valueOf((endtime+" 00:00:00")))) {
         		map.put("mintime",Timestamp.valueOf((endtime+" 00:00:00")));
@@ -116,6 +118,63 @@ public class SalaryStandardCotroller {
     	ss.setCheckStatus((short)1);
     	sss.alterSalaryStandard(ss);
     	ArrayList<SalaryStandardDetails> list=s.getList();
+    	for (SalaryStandardDetails sd : list) {
+			ssds.alterSalaryStandardDetails(sd);
+		}
     	return "redirect:/salarystandard_check_success.jsp";
+    }
+//    查询所有可以变更的薪酬标准
+    @RequestMapping("/updateSalStan.do")
+    public String uodateSalaryStandards(@RequestParam String salid,@RequestParam String salinfo,
+    		@RequestParam String starttime,@RequestParam String endtime,Model model) {
+    	HashMap<String, Object> map=new HashMap<String, Object>();
+    	map.put("salid", salid);
+    	map.put("salnam", salinfo);
+       //   添加通过审核的薪酬标准状态 	
+    	map.put("pass", (short)1);
+    	if(starttime!=""&&endtime!="") {
+    		if(Timestamp.valueOf((starttime+" 00:00:00")).after(Timestamp.valueOf((endtime+" 00:00:00")))) {
+        		map.put("mintime",Timestamp.valueOf((endtime+" 00:00:00")));
+            	map.put("maxtime", Timestamp.valueOf((starttime+" 00:00:00")));
+        	}else {
+        		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
+            	map.put("maxtime", Timestamp.valueOf((endtime+" 00:00:00")));
+        	}	
+    	}else if(starttime==""&&endtime!="") {
+    		map.put("maxtime",Timestamp.valueOf((endtime+" 00:00:00")));
+    	}else if(starttime!=""&&endtime=="") {
+    		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
+    	}
+    	List<SalaryStandard> list=sss.findCoditionsSalaryStandard(map);
+    	for (SalaryStandard s : list) {
+			System.out.println(s.getStandardName());
+		}
+    	model.addAttribute("list", list);
+    	return "forward:/salarystandard_change_list.jsp";
+    }
+    
+//    展示一个要修改薪酬标准
+    @RequestMapping("/showupdateone/{sid}.do")
+    public String showUpdateOneSalaryStandard(@PathVariable int sid,HttpSession session) {
+    	SalaryStandard salaryStandard=sss.findSalaryStandardById((short)sid);
+    	ArrayList<SalaryStandardDetails> list=ssds.findManySalaryStandardDetails(String.valueOf(sid));
+    	Salary s=new Salary();
+    	s.setSs(salaryStandard);
+    	s.setList(list);
+    	session.setAttribute("salinfo",s);
+    	return "redirect:/salarystandard_change.jsp";
+    }
+//    修改一个薪酬标准
+    @RequestMapping("/updateone.do")
+    public String updateOneSalaryStandard(@ModelAttribute Salary s) {
+    	SalaryStandard ss=s.getSs();
+    	 System.out.println("得到变更的数据"+ss.getSalarySum());
+    	ss.setCheckStatus((short)0);
+    	sss.alterSalaryStandard(ss);
+    	ArrayList<SalaryStandardDetails> list=s.getList();
+    	for (SalaryStandardDetails sd : list) {
+			ssds.alterSalaryStandardDetails(sd);
+		}
+    	return "redirect:/salarystandard_change_success.jsp";
     }
 }

@@ -70,13 +70,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		type:"POST",
 		contentType:"application/json;charset=utf-8",
 	    success:function(result){
-	    	console.log(result);
           var str ='';
           var sum=0;
           for(var i=0;i<result.length;i++){
         	  sum++;
         	  var uu=new Date(result[i].registTime);
-        	  str += '<tr class="TD_STYLE2"><td>'+result[i].standardId+'</td><td>'+result[i].standardName+'</td><td>'+result[i].designer+'</td><td>'+uu.toLocaleString()+'</td><td>'+result[i].salarySum+'</td><td><a href="dcf/salarystandard/checkSalaryStandardOne/'+result[i].standardId+'.do">复核</a></td></tr>';
+        	  var salsum=result[i].salarySum;
+        	  str += '<tr class="TD_STYLE2"><td>'+result[i].standardId+'</td><td>'+result[i].standardName+'</td><td>'+result[i].designer+'</td><td>'+uu.toLocaleString()+'</td><td>'+salsum.toFixed(2)+'</td><td><a href="dcf/salarystandard/checkSalaryStandardOne/'+result[i].standardId+'.do">复核</a></td></tr>';
           }
           $(".TABLE_STYLE1").append(str);
 		  $("#sum").html(sum);

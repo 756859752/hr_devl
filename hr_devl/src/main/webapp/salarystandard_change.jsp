@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,18 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css" />
 <title>无标题文档</title>
-<script type="text/javascript">
-		function doEdit(id)
-		{
-			//document.forms[0].action = document.forms[0].action + "?operate=doEdit&method=change&id=" + id;
-			document.forms[0].action = "salarystandard_register_success.html";
-			document.forms[0].submit();
-		}
-		</script>
 </head>
-
 <body>
-	<form action="salarystandard.do" method="post">
+	<form action="dcf/salarystandard/updateone.do" method="post" class="salarystandardForm">
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是:人力资源管理--薪酬标准管理--薪酬标准登记变更</font>
@@ -41,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>
 					<div align="right">
 						<input type="button" value="重新提交" class="BUTTON_STYLE1"
-							onclick="doEdit(1)"> <input type="button" value="返回"
+							onclick="doEdit()"> <input type="button" value="返回"
 							onclick="history.back();" class="BUTTON_STYLE1">
 					</div>
 				</td>
@@ -50,35 +41,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
+			    <input name="Ss.ssdId" type="hidden" value="${salinfo.ss.ssdId}"/>
 				<td width="12%" class="TD_STYLE1">薪酬编号</td>
-				<td width="15%" class="TD_STYLE2">1000001</td>
+				<td width="15%" class="TD_STYLE2" >${salinfo.ss.standardId}</td>
+				      <input name="Ss.standardId" type="hidden" value="${salinfo.ss.standardId}"/>
 				<td width="12%" class="TD_STYLE1">薪酬标准名称</td>
 				<td width="11%" class="TD_STYLE2"><input type="text"
-					name="item.standardName" value="" class="INPUT_STYLE2"></td>
+					name="Ss.standardName" readonly="readonly" value="${salinfo.ss.standardName}" class="INPUT_STYLE2"></td>
 				<td width="11%" class="TD_STYLE1">薪酬总额</td>
-				<td width="17%" class="TD_STYLE2">0.0</td>
+				<td width="17%" id="salesum" class="TD_STYLE2" name="Ss.salarySum">${salinfo.ss.salarySum}0</td>    
+				     <input id="updatesum" name="Ss.salarySum" type="hidden" value=""/>  
 				<td width="12%" class="TD_STYLE1">&nbsp;</td>
 				<td width="10%" class="TD_STYLE2">&nbsp;</td>
 			</tr>
 			<tr>
+			     <!-- 登记人 -->
 				<td class="TD_STYLE1">制定人</td>
-				<td class="TD_STYLE2"><input type="text" name="item.designer"
-					value="" class="INPUT_STYLE2"></td>
+				<td class="TD_STYLE2"><input type="text" name="Ss.designer"
+					value="${salinfo.ss.designer}" readonly="readonly" class="INPUT_STYLE2"></td>
 				<td class="TD_STYLE1">变更人</td>
-				<td class="TD_STYLE2"><input type="text" name="item.changer"
-					value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+				<td class="TD_STYLE2"><input type="text" name="Ss.checker"
+					value="${salinfo.ss.changer}" readonly="readonly" class="INPUT_STYLE2">
 				</td>
 				<td class="TD_STYLE1">变更时间</td>
-				<td class="TD_STYLE2"><input type="text"
-					name="item.str_changeTime" value="2010-05-29 03:38:31"
+				<td class="TD_STYLE2"><input type="text" id="timenow"
+					name="Ss.changeTime" value="${salinfo.ss.changeTime}"
 					readonly="readonly" class="INPUT_STYLE2"></td>
+					<input type="hidden" name="Ss.checkTime" value="${salinfo.ss.checkTime}">
+					<input type="hidden" name="Ss.registTime" value="${salinfo.ss.registTime}">
 				<td class="TD_STYLE1">&nbsp;</td>
 				<td class="TD_STYLE2">&nbsp;</td>
 			</tr>
+			
 			<tr>
+				   <input name="Ss.checkComment" type="hidden" value="${salinfo.ss.checkComment}"/>
 				<td class="TD_STYLE1">备注</td>
-				<td colspan="7" class="TD_STYLE2"><textarea name="item.remark"
-						rows="4" class="TEXTAREA_STYLE1"></textarea></td>
+				<td colspan="7" class="TD_STYLE2"><textarea name="Ss.remark"
+						rows="4" class="TEXTAREA_STYLE1" >${salinfo.ss.remark}</textarea></td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">序号</td>
@@ -86,241 +85,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td colspan="4" class="TD_STYLE1">金额</td>
 			</tr>
 
-			<input type="hidden" name="list[0].sdtId" value="1"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>1 <input type="hidden" name="list[0].itemId" value="1"
-					class="INPUT_STYLE2">
+		      <c:forEach items="${salinfo.list}" var="s" varStatus="i">
+            	<tr class="TD_STYLE2">
+            	 <input type="hidden" name="list[${i.index}].sdtId" value="${s.sdtId}"/>
+            	  <input type="hidden" name="list[${i.index}].standardId" value="${s.standardId}"/>
+            	  <input type="hidden" name="list[${i.index}].standardName" value="${s.standardName}"/>
+				<td align="center">${i.count}<input type="hidden" name="list[${i.index}].itemId"
+					value="${i.count}" class="INPUT_STYLE2">
 				</td>
-				<td colspan="3">出差补助 <input type="hidden"
-					name="list[0].itemName" value="出差补助" class="INPUT_STYLE2">
+				<td colspan="3">${s.itemName} <input type="hidden"
+					name="list[${i.index}].itemName" value="${s.itemName}" class="INPUT_STYLE2">
 				</td>
-				<td colspan="4"><input type="text" name="list[0].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[1].sdtId" value="2"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>2 <input type="hidden" name="list[1].itemId" value="2"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">交通补贴 <input type="hidden"
-					name="list[1].itemName" value="交通补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[1].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[2].sdtId" value="3"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>3 <input type="hidden" name="list[2].itemId" value="3"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">住房补贴 <input type="hidden"
-					name="list[2].itemName" value="住房补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[2].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[3].sdtId" value="4"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>4 <input type="hidden" name="list[3].itemId" value="4"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">基本工资 <input type="hidden"
-					name="list[3].itemName" value="基本工资" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[3].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[4].sdtId" value="5"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>5 <input type="hidden" name="list[4].itemId" value="5"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">年终奖 <input type="hidden"
-					name="list[4].itemName" value="年终奖" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[4].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[5].sdtId" value="6"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>6 <input type="hidden" name="list[5].itemId" value="6"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">误餐补助 <input type="hidden"
-					name="list[5].itemName" value="误餐补助" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[5].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[6].sdtId" value="7"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>1 <input type="hidden" name="list[6].itemId" value="1"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">出差补助 <input type="hidden"
-					name="list[6].itemName" value="出差补助" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[6].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[7].sdtId" value="8"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>2 <input type="hidden" name="list[7].itemId" value="2"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">交通补贴 <input type="hidden"
-					name="list[7].itemName" value="交通补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[7].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[8].sdtId" value="9"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>3 <input type="hidden" name="list[8].itemId" value="3"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">住房补贴 <input type="hidden"
-					name="list[8].itemName" value="住房补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[8].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[9].sdtId" value="10"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>4 <input type="hidden" name="list[9].itemId" value="4"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">基本工资 <input type="hidden"
-					name="list[9].itemName" value="基本工资" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[9].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[10].sdtId" value="11"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>5 <input type="hidden" name="list[10].itemId" value="5"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">年终奖 <input type="hidden"
-					name="list[10].itemName" value="年终奖" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[10].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[11].sdtId" value="12"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>6 <input type="hidden" name="list[11].itemId" value="6"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">误餐补助 <input type="hidden"
-					name="list[11].itemName" value="误餐补助" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[11].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[12].sdtId" value="13"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>1 <input type="hidden" name="list[12].itemId" value="1"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">出差补助 <input type="hidden"
-					name="list[12].itemName" value="出差补助" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[12].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[13].sdtId" value="14"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>2 <input type="hidden" name="list[13].itemId" value="2"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">交通补贴 <input type="hidden"
-					name="list[13].itemName" value="交通补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[13].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[14].sdtId" value="15"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>3 <input type="hidden" name="list[14].itemId" value="3"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">住房补贴 <input type="hidden"
-					name="list[14].itemName" value="住房补贴" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[14].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[15].sdtId" value="16"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>4 <input type="hidden" name="list[15].itemId" value="4"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">基本工资 <input type="hidden"
-					name="list[15].itemName" value="基本工资" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[15].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[16].sdtId" value="17"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>5 <input type="hidden" name="list[16].itemId" value="5"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">年终奖 <input type="hidden"
-					name="list[16].itemName" value="年终奖" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[16].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
-			<input type="hidden" name="list[17].sdtId" value="18"
-				class="INPUT_STYLE2">
-			<tr class="TD_STYLE2">
-				<td>6 <input type="hidden" name="list[17].itemId" value="6"
-					class="INPUT_STYLE2">
-				</td>
-				<td colspan="3">误餐补助 <input type="hidden"
-					name="list[17].itemName" value="误餐补助" class="INPUT_STYLE2">
-				</td>
-				<td colspan="4"><input type="text" name="list[17].salary"
-					value="0.0" class="INPUT_STYLE2"></td>
-			</tr>
-
+				<td><input type="text" name="list[${i.index}].salary" value="${s.salary}0"
+					class="INPUT_STYLE2 money"></td>
+				<td colspan="3">&nbsp;</td>
+			   </tr>
+            </c:forEach>
 		</table>
 	</form>
 </body>
 </html>
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+	function getTime(){
+		var tim=new Date();
+		var year=tim.getFullYear();
+		var month=(tim.getMonth()+1)<10 ? '0'+(tim.getMonth()+1):(tim.getMonth()+1);
+		var da=tim.getDate()<10 ? '0'+tim.getDate() : tim.getDate();
+		var hour=tim.getHours()<10 ? '0'+tim.getHours() : tim.getHours();
+		var min=tim.getMinutes()<10 ? '0'+tim.getMinutes() : tim.getMinutes();
+		var tt=tim.getSeconds()<10 ? '0'+tim.getSeconds() : tim.getSeconds();
+		return year+'-'+month+'-'+da+' '+hour+':'+min+':'+tt;
+	}
+   function doEdit(){
+	   var sal=$(".TABLE_STYLE1>tbody>.TD_STYLE2>td .money");
+	   for (var i=0;i<sal.length;i++) {
+			if (sal[i].value==null||sal[i].value=="") {
+				alert("请检查，薪酬项目金额不能为空");
+				return;
+		}
+	   }
+	   $("#timenow").val(getTime());
+	   $(".salarystandardForm").submit();
+   }
+   $(".TABLE_STYLE1>tbody>.TD_STYLE2>td .money").blur(function(){
+	   var ff=$(".TABLE_STYLE1>tbody>.TD_STYLE2>td .money");
+	   var sum=0;
+	   for (var i=0;i<ff.length;i++) {
+			if (ff[i].value!=null) {
+				sum=sum+ff[i].value*1;
+		}
+	   }
+	   $("#salesum").html(sum.toFixed(2));
+	   $("#updatesum").val(sum.toFixed(2));
+   });
+
+</script>

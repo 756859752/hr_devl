@@ -10,4 +10,6 @@ public interface SalaryGrantDetailsService{
 	public void alterSalaryGrantDetails(SalaryGrantDetails SalaryGrantDetail);
 	public SalaryGrantDetails findSalaryGrantDetailsById(short id);
 	public List<SalaryGrantDetails> findAllSalaryGrantDetails();
+//	根据薪酬发放编号查询
+	public List<SalaryGrantDetails> findSalaryGrandDetailsBySsid(String ssid);
 }

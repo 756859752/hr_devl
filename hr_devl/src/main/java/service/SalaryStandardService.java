@@ -12,6 +12,6 @@ public interface SalaryStandardService{
 	public SalaryStandard findSalaryStandardById(short id);
 	public List<SalaryStandard> findAllSalaryStandard();
 	public List<SalaryStandard> findCoditionsSalaryStandard(HashMap<String, Object> map);
-//	查询问通过审核的薪酬标准
+//	查询所有通过审核的薪酬标准
 	public List<SalaryStandard> findStateSalaryStandards();
 }

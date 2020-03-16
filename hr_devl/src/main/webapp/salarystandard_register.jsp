@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="table.css" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
+<script type="text/javascript" src="/hr_devl/javascript/jquery.messager.js"></script>
 <title>无标题文档</title>
 </head>
 
@@ -42,8 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
 				<td width="74" class="TD_STYLE1">薪酬标准编号</td>
-				<td width="168" class="TD_STYLE2"><input type="text"
-					name="Ss.standardId" value="3" readonly="readonly"
+				<td width="168" class="TD_STYLE2"><input id="salnum" type="text"
+					name="Ss.standardId" value="" readonly="readonly"
 					class="INPUT_STYLE2"></td>
 				<td width="83" class="TD_STYLE1">薪酬标准名称</td>
 				<td width="171" class="TD_STYLE2"><input type="text"
@@ -159,6 +160,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </body>
 </html>
 <script type="text/javascript">
+<!--生成薪酬编号-->
+(function(){
+	var tim=new Date();
+	var year=tim.getFullYear();
+	var month=(tim.getMonth()+1)<10 ? '0'+(tim.getMonth()+1):(tim.getMonth()+1);
+	var da=tim.getDate()<10 ? '0'+tim.getDate() : tim.getDate();
+	var hour=tim.getHours()<10 ? '0'+tim.getHours() : tim.getHours();
+	var min=tim.getMinutes()<10 ? '0'+tim.getMinutes() : tim.getMinutes();
+	var tt=tim.getSeconds()<10 ? '0'+tim.getSeconds() : tim.getSeconds();
+	$("#salnum").val((year+month+da+hour+min+tt));
+})();
    $("#timenow").val(getTime());
 	function getTime(){
 		var tim=new Date();

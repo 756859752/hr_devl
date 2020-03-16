@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 				<td class="TD_STYLE1">复核时间</td>
 				<td class="TD_STYLE2"><input type="text" id="timenow"
-					name="Ss.checkTime" value="${moreSalary.ss.changeTime}"
+					name="Ss.checkTime" value="${moreSalary.ss.checkTime}"
 					readonly="readonly" class="INPUT_STYLE2"></td>
 				<td class="TD_STYLE1">&nbsp;</td>
 				<td class="TD_STYLE2">&nbsp;</td>

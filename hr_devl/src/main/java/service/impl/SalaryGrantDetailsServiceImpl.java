@@ -44,5 +44,10 @@ public class SalaryGrantDetailsServiceImpl implements SalaryGrantDetailsService{
 		// TODO Auto-generated method stub
 		return SalaryGrantDetailsMapper.selectAllSalaryGrantDetails();
 	}
+//	根据薪酬发放编号查询
+	@Override
+	public List<SalaryGrantDetails> findSalaryGrandDetailsBySsid(String ssid) {
+		return SalaryGrantDetailsMapper.selectSalaryGrandDetailsBySsid(ssid);
+	}
 	
 }

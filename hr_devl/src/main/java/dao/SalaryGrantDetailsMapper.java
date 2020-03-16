@@ -14,4 +14,7 @@ public interface SalaryGrantDetailsMapper {
 	public SalaryGrantDetails selectSalaryGrantDetailsById(short id);
 
 	public List<SalaryGrantDetails> selectAllSalaryGrantDetails();
+	
+//	根据薪酬发放编号查询
+	public List<SalaryGrantDetails> selectSalaryGrandDetailsBySsid(String ssid);
 }
