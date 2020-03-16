@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -392,8 +393,18 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="training.do?operate=list"
-								target="mainFrame">培训登记</a></td>
+							<td width="98%">
+							<c:choose>
+							    <c:when test="${userlogin.user_role=='admin'}">
+									<a href="training.do?operate=list"
+									target="mainFrame">培训登记</a>
+							    </c:when>
+							    <c:otherwise>
+									培训登记
+							    </c:otherwise>
+							</c:choose>
+									
+							</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>

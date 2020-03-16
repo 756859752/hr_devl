@@ -31,6 +31,14 @@
 			<mvc:mapping path="/demo/show.do" />
 			<bean class="web.interceptor.StudentInterceptor"></bean>
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ybc/*"/>
+			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ybc/releasechangeselect.do"/>
+			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 	<!--加载外部数据库连接信息 -->

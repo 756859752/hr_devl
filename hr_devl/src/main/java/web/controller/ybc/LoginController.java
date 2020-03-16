@@ -16,7 +16,7 @@ import web.controller.ybc.dto.Massage;
 import web.controller.ybc.dto.UserLogin;
 
 @Controller
-@RequestMapping("/ybc")
+@RequestMapping("/ybclogin")
 public class LoginController {
 
 	@Autowired

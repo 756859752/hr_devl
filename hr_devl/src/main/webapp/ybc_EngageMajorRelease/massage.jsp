@@ -20,7 +20,7 @@
 	<center>
 		<h3>${msg.massagetext} </h3>
 		<input id="backurl" type="hidden" value="${pageContext.request.contextPath}/${msg.backurl}">
-			<button onclick="back()">查询结果</button>
+			<button onclick="back()">返回</button>
 		
 	</center>
 </body>
