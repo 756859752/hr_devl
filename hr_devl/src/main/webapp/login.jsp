@@ -96,7 +96,7 @@ BR {
  	if(infchk())
  	{
  		//document.forms[0].action = document.forms[0].action + "?operate=doLogin";
-		document.forms[0].action = "ybc/login.do";
+		document.forms[0].action = "ybclogin/login.do";
  		document.forms[0].submit();
  	}
  }

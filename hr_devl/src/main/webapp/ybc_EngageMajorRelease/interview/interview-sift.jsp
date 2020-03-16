@@ -165,23 +165,26 @@
  		</script>
  		<script type="text/javascript">
  		function search(id){   
- 		if(document.getElementById("passCheckcomment").value=="删除简历"){
-		//	window.location.href="/HR_Fist/recruit/recruitAction!deleteResumeById?id="+id;
-		 document.fm.submit();
-		}else if(document.getElementById("passCheckcomment").value=="建议录用"){
-				document.getElementById("ly").value = true;
+	 		if(document.getElementById("passCheckcomment").value=="删除简历"){
+			window.location.href="/HR_Fist/recruit/recruitAction!deleteResumeById?id="+id;
 			 document.fm.submit();
-		}else if(document.getElementById("passCheckcomment").value=="建议面试"){
-				document.getElementById("mianshi").value = false;
-			 document.fm.submit();
-		} 
+			}else if(document.getElementById("passCheckcomment").value=="建议录用"){
+					document.getElementById("ly").value = true;
+				document.fm.submit();
+			}else if(document.getElementById("passCheckcomment").value=="建议面试"){
+					document.getElementById("mianshi").value = false;
+				 document.fm.submit();
+			}
 		}
  		</script>
 	</head>
 
 	<body onload="check(),luy()">
-		<form id="recruitAction!returnSiftList" name="fm" action="updateSift" method="post" enctype="multipart/form-data">
-		
+		<form id="recruitAction!returnSiftList" name="fm" action="interviewResultShaixuanSubmit.do" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="interviewStatus" value="${vi.interviewStatus }" />
+			<input type="hidden" name="resumeId" value="${vi.resumeId }" />
+			<input type="hidden" name="checkStatus" value="${vi.checkStatus }" />
+			<input type="hidden" name="interviewComment" value="${vi.interviewComment }" />
 			<table width="100%">
 				<tr>
 					<td>
@@ -192,7 +195,7 @@
 					<td align="right">
 						<input type="radio" name="result"  value="建议面试" onclick="mians()">建议面试
 						<input type="radio" name="result"   value="建议笔试" onclick="bis()">建议笔试
-						<input type="radio" name="result"   value="建议录用"  checked="checked" onclick="luy()">建议录用
+						<input type="radio" name="result"   value="建议录用"  checked="true" onclick="luy()">建议录用
 						<input type="radio" name="result"  value="删除简历" onclick="del()">删除简历
 						<input type="submit" value="确认" class="BUTTON_STYLE1"
 							onclick="search('542')">

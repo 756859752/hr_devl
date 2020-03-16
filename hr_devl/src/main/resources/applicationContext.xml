@@ -22,11 +22,22 @@
 	<context:component-scan base-package="dao,service.impl,web.controller.*"></context:component-scan>
 	<!-- 开启springmvc的注解模式 -->
 	<mvc:annotation-driven />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+	<!-- 开启multipart/form-data接收 -->
+	
 	<!-- 配置 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/demo/show.do" />
 			<bean class="web.interceptor.StudentInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ybc/*"/>
+			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ybc/releasechangeselect.do"/>
+			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

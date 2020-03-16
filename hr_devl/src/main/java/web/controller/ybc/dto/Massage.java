@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Massage implements Serializable{
 	String massagetext;
 	String backurl;
+	public static final String MSG_PAGE="forward:/ybc_EngageMajorRelease/massage.jsp";
 	public Massage(){}
 	public String getMassagetext() {
 		return massagetext;

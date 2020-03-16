@@ -110,6 +110,7 @@
 			 			for(var i=0;i<data.length;i++){
 							var eachMajor = data[i];
 							majorSelect.append("<option id='major_"+eachMajor.majorId+"' value="+eachMajor.majorId+">"+eachMajor.majorName+"</option>");
+							
 						}
 			 			}
 				});
@@ -150,10 +151,11 @@
 			<!--  <input type="hidden" name="passcheckcomment" value="不通过"/>
 			<input type="hidden" name="passpasscomment" value="不通过"/>
 	 		<input type="hidden" name="passcheckstatus" value="0"/> -->
-	 		<input type="hidden" name="checkstatus" value="0">
+	 		<input type="hidden" name="checkStatus" value="0">
 	 		<input type="hidden"  id="humanMajorKindId" name="humanMajorKindName" />
-	 		<input type="hidden"  name="humanmajorname" id="humanMajorName"/>
-	 		<input type="hidden"  name="interviewstatus" value="1"/>
+	 		<input type="hidden"  id="humanMajorName" name="humanMajorName" />
+	 		
+	 		<input type="hidden"  name="interviewStatus" value="1"/>
 	 		<input type="hidden" value="${userlogin.user_true_name }" name="register">
 			<table width="100%">
 				<tr>
@@ -189,7 +191,7 @@
 						职位名称
 					</td>
 					<td class="TD_STYLE2" width="20%"> 
-					<select name="humanMajorid" class="SELECT_STYLE1" id="humanMajorId" onchange="getMajorName()">
+					<select name="humanMajorId" class="SELECT_STYLE1" id="humanMajorId" onchange="getMajorName()">
 						<option value="">--请选择--</option>
 					</select>
 					</td>

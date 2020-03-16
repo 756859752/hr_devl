@@ -82,6 +82,9 @@
    		<select id="selectAllEngageResumeByConditon" parameterType="hashmap" resultMap="tid">
    			select * from engage_resume
    			<trim prefix="where" prefixOverrides="and|or">
+   				<if test="humanMajorKindId!=''">
+   					and human_major_kind_id=#{humanMajorKindId}
+   				</if>
    				<if test="humanMajorId!=''">
    					and human_major_id=#{humanMajorId}
    				</if>

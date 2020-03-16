@@ -6,8 +6,8 @@
 <mapper namespace="dao.UsersMapper">
 	<insert id="insertUsers" parameterType="Users">
 		insert into users
-		(u_id,u_name,u_true_name,u_password)
-		values(#{uId},#{uName},#{uTrueName},#{uPassword})
+		(u_name,u_true_name,u_password)
+		values(#{uName},#{uTrueName},#{uPassword},#{uMajroName})
 	</insert>
 
 	<delete id="deleteUsers" parameterType="_short">
@@ -15,14 +15,15 @@
 	</delete>
 	<update id="updateUsers" parameterType="Users">
 		update Users set
-		u_id=#{uId},u_name=#{uName},u_true_name=#{uTrueName},u_password=#{uPassword}
+		u_name=#{uName},u_true_name=#{uTrueName},u_password=#{uPassword},u_major_name=#{uMajorName}
 		where u_id=#{UId}
 	</update>
 	<resultMap type="Users" id="u" >
-		<id property="UId" column="u_id"/>
-		<result property="UName" column="u_name"/>
-		<result property="UTrueName" column="u_true_name"/>
-		<result property="UPassword" column="u_password"/>
+		<id property="uId" column="u_id"/>
+		<result property="uName" column="u_name"/>
+		<result property="uTrueName" column="u_true_name"/>
+		<result property="uPassword" column="u_password"/>
+		<result property="uMajorName" column="u_major_name"/>
 	</resultMap>
 
 

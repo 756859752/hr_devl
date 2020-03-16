@@ -41,7 +41,7 @@
 				</tr>
 			  <tr>
 					<td align="right"> 
-						<input type="button" value="返回" class="BUTTON_STYLE1" onclick="window.location.href='toChoose'">
+						<input type="button" value="返回" class="BUTTON_STYLE1" onclick="history.back()">
 					</td>
 				</tr>
 			</table> 

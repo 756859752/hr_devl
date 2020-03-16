@@ -74,11 +74,13 @@ public class ResumeRegisterController {
 	
 	//简历登记提交
 	@RequestMapping("resumeregistersubmit.do")
-	public String  engageResumeRegisterSubmit(EngageResume e){
+	public String  engageResumeRegisterSubmit(EngageResume e,Model model){
 //		Timestamp t=new Timestamp(new Date().getTime());
 //		e.setRegistTime(t);
+		System.out.println(e);
+		model.addAttribute("msg", new Massage("简历成功提交","main.jsp"));
 		engageResumeService.addEngageResume(e);
-		return null;
+		return Massage.MSG_PAGE;
 	}
 	
 	//简历筛选
@@ -107,9 +109,11 @@ public class ResumeRegisterController {
 	//开始筛选
 	@RequestMapping("starttoshaixuan.do")
 	public String startToShaixuan(@RequestParam String humanMajorId,
+			@RequestParam String humanMajorKindId,
 			@RequestParam String primarKey,@RequestParam String startDate,
 			@RequestParam String endDate,Model model){
 		HashMap<String, String> hashmap=new HashMap<String, String> ();
+		hashmap.put("humanMajorKindId", humanMajorKindId);
 		hashmap.put("humanMajorId", humanMajorId);
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
