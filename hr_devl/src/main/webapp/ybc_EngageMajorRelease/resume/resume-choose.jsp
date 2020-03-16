@@ -87,7 +87,7 @@
 						请选择职位分类
 					</td>
 					<td class="TD_STYLE2" width="30%">
-					<select onchange="queryMajor()" multiple="multiple" id="humanMajorKind"
+					<select onchange="queryMajor()" multiple="multiple" id="humanMajorKind" name="humanMajorKindId"
 					 style="width: 290;height: 100" class="SELECT_STYLE2"> 
 						<option value="0">--请选择--</option>
 					<c:forEach items="${mklist}" var="m">

@@ -8,54 +8,57 @@ public class Users implements java.io.Serializable {
 
 	// Fields
 
-	private Short UId;
-	private String UName;
-	private String UTrueName;
-	private String UPassword;
-
+	private Short uId;
+	private String uName;
+	private String uTrueName;
+	private String uPassword;
+	private String uMajorName;
 	// Constructors
 
 	/** default constructor */
 	public Users() {
 	}
 
-	/** full constructor */
-	public Users(String UName, String UTrueName, String UPassword) {
-		this.UName = UName;
-		this.UTrueName = UTrueName;
-		this.UPassword = UPassword;
+	public Short getuId() {
+		return uId;
 	}
 
-	public Short getUId() {
-		return this.UId;
+	public void setuId(Short uId) {
+		this.uId = uId;
 	}
 
-	public void setUId(Short UId) {
-		this.UId = UId;
+	public String getuName() {
+		return uName;
 	}
 
-	public String getUName() {
-		return this.UName;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
 
-	public void setUName(String UName) {
-		this.UName = UName;
+	public String getuTrueName() {
+		return uTrueName;
 	}
 
-	public String getUTrueName() {
-		return this.UTrueName;
+	public void setuTrueName(String uTrueName) {
+		this.uTrueName = uTrueName;
 	}
 
-	public void setUTrueName(String UTrueName) {
-		this.UTrueName = UTrueName;
+	public String getuPassword() {
+		return uPassword;
 	}
 
-	public String getUPassword() {
-		return this.UPassword;
+	public void setuPassword(String uPassword) {
+		this.uPassword = uPassword;
 	}
 
-	public void setUPassword(String UPassword) {
-		this.UPassword = UPassword;
+	public String getuMajorName() {
+		return uMajorName;
 	}
+
+	public void setuMajorName(String uMajorName) {
+		this.uMajorName = uMajorName;
+	}
+
+
 
 }

@@ -54,7 +54,7 @@
 	</head>
 
 	<body >
-		<form id="recruitAction!toList" name="interviewForm" action="interviewResultSubmit.do" method="post">
+		<form id="recruitAction!toList" name="interviewForm" action="interviewResultShaixuanSubmit.do" method="post">
 		<input type="hidden" name="operate" value="doAdopt">
 	<!--	<input type="hidden" name="engageInterview.checkStatus" value=""/>
 		<input type="hidden" name="engageInterview.checkComment" value=""/>

@@ -87,8 +87,8 @@ public class InterviewResultRegisterController {
 		System.out.println(resume);
 		System.out.println(interview);
 		engageInterviewService.addEngageInterview(interview);
-		model.addAttribute("msg", new Massage("面试结果登记成功","index.jsp"));
-		return "forward:ybc_EngageMajorRelease/massage.jsp";
+		model.addAttribute("msg", new Massage("面试结果登记成功","main.jsp"));
+		return Massage.MSG_PAGE;
 	}
 	
 	//面试筛选
@@ -103,9 +103,31 @@ public class InterviewResultRegisterController {
 	@RequestMapping("interviewResultShaixuanStart.do")
 	public String interviewResultShaixuanStart(Short einId,Model model){
 		EngageInterview vi=	engageInterviewService.findEngageInterviewByIdWithResume(einId);
-		System.out.println(vi);
+		EngageResume er=engageResumeService.findEngageResumeById(vi.getResumeId());
+		vi.setResumeid(er);
 		model.addAttribute("vi", vi);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-sift.jsp";
 	}
 	
+	//提交面试筛选
+	@RequestMapping("interviewResultShaixuanSubmit.do")
+	public String interviewResultShaixuanSubmit(EngageInterview interview,Model model){
+		System.out.println(interview);
+		if("建议录用".equals(interview.getResult())){
+			short a=3;
+			interview.setCheckStatus(a);
+		}else if("建议笔试".equals(interview.getResult())){
+			short a=2;
+			interview.setCheckStatus(a);
+		}else if("建议面试".equals(interview.getResult())){
+			short a=1;
+			interview.setCheckStatus(a);
+		}else if("删除简历".equals(interview.getResult())){
+			short a=4;
+			interview.setCheckStatus(a);
+		}
+		engageInterviewService.alterEngageInterview(interview);
+		model.addAttribute("msg", new Massage("操作成功","main.jsp"));
+		return Massage.MSG_PAGE;
+	}
 }

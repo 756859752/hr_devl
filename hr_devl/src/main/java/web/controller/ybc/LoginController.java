@@ -28,10 +28,11 @@ public class LoginController {
 		
 	List<Users>	list =usersService.findAllUsers();
 		for (Users users : list) {
-			if(users.getUName().equals(UName)){
-				if(users.getUPassword().equals(UPassword)){
+			if(users.getuName().equals(UName)){
+				if(users.getuPassword().equals(UPassword)){
 					UserLogin userlogin=new UserLogin();
-					userlogin.setUser_true_name(users.getUTrueName());
+					userlogin.setUser_true_name(users.getuTrueName());
+					userlogin.setUser_role(users.getuMajorName());
 					session.setAttribute("userlogin", userlogin);
 					return "redirect:/index.jsp";
 				}
@@ -40,8 +41,8 @@ public class LoginController {
 		//要将当前的登陆人cunzaisession
 		
 		
-		model.addAttribute("error", new Massage("账号密码错误","login.jsp"));
+		model.addAttribute("msg", new Massage("账号密码错误","login.jsp"));
 		
-		return "redirect:/ybc_EngageMajorRelease/error.jsp";
+		return "forward:/ybc_EngageMajorRelease/massage.jsp";
 	}
 }

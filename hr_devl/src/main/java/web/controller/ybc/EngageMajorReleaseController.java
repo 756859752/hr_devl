@@ -100,9 +100,10 @@ public class EngageMajorReleaseController {
 	
 	//职位发布登记提交表单
 	@RequestMapping(value="submitengagemajorrelease.do")
-	public String submitEngageMajorRelease(EngageMajorRelease e){
+	public String submitEngageMajorRelease(EngageMajorRelease e,Model model){
 		engageMajorReleaseService.addEngageMajorReleaseAutowrite(e);
-		return null;
+		model.addAttribute("msg", new Massage("职位发布成功", "main.jsp"));
+		return Massage.MSG_PAGE;
 	}
 	
 	//职位发布变更查询数据 查询出所有的职位发布
@@ -132,8 +133,8 @@ public class EngageMajorReleaseController {
 		
 		System.out.println(e);
 		engageMajorReleaseService.alterEngageMajorRelease(e);
-		model.addAttribute("msg", new Massage("修改成功", "ybc/releasechangeselect.do?opreate=toEdit"));
-		return "forward:/ybc_EngageMajorRelease/massage.jsp";
+		model.addAttribute("msg", new Massage("修改成功", "main.jsp"));
+		return Massage.MSG_PAGE;
 	}
 	
 	//发布变更的细节

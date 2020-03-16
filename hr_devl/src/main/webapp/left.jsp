@@ -161,6 +161,7 @@ a {
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td>薪酬发放方式设置</td>
+											
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
@@ -549,7 +550,9 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engagesubjects.do?operate=toAdd" target="mainFrame">试题登记</a>
+												href="ybcexam/gototheSubjectRegister.do?operate=toAdd" target="mainFrame">
+												试题登记
+												</a>
 											</td>
 										</tr>
 										<tr>
