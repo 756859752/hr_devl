@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,10 +21,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
+<script type="text/javascript">
+   function  addconfigPublicChar(){
+   alert("ok");
+   window.location.href="xxkpage/public_char_add.jsp";
+   
+   }
+</script>
 </head>
 
+
 <body>
-	<form method="post" action="configpublicchar.do">
+	<form method="post" ">
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--公共属性设置
@@ -31,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="添加"
-					class="BUTTON_STYLE1" onclick="javascript:toAdd();"></td>
+					class="BUTTON_STYLE1" onclick="addconfigPublicChar()"></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -41,189 +50,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="44%" class="TD_STYLE1">属性名称</td>
 				<td width="7%" class="TD_STYLE1" align="center">删除</td>
 			</tr>
-
+       <!-- private int pbcid;
+	   private String attributekind;
+	   private String attributename;
+	   -->
+          <c:forEach items="${configPubliChar}" var="i">
 			<tr>
-				<td class="TD_STYLE2">爱好</td>
-				<td class="TD_STYLE2">篮球</td>
+				<td class="TD_STYLE2">${i.attributekind}</td>
+				<td class="TD_STYLE2">${i.attributename}</td>
 				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('17')">删除</a></td>
+					href="xxk/${i.pbcid}/deleteconfigPublicChar.do">删除</a></td>
 			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">爱好</td>
-				<td class="TD_STYLE2">舞蹈</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('18')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">国籍</td>
-				<td class="TD_STYLE2">中国</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('1')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">国籍</td>
-				<td class="TD_STYLE2">美国</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('2')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">奖励等级</td>
-				<td class="TD_STYLE2">A</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('25')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">奖励等级</td>
-				<td class="TD_STYLE2">B</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('26')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">奖励项目</td>
-				<td class="TD_STYLE2">技术攻关</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('23')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">奖励项目</td>
-				<td class="TD_STYLE2">销售绩效</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('24')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">教育年限</td>
-				<td class="TD_STYLE2">12</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('9')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">教育年限</td>
-				<td class="TD_STYLE2">16</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('10')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">民族</td>
-				<td class="TD_STYLE2">汉族</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('3')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">民族</td>
-				<td class="TD_STYLE2">回族</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('4')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">培训成绩</td>
-				<td class="TD_STYLE2">A</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('21')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">培训成绩</td>
-				<td class="TD_STYLE2">B</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('22')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">培训项目</td>
-				<td class="TD_STYLE2">英语</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('19')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">培训项目</td>
-				<td class="TD_STYLE2">管理</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('20')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">特长</td>
-				<td class="TD_STYLE2">数据库</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('15')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">特长</td>
-				<td class="TD_STYLE2">java</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('16')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">学历</td>
-				<td class="TD_STYLE2">本科</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('11')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">学历</td>
-				<td class="TD_STYLE2">大专</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('12')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">政治面貌</td>
-				<td class="TD_STYLE2">党员</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('7')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">政治面貌</td>
-				<td class="TD_STYLE2">群众</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('8')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">专业</td>
-				<td class="TD_STYLE2">生物工程</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('13')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">专业</td>
-				<td class="TD_STYLE2">计算机</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('14')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">宗教信仰</td>
-				<td class="TD_STYLE2">无</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('5')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">宗教信仰</td>
-				<td class="TD_STYLE2">佛教</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('6')">删除</a></td>
-			</tr>
-
+          </c:forEach>
+          
 		</table>
 		<p>
 			&nbsp;&nbsp;总数：26例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页

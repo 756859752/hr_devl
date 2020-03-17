@@ -15,7 +15,8 @@ public interface ConfigPublicCharMapper {
 	public void updateConfigPublicChar(ConfigPublicChar ConfigPublicChar);
 
 	public ConfigPublicChar selectConfigPublicCharById(int id);
-
+     
+	public List<ConfigPublicChar> selectConfigPublicCharByattributeKind(String attributeKind);	
 	public List<ConfigPublicChar> selectAllConfigPublicChar();
 	
 	public List<ConfigPublicChar> selecAllConfigPublicCharByCondition(ConfigPublicChar ConfigPublicChar);

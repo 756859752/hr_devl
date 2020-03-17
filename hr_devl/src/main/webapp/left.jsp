@@ -113,31 +113,31 @@ a {
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="configfilesecondkind.do?operate=list"
+											<td><a href="xxk/cfskselectall.do"
 												target="mainFrame">II级机构设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="configfilethirdkind.do?operate=list"
+											<td><a href="xxk/configFileThirdKindselectall.do"
 												target="mainFrame">III级机构设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="profession_design.html" target="mainFrame">职称设置</a>
+											<td><a href="xxk/selecctallprofession.do" target="mainFrame">职称设置</a>
 											</td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="major_kind.html" target="mainFrame">职位分类设置</a>
+											<td><a href="xxk/selectallconfigMagjorKind.do" target="mainFrame">职位分类设置</a>
 											</td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="major.html" target="mainFrame">职位设置</a></td>
+											<td><a href="xxk/selectallconfigMajor.do" target="mainFrame">职位设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="public_char.html" target="mainFrame">公共属性设置</a>
+											<td><a href="xxk/selectallconfigPublicChar.do" target="mainFrame">公共属性设置</a>
 											</td>
 										</tr>
 									</table>

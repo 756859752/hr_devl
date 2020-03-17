@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,6 +21,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
+<script type="text/javascript">
+ function addconfigMajor(){
+ window.location.href="xxk/addconfigMajorprocess.do";
+ }
+</script>
 </head>
 
 <body>
@@ -31,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="添加"
-					class="BUTTON_STYLE1" onclick="toAdd();"></td>
+					class="BUTTON_STYLE1" onclick="addconfigMajor()"></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -43,79 +49,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="24%" class="TD_STYLE1">职位名称</td>
 				<td width="5%" class="TD_STYLE1">删除</td>
 			</tr>
-
+          <c:forEach items="${configMajor }"  var="i">
 			<tr>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">销售</td>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">区域经理</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(1)">删除</a>
+				<td class="TD_STYLE2">${i.majorKindId}</td>
+				<td class="TD_STYLE2">${i.majorKindName}</td>
+				<td class="TD_STYLE2">${i.majorId}</td>
+				<td class="TD_STYLE2">${i.majorName}</td>
+				<td class="TD_STYLE2"><a href="xxk/${i.makId}/deleteconfigMajor.do">删除</a>
 				</td>
 			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">销售</td>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">总经理</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(2)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">软件开发</td>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">项目经理</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(3)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">软件开发</td>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">程序员</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(4)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">03</td>
-				<td class="TD_STYLE2">人力资源</td>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">人事经理</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(5)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">03</td>
-				<td class="TD_STYLE2">人力资源</td>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">专员</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(6)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">04</td>
-				<td class="TD_STYLE2">生产部</td>
-				<td class="TD_STYLE2">01</td>
-				<td class="TD_STYLE2">主任</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(7)">删除</a>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">04</td>
-				<td class="TD_STYLE2">生产部</td>
-				<td class="TD_STYLE2">02</td>
-				<td class="TD_STYLE2">技术工人</td>
-				<td class="TD_STYLE2"><a href="configmajor.do?operate=toDel(8)">删除</a>
-				</td>
-			</tr>
-
+         </c:forEach>
+             <!-- 
+             private Short makId;
+	         private String majorKindId;
+	         private String majorKindName;
+	         private String majorId;
+	         private String majorName;
+	         private Short testAmount;
+             
+              -->
+             
 		</table>
 		<p>
 			&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页

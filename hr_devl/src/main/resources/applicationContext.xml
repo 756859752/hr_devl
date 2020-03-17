@@ -25,12 +25,15 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 	<!-- 开启multipart/form-data接收 -->
 	
+	
 	<!-- 配置 拦截器 -->
-	<mvc:interceptors>
+	 <!-- 
+	<mvc:interceptors>	
 		<mvc:interceptor>
 			<mvc:mapping path="/demo/show.do" />
 			<bean class="web.interceptor.StudentInterceptor"></bean>
 		</mvc:interceptor>
+	
 		<mvc:interceptor>
 			<mvc:mapping path="/ybc/*"/>
 			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
@@ -40,7 +43,7 @@
 			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-
+    -->
 	<!--加载外部数据库连接信息 -->
 	<context:property-placeholder
 		location="classpath:jdbc.properties" />

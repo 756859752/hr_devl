@@ -25,6 +25,14 @@ public class ConfigFileFirstKindController {
 	ConfigFileSecondKindService    configFileSecondKindService=null;
 	@Autowired
 	ConfigFileThirdKindService     configFileThirdKindService=null;
+	
+	@RequestMapping("/cffktoadd.do")
+	public String toadd(Model m){
+		 Long  time	=System.currentTimeMillis();  
+	       m.addAttribute("myxxktime",time);
+		return "/first_kind_register";
+	}
+	
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){

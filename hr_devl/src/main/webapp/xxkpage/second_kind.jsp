@@ -25,39 +25,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
 <body> 
      
-	<form method="post" >
+	<form method="post" action="configfilefirstkind.do">
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--I级机构设置
+				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--II级机构设置
 				</font></td>
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="添加"
 					class="BUTTON_STYLE1"
-					onclick="window.location.href='xxk/cffktoadd.do'" /></td>
+					onclick="window.location.href='xxk/cfsktoadd.do'" /></td>
 			</tr>
 		</table>
-		
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
-				<td width="20%" class="TD_STYLE1">I级机构编号</td>
-				<td width="20%" class="TD_STYLE1">I级机构名称</td>
-				<td width="25%" class="TD_STYLE1">薪酬发放责任人编号</td>
-				<td width="25%" class="TD_STYLE1">销售责任人编号</td>
+				
+				<td width="15%" class="TD_STYLE1">I级机构名称</td>
+				<td width="15%" class="TD_STYLE1">II级机构编号</td>
+				<td width="15%" class="TD_STYLE1">II级机构名称</td>
+				<td width="22%" class="TD_STYLE1">薪酬发放责任人编号</td>
+				<td width="22%" class="TD_STYLE1">销售责任人编号</td>
 				<td width="5%" class="TD_STYLE1">变更</td>
 				<td width="5%" class="TD_STYLE1">删除</td>
 			</tr>
-                    
-			
-			<c:forEach items="${configFileFirstKind}" var="i" >
+                   
+			<c:forEach items="${xxkConfigFileSecondKind}" var="i" >
 			 <tr>
-				<td class="TD_STYLE2">${i.firstKindId }</td>
-				<td class="TD_STYLE2">${i.firstKindName }</td>
-				<td class="TD_STYLE2">${i.firstKindSalaryId }</td>
-				<td class="TD_STYLE2">${i.firstKindSaleId }</td>
-				<td class="TD_STYLE2"><a href="xxk/${i.ffkId}/cffkselectbyid.do">变更</a></td>
-				<td class="TD_STYLE2"><a href="xxk/${i.ffkId}/deleteprocess.do ">删除</a></td>
+			    <td class="TD_STYLE2">${i.firstKindName }</td>
+				<td class="TD_STYLE2">${i.secondKindId }</td>
+				<td class="TD_STYLE2">${i.secondKindName }</td>
+				<td class="TD_STYLE2">${i.secondSalaryId }</td>
+				<td class="TD_STYLE2">${i.secondSaleId }</td>
+				
+				<td class="TD_STYLE2"><a href="xxk/${i.fskId}/cfsktoupdateprocess.do">变更</a></td>
+				<td class="TD_STYLE2"><a href="xxk/${i.fskId}/confingFileSecondtoupdateprocess.do">删除</a></td>
 			  </tr>
 			</c:forEach>
 			

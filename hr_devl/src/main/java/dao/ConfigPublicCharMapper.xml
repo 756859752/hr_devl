@@ -29,6 +29,13 @@
 		select * from config_public_char where pbc_id=#{id}
 	</select>
 	
+	
+	<select id="selectConfigPublicCharByattributeKind" parameterType="string" resultMap="cpc">
+		select * from config_public_char where attribute_kind=#{attributeKind}
+	</select>
+	
+	
+	
 	<select id="selectAllConfigPublicChar" resultMap="cpc">
 		select * from config_public_char
 	</select>

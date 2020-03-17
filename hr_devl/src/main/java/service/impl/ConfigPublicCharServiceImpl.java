@@ -55,5 +55,11 @@ public class ConfigPublicCharServiceImpl implements ConfigPublicCharService {
 		return configPublicCharMapper.selecAllConfigPublicCharByCondition(ConfigPublicChar);
 	}
 
+	@Override
+	public List<ConfigPublicChar> findselectConfigPublicCharByattributeKind(String attributeKind) {
+		// TODO Auto-generated method stub
+		return configPublicCharMapper.selectConfigPublicCharByattributeKind(attributeKind);
+	}
+
 	
 }
