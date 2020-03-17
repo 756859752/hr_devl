@@ -16,6 +16,7 @@ public class Test {
 		System.out.println(Test.getSql());
 		System.out.println();
 		System.out.println(Test.getquchu());
+		
 		System.out.println();
 		System.out.println(Test.getupdate());
 		System.out.println();
