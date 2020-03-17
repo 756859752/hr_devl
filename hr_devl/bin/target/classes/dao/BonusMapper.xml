@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.BonusMapper">
+
+	<resultMap type="Bonus" id="bou">
+		<id column="bon_id" property="bonId" />
+		<result column="major_kind_id" property="majorKindId" />
+		<result column="major_kind_name" property="majorKindName" />
+		<result column="major_id" property="majorId" />
+		<result column="major_name" property="majorName" />
+		<result column="human_id" property="humanId" />
+		<result column="human_name" property="humanName" />
+		<result column="bonus_item" property="bonusItem" />
+		<result column="bonus_worth" property="bonusWorth" />
+		<result column="bonus_degree" property="bonusDegree" />
+		<result column="remark" property="remark" />
+		<result column="register" property="register" />
+		<result column="checker" property="checker" />
+		<result column="regist_time" property="registTime" />
+		<result column="check_time" property="checkTime" />
+		<result column="check_status" property="checkStatus" />
+	</resultMap>
+	
+    <insert id="insertBonus"  parameterType="Bonus">
+     insert into  bonus(bon_id,major_kind_id,major_kind_name,major_id,major_name,human_id,human_name
+     ,bonus_item,bonus_worth,bonus_degree,remark,register
+     ,checker,regist_time,check_time,check_status) value(#{bonId},#{majorKindId},#{majorKindName},#{majorId},
+     #{majorName},#{humanId},#{humanName},#{bonusItem},#{bonusWorth},#{bonusDegree},#{remark},#{register}
+     ,#{checker},#{registTime},#{checkTime},#{checkStatus})
+    </insert>
+    
+    <delete id="deleteBonus" parameterType="short">
+         delete from   bonus  where bon_id=#{Id}
+    </delete>
+    
+	 <update id="updateBonus" parameterType="Bonus">
+		update bonus set bon_id=#{bonId},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName},major_id=#{majorId}
+		,major_name=#{majorName},human_id=#{humanId},human_name=#{humanName},bonus_item=#{bonusItem},bonus_worth=#{bonusWorth}
+		,bonus_degree=#{bonusDegree},remark=#{remark},register=#{register},checker=#{checker},regist_time=#{registTime},check_time=#{checkTime}
+		,check_status=#{checkStatus} where bon_id=#{bonId}
+	</update>
+	
+	<select id="selectBonusById" parameterType="short" resultMap="bou">
+		select * from bonus where bon_id=#{id}
+	</select>
+	<select id="selectAllBonus" resultMap="bou">
+		select * from bonus
+	</select>
+</mapper>

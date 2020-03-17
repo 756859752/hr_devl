@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.EngageSubjectsMapper">
+   		<insert id="insertEngageSubjects" parameterType="EngageSubjects">
+   			insert into engage_subjects(first_kind_id,first_kind_name,second_kind_id,second_kind_name,register,regist_time,derivation,content,key_a,key_b,key_c,key_d,key_e,correct_key,changer,change_time)
+   			values(#{firstKindId},#{firstKindName},#{secondKindId},#{secondKindName},#{register},#{registTime},#{derivation},#{content},#{keyA},#{keyB},#{keyC},#{keyD},#{keyE},#{correctKey},#{changer},#{changeTime})
+   		</insert>
+   		<delete id="deleteEngageSubjects" parameterType="_short">
+   			delete from engage_subjects where sub_id=#{id}
+   		</delete>
+   		<update id="updateEngageSubjects" parameterType="EngageSubjects">
+   			update engage_subjects set first_kind_id=#{firstKindId},first_kind_name=#{firstKindName},second_kind_id=#{secondKindId},second_kind_name=#{secondKindName},register=#{register},regist_time=#{registTime},derivation=#{derivation},content=#{content},key_a=#{keyA},key_b=#{keyB},key_c=#{keyC},key_d=#{keyD},key_e=#{keyE},correct_key=#{correctKey},changer=#{changer},change_time=#{changeTime}
+   			where sub_id=#{subId}
+   		</update>
+   		
+   		<resultMap type="EngageSubjects" id="tid" >
+<id property="subId" column="sub_id"/>
+<result property="firstKindId" column="first_kind_id"/>
+<result property="firstKindName" column="first_kind_name"/>
+<result property="secondKindId" column="second_kind_id"/>
+<result property="secondKindName" column="second_kind_name"/>
+<result property="register" column="register"/>
+<result property="registTime" column="regist_time"/>
+<result property="derivation" column="derivation"/>
+<result property="content" column="content"/>
+<result property="keyA" column="key_a"/>
+<result property="keyB" column="key_b"/>
+<result property="keyC" column="key_c"/>
+<result property="keyD" column="key_d"/>
+<result property="keyE" column="key_e"/>
+<result property="correctKey" column="correct_key"/>
+<result property="changer" column="changer"/>
+<result property="changeTime" column="change_time"/>   </resultMap>
+   		
+   		
+   		<select id="selectEngageSubjectsById" parameterType="_short" resultMap="tid">
+   			select * from engage_subjects where sub_id=#{id}
+   		</select>
+   		
+   		<select id="selectAllEngageSubjects" resultMap="tid">
+   			select * from engage_subjects
+   		</select>
+  </mapper>
+  

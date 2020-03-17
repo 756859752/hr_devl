@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.ConfigMajorKindMapper">
+           
+	<resultMap type="ConfigMajorKind" id="tid" >
+    <id property="mfkId" column="mfk_id"/>
+    <result property="majorKindId" column="major_kind_id"/>
+    <result property="majorKindName" column="major_kind_name"/>
+   </resultMap>
+	
+	
+	<insert id="insertConfigMajorKind" parameterType="ConfigMajorKind">
+   insert into config_major_kind(mfk_id,major_kind_id,major_kind_name) 
+   values( #{mfkId},#{majorKindId},#{majorKindName}) 
+	</insert>
+	
+   <delete id="deleteConfigMajorKind" parameterType="short">
+    delete from config_major_kind where mfk_id=#{mfkId}
+   </delete>
+   
+   <update id="updateConfigMajorKind" parameterType="ConfigMajorKind">
+    update config_major_kind 
+    set mfk_id=#{mfkId},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName}
+    where  mfk_id=#{mfkId}
+   </update>
+   
+	<select id="selectConfigMajorKindById" parameterType="short" resultMap="tid">
+		select * from config_major_kind where pbc_id=#{id}
+	</select>
+	
+	<select id="selectAllConfigMajorKind" resultMap="tid">
+		select * from config_major_kind
+	</select>
+</mapper>
+  

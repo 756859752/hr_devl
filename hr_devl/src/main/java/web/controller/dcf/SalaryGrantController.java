@@ -50,6 +50,7 @@ public class SalaryGrantController {
 		return "forward:/dcf_SalaryGrant/register_commit.jsp";
 	}
 	
+	
 //展示所有未登记的	
 	@RequestMapping("/querysalarygrantpeoples.do")
 	@ResponseBody

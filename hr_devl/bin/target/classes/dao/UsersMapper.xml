@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.UsersMapper">
+	<insert id="insertUsers" parameterType="Users">
+		insert into users
+		(u_name,u_true_name,u_password)
+		values(#{uName},#{uTrueName},#{uPassword},#{uMajroName})
+	</insert>
+
+	<delete id="deleteUsers" parameterType="_short">
+		delete from users where u_id=#{id}
+	</delete>
+	<update id="updateUsers" parameterType="Users">
+		update Users set
+		u_name=#{uName},u_true_name=#{uTrueName},u_password=#{uPassword},u_major_name=#{uMajorName}
+		where u_id=#{UId}
+	</update>
+	<resultMap type="Users" id="u" >
+		<id property="uId" column="u_id"/>
+		<result property="uName" column="u_name"/>
+		<result property="uTrueName" column="u_true_name"/>
+		<result property="uPassword" column="u_password"/>
+		<result property="uMajorName" column="u_major_name"/>
+	</resultMap>
+
+
+	<select id="selectUsersById" parameterType="_short"
+		resultMap="u">
+		select * from users where u_id=#{id}
+	</select>
+	<select id="selectAllUsers" resultMap="u">
+		select * from users
+	</select>
+</mapper>
+  

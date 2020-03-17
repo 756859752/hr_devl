@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 如果用省略dao层的实现层 命名空间是接口类的全路径 -->
+<mapper namespace="dao.ConfigMajorMapper">
+           
+  <resultMap type="ConfigMajor" id="tid" >
+  <id property="makId" column="mak_id"/>
+  <result property="majorKindId" column="major_kind_id"/>
+  <result property="majorKindName" column="major_kind_name"/>
+  <result property="majorId" column="major_id"/>
+  <result property="majorName" column="major_name"/>
+  <result property="testAmount" column="test_amount"/>  
+  </resultMap>
+	
+	
+	<insert id="insertConfigMajor" parameterType="ConfigMajor">
+    insert into config_major(mak_id,major_kind_id,major_kind_name,major_id,major_name,test_amount) 
+    values(#{makId},#{majorKindId},#{majorKindName},#{majorId},#{majorName},#{testAmount}) 
+	</insert>
+	
+   <delete id="deleteConfigMajor" parameterType="short">
+    delete from config_major where mak_id=#{makId}
+   </delete>
+   
+   <update id="updateConfigMajor" parameterType="ConfigMajor">
+    update config_major
+    set mak_id=#{makId},major_kind_id=#{majorKindId},major_kind_name=#{majorKindName},major_id=#{majorId},major_name=#{majorName},test_amount=#{testAmount}
+    where  mak_id=#{makId}
+   </update>
+   
+	<select id="selectConfigMajorById" parameterType="short" resultMap="tid">
+		select * from config_major where mak_id=#{makId}
+	</select>
+	
+	<select id="selectAllConfigMajor" resultMap="tid">
+		select * from config_major
+	</select>
+</mapper>
+  
