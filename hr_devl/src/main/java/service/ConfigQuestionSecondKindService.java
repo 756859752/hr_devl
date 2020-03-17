@@ -10,7 +10,7 @@ public interface ConfigQuestionSecondKindService {
 	public void addConfigQuestionSecondKind(ConfigQuestionSecondKind ConfigQuestionSecondKind);
 
 	public void removeConfigQuestionSecondKind(short id);
-
+	public void removeConfigQuestionSecondKindByfirstKindId(String firstKindId);
 	public void alterConfigQuestionSecondKind(ConfigQuestionSecondKind ConfigQuestionSecondKind);
 
 	public ConfigQuestionSecondKind ConfigQuestionSecondKindById(short id);

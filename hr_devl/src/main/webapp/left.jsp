@@ -156,13 +156,14 @@ a {
 								id="config_salary">
 									<table width="100%" border="0">
 										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">薪酬项目设置</td>
+											<td ><img src="images/jt0.gif"></td>
+											<td ><a href="xxk/selectallsalaryItem.do" target="mainFrame">薪酬项目设置</a></td>
 										</tr>
+										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td>薪酬发放方式设置</td>
-											
+							
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
@@ -187,14 +188,17 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="config_question">
 									<table width="100%" border="0">
+									
 										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">试题I级分类设置</td>
+											<td ><img src="images/jt0.gif"></td>
+											<td ><a href="xxk/selectalltopicFirstKind.do" target="mainFrame">试题I级分类设置</a></td>	
 										</tr>
+										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td>试题II级分类设置</td>
+											<td ><a href="xxk/selectalltopicSecondKind.do" target="mainFrame">试题II级分类设置</a></td>	
 										</tr>
+										
 									</table>
 							</span></td>
 						</tr>

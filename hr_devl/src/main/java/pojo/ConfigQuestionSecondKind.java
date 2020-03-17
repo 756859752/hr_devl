@@ -71,4 +71,11 @@ public class ConfigQuestionSecondKind implements java.io.Serializable {
 		this.secondKindName = secondKindName;
 	}
 
+	@Override
+	public String toString() {
+		return "ConfigQuestionSecondKind [qskId=" + qskId + ", firstKindId=" + firstKindId + ", firstKindName="
+				+ firstKindName + ", secondKindId=" + secondKindId + ", secondKindName=" + secondKindName + "]";
+	}
+  
+	
 }

@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right"><input type="button" value="添加"
 					class="BUTTON_STYLE1"
-					onclick="window.location.href='xxk/cfsktoadd.do'" /></td>
+					onclick="window.location.href='xxk/page/third_kind_register.jsp'" /></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1

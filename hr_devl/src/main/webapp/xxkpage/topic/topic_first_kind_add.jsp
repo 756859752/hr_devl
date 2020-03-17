@@ -17,17 +17,17 @@
  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
  <script type="text/javascript">
   function save(){
-        $("#configfilefirstkindForm").submit();   
+        $("#topicFirstKind").submit();   
   }
  </script>
  </head>
 <body>
    
-<form   id="configfilefirstkindForm"  name="configfilefirstkindForm" method="post" action="xxk/cffkadd.do">
+<form   id="topicFirstKind"  name="configfilefirstkindForm" method="post" action="xxk/addtopicFirstKind.do">
 <table width="100%" >
   <tr>
     <td> 
-    <font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--I级机构设置 </font></td>
+    <font color="#0000CC">您正在做的业务是：人力资源--客户化设置--题库管理设置--试题I分类设置 </font></td>
   </tr>
   <tr>
     <td align="right"><input type="button" value="提交" class="BUTTON_STYLE1" onclick="save()">
@@ -37,21 +37,21 @@
   </table>
   
 <table width="100%"  border="1" cellpadding=0 cellspacing=1 bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
-  <tr>
-    <td width="19%" class="TD_STYLE1">I级机构编号</td>
-    <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindId"      value="${myxxktime}"  class="INPUT_STYLE1"></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">I级机构名称</td>
-    <td class="TD_STYLE2"><input type="text" name="firstKindName" class="INPUT_STYLE1"></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-    <td class="TD_STYLE2"><textarea name="firstKindSalaryId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
-  </tr>
-  <tr>
-    <td class="TD_STYLE1">销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-    <td class="TD_STYLE2"><textarea name="firstKindSaleId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
-  </tr>
+     
+     <!--   	private Short qfkId;
+	            private String firstKindId;
+	            private String firstKindName; -->
+          <tr>
+          <td width="19%" class="TD_STYLE1">题目分类编号</td>
+          <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindId"  value="${time}"   class="INPUT_STYLE1"></td>
+          </tr>
+    
+          <tr>
+          <td width="19%" class="TD_STYLE1">题目分类名称</td>
+          <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindName"   class="INPUT_STYLE1"></td>
+          </tr>
+         
+         
+  
 </table>
 </html>
