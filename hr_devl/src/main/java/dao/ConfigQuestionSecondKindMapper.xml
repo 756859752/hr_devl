@@ -21,7 +21,11 @@
    </insert>
 	
    <delete id="deleteConfigQuestionSecondKind" parameterType="short">
-    delete from config_question_second_kind where qfk_id=#{qfkId}
+    delete from config_question_second_kind where qsk_id=#{qskId}
+   </delete>
+     
+   <delete id="deleteConfigQuestionSecondKindByfirstKindId" parameterType="string">
+     delete from config_question_second_kind where first_kind_id=#{firstKindId}
    </delete>
      
    <update id="updateConfigQuestionSecondKind" parameterType="ConfigQuestionSecondKind">

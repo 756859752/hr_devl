@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,10 +21,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
+<script type="text/javascript">
+  function toprofessionAdd(){
+   window.location.href="xxkpage/profession_design_add.jsp";
+  }
+</script>
 </head>
 
+
 <body>
-	<form method="post" action="configprofessiondesign.do">
+	<form method="post" ">
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--职称设置
@@ -31,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="添加"
-					class="BUTTON_STYLE1" onclick="toAdd();"></td>
+					class="BUTTON_STYLE1" onclick="toprofessionAdd()"></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -40,42 +47,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="80%" class="TD_STYLE1">职称名称</td>
 				<td width="20%" class="TD_STYLE1" align="center">删除</td>
 			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">工程师</td>
+           <c:forEach items="${profession}" var="i">
+          
+          
+           <tr>
+				<td class="TD_STYLE2">${i.attributename}</td>
 				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('27')">删除</a></td>
+				 href="xxk/${i.pbcid}/deleteProfession.do">删除</a></td>
+				
 			</tr>
+           </c:forEach>
+          
+		<!--
+		private int pbcid;
+	    private String attributekind;
+	    private String attributename;
+         -->
 
-			<tr>
-				<td class="TD_STYLE2">经理</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('28')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">助理</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('29')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">教授</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('30')">删除</a></td>
-			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">讲师</td>
-				<td class="TD_STYLE2" align="center"><a
-					href="javascript:toDel('31')">删除</a></td>
-			</tr>
-
-			<tr>
+	    	<!-- 	
+	    	<tr>
 				<td class="TD_STYLE2">技术支持</td>
 				<td class="TD_STYLE2" align="center"><a
 					href="javascript:toDel('32')">删除</a></td>
 			</tr>
+			 -->
 
 		</table>
 		<p>

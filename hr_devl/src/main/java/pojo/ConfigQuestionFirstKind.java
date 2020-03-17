@@ -8,7 +8,7 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 
 	// Fields
 
-	private Short qfkId;
+	private Short   qfkId;
 	private String firstKindId;
 	private String firstKindName;
 

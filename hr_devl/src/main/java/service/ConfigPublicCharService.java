@@ -13,7 +13,8 @@ public interface ConfigPublicCharService {
 	public void alterConfigPublicChar(ConfigPublicChar ConfigPublicChar);
 
 	public ConfigPublicChar findConfigPublicCharById(int id);
-
+	
+	public List<ConfigPublicChar> findselectConfigPublicCharByattributeKind(String attributeKind);
 	public List<ConfigPublicChar> findAllConfigPublicChar();
 	
 	public List<ConfigPublicChar> findAllConfigPublicCharByCondition(ConfigPublicChar ConfigPublicChar);

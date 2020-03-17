@@ -37,7 +37,7 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 配置字符转码过滤器 -->
+
 	<filter>
 		<filter-name>character</filter-name>
 		<filter-class>web.filter.CharacterEncodingFilter</filter-class>
@@ -54,4 +54,5 @@
 		<filter-name>character</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
 </web-app>

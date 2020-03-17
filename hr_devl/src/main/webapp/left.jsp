@@ -113,31 +113,31 @@ a {
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="configfilesecondkind.do?operate=list"
+											<td><a href="xxk/cfskselectall.do"
 												target="mainFrame">II级机构设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="configfilethirdkind.do?operate=list"
+											<td><a href="xxk/configFileThirdKindselectall.do"
 												target="mainFrame">III级机构设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="profession_design.html" target="mainFrame">职称设置</a>
+											<td><a href="xxk/selecctallprofession.do" target="mainFrame">职称设置</a>
 											</td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="major_kind.html" target="mainFrame">职位分类设置</a>
+											<td><a href="xxk/selectallconfigMagjorKind.do" target="mainFrame">职位分类设置</a>
 											</td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="major.html" target="mainFrame">职位设置</a></td>
+											<td><a href="xxk/selectallconfigMajor.do" target="mainFrame">职位设置</a></td>
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="public_char.html" target="mainFrame">公共属性设置</a>
+											<td><a href="xxk/selectallconfigPublicChar.do" target="mainFrame">公共属性设置</a>
 											</td>
 										</tr>
 									</table>
@@ -156,13 +156,14 @@ a {
 								id="config_salary">
 									<table width="100%" border="0">
 										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">薪酬项目设置</td>
+											<td ><img src="images/jt0.gif"></td>
+											<td ><a href="xxk/selectallsalaryItem.do" target="mainFrame">薪酬项目设置</a></td>
 										</tr>
+										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td>薪酬发放方式设置</td>
-											
+							
 										</tr>
 										<tr>
 											<td><img src="images/jt0.gif"></td>
@@ -187,14 +188,17 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="config_question">
 									<table width="100%" border="0">
+									
 										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">试题I级分类设置</td>
+											<td ><img src="images/jt0.gif"></td>
+											<td ><a href="xxk/selectalltopicFirstKind.do" target="mainFrame">试题I级分类设置</a></td>	
 										</tr>
+										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td>试题II级分类设置</td>
+											<td ><a href="xxk/selectalltopicSecondKind.do" target="mainFrame">试题II级分类设置</a></td>	
 										</tr>
+										
 									</table>
 							</span></td>
 						</tr>

@@ -50,6 +50,12 @@ public class ConfigQuestionSecondKindServiceImpl implements ConfigQuestionSecond
 		return configQuestionSecondKindMapper.selectAllConfigQuestionSecondKind();
 	}
 
+	@Override
+	public void removeConfigQuestionSecondKindByfirstKindId(String firstKindId) {
+		// TODO Auto-generated method stub
+		configQuestionSecondKindMapper.deleteConfigQuestionSecondKindByfirstKindId(firstKindId);
+	}
+
 	
 	
 }
