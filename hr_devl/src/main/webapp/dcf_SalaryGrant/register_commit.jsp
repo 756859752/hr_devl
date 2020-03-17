@@ -17,7 +17,7 @@
     <script type="text/javascript" src="/hr_devl/javascript/jquery.messager.js"></script>
 	</head>
 	<body>
-		<form method="post" action="updateSalary" >
+		<form method="post" action="/hr_devl/dcf/salarygrant/checksalarygrant.do" >
 			<table width="100%">
 				<tr>
 					<td colspan="2" style="text-align: left">
@@ -33,33 +33,33 @@
 				</tr>
 				<tr>
 					<td colspan="2"  style="text-align: left">
-					薪酬单编号：${sid}
-					<input type="hidden" name="salaryGrant.salaryGrantId" value="${sid}">
+					薪酬单编号：${salarygrant.salaryGrantId}
+					<input type="hidden" name="salaryGrant.salaryGrantId" value="${salarygrant.salaryGrantId}">
 					</td>					
 				</tr>
 				<tr>
 					<td colspan="2"  style="text-align: left">
 					机构：
-					<c:if test="${sid == 1}"><span>Ⅰ级机构名称</span></c:if> 
-					<c:if test="${sid == 2}"><span>II级机构名称</span></c:if> 
-					<c:if test="${sid == 3}"><span>III级机构名称</span></c:if> 
+					<c:if test="${salarygrant.firstKindName!=null}"><span>${salarygrant.firstKindName}</span></c:if> 
+					<c:if test="${salarygrant.secondKindName!=null}"><span>${salarygrant.secondKindName}</span></c:if> 
+					<c:if test="${salarygrant.thirdKindName!=null}"><span>${salarygrant.thirdKindName}</span></c:if> 
 				
 					</td>					
 				</tr>
 				<tr>
 					<td style="text-align: left">
-					本机构总人数:${count }
-					<input type="hidden" name="salaryGrant.humanAmount" value="5">
-					，基本薪酬总数:${summap.salaryall }<input type="hidden" name="salaryGrant.salaryStandardSum" value="${summap.salaryall }"/>
-					，实发总额:<span id="salarySum_sum">${summap.salarypall }</span>
-					<input type="hidden" id="salaryPaidSum" name="salaryGrant.salaryPaidSum" value="${summap.salarypall }"/>
+					本机构总人数:${salarygrant.humanAmount }
+					<input type="hidden" name="salaryGrant.humanAmount" value="${salarygrant.humanAmount }">
+					，基本薪酬总数:${salarygrant.salaryStandardSum }<input type="hidden" name="salaryGrant.salaryStandardSum" value="${salarygrant.salaryStandardSum}"/>
+					，实发总额:<span id="salarySum_sum">${salarygrant.salaryPaidSum }</span>
+					<input type="hidden" id="salaryPaidSum" name="salaryGrant.salaryPaidSum" value="${salarygrant.salaryPaidSum }"/>
 
 					
 					</td>
 					<td   style="text-align: right;">
-						登记人:<input type="text" name="salaryGrant.register" value="${userlogin.user_true_name }" size="8" readonly="readonly">
+						登记人:<input type="text" name="checker" value="张三" size="8" readonly="readonly">
 						登记时间：<span id="Tdate"></span>
-						<input type="hidden" name="salaryGrant.registTime" id="Tdate2" >
+						<input type="hidden" name="checkTime" id="Tdate2" >
 					</td>
 				</tr>
 			</table>
@@ -116,35 +116,32 @@
 				</tr>				
 				
 				<c:forEach items="${show}" var="s" varStatus="vs">
-				
-					<input type="hidden" name="grantDetails[${vs.index }].salaryGrantId" value="  ${s.sgd.humanId}">
+				     <input type="hidden" name="grantDetails[${vs.index }].grdId" value="${s.sgd.grdId}">
+					<input type="hidden" name="grantDetails[${vs.index }].salaryGrantId" value="${salarygrant.salaryGrantId}">
 				 	<input type="hidden" id="salaryStandardSum${vs.count }" name="grantDetails[${vs.index }].salaryStandardSum" value=""/>
-				 	<tr class="TD_STYLE2">
-					
+				 	<tr class="TD_STYLE2">	
 						<td class="TD_STYLE1">
 							${vs.count}
 						</td>
-						<td class="TD_STYLE1">${s.sgd.humanId }</td>
-						<td class="TD_STYLE1">${s.sgd.humanName}</td>
+						<td class="TD_STYLE1">${s.sgd.humanId }<input type="hidden" name="grantDetails[${vs.index}].humanId" value="${s.sgd.humanId }"></td>
+						<td class="TD_STYLE1">${s.sgd.humanName}<input type="hidden" name="grantDetails[${vs.index}].humanName" value="${s.sgd.humanName}"></td>
 						<c:forEach items="${s.list}" var="i">
 						   <td class="TD_STYLE1" width="7%">${i.salary}</td>
 						</c:forEach>
 						<td>
-							<input type="text" name="bounsSum"  id="bounsSum${vs.count }"  onkeyup="onKeyPress('${vs.count }')"  class="INPUT_STYLE2" />
+							<input type="text" name="grantDetails[${vs.index}].bounsSum"  id="bounsSum${vs.count }"  onkeyup="onKeyPress('${vs.count }')"  class="INPUT_STYLE2" />
 						</td>
 						<td>
-							<input type="text" name="saleSum"   id="saleSum${vs.count }"  onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2"/>
+							<input type="text" name="grantDetails[${vs.index}].saleSum"   id="saleSum${vs.count }"  onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2"/>
 						</td>
 						<td>
-							<input type="text" name="deductSum"   id="deductSum${vs.count }" onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2"/>
+							<input type="text" name="grantDetails[${vs.index}].deductSum"   id="deductSum${vs.count }" onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2"/>
 						</td>
 						<td>
-							<input type="text" name="salaryPaidSum" readonly="readonly"  id="salaryPaidSum${vs.count }" value=""  class="INPUT_STYLE2"/>
-						</td>
-						
-					</tr>	
+							<input type="text" name="grantDetails[${vs.index}].salaryPaidSum" readonly="readonly"  id="salaryPaidSum${vs.count }" value=""  class="INPUT_STYLE2"/>
+						</td>	
+					 </tr>	
 					</c:forEach>
-					
 			</table>			
 				
 		</form>

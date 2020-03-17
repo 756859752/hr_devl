@@ -14,4 +14,7 @@ public interface SalaryGrantMapper {
 	public SalaryGrant selectSalaryGrantById(short id);
 
 	public List<SalaryGrant> selectAllSalaryGrant();
+//	根据薪酬发放id查询一个对象
+	
+	public SalaryGrant selectSalaryGrantBySid(String sid);
 }

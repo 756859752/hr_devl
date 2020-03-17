@@ -1,4 +1,4 @@
-package web.controller.dcf;
+package web.controller.dcf.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;

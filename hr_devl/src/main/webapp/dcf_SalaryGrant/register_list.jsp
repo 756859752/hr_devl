@@ -57,7 +57,6 @@
 			type:"POST",
 			contentType:"application/json;charset=utf-8",
 		    success:function(result){
-		    	console.log(result);
 	          var str ='';
 	          var sum=0;
 	          for(var i=0;i<result.length;i++){

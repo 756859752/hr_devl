@@ -46,5 +46,9 @@
 	<select id="selectAllSalaryGrant" resultMap="sg">
 		select * from salary_grant
 	</select>
+	<!-- 根据薪酬发放id查出一个对象 -->
+	<select id="selectSalaryGrantBySid" parameterType="string" resultMap="sg">
+	    select * from salary_grant where salary_grant_id=#{sid}
+	</select>
 </mapper>
   

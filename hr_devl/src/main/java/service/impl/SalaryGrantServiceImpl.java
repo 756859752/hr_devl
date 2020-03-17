@@ -44,5 +44,11 @@ public class SalaryGrantServiceImpl implements SalaryGrantService{
 		// TODO Auto-generated method stub
 		return SalaryGrantMapper.selectAllSalaryGrant();
 	}
+
+	@Override
+	public SalaryGrant findSalaryGrantBySid(String sid) {
+		
+		return SalaryGrantMapper.selectSalaryGrantBySid(sid);
+	}
 	
 }

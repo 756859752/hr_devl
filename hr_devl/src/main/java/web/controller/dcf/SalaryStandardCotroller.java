@@ -25,6 +25,7 @@ import pojo.SalaryStandard;
 import pojo.SalaryStandardDetails;
 import service.SalaryStandardDetailsService;
 import service.SalaryStandardService;
+import web.controller.dcf.dto.Salary;
 
 
 @Controller
@@ -168,7 +169,6 @@ public class SalaryStandardCotroller {
     @RequestMapping("/updateone.do")
     public String updateOneSalaryStandard(@ModelAttribute Salary s) {
     	SalaryStandard ss=s.getSs();
-    	 System.out.println("得到变更的数据"+ss.getSalarySum());
     	ss.setCheckStatus((short)0);
     	sss.alterSalaryStandard(ss);
     	ArrayList<SalaryStandardDetails> list=s.getList();
