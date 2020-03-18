@@ -1,5 +1,6 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import pojo.SalaryGrant;
@@ -12,4 +13,6 @@ public interface SalaryGrantService{
 	public List<SalaryGrant> findAllSalaryGrant();
 //	根据薪酬发放id查询一个对象
 	public SalaryGrant findSalaryGrantBySid(String sid);
+//	多条件查询 
+	public List<SalaryGrant> findSalaryGrantsCoditions(HashMap<String, Object> map);
 }

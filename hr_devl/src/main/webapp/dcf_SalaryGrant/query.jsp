@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="css/table.css" type="text/css" />
+		<link rel="stylesheet" href="/hr_devl/css/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 		<!--
@@ -19,38 +19,32 @@
 			<table width="100%">
 				<tr>
 					<td style="text-align: left">
-						<font color="black">您正在做的业务是:人力资源管理--薪酬发放管理--薪酬发放复核</font>
+						<font color="black">您正在做的业务是:人力资源管理--薪酬发放管理--薪酬发放详情</font>
 						<br><br><br>
 					</td>
 				</tr>
 				 
 				 <tr>
 					<td colspan="2" style="text-align: left" >
-					薪酬单编号：${sid}
-					<input type="hidden" name="salaryGrant.salaryGrantId" value="HS1353753198460">
+					薪酬单编号：${salarygrant.salaryGrantId}
+					<input type="hidden" name="salarygrant.salaryGrantId" value="${salarygrant.salaryGrantId}">
 					</td>	
 					</tr>
 				<tr>
 					<td colspan="2" style="text-align: left">
 					机构：
-				 <c:if test="${sid == 1}"><span>Ⅰ级机构名称</span></c:if> 
-					<c:if test="${sid == 2}"><span>II级机构名称</span></c:if> 
-					<c:if test="${sid == 3}"><span>III级机构名称</span></c:if> 
-				
 					</td>					
 				</tr>
 				<tr>
 					<td style="text-align: left">
-					本机构总人数:${count }
-					 	，基本薪酬总数:${summap.salaryall } 
-					，实发总额:<span id="salarySum_sum">${summap.salarypall }</span>
+					本机构总人数:${salarygrant.humanAmount }
+					 	，基本薪酬总数:${salarygrant.salaryStandardSum } 
+					，实发总额:<span id="salarySum_sum">${salarygrant.salaryPaidSum }</span>
 					 
 					</td>
-					<td   style="text-align: right">
-					 
-						登记人:${userlogin.user_true_name } 　
-						登记时间： 2012年11月24日
-						 
+					<td   style="text-align: right">				 
+						登记人:${salarygrant.register } 　
+						登记时间：${salarygrant.registTime} 　	 
 					</td>
 				</tr>
 			</table>
@@ -108,68 +102,37 @@
 					</td>
 					
 				</tr>
-				<input type="hidden" name="grantDetails[0].salaryGrantId" value="HS1353753198460">
-				 	<input type="hidden" id="salaryStandardSum1" name="grantDetails[0].salaryStandardSum" value="1332.0"/>
-					<c:forEach items="${sgdlist}" var="s" varStatus="vs">
-					
-					<tr class="TD_STYLE2">
-					
-						<td>
-							${s.s_m_id }
+				    <input type="hidden" name="salaryGrant.salaryGrantId" value="${salarygrant.salaryGrantId}">
+				 	<input type="hidden" id="salaryStandardSum1" name="salarygrant[0].salaryStandardSum" value="${salarygrant.salaryStandardSum }"/>
+					<c:forEach items="${show}" var="s" varStatus="vs">
+				     <input type="hidden" name="grantDetails[${vs.index }].grdId" value="${s.sgd.grdId}">
+					<input type="hidden" name="grantDetails[${vs.index }].salaryGrantId" value="${salarygrant.salaryGrantId}">
+				 	<input type="hidden" id="salaryStandardSum${vs.count }" name="grantDetails[${vs.index }].salaryStandardSum" value=""/>
+				 	<tr class="TD_STYLE2">	
+						<td class="TD_STYLE1">
+							${vs.count}
 						</td>
-						<td>
-							${s.human_id }
-							 	</td>
-						<td>
-							${s.human_name }	
-							 	</td>
-							 
-							 
-											
-						<td> 							
-							${s.mission }
+						<td class="TD_STYLE1">${s.sgd.humanId }<input type="hidden" name="grantDetails[${vs.index}].humanId" value="${s.sgd.humanId }"></td>
+						<td class="TD_STYLE1">${s.sgd.humanName}<input type="hidden" name="grantDetails[${vs.index}].humanName" value="${s.sgd.humanName}"></td>
+						<c:forEach items="${s.list}" var="i">
+						   <td class="TD_STYLE1" width="7%">${i.salary}</td>
+						</c:forEach>
+						<c:forEach items="${salmoney}" var="m">
+						<td class="TD_STYLE1">
+							<input type="text" name="grantDetails[${vs.index}].bounsSum"  id="bounsSum${vs.count }" readonly="readonly" onkeyup="onKeyPress('${vs.count }')"  class="INPUT_STYLE2" value="${m.bounsSum}" />
 						</td>
-											
-						<td> 							
-							${s.travel }
+						<td class="TD_STYLE1">
+							<input type="text" name="grantDetails[${vs.index}].saleSum"   id="saleSum${vs.count }" readonly="readonly" onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2" value="${m.saleSum}"/>
 						</td>
-											
-						<td> 							
-							${s.housing }
+						<td class="TD_STYLE1">
+							<input type="text" name="grantDetails[${vs.index}].deductSum"   id="deductSum${vs.count }" readonly="readonly" onkeyup="onKeyPress('${vs.count }')" class="INPUT_STYLE2" value="${m.deductSum}"/>
 						</td>
-											
-						<td> 							
-							${s.base }
-						</td>
-											
-						<td> 							
-							${s.bonus }
-						</td>
-											
-						<td> 							
-							${s.meal }
-						</td>
-						 		
-						
-										
-						<td>
-						 0.0 
-						</td>
-						<td>
-						 0.0 
-						</td>
-						<td>
-							 0.0  
-						</td>
-						<td>
-						 ${s.salary_paid_sum } 
-						</td>
-						
-					</tr>	
+						<td class="TD_STYLE1">
+							<input type="text" name="grantDetails[${vs.index}].salaryPaidSum" readonly="readonly"  id="salaryPaidSum${vs.count }" value="${m.salaryPaidSum}"  class="INPUT_STYLE2" />
+						</td>	
+						</c:forEach>
+					 </tr>	
 					</c:forEach>
-					
-					 
-				
 			</table>
 			<br>
 			<center>

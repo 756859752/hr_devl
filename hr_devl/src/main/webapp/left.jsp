@@ -372,15 +372,18 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%">调动登记</td>
+							<td width="98%"><a href="dcf_Transfer/register.jsp"
+								target="mainFrame">调动登记</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td>调动审核</td>
+							<td><a href="dcf_Transfer/check_list.jsp"
+								target="mainFrame">调动审核</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td>调动查询</td>
+							<td><a href="dcf_Transfer/query.jsp"
+								target="mainFrame">调动查询</td>
 						</tr>
 					</table>
 			</span></td>

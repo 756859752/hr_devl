@@ -50,5 +50,30 @@
 	<select id="selectSalaryGrantBySid" parameterType="string" resultMap="sg">
 	    select * from salary_grant where salary_grant_id=#{sid}
 	</select>
+	
+	<!-- 多条件 -->
+	<select id="selectSalaryGrantsCoditions" parameterType="hashmap" resultMap="sg">
+	    select * from salary_grant
+	     <where>
+	       <if test="pass!=null&amp;pass!=''">
+	           and check_status=#{pass}
+	       </if>
+	       <if test="salid!=null&amp;salid!=''">
+	           and salary_grant_id=#{salid}
+	       </if>
+	       <if test="salnam!=null&amp;salnam!=''">
+	          <bind name="condition" value="'%'+salnam+'%'"/>
+	          or first_kind_name like #{condition}
+	          or second_kind_name like #{condition}
+	          or third_kind_name like #{condition}
+	       </if>
+	        <if test="mintime!=null">
+	         and check_time &gt; #{mintime} 
+	       </if>
+	       <if test="maxtime!=null">
+	         and check_time &lt; #{maxtime} 
+	       </if>
+	    </where>
+	</select>
 </mapper>
   

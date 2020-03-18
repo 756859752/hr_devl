@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,12 @@ public class SalaryGrantServiceImpl implements SalaryGrantService{
 	public SalaryGrant findSalaryGrantBySid(String sid) {
 		
 		return SalaryGrantMapper.selectSalaryGrantBySid(sid);
+	}
+
+	@Override
+	public List<SalaryGrant> findSalaryGrantsCoditions(HashMap<String, Object> map) {
+	
+		return SalaryGrantMapper.selectSalaryGrantsCoditions(map);
 	}
 	
 }

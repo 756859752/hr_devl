@@ -5,7 +5,7 @@
 <html>
 <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="../css/table.css" type="text/css" />
+		<link rel="stylesheet" href="/hr_devl/css/table.css" type="text/css" />
 		<title>无标题文档</title>
 		<style type="text/css">
 		<!--
@@ -60,42 +60,30 @@
 				
 				</tr>
 				
-				<c:forEach items="${slist}" var="s">
+				<c:forEach items="${list}" var="s">
 					<tr class="TD_STYLE2">
 						<td>
-						<a  href="toqueryall?sid=${s.check_status}">${s.salary_grant_id}</a>	
+						<a  href="/hr_devl/dcf/salarygrant/querysalargrantone/${s.salaryGrantId}.do">${s.salaryGrantId}</a>	
 						</td>
 						<td>
-							${s.first_kind_name }
+							${s.firstKindName }
 						</td>
 						<td>
-							${s.second_kind_name }
+							${s.secondKindName}
 						</td>
 						<td>
-							${s.third_kind_name }
+							${s.thirdKindName }
 						</td>
 						<td>
-							${s.human_amount }
+							${s.humanAmount}
 						</td>
 						<td>
-							${s.salary_standard_sum }
+							${s.salaryStandardSum}
 						</td>
 						 
 					</tr>
-				
-					</c:forEach>
-					
-				 			
-			</table>
-			
-			
-
- 
-			
-			
-			
-			</form>
-				 
-
+					</c:forEach>			 			
+			</table>		
+			</form>		
 	</body>
 </html>
