@@ -53,7 +53,7 @@ function queryMajor(){
 	majorSelect.append("<option value=''>--请选择--</option>");
 	if(mid != 0){
 		$.ajax({
-			url:'selectConfigQuestionSecondKindinAjax.do?mid='+mid,
+			url:'engageresumefinmajorinajax.do?mid='+mid,
 			type:'get',
 			success:function(data){
 	 			for(var i=0;i<data.length;i++){

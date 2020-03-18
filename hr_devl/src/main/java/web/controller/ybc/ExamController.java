@@ -10,9 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import pojo.ConfigFileFirstKind;
+import pojo.ConfigMajor;
+import pojo.ConfigMajorKind;
 import pojo.ConfigQuestionFirstKind;
 import pojo.ConfigQuestionSecondKind;
 import pojo.EngageSubjects;
+import service.ConfigMajorKindService;
+import service.ConfigMajorService;
 import service.ConfigQuestionFirstKindService;
 import service.ConfigQuestionSecondKindService;
 import service.EngageSubjectsService;
@@ -27,6 +32,10 @@ public class ExamController {
 	ConfigQuestionSecondKindService configQuestionSecondKind=null;
 	@Autowired
 	EngageSubjectsService engageSubjectsService=null;
+	@Autowired
+	ConfigMajorKindService configMajorKindService=null;
+	@Autowired
+	ConfigMajorService configMajorService=null;
 	
 	
 	//考试试题登记 
@@ -78,5 +87,49 @@ public class ExamController {
 		model.addAttribute("slist", slist);
 		return "forward:/ybc_EngageMajorRelease/subject/subject_list.jsp";
 	}
+	
+	
+	//进入生成套卷
+	@RequestMapping("examRegisterSelect.do")
+	public String examRegisterSelect( Model model){
+		//加载职位登记页面的数据
+				List <ConfigMajorKind> mlist =configMajorKindService.findAllConfigMajorKind();
+				model.addAttribute("mlist",mlist);
+		
+		List<ConfigQuestionFirstKind> flist=	configQuestionFirstKind.findAllConfigQuestionFirstKind();
+		List<ConfigQuestionSecondKind> list =configQuestionSecondKind.findAllConfigQuestionSecondKind();
+		List<EngageSubjects>  elist=engageSubjectsService.findAllEngageSubjects();
+		for (ConfigQuestionFirstKind configQuestionFirstKind : flist) {
+			for (ConfigQuestionSecondKind configQuestionSecondKind : list) {
+				if(configQuestionSecondKind.getFirstKindId().equals(configQuestionFirstKind.getFirstKindId())){
+					configQuestionFirstKind.getSeconds().add(configQuestionSecondKind);
+					for (EngageSubjects engageSubjects : elist) {
+						if(configQuestionFirstKind.getFirstKindId().equals(engageSubjects.getFirstKindId())&&configQuestionSecondKind.getSecondKindId().equals(engageSubjects.getSecondKindId()))
+						{
+							configQuestionSecondKind.getList().add(engageSubjects);
+						}
+					}
+				}
+			}
+		}
+		System.out.println(flist);
+		model.addAttribute("flist", flist);
+		
+		return "forward:/ybc_EngageMajorRelease/exam/exam_register.jsp";
+	}
+	//ajavx
+	@RequestMapping("examRegisterMajorInAjax.do")
+	@ResponseBody
+	public List<ConfigMajor> examRegisterMajorInAjax(String mid){
+		List<ConfigMajor> list=configMajorService.findAllConfigMajor();
+		List<ConfigMajor> configMajorlist=new ArrayList<ConfigMajor>();
+		for (ConfigMajor configMajor : list) {
+			if(configMajor.getMajorKindId().equals(mid)){
+				configMajorlist.add(configMajor);
+			}
+		}
+		return configMajorlist;
+	}
+	
 	
 }

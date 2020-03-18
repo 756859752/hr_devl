@@ -601,7 +601,11 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">考试出题</td>
+											<td width="98%">
+											<a href="ybcexam/examRegisterSelect.do" target="mainFrame">>
+												考试出题
+											</a>
+											</td>
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
