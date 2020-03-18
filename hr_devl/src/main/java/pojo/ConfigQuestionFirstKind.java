@@ -1,5 +1,8 @@
 package pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ConfigQuestionFirstKind entity. @author MyEclipse Persistence Tools
  */
@@ -11,7 +14,7 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 	private Short   qfkId;
 	private String firstKindId;
 	private String firstKindName;
-
+	private List<ConfigQuestionSecondKind> seconds=new ArrayList<>();
 	// Constructors
 
 	/** default constructor */
@@ -48,4 +51,14 @@ public class ConfigQuestionFirstKind implements java.io.Serializable {
 		this.firstKindName = firstKindName;
 	}
 
+	public List<ConfigQuestionSecondKind> getSeconds() {
+		return seconds;
+	}
+
+	public void setSeconds(List<ConfigQuestionSecondKind> seconds) {
+		this.seconds = seconds;
+	}
+	public int getSize(){
+		return this.seconds.size();
+	}
 }

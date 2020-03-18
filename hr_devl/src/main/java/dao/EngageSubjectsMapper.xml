@@ -43,5 +43,26 @@
    		<select id="selectAllEngageSubjects" resultMap="tid">
    			select * from engage_subjects
    		</select>
+   		
+   		<select id="selectEngageSubjectsByCondition" parameterType="hashmap" resultMap="tid">
+   			select * from engage_subjects
+   			<trim prefix="where" prefixOverrides="and|or">
+   				<if test="firstKindId!=''">
+   					and first_kind_id=#{firstKindId}
+   				</if>
+   				<if test="secondKindId!=''">
+   					and second_kind_id=#{secondKindId}
+   				</if>
+   				<if test="startDate!=''">
+   					and  unix_timestamp(regist_time)> unix_timestamp(#{startDate})
+   				</if>
+   				<if test="endDate!=''">
+	   				<![CDATA[
+	   					and unix_timestamp(regist_time)<unix_timestamp(#{startDate})
+	  			 	]]>
+   				</if>
+   			</trim>
+   		</select>
+   		
   </mapper>
   

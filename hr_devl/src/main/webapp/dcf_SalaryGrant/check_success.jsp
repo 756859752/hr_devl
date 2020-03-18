@@ -30,9 +30,7 @@
 			class="BUTTON_STYLE1" 
 			onclick="javascript:window.location.href='/hr_devl/dcf_SalaryGrant/check_list.jsp';" 
 			value="返回" />
-		</td>
-		
-		
+		</td>		
      </tr>
   </table>
 </form>

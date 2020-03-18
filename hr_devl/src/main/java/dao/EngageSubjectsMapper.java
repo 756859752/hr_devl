@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import pojo.EngageSubjects;
@@ -14,4 +15,6 @@ public interface EngageSubjectsMapper {
 	public EngageSubjects selectEngageSubjectsById(short id);
 
 	public List<EngageSubjects> selectAllEngageSubjects();
+	
+	public  List<EngageSubjects> selectEngageSubjectsByCondition(HashMap<String, String> map);
 }
