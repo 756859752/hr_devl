@@ -576,7 +576,7 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engagesubjects.do?operate=locate&param=query"
+												href="ybcexam/gototheSubjectRegister.do?operate=locate&param=query"
 												target="mainFrame">试题查询</a></td>
 										</tr>
 										<tr>
