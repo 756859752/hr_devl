@@ -24,19 +24,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  <script type="text/javascript" >
    function deleteone(){
-    $("#configFileFirstkind").submit();    
+    $("#configFileThirdkind").submit();    
    }
  </script>
 </head>
 <body>
-	<form  id="configFileFirstkind"  method="post" action="xxk/${mydelconfigFileSecond.fskId}/confingFileSeconddelete.do ">
+	<form  id="configFileThirdkind"  method="post" action="xxk/${configFileThirdKind.ftkId}/deleteconfigThirdKind.do ">
 		<table width="100%">
 			<tr>
 				<td colspan="2"><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--II级机构设置
 				</font></td>
 			</tr>
 			<tr>                         
-				<td width="49%">您确认删除  <b> ${mydelconfigFileSecond.firstKindId } /${mydelconfigFileSecond.secondKindId} / ${mydelconfigFileSecond.secondKindName} </b>这条记录吗?</td>
+				<td width="49%">您确认删除  <b> ${configFileThirdKind.firstKindName }/ ${configFileThirdKind.secondKindName} / ${configFileThirdKind.thirdKindName}  </b>这条记录吗?</td>
 				<td width="51%" align="right"><input type="button" value="删除"
 					class="BUTTON_STYLE1" onclick="deleteone()"> <input
 					type="button" value="返回" class="BUTTON_STYLE1"

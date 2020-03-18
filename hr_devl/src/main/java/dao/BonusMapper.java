@@ -9,7 +9,6 @@ import pojo.Bonus;
 @Repository
 public interface BonusMapper {
 	public void insertBonus(Bonus bonus);
-
 	
 	public void deleteBonus(short id);
 

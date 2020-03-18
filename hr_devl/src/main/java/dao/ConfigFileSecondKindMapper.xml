@@ -49,6 +49,11 @@
 		select * from config_file_second_kind where fsk_id=#{fskId}
 	</select>
 	
+	<select id="selectAllConfigFileSecondKindByfisrtKindId"
+		parameterType="string" resultMap="tid">
+		select * from config_file_second_kind where first_kind_id=#{firstKindId}
+	</select>
+	
 	<select id="selectAllConfigFileSecondKind" resultMap="tid">
 		select * from config_file_second_kind
 	</select>

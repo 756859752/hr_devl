@@ -15,7 +15,9 @@ public interface ConfigFileSecondKindMapper {
 	public void updateConfigFileSecondKind(ConfigFileSecondKind ConfigFileSecondKind);
 
 	public ConfigFileSecondKind selectConfigFileSecondKindById(short id);
-
+	
+	public List<ConfigFileSecondKind> selectAllConfigFileSecondKindByfisrtKindId(String firstSecondid);
+	
 	public List<ConfigFileSecondKind> selectAllConfigFileSecondKind();
 
     public void deleteConfigFileSecondKindByfirstkindid(String firstKindId );

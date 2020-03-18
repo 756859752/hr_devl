@@ -59,5 +59,11 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 		configFileSecondKindMapper.updateConfigFileSecondKindBycffk(ff);
 	}
 
+	@Override
+	public List<ConfigFileSecondKind> findAllConfigFileSecondKindByfisrtKindId(String firstKindId) {
+		// TODO Auto-generated method stub
+		return configFileSecondKindMapper.selectAllConfigFileSecondKindByfisrtKindId(firstKindId);
+	}
+
 	
 }

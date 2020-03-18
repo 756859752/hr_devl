@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
 <body> 
      
-	<form method="post" action="configfilefirstkind.do">
+	<form method="post" >
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--III级机构设置
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td align="right"><input type="button" value="添加"
 					class="BUTTON_STYLE1"
-					onclick="window.location.href='xxk/page/third_kind_register.jsp'" /></td>
+					onclick="window.location.href='xxk/addconfigThirdKindProcess.do'" /></td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						II级机构名称
 					</td>
 					<td width="14%" class="TD_STYLE1">
-						II级机构编号
+						III级机构编号
 					</td>
 					<td width="14%" class="TD_STYLE1">
 						III级机构名称
@@ -82,13 +82,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<c:forEach items="${configFileThirdKind}" var="i" >
 			 <tr>
 			    <td class="TD_STYLE2">${i.firstKindName }</td>
-				<td class="TD_STYLE2">${i.secondKindId }</td>
 				<td class="TD_STYLE2">${i.secondKindName }</td>
+				<td class="TD_STYLE2">${i.thirdKindId}</td>
 				<td class="TD_STYLE2">${i.thirdKindName }</td>
 				<td class="TD_STYLE2">${i.thirdKindSaleId }</td>
 				<td class="TD_STYLE2">${i.thirdKindIsRetail }</td>
-				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/cfsktoupdateprocess.do">变更</a></td>
-				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/confingFileSecondtoupdateprocess.do">删除</a></td>
+				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/updateconfigFileThirdKindProcess.do">变更</a></td>
+				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/deleteconfigThirdKind.do">删除</a></td>
 			  </tr>
 			</c:forEach>
 			

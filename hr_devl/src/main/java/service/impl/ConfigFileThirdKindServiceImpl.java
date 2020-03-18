@@ -32,7 +32,7 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 	@Override
 	public void alterConfigFileThirdKind(ConfigFileThirdKind ConfigFileThirdKind) {
 		// TODO Auto-generated method stub
-		ConfigFileThirdKindMapper.updateConfigFileFirstKind(ConfigFileThirdKind);
+		ConfigFileThirdKindMapper.updateConfigFileThirdKind(ConfigFileThirdKind); 
 	}
 
 	@Override

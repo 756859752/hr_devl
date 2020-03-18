@@ -23,17 +23,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
  <script type="text/javascript">
   function save(){
-      
-        $("#configfilesecondkindForm").submit();  
-        
+      $("#configfilethirdkindForm").submit();     
   }
  </script>
  </head>
 <body>
 </head>
 <body>
-	<form id="configfilesecondkindForm"  name="configfilesecondkindForm" method="post"
-		action="xxk/cfskupdate.do">
+	<form id="configfilethirdkindForm"  name="configfilesecondkindForm" method="post"
+		action="xxk/updateconfigFileThird.do">
 		<table width="100%">
 			<tr>
 				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--II级机构设置
@@ -48,17 +46,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 		</table>
     
-         <input type="hidden" name="fskId" value="${myxxkConfigFileSecondKind.fskId}" />
+   <!--   private Short ftkId;
+	private String firstKindId;
+	private String firstKindName;
+	private String secondKindId;
+	private String secondKindName;
+	private String thirdKindId;
+	private String thirdKindName;
+	private String thirdKindSaleId;
+	private String thirdKindIsRetail;
+    --> 
+         <input type="hidden" name="ftkId" value="${configFileThirdKind.ftkId}" />
 		 	
-		 <input type="hidden" name="firstKindId" value="${myxxkConfigFileSecondKind.firstKindId}" />
+		 
 		 <table width="100%" border="1" cellpadding=0 cellspacing=1
 		 	bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 		 	
+		 	<tr>
+				<td width="19%" class="TD_STYLE1">I级机构编号</td>
+				<td width="81%" class="TD_STYLE2">
+				<input type="text" readonly="readonly"
+					name="firstKindId" value="${configFileThirdKind.firstKindId}" 
+					class="INPUT_STYLE1">
+					
+				</td>
+			 </tr>
+			 
 			<tr>
 				<td width="19%" class="TD_STYLE1">I级机构名称</td>
 				<td width="81%" class="TD_STYLE2">
 				<input type="text" readonly="readonly"
-					name="firstKindName" value="${myxxkConfigFileSecondKind.firstKindName}" 
+					name="firstKindName" value="${configFileThirdKind.firstKindName}" 
 					class="INPUT_STYLE1">
 					
 				</td>
@@ -67,27 +85,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<td class="TD_STYLE1">II级机构编号</td>
 				<td class="TD_STYLE2"><input type="text"   readonly="readonly"
-				name="secondKindId" value="${myxxkConfigFileSecondKind.secondKindId}" 
+				name="secondKindId" value="${configFileThirdKind.secondKindId}" 
 				class="INPUT_STYLE1"></td>
 			</tr>
 			
 			<tr>
 				<td class="TD_STYLE1">II级机构名称</td>
-				<td class="TD_STYLE2"><input type="text"
-				name="secondKindName" value="${myxxkConfigFileSecondKind.secondKindName}" 
+				<td class="TD_STYLE2"><input type="text"   readonly="readonly"
+				name="secondKindName" value="${configFileThirdKind.secondKindName}" 
+				class="INPUT_STYLE1"></td>
+			</tr>
+			
+			<tr>
+				<td class="TD_STYLE1">III级机构编号</td>
+				<td class="TD_STYLE2"><input type="text"   readonly="readonly"
+				name="thirdKindId" value="${configFileThirdKind.thirdKindId}" 
+				class="INPUT_STYLE1"></td>
+			</tr>
+			
+			<tr>
+				<td class="TD_STYLE1">III级机构名称</td>
+				<td class="TD_STYLE2"><input type="text"   
+				name="thirdKindName" value="${configFileThirdKind.thirdKindName}" 
 				class="INPUT_STYLE1"></td>
 			</tr>
 			
 			<tr>
 				<td class="TD_STYLE1">薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-				<td class="TD_STYLE2"><textarea name="secondSalaryId"
-						rows="4" class="TEXTAREA_STYLE1">${myxxkConfigFileSecondKind.secondSalaryId}</textarea></td>
+				<td class="TD_STYLE2"><textarea name="thirdKindSaleId"
+				rows="4" class="TEXTAREA_STYLE1">${configFileThirdKind.thirdKindSaleId}</textarea></td>
 			</tr>
-			<tr>
-				<td class="TD_STYLE1">销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-				<td class="TD_STYLE2"><textarea name="secondSaleId"
-				  rows="4" class="TEXTAREA_STYLE1">${myxxkConfigFileSecondKind.secondSaleId}</textarea></td>
+			
+		    <tr>
+				<td class="TD_STYLE1">是否为零售店（是/否）</td>
+				<td class="TD_STYLE2">
+				<select name="thirdkindisretail" >
+						<option selected="selected" value="是">是</option>
+						<option value="否">否</option>
+					</select>
+				</td>
 			</tr>
+			
 		</table>
 	</form>
 </body>
