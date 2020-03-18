@@ -15,12 +15,18 @@ import pojo.ConfigMajor;
 import pojo.ConfigMajorKind;
 import pojo.ConfigQuestionFirstKind;
 import pojo.ConfigQuestionSecondKind;
+import pojo.EngageExam;
+import pojo.EngageExamDetails;
 import pojo.EngageSubjects;
 import service.ConfigMajorKindService;
 import service.ConfigMajorService;
 import service.ConfigQuestionFirstKindService;
 import service.ConfigQuestionSecondKindService;
+import service.EngageExamDetailsService;
+import service.EngageExamService;
 import service.EngageSubjectsService;
+import web.controller.ybc.dto.ExamsModel;
+import web.controller.ybc.dto.Helper;
 import web.controller.ybc.dto.Massage;
 
 @Service
@@ -36,7 +42,10 @@ public class ExamController {
 	ConfigMajorKindService configMajorKindService=null;
 	@Autowired
 	ConfigMajorService configMajorService=null;
-	
+	@Autowired
+	EngageExamService engageExamService=null;
+	@Autowired
+	EngageExamDetailsService  engageExamDetailsService=null;
 	
 	//考试试题登记 
 	@RequestMapping("gototheSubjectRegister.do")
@@ -69,7 +78,7 @@ public class ExamController {
 	//试题登记提交
 	@RequestMapping("subjectRegisterSubmit.do")
 	public String subjectRegisterSubmit(EngageSubjects es,Model model){
-		engageSubjectsService.alterEngageSubjects(es);
+		engageSubjectsService.addEngageSubjects(es);
 		model.addAttribute("msg", new Massage("试题登记成功！", "main.jsp"));
 		return Massage.MSG_PAGE;
 	}
@@ -95,7 +104,8 @@ public class ExamController {
 		//加载职位登记页面的数据
 				List <ConfigMajorKind> mlist =configMajorKindService.findAllConfigMajorKind();
 				model.addAttribute("mlist",mlist);
-		
+				Helper h=new Helper();
+				model.addAttribute("h", h);
 		List<ConfigQuestionFirstKind> flist=	configQuestionFirstKind.findAllConfigQuestionFirstKind();
 		List<ConfigQuestionSecondKind> list =configQuestionSecondKind.findAllConfigQuestionSecondKind();
 		List<EngageSubjects>  elist=engageSubjectsService.findAllEngageSubjects();
@@ -112,7 +122,6 @@ public class ExamController {
 				}
 			}
 		}
-		System.out.println(flist);
 		model.addAttribute("flist", flist);
 		
 		return "forward:/ybc_EngageMajorRelease/exam/exam_register.jsp";
@@ -131,5 +140,20 @@ public class ExamController {
 		return configMajorlist;
 	}
 	
+	//创建套卷提交
+	@RequestMapping("examRegisterSubmit.do")
+	public String examRegisterSubmit(ExamsModel examdetails,EngageExam ee,Model model){
+		List<EngageExamDetails> list=examdetails.getExamdetails();
+			String examNumber =	Helper.getExamid();
+			ee.setExamNumber(examNumber);
+			engageExamService.addEngageExam(ee);
+		for (EngageExamDetails engageExamDetails : list) {
+			engageExamDetails.setExamNumber(examNumber);
+			engageExamDetailsService.addEngageExamDetails(engageExamDetails);
+		}
+		model.addAttribute("msg", new Massage("出题成功","main.jsp"));
+		
+		return Massage.MSG_PAGE;
+	}
 	
 }

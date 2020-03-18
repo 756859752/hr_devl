@@ -39,9 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/locate.js">
 		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/select.js">
-		</script>
 		<script type="text/javascript">
 			window.onload=check;
 		function tick() {
@@ -156,10 +153,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<option>--请选择--</option>
 					</select>
 					<td class="TD_STYLE1">
-						姓名
+						登记人
 					</td>
 					<td class="TD_STYLE2">
-						 <input type="text"  name="humanName" id="name" class="INPUT_STYLE2"/>
+						 <input type="text"  name="humanName" id="name" class="INPUT_STYLE2" value="${user.user_true_name}"/>
 					</td>
 					<td class="TD_STYLE1">
 						注册时间

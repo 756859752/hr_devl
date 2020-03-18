@@ -118,4 +118,13 @@ public class EngageExam implements java.io.Serializable {
 		this.limiteTime = limiteTime;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageExam [exaId=" + exaId + ", examNumber=" + examNumber
+				+ ", majorKindId=" + majorKindId + ", majorKindName="
+				+ majorKindName + ", majorId=" + majorId + ", majorName="
+				+ majorName + ", register=" + register + ", registTime="
+				+ registTime + ", limiteTime=" + limiteTime + "]";
+	}
+	
 }

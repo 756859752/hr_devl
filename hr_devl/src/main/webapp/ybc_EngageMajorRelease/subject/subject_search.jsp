@@ -31,10 +31,6 @@
 			src="${pageContext.request.contextPath}/javascript/locate.js">
 	
 </script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/select.js">
-	
-</script>
 	<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/comm/time.js">
 			</script>
@@ -53,7 +49,7 @@ function queryMajor(){
 	majorSelect.append("<option value=''>--请选择--</option>");
 	if(mid != 0){
 		$.ajax({
-			url:'engageresumefinmajorinajax.do?mid='+mid,
+			url:'selectConfigQuestionSecondKindinAjax.do?mid='+mid,
 			type:'get',
 			success:function(data){
 	 			for(var i=0;i<data.length;i++){

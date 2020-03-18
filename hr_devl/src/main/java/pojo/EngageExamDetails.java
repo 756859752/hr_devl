@@ -89,4 +89,13 @@ public class EngageExamDetails implements java.io.Serializable {
 		this.questionAmount = questionAmount;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageExamDetails [exdId=" + exdId + ", examNumber="
+				+ examNumber + ", firstKindId=" + firstKindId
+				+ ", firstKindName=" + firstKindName + ", secondKindId="
+				+ secondKindId + ", secondKindName=" + secondKindName
+				+ ", questionAmount=" + questionAmount + "]";
+	}
+
 }

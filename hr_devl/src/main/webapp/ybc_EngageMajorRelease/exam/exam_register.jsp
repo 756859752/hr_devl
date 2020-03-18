@@ -24,23 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
-		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/comm/list.js">
-		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
-		</script>
+		
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
-		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/locate.js">
-		</script>
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/javascript/select.js">
 		</script>
 		<script type="text/javascript">
 			window.onload=check;
@@ -83,8 +69,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function queryMajor(){
 			var mid = $("#majorKindId").val();
 			var majorSelect = $("#majorId");
-			var majorkindname = $("#majorkind_"+mid).html();
-			 $("#majorKindId").val(majorkindname);
+			var majorkindname = $("#majorKind_"+mid).html();
+			 $("#majorKindName").val(majorkindname);
 			majorSelect.empty();
 			majorSelect.append("<option value=''>--请选择--</option>");
 			if(mid != 0){
@@ -108,15 +94,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 $("#majorName").val(majorkindname);
  	 	}
 		
-		
-		
+		function search(){
+			document.fm.submit();
+		}
 		</script>
   </head>
   
   <body>
-   <form name="interviewForm" method="post" action="subjectRegisterSearchStart.do" >
-   <input type="hidden" name="MajorKindName" id="MajorKindName">
-   <input type="hidden" name="MajorName" id="MajorName">
+   <form name="fm" method="post" action="ybcexam/examRegisterSubmit.do" >
+   <input type="hidden" name="majorKindName" id="majorKindName">
+   <input type="hidden" name="majorName" id="majorName">
    		<table width="100%">
 				<tr>
 					<td>
@@ -143,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					style="width: 290;height: 100" class="SELECT_STYLE3"> 
 						<option value="0">--请选择--</option>
 						<c:forEach items="${mlist}" var="ml">
-							<option  value="${ml.majorKindId }" id="MajorKind_${ml.majorKindId }">${ml.majorKindName }</option>
+							<option  value="${ml.majorKindId }" id="majorKind_${ml.majorKindId }">${ml.majorKindName }</option>
 						</c:forEach>
 					 </select>
 					</td>
@@ -195,8 +182,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							出题数量
 						</td>
 					</tr>
-						<c:forEach items="${fl.seconds }" var="se">
+						<c:forEach items="${fl.seconds }" var="se" varStatus="i">
+							<input type="hidden" name="examdetails[${h.index}].firstKindId" value="${fl.firstKindId}"/>
+							<input type="hidden" name="examdetails[${h.index}].firstKindName" value="${fl.firstKindName}"/>
+							<input type="hidden" name="examdetails[${h.index}].secondKindName" value="${se.secondKindName}"/>
+							<input type="hidden" name="examdetails[${h.index}].secondKindId" value="${se.secondKindId}"/>
 							<tr>
+							
 								<td class="TD_STYLE2" width="15%" colspan="3">
 									${se.secondKindName}
 								</td>
@@ -204,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									${se.subjectsize} 
 								</td>
 								<td class="TD_STYLE2" width="15%" colspan="2">
-									<input type="text"  name="questionAmount" id="name" class="INPUT_STYLE2"/>
+									<input type="text"  name="examdetails[${h.index}].questionAmount" id="name" class="INPUT_STYLE2"/>
 								</td>
 							</tr>
 						</c:forEach>
