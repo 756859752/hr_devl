@@ -17,7 +17,7 @@ import service.ConfigFileThirdKindService;
 @Controller
 @RequestMapping("/xxk")
 public class ConfigFileFirstKindController {
-  
+   
 	@Autowired
 	ConfigFileFirstKindService    configFileFirstKindService=null;
 	
