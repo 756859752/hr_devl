@@ -14,4 +14,6 @@ public interface ConfigPrimaryKeyService {
 	public ConfigPrimaryKey ConfigPrimaryKeyById(short id);
 
 	public List<ConfigPrimaryKey> findAllConfigPrimaryKey();
+	
+	public List<ConfigPrimaryKey> findAllConfigPrimaryKeyByprimaryKeyTable(String primaryKeyTable);
 }

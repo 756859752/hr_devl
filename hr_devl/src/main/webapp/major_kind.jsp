@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<form method="post" >
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--薪酬管理设置--薪酬项目设置
+				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--职位分类设置
 				</font></td>
 			</tr>
 			<tr>
@@ -41,25 +41,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 		</table>
 	  <!--  
-	 private int pbcid;
-	 private String attributekind;
-	 private String attributename;
+	   configMajorKind
+	   private Short mfkId;
+	   private String majorKindId;
+	   private String majorKindName;
 	   -->
 	   
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
-			<tr height="20">
-			 <td width="80%" class="TD_STYLE1" align="center">薪酬项目名称</td>
-			 <td width="20%" class="TD_STYLE1" align="center">删除</td>
-		    </tr>
-				
+			<tr>
+				<td width="46%" class="TD_STYLE1">职位分类编号</td>
+				<td width="47%" class="TD_STYLE1">职位分类名称</td>
+				<td width="5%" class="TD_STYLE1">删除</td>
+			</tr>
           <c:forEach items="${configMajorKind}" var="i">
-			  <tr>
-				 <td class="TD_STYLE2">${x.attributename}</td>
-				 <td  align="center" class="TD_STYLE2">
-				  <a href="xxk//deletesalaryItem.do">删除</a>
-				 </td>
-			 </tr>
+			<tr>
+				<td class="TD_STYLE2">${i.majorKindId}</td>
+				<td class="TD_STYLE2">${i.majorKindName}</td>
+				<td class="TD_STYLE2"><a href="xxk/${i.mfkId }/deleteconfigMajorKind.do">删除</a></td>
+			</tr>
           </c:forEach>
 
 		</table>

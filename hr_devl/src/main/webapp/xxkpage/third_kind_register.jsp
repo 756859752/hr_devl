@@ -148,8 +148,8 @@
 					</td>
 					<td class="TD_STYLE2">
 					<select name="thirdKindIsRetail" >
-						<option selected="selected">是</option>
-						<option>否</option>
+						<option selected="selected"  value="是">是</option>
+						<option value="否">否</option>
 					</select>
 						 
 					</td>

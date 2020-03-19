@@ -36,8 +36,11 @@
    </update>
    
 	<select id="selectConfigPrimaryKey" parameterType="short" resultMap="tid">
-		
 	select * from config_primary_key where mak_id=#{makId}
+	</select>
+	
+	<select id="selectAllConfigPrimaryKeyByPrimaryKetTable" parameterType="string" resultMap="tid">
+	select * from config_primary_key where primary_key_table=#{primaryKeyTable}
 	</select>
 	
 	<select id="selectAllConfigPrimaryKey" resultMap="tid">
