@@ -17,4 +17,6 @@ public interface ConfigPrimaryKeyMapper {
 	public ConfigPrimaryKey selectConfigPrimaryKeyById(short id);
 
 	public List<ConfigPrimaryKey> selectAllConfigPrimaryKey();
+	
+	public List<ConfigPrimaryKey> selectAllConfigPrimaryKeyByPrimaryKetTable(String table);
 }

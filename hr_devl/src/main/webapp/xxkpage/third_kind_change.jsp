@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <tr>
 				<td class="TD_STYLE1">是否为零售店（是/否）</td>
 				<td class="TD_STYLE2">
-				<select name="thirdkindisretail" >
+				<select name="thirdKindIsRetail" >
 						<option selected="selected" value="是">是</option>
 						<option value="否">否</option>
 					</select>

@@ -60,7 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					onclick="history.back();"></td>
 			</tr>
 		</table>
-		
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr class="TR_STYLE1">
@@ -69,12 +68,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					onclick="selAll(this.form)">
 				</td>
 			</tr>
-			
 			<input type="hidden" name="item.primaryKeyTable" value="HumanFile">
+
 			<input type="hidden" name="list[0].prkId" value="1">
 			<input type="hidden" name="list[0].primaryKey" value="firstKindName">
 			<input type="hidden" name="list[0].keyName" value="I机机构名称">
-			
 			<tr>
 				<td class="TD_STYLE2"><input type="checkbox"
 					name="list[0].checked" value="on" checked="checked">I机机构名称
