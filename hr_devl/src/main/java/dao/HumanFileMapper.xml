@@ -87,5 +87,26 @@
    		<select id="selectAllHumanFile" resultMap="tid">
    			select * from human_file
    		</select>
+   	<!-- 多条件查询人事档案 -->
+   	<select id="selectHumanFileByConditions" parameterType="hashmap" resultMap="tid">
+   	      select * from human_file
+   	       <where>
+	       <if test="firstkindid!=null">
+	           and first_kind_id=#{firstkindid}
+	       </if>
+	        <if test="secondkindid!=null">
+	           and second_kind_id=#{secondkindid}
+	       </if>
+	        <if test="thirdkindid!=null">
+	           and third_kind_id=#{thirdkindid}
+	       </if>
+	        <if test="mintime!=null">
+	         and regist_time &gt; #{mintime} 
+	       </if>
+	       <if test="maxtime!=null">
+	         and regist_time &lt; #{maxtime} 
+	       </if>
+	    </where>
+   	</select>  		
   </mapper>
   

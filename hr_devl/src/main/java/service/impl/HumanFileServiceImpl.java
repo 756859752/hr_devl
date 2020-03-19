@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class HumanFileServiceImpl implements HumanFileService{
 	public List<HumanFile> findAllHumanFile() {
 		// TODO Auto-generated method stub
 		return humanFileMapper.selectAllHumanFile();
+	}
+// 多条件选择人事档案
+	@Override
+	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map) {	
+		return  humanFileMapper.selectHumanFileByConditions(map);
 	}
 
 }
