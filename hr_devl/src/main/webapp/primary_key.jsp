@@ -19,13 +19,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript">
 	function toRegister()
 	{
 		//document.forms[0].action = document.forms[0].action + "?operate=list";	
-		  var table =("#primaryKeyTable").val();
-	     ("#configPrimaryKeyTable").action="xxk/"+table+"/selectByPrimaryKeyTable.do";
-	     ("#configPrimaryKeyTable").submit();
+		  var table =$("#primaryKeyTable").val();
+		  document.forms[0].action = "xxk/"+table+"/selectByPrimaryKeyTable.do";
+	     $("#configPrimaryKeyTable").submit();
 	}
 </script>
 </head>
@@ -45,11 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<option value="SalaryStandard">薪酬标准</option>
 						<option value="SalaryGrant">薪酬发放</option>
 						<option value="MajorChange">调动管理</option>
-						
-						<!--  
 						<option value="Training">培训管理</option>
 						<option value="Bonus">激励管理</option>
-						-->
+						
 						</select></td>
 				<td width="13%"><input type="button" value="开始"
 					class="BUTTON_STYLE1" onclick="toRegister();"> <input

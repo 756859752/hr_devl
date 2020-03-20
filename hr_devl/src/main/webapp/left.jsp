@@ -162,7 +162,7 @@ a {
 										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td>薪酬发放方式设置</td>
+											<td><a href="xxk/selectallsalaryGrantSet.do" target="mainFrame">薪酬发放方式设置</a></td>
 							
 										</tr>
 										<tr>

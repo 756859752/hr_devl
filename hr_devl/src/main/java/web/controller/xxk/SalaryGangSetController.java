@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pojo.ConfigPublicChar;
 import service.ConfigPublicCharService;
@@ -13,13 +15,30 @@ import service.ConfigPublicCharService;
 @RequestMapping("/xxk")
 public class SalaryGangSetController {
 	
-	@Autowired   
-   ConfigPublicCharService     ConfigPublicCharService=null;  
+   @Autowired   
+   ConfigPublicCharService     configPublicCharService=null;  
    
-	@RequestMapping("/selectallsalaryGangSet.do")
-   public String  selectallsalaryGangSet() {
-   List<ConfigPublicChar>    c  =ConfigPublicCharService.findselectConfigPublicCharByattributeKind("薪酬发放方式设置");
-   
-   return null; 
+   @RequestMapping("/selectallsalaryGrantSet.do")
+   public String  selectallsalaryGrantSet(Model m) {
+   List<ConfigPublicChar>    c  =configPublicCharService.findselectConfigPublicCharByattributeKind("薪酬发放方式设置");
+   m.addAttribute("salaryGangSet", c);
+   return "/xxkpage/salary/salary_grant_set"; 
    }
+   
+   
+  @RequestMapping("/addsalaryGrangSet.do")
+   public String  addsalaryGrantSet(ConfigPublicChar c) {
+	  System.out.println(c);
+	  System.out.println("1");
+   configPublicCharService.addConfigPublicChar(c);
+   return "redirect:/xxk/selectallsalaryGrantSet.do";
+  }
+   
+  
+  @RequestMapping("/{id}/deletesalaryGrantSet.do")
+  public String deletesalaryGrantSet(@RequestParam("id") int id) {
+	configPublicCharService.removeConfigPublicChar(id);
+  return "redirect:/xxk/selectallsalaryGrantSet.do";
+  }
+  
 }

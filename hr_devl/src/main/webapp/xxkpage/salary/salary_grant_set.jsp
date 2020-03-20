@@ -22,9 +22,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 <script type="text/javascript">
+
   function addsalaryItem(){
-   window.location.href="xxkpage/salary/salary_item_add.jsp";
+   window.location.href="xxkpage/salary/salary_grant_set_add.jsp";
+   
   }
+  
 </script>
 </head>
 
@@ -44,18 +47,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
-			<!--<td width="80%" class="TD_STYLE1">I机构</td>
-			    <td width="80%" class="TD_STYLE1">II机构</td> --> 
 				<td width="80%" class="TD_STYLE1">薪酬发放方式名称</td>
 				<td width="20%" class="TD_STYLE1" align="center">删除</td>
 			</tr>
-           <c:forEach items="${salaryItem}" var="i">
+           <c:forEach items="${salaryGangSet}" var="i">
           
           
              <tr>
 				<td class="TD_STYLE2">${i.attributename}</td>
 				<td class="TD_STYLE2" align="center"><a
-				 href="xxk/${i.pbcid}/deleteProfession.do">删除</a></td>
+				 href="xxk/${i.pbcid}/deletesalaryGrantSet.do">删除</a></td>
 			</tr>
            </c:forEach>
           
