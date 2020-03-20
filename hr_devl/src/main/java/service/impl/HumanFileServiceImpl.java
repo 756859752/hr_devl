@@ -58,4 +58,10 @@ public class HumanFileServiceImpl implements HumanFileService{
 		return humanFileMapper.selectByCondition(HumanFile);
 	}
 
+	@Override
+	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.selectHumanFileByConditions(map);
+	}
+
 }

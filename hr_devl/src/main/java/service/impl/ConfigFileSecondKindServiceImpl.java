@@ -64,6 +64,5 @@ public class ConfigFileSecondKindServiceImpl implements ConfigFileSecondKindServ
 		// TODO Auto-generated method stub
 		return configFileSecondKindMapper.selectAllConfigFileSecondKindByfisrtKindId(firstKindId);
 	}
-
 	
 }

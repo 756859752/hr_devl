@@ -13,4 +13,6 @@ public interface HumanFileService {
 	public List<HumanFile> findAllHumanFile();
 	public List<HumanFile> findHumanFileByCheckStatus(short s);
 	public List<HumanFile> findByCondition(HumanFile HumanFile);
+//	根据多条件筛选
+	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map);
 }
