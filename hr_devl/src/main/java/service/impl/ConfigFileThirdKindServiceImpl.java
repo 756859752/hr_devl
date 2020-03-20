@@ -58,12 +58,6 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 		// TODO Auto-generated method stub
 		ConfigFileThirdKindMapper.updateConfigFileFirstKindBycffk(cffk);
 	}
-	
-//	根据二级机构id查询所有三级分类
-	@Override
-	public List<ConfigFileThirdKind> findConfigFileThirdKindBySecondKindId(String seconkindid) {	
-		return ConfigFileThirdKindMapper.selectConfigFileThirdKindBySecondKindId(seconkindid);
-	}
 
 
 	

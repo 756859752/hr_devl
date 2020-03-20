@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -41,10 +43,10 @@ subcat2[5] = ["6", "专员", "人力资源/专员", "人力资源"];
 subcat2[6] = ["7", "主任", "生产部/主任", "生产部"];
 subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 
- 		function list()
+ 		function startdelete()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=list&method=delete&delete_status=1";
-			document.forms[0].action ="query_list.html";
+			document.forms[0].action ="cgp/delete.do";
 			document.forms[0].submit();
 		}
 		function search()
@@ -65,7 +67,7 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="开始"
-					class="BUTTON_STYLE1" onclick="javascript:list();"> <input
+					class="BUTTON_STYLE1" onclick="javascript:startdelete();"> <input
 					type="button" value="搜索" class="BUTTON_STYLE1" onclick="search();">
 				</td>
 			</tr>
@@ -74,61 +76,71 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择员工所在I级机构</td>
-				<td width="84%" class="TD_STYLE2"><select
-					name="item.firstKindName" size="5"
-					onchange="changelocation(document.forms[0].elements['item.secondKindName'],document.forms[0].elements['item.firstKindName'].options[document.forms[0].elements['item.firstKindName'].selectedIndex].value)"
-					class="SELECT_STYLE2"><option value="">&nbsp;</option>
-
-						<option value="集团">集团</option>
-
-						<option value="02">02</option></select></td>
+				<td width="84%" class="TD_STYLE2">
+				<select name="firstKindName" size="5"
+					onchange="changelocation(document.forms[0].elements['secondKindName'],document.forms[0].elements['firstKindName'].options[document.forms[0].elements['firstKindName'].selectedIndex].value)"
+					class="SELECT_STYLE2">
+					<option value="">&nbsp;</option>
+					<!-- <option value="01/集团">集团</option>
+					<option value="03/02">02</option></select></td> -->
+					<c:forEach items="${list1 }" var="l1">
+						<option value="${l1.firstKindName }">${l1.firstKindName }</option>
+					</c:forEach>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">请选择员工所在II级机构</td>
-				<td width="84%" class="TD_STYLE2"><select
-					name="item.secondKindName" size="5"
-					onchange="changelocation1(document.forms[0].elements['item.thirdKindName'],document.forms[0].elements['item.secondKindName'].options[document.forms[0].elements['item.secondKindName'].selectedIndex].value)"
-					class="SELECT_STYLE2"><script language="javascript">
-								changelocation(document.forms[0].elements["item.secondKindName"],document.forms[0].elements["item.firstKindName"].value)
-    						</script></select></td>
+				<td width="84%" class="TD_STYLE2">
+					<select name="secondKindName" size="5"
+						onchange="changelocation1(document.forms[0].elements['thirdKindName'],document.forms[0].elements['secondKindName'].options[document.forms[0].elements['secondKindName'].selectedIndex].value)"
+						class="SELECT_STYLE2">
+						<script language="javascript"> changelocation(document.forms[0].elements["secondKindName"],document.forms[0].elements["firstKindName"].value)
+	    				</script>
+	    			</select>
+	    		</td>
 			</tr>
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择员工所在III级机构</td>
-				<td width="84%" class="TD_STYLE2"><select
-					name="item.thirdKindName" size="5" class="SELECT_STYLE2"><script
-							language="javascript">
-							changelocation1(document.forms[0].elements["item.thirdKindName"],document.forms[0].elements["item.secondKindName"].value)
-							</script></select></td>
+				<td width="84%" class="TD_STYLE2">
+					<select name="thirdKindName" size="5" class="SELECT_STYLE2">
+						<script language="javascript">
+							changelocation1(document.forms[0].elements["thirdKindName"],document.forms[0].elements["secondKindName"].value)
+						</script>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">请选择职位分类</td>
-				<td width="84%" class="TD_STYLE2"><select
-					name="item.humanMajorKindName" size="5"
-					onchange="changelocation2(document.forms[0].elements['item.hunmaMajorName'],document.forms[0].elements['item.humanMajorKindName'].options[document.forms[0].elements['item.humanMajorKindName'].selectedIndex].value)"
-					class="SELECT_STYLE2"><option value="">&nbsp;</option>
-
-						<option value="销售">销售</option>
-
+				<td width="84%" class="TD_STYLE2">
+					<select name="humanMajorKindName" size="5"
+						onchange="changelocation2(document.forms[0].elements['hunmaMajorName'],document.forms[0].elements['humanMajorKindName'].options[document.forms[0].elements['humanMajorKindName'].selectedIndex].value)"
+						class="SELECT_STYLE2">
+						<option value="">&nbsp;</option>
+						<!-- <option value="销售">销售</option>
 						<option value="软件开发">软件开发</option>
-
 						<option value="人力资源">人力资源</option>
-
-						<option value="生产部">生产部</option></select></td>
+						<option value="生产部">生产部</option> -->
+						<c:forEach items="${listmk }" var="l1">
+							<option value="${l1.majorKindName }">${l1.majorKindName }</option>
+						</c:forEach>
+					</select>
+				</td>
 			</tr>
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择职位名称</td>
-				<td width="84%" class="TD_STYLE2"><select
-					name="item.hunmaMajorName" size="5" class="SELECT_STYLE2"><script
-							language="javascript">
-							changelocation2(document.forms[0].elements["item.hunmaMajorName"],document.forms[0].elements["item.humanMajorKindName"].value)
-							</script></select></td>
+				<td width="84%" class="TD_STYLE2">
+					<select name="hunmaMajorName" size="5" class="SELECT_STYLE2">
+						<script language="javascript">
+							changelocation2(document.forms[0].elements["hunmaMajorName"],document.forms[0].elements["humanMajorKindName"].value)
+						</script>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">请输入建档时间</td>
-				<td width="84%" class="TD_STYLE2"><input type="text"
-					name="item.str_startTime" value="" style="width:14% "
+				<td width="84%" class="TD_STYLE2">
+				<input type="text" name="str_startTime" value="" style="width:14% "
 					class="INPUT_STYLE2" id="date_start">至<input type="text"
-					name="item.str_endTime" value="" style="width:14% "
+					name="str_endTime" value="" style="width:14% "
 					class="INPUT_STYLE2" id="date_end"> （YYYY-MM-DD）</td>
 			</tr>
 		</table>
@@ -139,3 +151,4 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 	Calendar.setup ({inputField : "date_end", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_end", singleClick : true, step : 1});
 	</script>
 </html>
+

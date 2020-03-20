@@ -17,4 +17,6 @@ public interface EngageExamMapper {
 	public EngageExam selectEngageExamById(short id);
 
 	public List<EngageExam> selectAllEngageExam();
+	
+	public  List<EngageExam> selectEngageGroupAndCount();
 }

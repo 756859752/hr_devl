@@ -58,10 +58,5 @@
 	<select id="selectAllConfigFileThirdKind" resultMap="tid">
 		select * from config_file_third_kind
 	</select>
-	
-	<!-- 根据二级Id查询所有的三级分类 -->
-	<select id="selectConfigFileThirdKindBySecondKindId" parameterType="string" resultMap="tid">
-	   select * from config_file_third_kind where second_kind_id=#{secondkindid}
-	</select>
 </mapper>
   

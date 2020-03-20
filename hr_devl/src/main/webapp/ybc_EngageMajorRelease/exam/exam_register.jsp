@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -11,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>My JSP 'exam_register.jsp' starting page</title>
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -67,10 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  	tick();					
 		}
 			function queryMajor(){
-			var mid = $("#majorKindId").val();
-			var majorSelect = $("#majorId");
-			var majorkindname = $("#majorKind_"+mid).html();
-			 $("#majorKindName").val(majorkindname);
+			var mid = $("#majorKindId").val();//拿到第一个选择框的选的id
+			var majorSelect = $("#majorId");//拿到第二个选择框元素
+			var majorkindname = $("#majorKind_"+mid).html();//那到职位分类名
+			 $("#majorKindName").val(majorkindname);//负值给隐藏域的表单元素
 			majorSelect.empty();
 			majorSelect.append("<option value=''>--请选择--</option>");
 			if(mid != 0){
