@@ -147,9 +147,6 @@ public class SalaryStandardCotroller {
     		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
     	}
     	List<SalaryStandard> list=sss.findCoditionsSalaryStandard(map);
-    	for (SalaryStandard s : list) {
-			System.out.println(s.getStandardName());
-		}
     	model.addAttribute("list", list);
     	return "forward:/salarystandard_change_list.jsp";
     }
