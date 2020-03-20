@@ -17,7 +17,7 @@
 	</head>
 
 <body>
-	<form method="post" action="list.jsp">
+	<form method="post" action="/hr_devl/dcf/transfer/showpassmajorchange.do">
 		<input type="hidden" name="page.startPage" value="0">
 		<table width="100%">
 			<tr>
@@ -40,15 +40,34 @@
 					请选择员工所在I级机构
 				</td>
 				<td width="84%" class="TD_STYLE2">
+     <script type="text/javascript"> 
+			$(function() {
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");			
+	 		 first.change(function(){
+	 			var firstval=$('#firstKindId option:selected').val();
+	 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid='+firstval+'&secondkindid',
+		  			function(data){
+		  			 second.css("width",first.width());
+		  			second.empty();
+		  			second.append("<option value='0' >-----请选择-----</option>");
+		  			third.empty();
+		  			third.append("<option value='0' >-----请选择-----</option>");
+		  		      var str =''; 
+		  		      <!--拿到二级集合-->
+			  		  var li=data.second;
+			          for(var i=0;i<li.length;i++){
+			        	  str += '<option name="secondkindid" value='+li[i].secondKindId+'>'+li[i].secondKindName+'</option>';
+			          }
+			          $("#secondKindId").append(str);
+				  },);
+	 		 	third.val('0');
+	 		 }); });
+</script>
 
-  <select  name="majorChange.newFirstKindId" id="firstKindId" size="5" class="SELECT_STYLE2">
+  <select  name="firstkindid" id="firstKindId" size="5" class="SELECT_STYLE2">
   							<option value="0" selected="selected">全部</option>											
-		  			
-		  				<option  value="1353318953319">Ⅰ级结构</option>	
-		  			
-		  				<option  value="1353318929919">集团</option>	
-		  			
-		  				<option  value="1353318937391">总部</option>	
 				  			
 				  </select>
 				</td>
@@ -58,30 +77,35 @@
 					请选择员工所在II级机构
 				</td>
 				<td width="84%" class="TD_STYLE2">
+										 <script type="text/javascript"> 
+			$(function() {
+			 
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");
+	 		 second.change(function(){
+				var secondval=$('#secondKindId option:selected').val();
+	 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid='+secondval+'',
+		  			function(data){
+		  			third.css("width",second.width());
+		  			third.empty();
+		  			third.append("<option value='0' >-----请选择-----</option>");
+		  		   var str ='';
+		  		 <!--拿到三级集合-->
+		  		  var li=data.third;
+		          for(var i=0;i<li.length;i++){
+		        	  str += '<option name="thirdkindid" value='+li[i].thirdKindId+'>'+li[i].thirdKindName+'</option>';
+		          }
+		          $("#thirdKindId").append(str);
+					},);
+	 			third.val('0');
+	 		 });	
+			  });
+</script>
 					
-   <select  name="majorChange.newSecondKindId" id="secondKindId" size="5" class="SELECT_STYLE2">																 		
+   <select  name="secondkindid" id="secondKindId" size="5" class="SELECT_STYLE2">																 		
         <option value="0" selected="selected">全部</option>		
 
-		<option  value="1353318983380">Ⅱ级结构2</option>	
-	
-		<option  value="1353318986625">Ⅱ级结构3</option>	
-	
-		<option  value="1353318990197">Ⅱ级结构4</option>	
-	
-		<option  value="1353318995252">Ⅱ级结构5</option>	
-	
-		<option  value="1353319004705">软件公司</option>	
-	
-		<option  value="1353319016546">科技公司</option>	
-	
-		<option  value="1353319033409">北京分校区</option>	
-	
-		<option  value="1353319038682">湖南分校区</option>	
-	
-		<option  value="1353319043830">湖北分校区</option>	
-	
-		<option  value="1353318979558">Ⅱ级结构1</option>	
-			  			
 	</select>
 		</td>
 	</tr>
@@ -90,29 +114,8 @@
 			请选择员工所在III级机构
 		</td>
 		<td width="84%" class="TD_STYLE2">
-			 <select  name="majorChange.newThirdKindId" id="thirdKindId" size="5" class="SELECT_STYLE2">		
+			 <select  name="thirdkindid" id="thirdKindId" size="5" class="SELECT_STYLE2">		
 					<option value="0" selected="selected">全部</option>		
-					
-		  				<option  value="1353319130551">外包公司</option>	
-		  			
-		  				<option  value="1353319150238">软件股份有限公司</option>	
-		  			
-		  				<option  value="1353319177944">中关村分校区1</option>	
-		  			
-		  				<option  value="1353319185073">中关村分校区2</option>	
-		  			
-		  				<option  value="1353319193840">中关村分校区3</option>	
-		  			
-		  				<option  value="1353319216320">长沙分校区1</option>	
-		  			
-		  				<option  value="1353319228535">长沙分校区2</option>	
-		  			
-		  				<option  value="1353319236725">长沙分校区3</option>	
-		  			
-		  				<option  value="1353319077370">Ⅲ级结构111</option>	
-		  			
-		  				<option  value="1353319096948">Ⅲ级结构222</option>	
-		  								
 		   </select>
 		</td>
 	</tr>
@@ -121,44 +124,42 @@
 					请选择职位分类
 				</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="majorChange.newMajorKindId" id="newMajorKindId" size="5" class="SELECT_STYLE2">						
-							 			<option value="0" selected="selected">全部</option>		
-				  			
-				  				<option  value="01">销售</option>	
-				  			
-				  				<option  value="02">软件开发</option>	
-				  			
-				  				<option  value="03">人力资源</option>	
-				  			
-				  				<option  value="04">生产部</option>	
-				  			
+					<select name="majorKindId" id="newMajorKindId" size="5" class="SELECT_STYLE2">						
+							 			<option value="0" selected="selected">全部</option>				  			
 				  </select>
 				</td>
 			</tr>
+			 <script type="text/javascript"> 
+			$(function() {
+	 		$('#newMajorId').change(function(){
+	 			$("#newMajorName").val($('#newMajorId option:selected').html());
+	 			});
+	 		});
+	 		var second=$('#newMajorKindId');;
+	 		 second.change(function(){
+	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html()); 
+	 		 	$.post('/hr_devl/dcf/transfer/querymajors/'+$('#newMajorKindId option:selected').val()+'.do',
+		  			function(data){
+	 		 		$('#newMajorId').css("width",second.width());
+		  			$('#newMajorId').empty();
+		  			$('#newMajorId').append("<option value='0' >-----请选择-----</option>");
+		  		    var	str ='';
+		          for(var i=0;i<data.length;i++){ 
+		        	  str += '<option name="newMajorId" value='+data[i].majorId+'>'+data[i].majorName+'</option>';
+		          }
+		          $("#newMajorId").append(str);
+	 		 	},);
+	 		 	 $("#newMajorId").val('0');
+	 		 });	
+</script>
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">
 					请选择职位名称
 				</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="majorChange.newMajorId"  size=5 id="newMajorId" class="SELECT_STYLE2">
+					<select name="majorId"  size=5 id="newMajorId" class="SELECT_STYLE2">
 						<option value="0" selected="selected">全部</option>	
 						
-							<option  value="01">区域经理</option>	
-						
-							<option  value="02">总经理</option>	
-						
-							<option  value="01">项目经理</option>	
-						
-							<option  value="02">程序员</option>	
-						
-							<option  value="01">人事经理</option>	
-						
-							<option  value="02">专员</option>	
-						
-							<option  value="01">主任</option>	
-						
-							<option  value="02">技术工人</option>	
-							
 					</select>
 				</td>
 			</tr>
@@ -167,8 +168,8 @@
 					请输入建档时间
 				</td>
 				<td width="84%" class="TD_STYLE2">
-					<input name="utilbean.startDate" onclick="aa('utilbean.startDate')" type="text" class="INPUT_STYLE2" id="date_start" style="width:24% " value="" size="30">
-	           	至<input type="text" name="utilbean.endDate" onclick="aa('utilbean.endDate')" value="" style="width:24% " class="INPUT_STYLE2" id="date_end">
+					<input name="starttime" onclick="aa('utilbean.startDate')" type="date" class="INPUT_STYLE2" id="date_start" style="width:24% " value="" size="30">
+	           	至<input type="date" name="endtime" onclick="aa('utilbean.endDate')" style="width:24% " class="INPUT_STYLE2" id="date_end">
 					（YYYY-MM-DD）
 				</td>
 			</tr>
@@ -176,16 +177,28 @@
 		</form>
 	</body>
 	<script type="text/javascript">
-	  (function(){
-		  $.ajax({
-				url:'/hr_devl/dcf/transfer/choseConditions.do',	
-				type:"POST",
-				contentType:"application/json;charset=utf-8",
-			    success:function(result){
-		         console.log(result);
-			  }
-			});
-	  })();
-	</script>
+(function(){
+	$.ajax({
+		type:"POST",
+		url:'/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid',
+		contentType:"application/json;charset=utf-8",
+	    success:function(result){
+          var str =''; 
+          var str2='';
+          var li=result.first;
+          var ll=result.majorkind;
+          for(var i=0;i<li.length;i++){
+        	  str += '<option name="firstkindid" value='+li[i].firstKindId+'>'+li[i].firstKindName+'</option>';
+          }
+          $("#firstKindId").append(str);
+          for(var i=0;i<ll.length;i++){
+        	  str2 += '<option name="majorKindId" value='+ll[i].majorKindId+'>'+ll[i].majorKindName+'</option>';
+          }
+          $("#newMajorKindId").append(str2);
+         
+	  }
+	});
+})();
+</script>
 </html>
 

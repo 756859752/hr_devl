@@ -25,8 +25,7 @@
 				</tr>
 				<tr>
 					<td>
-						当前待复核的调动人数:1
-						例
+						当前待复核的调动人数: <span id="sum"></span> 例
 					</td>
 				</tr>
 			</table>
@@ -112,7 +111,26 @@
 				<input type="hidden" name="page.startPage" id="startpage" value="1">
 			</div>
 			</form>
-			<script type="text/javascript">
+			<script type="text/javascript" src="/hr_devl/javascript/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+(function(){
+	$.ajax({
+		type:"POST",
+		url:'/hr_devl/dcf/transfer/queryallcheckmajorchange.do',
+		contentType:"application/json;charset=utf-8",
+	    success:function(result){
+	    	console.log(result);
+	    	var sum=0;
+          var str ='';   
+          for(var i=0;i<result.length;i++){
+        	  sum++;
+        	  str += '<tr height="21"><td class="TD_STYLE2">'+result[i].firstKindName+'</td><td class="TD_STYLE2">'+result[i].secondKindName+'</td><td class="TD_STYLE2">'+result[i].thirdKindName+'</td><td class="TD_STYLE2">'+result[i].salaryStandardName+'</td><td class="TD_STYLE2">'+result[i].humanName+'</td><td class="TD_STYLE2"><a href="/hr_devl/dcf/transfer/queryallcheckmajorchange/'+result[i].mchId+'.do">审核</td></tr>';
+          }
+          $(".TABLE_STYLE1").append(str);
+          $("#sum").html(sum);
+	  }
+	});
+})();
 function dopagebybutton() {
 	var reg = /^[0-9]*[1-9][0-9]*$/;
 	if (reg.test(document.getElementById("page").value)) {

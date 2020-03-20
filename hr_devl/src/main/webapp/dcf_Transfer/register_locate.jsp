@@ -125,23 +125,23 @@
 		  </table>
 		</form>
 	</body>
-<script type="text/javascript">
-(function(){
-	$.ajax({
-		type:"POST",
-		url:'/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid',
-		contentType:"application/json;charset=utf-8",
-	    success:function(result){
-          var str ='';   
-          var li=result.first;
-          for(var i=0;i<li.length;i++){
-        	  str += '<option name="firstkindid" value='+li[i].firstKindId+'>'+li[i].firstKindName+'</option>';
-          }
-          $("#firstKindId").append(str);
-	  }
-	});
-})();
-</script>
+	<script type="text/javascript">
+	(function(){
+		$.ajax({
+			type:"POST",
+			url:'/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid',
+			contentType:"application/json;charset=utf-8",
+		    success:function(result){
+	          var str ='';   
+	          var li=result.first;
+	          for(var i=0;i<li.length;i++){
+	        	  str += '<option name="firstkindid" value='+li[i].firstKindId+'>'+li[i].firstKindName+'</option>';
+	          }
+	          $("#firstKindId").append(str);
+		  }
+		});
+	})();
+	</script>
 </html>
 
 		

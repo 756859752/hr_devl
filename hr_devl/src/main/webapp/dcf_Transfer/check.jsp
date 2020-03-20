@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/hr_devl/javascript/jquery-1.7.2.js"></script>
 	</head>
 <body>
-<form method="post" action="check_success.jsp">
+<form method="post" action="/hr_devl/dcf/transfer/passonemajorchange.do">
 	<table width="100%">
 		<tr>
 			<td>
@@ -18,8 +18,8 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<input type="radio" name="majorChange.checkStatus" value="true">通过
-				<input type="radio" name="majorChange.checkStatus" value="false">不通过
+				<input type="radio" name="checkStatus" value="1">通过
+				<input type="radio" name="checkStatus" value="0">不通过
 				<input type="button" value="确认" class="BUTTON_STYLE1" onclick="check()">
 				<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.history.back();" value="返回">
 			<SCRIPT type="text/javascript">
@@ -64,16 +64,16 @@
 				档案编号
 			</td>
 			<td class="TD_STYLE2" width="10%">
-				<input type="text" name="majorChange.humanId" readonly="readonly"
-					value="bt201211190619440428" class="INPUT_STYLE2">
+				<input type="text" name="humanId" readonly="readonly"
+					value="${onechang.humanId}" class="INPUT_STYLE2">
 					
 			</td>
 			<td class="TD_STYLE1" width="8%">
 				姓名
 			</td>
 			<td class="TD_STYLE2" width="10%">
-				<input type="text" name="majorChange.humanName"
-					value="杨阳" readonly="readonly"
+				<input type="text" name="humanName"
+					value="${onechang.humanName} readonly="readonly"
 					class="INPUT_STYLE2">
 			</td>
 			<td class="TD_STYLE1" width="8%">
@@ -91,28 +91,28 @@
 				原一级机构
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.firstKindName"
-					value="Ⅰ级结构" readonly="readonly" value=""
+				<input type="text" name="firstKindName"
+					value="${onechang.firstKindName}" readonly="readonly" value=""
 					class="INPUT_STYLE2">
-			<input type="hidden" name="majorChange.firstKindId" value="1353318953319">
+			<input type="hidden" name="firstKindId" value="${onechang.firstKindId}">
 			</td>
 			<td class="TD_STYLE1" width="8%">
 				原二级机构
 			</td>
 			<td class="TD_STYLE2" width="10%">
-				<input type="text" name="majorChange.secondKindName"
-					value="Ⅱ级结构3" readonly="readonly" value=""
+				<input type="text" name="secondKindName"
+					value="${onechang.secondKindName}" readonly="readonly" value=""
 					class="INPUT_STYLE2">
-					<input type="hidden" name="majorChange.secondKindId" value="1353318979558">
+					<input type="hidden" name="secondKindId" value="${onechang.secondKindIdd}">
 			</td>
 			<td class="TD_STYLE1" width="8%">
 				原三级机构
 			</td>
 			<td class="TD_STYLE2" width="10%">
-				<input type="text" name="majorChange.thirdKindName"
-					value="" readonly="readonly" value=""
+				<input type="text" name="thirdKindName"
+					value="${onechang.thirdKindName}" readonly="readonly" value=""
 					class="INPUT_STYLE2">
-					<input type="hidden" name="majorChange.thirdKindId" value="1353319077370">
+					<input type="hidden" name="thirdKindId" value="${onechang.thirdKindId}">
 			</td>
 			<td class="TD_STYLE1" width="8%">
 			</td>
@@ -125,35 +125,35 @@
 				原职位分类
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.majorKindName"
-					value="软件开发" readonly="readonly"
-					value="" class="INPUT_STYLE2">
-				<input type="hidden" name="majorChange.majorKindId" value="02">
+				<input type="text" name="majorKindName"
+					value="${onechang.majorKindName}" readonly="readonly"
+			         class="INPUT_STYLE2">
+				<input type="hidden" name="majorKindId" value="${onechang.majorKindId}">
 			</td>
 			<td class="TD_STYLE1" width="12%">
 				原职位名称
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.majorName"
-					value="程序员" readonly="readonly" 
+				<input type="text" name="majorName"
+					value="${onechang.majorName}" readonly="readonly" 
 					class="INPUT_STYLE2">
-				<input type="hidden" name="majorChange.majorId" value="02">
+				<input type="hidden" name="majorId" value="${onechang.majorId}">
 			</td>
 			<td class="TD_STYLE1">
 				原薪酬标准
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.salaryStandardName"
-					value="经理级别"
+				<input type="text" name="salaryStandardName"
+					value="${onechang.salaryStandardName}"
 					readonly="readonly"   class="INPUT_STYLE2">
-					<input type="hidden" name="majorChange.salaryStandardId" value="1353320082662">
+					<input type="hidden" name="majorChange.salaryStandardId" value="${onechang.salaryStandardId}">
 			</td>
 			<td class="TD_STYLE1">
 				原薪酬总额
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.salarySum"
-					value="" readonly="readonly"
+				<input type="text" name="salarySum"
+					value="${onechang.salarySum}" readonly="readonly"
 					  class="INPUT_STYLE2">
 			</td>
 			 
@@ -164,238 +164,201 @@
 			</td>
 			<td class="TD_STYLE2">
 				<script type="text/javascript"> 
-	$(function() {
-	var first=$("#firstKindId");
-	var second= $("#secondKindId");
-	var third=$("#thirdKindId");
-		 first.change(function(){
-		 	if(first.val()=='0'){
-		 	third.val('0');
-		 	}
-	$("#newFirstKindName").val($('#firstKindId option:selected').html());
-		 	$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
-  			function(data){
-  			 
-  			 second.css("width",first.width());
-  			second.empty();
-  			second.append("<option value='0' >-----请选择-----</option>");
-  		var items = $(data).find("item");
-  		items.each(function(i){
-  				var id = $(items[i]).attr("id");
-  				var name = $(items[i]).attr("name");	
-  				second.append("<option value='"+id+"'>"+name+"</option>");
-  		
-  		
-  		});
-			},'xml');		 	
-		 }); });
-</script>
+				$(function() {
+					var first=$("#firstKindId");
+					var second= $("#secondKindId");
+					var third=$("#thirdKindId");			
+			 		 first.change(function(){
+			 			var firstval=$('#firstKindId option:selected').val();
+			 			$("#newFirstKindName").val($('#firstKindId option:selected').html());
+			 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid='+firstval+'&secondkindid',
+				  			function(data){
+				  			 second.css("width",first.width());
+				  			second.empty();
+				  			second.append("<option value='0' >-----请选择-----</option>");
+				  			third.empty();
+				  			third.append("<option value='0' >-----请选择-----</option>");
+				  		      var str =''; 
+				  		      <!--拿到二级集合-->
+					  		  var li=data.second;
+					          for(var i=0;i<li.length;i++){
+					        	  str += '<option name="secondkindid" value='+li[i].secondKindId+'>'+li[i].secondKindName+'</option>';
+					          }
+					          $("#secondKindId").append(str);
+						  },);
+			 		 	third.val('0');
+			 		 }); });
+           </script>
    
-   <select style="width:160px"  name="majorChange.newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
-						<option value="0">-----请选择-----</option>					
-			  			
-			  				<option  value="1353318953319">Ⅰ级结构</option>	
-			  			
-			  				<option  value="1353318929919">集团</option>	
-			  			
-			  				<option  value="1353318937391">总部</option>	
-			  			
-			  </select>
-<input type="hidden" name="majorChange.newFirstKindName" value="Ⅰ级结构" id="newFirstKindName">
-			</td>
-			<td class="TD_STYLE1" width="12%">
-				新二级机构名称
-			</td>
-			<td class="TD_STYLE2">
-				 <script type="text/javascript"> 
-	$(function() {
-	 
-	var first=$("#firstKindId");
-	var second= $("#secondKindId");
-	var third=$("#thirdKindId");
-		 third.change(function(){ $("#newThirdKindName").val($('#thirdKindId option:selected').html());});
-		 second.change(function(){
-		 $("#newSecondKindName").val($('#secondKindId option:selected').html());
-		 	$.post('/HR_Fist/transfer/transferAction!findthree.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val(),'configThird.secondKindId' : $('#secondKindId option:selected').val() },
-  			function(data){
-  			 third.css("width",second.width());
-  			third.empty();
-  			third.append("<option value='0' >-----请选择-----</option>");
-  		var items = $(data).find("item");
-  		items.each(function(i){
-  				var id = $(items[i]).attr("id");
-  				var name = $(items[i]).attr("name");	
-  				third.append("<option value='"+id+"'>"+name+"</option>");
-  		
-  		
-  		});
-			},'xml');
-		 
-		 });
-	
-	  });
+   <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
+								<option value="${onechang.newFirstKindId}">${onechang.newFirstKindName}</option>					
+									  
+	</select>
+		<input type="hidden" name="newFirstKindName" id="newFirstKindName" value="${onechang.newFirstKindName}">
+					</td>
+					<td class="TD_STYLE1" width="12%">
+						新二级机构名称
+					</td>
+					<td class="TD_STYLE2">
+						 <script type="text/javascript"> 
+			$(function() {
+			 
+				var first=$("#firstKindId");
+				var second= $("#secondKindId");
+				var third=$("#thirdKindId");
+		 		 second.change(function(){
+					var secondval=$('#secondKindId option:selected').val();
+					$("#newSecondKindName").val($('#secondKindId option:selected').html());
+		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid='+secondval+'',
+			  			function(data){
+			  			third.css("width",second.width());
+			  			third.empty();
+			  			third.append("<option value='0' >-----请选择-----</option>");
+			  		   var str ='';
+			  		 <!--拿到三级集合-->
+			  		  var li=data.third;
+			          for(var i=0;i<li.length;i++){
+			        	  str += '<option name="thirdkindid" value='+li[i].thirdKindId+'>'+li[i].thirdKindName+'</option>';
+			          }
+			          $("#thirdKindId").append(str);
+						},);
+		 			third.val('0');
+		 		 });	
+				  });
 </script>
-   <select style="width:160px" name="majorChange.newSecondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
-						<option value="0">-----请选择-----</option>						
-			 			
-			  				<option  value="1353318983380">Ⅱ级结构2</option>	
-			  			
-			  				<option  value="1353318986625">Ⅱ级结构3</option>	
-			  			
-			  				<option  value="1353318990197">Ⅱ级结构4</option>	
-			  			
-			  				<option  value="1353318995252">Ⅱ级结构5</option>	
-			  			
-			  				<option  value="1353318979558">Ⅱ级结构1</option>	
-			  			
-			  </select>
-			  <input type="hidden" name="majorChange.newSecondKindName" value="" id="newSecondKindName">
-			</td>
-			<td class="TD_STYLE1" width="12%">
-				新三级机构名称
-			</td>
-			<td class="TD_STYLE2">
-				 <select style="width:160px" name="majorChange.newThirdKindId" id="thirdKindId" size="1" class="SELECT_STYLE2">		
-						<option value="0">-----请选择-----</option>	
-											
-			   </select>
-			   <input type="hidden" name="majorChange.newThirdKindName" value="" id="newThirdKindName">
-			</td>
-			<td class="TD_STYLE1" width="8%">
-			</td>
-			<td class="TD_STYLE2" width="10%">
-			</td>
-		</tr>
-		<tr>
-			<td class="TD_STYLE1">
-				新职位分类
-			</td>
-			<td class="TD_STYLE2">
-				 <select style="width:160px" name="majorChange.newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">						
-						<option value="0">-----请选择-----</option>					
-			  			
-			  				<option  value="01">销售</option>	
-			  			
-			  				<option  value="02">软件开发</option>	
-			  			
-			  				<option  value="03">人力资源</option>	
-			  			
-			  				<option  value="04">生产部</option>	
-			  			
-			  </select>
-			  <input type="hidden" name="majorChange.newMajorKindName"  value="软件开发" id="newMajorKindName">
-			   <script type="text/javascript"> 
-	$(function() {
-		$('#newMajorId').change(function(){ $("#newMajorName").val($('#newMajorId option:selected').html());});
-		var second=$('#newMajorKindId');
-		var third=$('#newMajorId');
-		 second.change(function(){
-		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html());
-		  
-		 	$.post('/HR_Fist/transfer/transferAction!findMajor.action',{ 'majorChange.newMajorKindId' : $('#newMajorKindId option:selected').val() },
-  			function(data){
-  			 third.css("width",second.width());
-  			third.empty();
-  			third.append("<option value='0' >-----请选择-----</option>");
-  		var items = $(data).find("item");
-  		items.each(function(i){
-  				var id = $(items[i]).attr("id");
-  				var name = $(items[i]).attr("name");	
-  				third.append("<option value='"+id+"'>"+name+"</option>");
-  		
-  		
-  		});
-			},'xml');
-		 
-		 });
-	
-	  });
+   <select style="width:160px" name="newSecondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
+								<option value="${onechang.newSecondKindId}">${onechang.newSecondKindName}</option>						
+					 		
+					  </select>
+					  <input type="hidden" name="newSecondKindName" id="newSecondKindName" value="${onechang.newSecondKindName}">
+					</td>
+					<td class="TD_STYLE1" width="12%">
+						新三级机构名称
+					</td>
+					 <script type="text/javascript"> 
+			$(function() {
+				var third=$("#thirdKindId");
+				third.change(function(){
+					var secondval=$('#thirdKindId option:selected').html();
+					$("#newThirdKindName").val(secondval);
+		 		 });	
+				  });
+            </script>
+					<td class="TD_STYLE2">
+						 <select style="width:160px" name="newThirdKindId" id="thirdKindId" size="1" class="SELECT_STYLE2">		
+								<option value="${onechang.newThirdKindId}">${onechang.newThirdKindName}</option>						
+					   </select>
+					   <input type="hidden" name="newThirdKindName" id="newThirdKindName" value="${onechang.newThirdKindName}">
+					</td>
+					<td class="TD_STYLE1" width="8%">
+					</td>
+					<td class="TD_STYLE2" width="10%">
+					</td>
+				</tr>
+				<tr>
+					<td class="TD_STYLE1">
+						新职位分类
+					</td>
+					<td class="TD_STYLE2">
+						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">						
+								<option value="${onechang.newMajorKindId}">${onechang.newMajorKindName}</option>					
+					  			   <c:forEach items="${majorkinds}" var="m">
+					  			      <option  value="${m.majorKindId}">${m.majorKindName}</option>	
+					  			   </c:forEach>
+					  </select>
+					  <input type="hidden" name="newMajorKindName" id="newMajorKindName" value="${onechang.newMajorKindName}">
+					   <script type="text/javascript"> 
+			$(function() {
+	 		$('#newMajorId').change(function(){
+	 			$("#newMajorName").val($('#newMajorId option:selected').html());
+	 			});
+	 		});
+	 		var second=$('#newMajorKindId');;
+	 		 second.change(function(){
+	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html()); 
+	 		 	$.post('/hr_devl/dcf/transfer/querymajors/'+$('#newMajorKindId option:selected').val()+'.do',
+		  			function(data){
+	 		 		$('#newMajorId').css("width",second.width());
+		  			$('#newMajorId').empty();
+		  			$('#newMajorId').append("<option value='0' >-----请选择-----</option>");
+		  		    var	str ='';
+		          for(var i=0;i<data.length;i++){ 
+		        	  str += '<option name="newMajorId" value='+data[i].majorId+'>'+data[i].majorName+'</option>';
+		          }
+		          $("#newMajorId").append(str);
+	 		 	},);
+	 		 	 $("#newMajorId").val('0');
+	 		 });	
 </script>
 					</td>
 					<td class="TD_STYLE1" width="12%">
 						新职位名称
 					</td>
 					<td class="TD_STYLE2">
-						<select name="majorChange.newMajorId" id="newMajorId" class="INPUT_STYLE2">
-							<option value="0">-----请选择-----</option>	
-							
-								<option  value="01">项目经理</option>	
-							
-								<option  value="02">程序员</option>	
-							
+						<select name="newMajorId" id="newMajorId" class="INPUT_STYLE2">
+							<option value="${onechang.newMajorId}">${onechang.newMajorName}</option>	
 						</select>
-						 <input type="hidden" name="majorChange.newMajorName" value="项目经理"  id="newMajorName">
+						 <input type="hidden" name="newMajorName" id="newMajorName" value="${onechang.newMajorName}">
 					</td>
 					<td class="TD_STYLE1">
 						新薪酬标准
 					</td>
 					<td class="TD_STYLE2">
-						 <select style="width:160px" name="majorChange.newSalaryStandardId" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">						
-						<option value="0">-----请选择-----</option>					
-			  			
-			  				<option  value="1353320063473">普通员工</option>	
-			  			
-			  				<option  value="1353320082662">经理级别</option>	
-			  			
-			  				<option  value="1353320112255">董事长</option>	
-			  			
-			  </select>
-			  <input type="hidden" name="majorChange.newSalaryStandardName" value="经理级别"  id="newSalaryStandardName">
-			  <SCRIPT type="text/javascript">
-			  $(function() {
-			
-			  	var standardid=$('#newSalaryStandardId');
-			  	var standardname=$('#newSalaryStandardName');
-			  	var newSalarySum=$('#newSalarySum');
-			  	standardid.change(function(){
-			  		standardname.val($('#newSalaryStandardId option:selected').html());
-			  	$.post('/HR_Fist/transfer/transferAction!findSalarySum.action',{ 'majorChange.newSalaryStandardId' : $('#newSalaryStandardId option:selected').val() },
-  			function(data){
-  			  newSalarySum.val(data);
-  		
-  		}
-			,'html');
-			  	
-			  	
-			  	});
-			  
-			  });
-			  </SCRIPT>
-			</td>
-			<td class="TD_STYLE1">
-				新薪酬总额
-			</td>
-			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.newSalarySum" id="newSalarySum" readonly="readonly"
-					value="1332.0" class="INPUT_STYLE2">
-			</td>
-		</tr>
+						 <select style="width:160px" name="newSalaryStandardId" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">						
+								<option value="${onechang.newSalaryStandardId}">${onechang.newSalaryStandardName}</option>					
+					  			    <c:forEach items="${salarystandard}" var="s">
+					  			        <option  value="${s.standardId}">${s.standardName }</option>
+					  			    </c:forEach>			  			
+					  </select>
+					  <input type="hidden" name="newSalaryStandardName" id="newSalaryStandardName" value="${onechang.newSalaryStandardName}">
+					  <SCRIPT type="text/javascript">
+					  $(function() {
+					  	var standardid=$('#newSalaryStandardId');
+					  	var standardname=$('#newSalaryStandardName');
+					  	var newSalarySum=$('#newSalarySum');
+					  	standardid.change(function(){
+					  	 standardname.val($('#newSalaryStandardId option:selected').html());
+					  	$.post('/hr_devl/dcf/transfer/querysumsalar/'+$('#newSalaryStandardId option:selected').val()+'.do',
+					  		function(data){
+					  		newSalarySum.val(data);     
+				 		 	},); 			     
+		  		         });
+					  	});
+					  </SCRIPT>
+					</td>
+					<td class="TD_STYLE1">
+						新薪酬总额
+					</td>
+					<td class="TD_STYLE2">
+						<input type="text" name="newSalarySum" id="newSalarySum" readonly="readonly"
+							value="${onechang.newSalarySum}" class="INPUT_STYLE2">
+					</td>
+				</tr>
 
 		<tr>
-
 			<td class="TD_STYLE1">
 				登记人
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.register" readonly="readonly" value="better_admin" class="INPUT_STYLE2">
+				<input type="text" name="register" readonly="readonly" value="${onechang.register}" class="INPUT_STYLE2">
 			</td>
 			<td class="TD_STYLE1">
 				登记时间
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.registTime" readonly="readonly" value="2012-11-24 00:00:00.0" class="INPUT_STYLE2">
+				<input type="text" name="registTime" readonly="readonly" value="${onechang.registTime}" class="INPUT_STYLE2">
 			</td>
 			<td class="TD_STYLE1">
 				复核人
 			</td>
 			<td class="TD_STYLE2">
-				<input type="text" name="majorChange.checker" readonly="readonly" value="better_admin" class="INPUT_STYLE2">
+				<input type="text" name="checker" readonly="readonly" value="${onechang.checker}" class="INPUT_STYLE2">
 			</td>
 			<td class="TD_STYLE1">
 				复核时间
 			</td>
 			<td class="TD_STYLE2">	
-				<input type="text" name="majorChange.checkTime" id="Tdate" class="INPUT_STYLE2">
+				<input type="text" name="checkTime" id="Tdate" class="INPUT_STYLE2">
 			</td>
 		</tr>
 		<tr>
@@ -403,8 +366,8 @@
 				调动原因
 			</td>
 			<td colspan="7" class="TD_STYLE2">
-				<textarea name="majorChange.changeReason" rows="6" readonly="readonly" class="TEXTAREA_STYLE1">
-				你猜
+				<textarea name="changeReason" rows="6" readonly="readonly" class="TEXTAREA_STYLE1">
+				${onechang.changeReason}
 				</textarea>
 			</td>
 		</tr>
@@ -413,7 +376,7 @@
 				复合通过意见
 			</td>
 			<td colspan="7" class="TD_STYLE2">
-				<textarea name="majorChange.checkReason" rows="6" class="TEXTAREA_STYLE1"></textarea>
+				<textarea name="checkReason" rows="6" class="TEXTAREA_STYLE1"></textarea>
 			</td>
 		</tr>
 

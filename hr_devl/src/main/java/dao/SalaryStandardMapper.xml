@@ -71,5 +71,9 @@
 	<select id="seletStateSalaryStandard" resultMap="ss">
 	    select * from salary_standard where check_status=0
 	</select>
+	<select id="selectSalaryStandardBySid" parameterType="string" resultMap="ss">
+	    select * from salary_standard where standard_id=#{sid}
+	</select>
+	
 </mapper>
   
