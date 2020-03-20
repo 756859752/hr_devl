@@ -110,5 +110,6 @@
 <result property="passPassComment" column="pass_passComment"/> 
    			</association>
    		</resultMap>
+   		
   </mapper>
   

@@ -13,7 +13,6 @@ public interface ConfigPrimaryKeyMapper {
 	public void deleteConfigPrimaryKey(short id);
 
 	public void updateConfigPrimaryKey(ConfigPrimaryKey ConfigPrimaryKey);
-	public void updateConfigPrimaryKeyprimaryKeyStatus(ConfigPrimaryKey ConfigPrimaryKey);
 
 	public ConfigPrimaryKey selectConfigPrimaryKeyById(short id);
 

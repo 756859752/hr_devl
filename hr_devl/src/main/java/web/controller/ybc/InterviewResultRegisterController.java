@@ -2,6 +2,7 @@ package web.controller.ybc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,13 @@ public class InterviewResultRegisterController {
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
 		List<EngageResume> resultList=engageResumeService.findAllEngageResumeByConditon(hashmap);
+		 Iterator<EngageResume> it =resultList.iterator();
+		while(it.hasNext()){
+			EngageResume e=it.next();
+			if(e.getInterviewStatus()!=1){//如果还没有推荐面试
+				it.remove();
+			}
+		}
 		model.addAttribute("resultList", resultList);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-list.jsp";
 	}
@@ -112,20 +120,8 @@ public class InterviewResultRegisterController {
 	//提交面试筛选
 	@RequestMapping("interviewResultShaixuanSubmit.do")
 	public String interviewResultShaixuanSubmit(EngageInterview interview,Model model){
-		System.out.println(interview);
-		if("建议录用".equals(interview.getResult())){
-			short a=3;
-			interview.setCheckStatus(a);
-		}else if("建议笔试".equals(interview.getResult())){
-			short a=2;
-			interview.setCheckStatus(a);
-		}else if("建议面试".equals(interview.getResult())){
 			short a=1;
 			interview.setCheckStatus(a);
-		}else if("删除简历".equals(interview.getResult())){
-			short a=4;
-			interview.setCheckStatus(a);
-		}
 		engageInterviewService.alterEngageInterview(interview);
 		model.addAttribute("msg", new Massage("操作成功","main.jsp"));
 		return Massage.MSG_PAGE;

@@ -34,5 +34,20 @@
    		<select id="selectAllEngageExam" resultMap="tid">
    			select * from engage_exam
    		</select>
+   		
+   		<resultMap type="EngageExam" id="cid">
+   			<result property="majorKindId" column="major_kind_id"/>
+			<result property="majorKindName" column="major_kind_name"/>
+			<result property="majorId" column="major_id"/>
+			<result property="majorName" column="major_name"/>
+			<result property="amout" column="count(major_id)"/>
+   		</resultMap>
+   		
+   		<select id="selectEngageGroupAndCount" resultMap="cid">
+   			select major_kind_id,major_kind_name,major_id,major_name,count(major_id) 
+   			from engage_exam group by 
+   			 major_kind_id,major_id
+   		</select>
+   		
   </mapper>
   

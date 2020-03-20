@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 </head>
 <body>
-	<form id="configfilethirdkindForm"   method="post"
+	<form id="configfilethirdkindForm"  name="configfilesecondkindForm" method="post"
 		action="xxk/updateconfigFileThird.do">
 		<table width="100%">
 			<tr>

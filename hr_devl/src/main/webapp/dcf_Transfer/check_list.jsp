@@ -5,13 +5,13 @@
 	<head>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="/hr_devl/css/table.css"
+		<link rel="stylesheet" href="../../css/table.css"
 			type="text/css"></link>
 		 
 	</head>
 
 	<body>
-		<form method="post" action="check_list.jsp">
+		<form method="post" action="check_list.html">
 			<table width="100%">
 				<tr>
 					<td>
@@ -73,7 +73,7 @@
 						杨阳
 						</td>
 						<td class="TD_STYLE2">
-							<a href="check.jsp">审核</a>
+							<a href="check.html">审核</a>
 						</td>
 					</tr>			   
 			</table>			
@@ -108,7 +108,7 @@
 				&nbsp;&nbsp;&nbsp;跳到第
 				<input id=page type=text  value="1" class=input1 size=1>
 				页&nbsp;&nbsp;
-				<input type="image" onclick="dopagebybutton()" src="/hr_devl/images/go.bmp" width=18 height=18 border=0>
+				<input type="image" onclick="dopagebybutton()" src="../../images/go.bmp" width=18 height=18 border=0>
 				<input type="hidden" name="page.startPage" id="startpage" value="1">
 			</div>
 			</form>

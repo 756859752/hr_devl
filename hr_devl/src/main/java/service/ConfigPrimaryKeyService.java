@@ -8,10 +8,8 @@ public interface ConfigPrimaryKeyService {
 	public void addConfigPrimaryKey(ConfigPrimaryKey ConfigPrimaryKey);
 
 	public void removeConfigPrimaryKey(short id);
-	
+
 	public void alterConfigPrimaryKey(ConfigPrimaryKey ConfigPrimaryKey);
-	
-	public void alterConfigPrimaryKeyprimaryKeyStatus(ConfigPrimaryKey ConfigPrimaryKey);
 
 	public ConfigPrimaryKey ConfigPrimaryKeyById(short id);
 

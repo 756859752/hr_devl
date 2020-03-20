@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -37,15 +36,15 @@
 					</td>
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="humanId" readonly="readonly"
-							value="${humanfile.humanId}" class="INPUT_STYLE2">
+							value="bt201211190619440428" class="INPUT_STYLE2">
 							
 					</td>
 					<td class="TD_STYLE1" width="8%">
-						姓名	
+						姓名
 					</td>
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="humanName"
-							value="${humanfile.humanName}" readonly="readonly"
+							value="杨阳" readonly="readonly"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1" width="8%">
@@ -64,27 +63,27 @@
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="firstKindName"
-							value="${humanfile.firstKindName}" readonly="readonly" value=""
+							value="Ⅰ级结构" readonly="readonly" value=""
 							class="INPUT_STYLE2">
-					<input type="hidden" name="firstKindId" value="${humanfile.firstKindId}">
+					<input type="hidden" name="firstKindId" value="1353318953319">
 					</td>
 					<td class="TD_STYLE1" width="8%">
 						原二级机构
 					</td>
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="secondKindName"
-							value="${humanfile.secondKindName}" readonly="readonly" value=""
+							value="Ⅱ级结构3" readonly="readonly" value=""
 							class="INPUT_STYLE2">
-							<input type="hidden" name="secondKindId" value="${humanfile.secondKindId}">
+							<input type="hidden" name="secondKindId" value="1353318979558">
 					</td>
 					<td class="TD_STYLE1" width="8%">
 						原三级机构
 					</td>
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="thirdKindName"
-							value="" readonly="readonly" value="${humanfile.thirdKindName}"
+							value="" readonly="readonly" value=""
 							class="INPUT_STYLE2">
-							<input type="hidden" name="thirdKindId" value="${humanfile.thirdKindId}">
+							<input type="hidden" name="thirdKindId" value="1353319077370">
 					</td>
 					<td class="TD_STYLE1" width="8%">
 					</td>
@@ -98,34 +97,34 @@
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="majorKindName"
-							value="${humanfile.humanMajorKindName}" readonly="readonly"
+							value="软件开发" readonly="readonly"
 							value="" class="INPUT_STYLE2">
-						<input type="hidden" name="majorKindId" value="${humanfile.humanMajorKindId}">
+						<input type="hidden" name="majorId" value="02">
 					</td>
 					<td class="TD_STYLE1" width="12%">
 						原职位名称
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="majorName"
-							value="${humanfile.hunmaMajorName}" readonly="readonly" 
+							value="程序员" readonly="readonly" 
 							class="INPUT_STYLE2">
-						<input type="hidden" name="majorId" value="${humanfile.humanMajorId}">
+						<input type="hidden" name="majorId" value="02">
 					</td>
 					<td class="TD_STYLE1">
 						原薪酬标准
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="salaryStandardName"
-							value="${humanfile.salaryStandardName}"
+							value="经理级别"
 							readonly="readonly"   class="INPUT_STYLE2">
-							<input type="hidden" name="salaryStandardId" value="${humanfile.salaryStandardId}">
+							<input type="hidden" name="salaryStandardId" value="1353320082662">
 					</td>
 					<td class="TD_STYLE1">
 						原薪酬总额
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="salarySum"
-							value="${humanfile.salarySum}" readonly="readonly"
+							value="" readonly="readonly"
 							  class="INPUT_STYLE2">
 					</td>
 				</tr>
@@ -157,34 +156,41 @@
 			
 						}
 			$(function() {
-				var first=$("#firstKindId");
-				var second= $("#secondKindId");
-				var third=$("#thirdKindId");			
-		 		 first.change(function(){
-		 			var firstval=$('#firstKindId option:selected').val();
-		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid='+firstval+'&secondkindid',
-			  			function(data){
-			  			 second.css("width",first.width());
-			  			second.empty();
-			  			second.append("<option value='0' >-----请选择-----</option>");
-			  			third.empty();
-			  			third.append("<option value='0' >-----请选择-----</option>");
-			  		      var str =''; 
-			  		      <!--拿到二级集合-->
-				  		  var li=data.second;
-				          for(var i=0;i<li.length;i++){
-				        	  str += '<option name="secondkindid" value='+li[i].secondKindId+'>'+li[i].secondKindName+'</option>';
-				          }
-				          $("#secondKindId").append(str);
-					  },);
-		 		 	third.val('0');
-		 		 }); });
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");
+	 		 first.change(function(){
+			$("#newFirstKindName").val($('#firstKindId option:selected').html());
+	 		 	$.post('/HR_Fist/transfer/transferAction!findtwo.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val() },
+		  			function(data){
+		  			 
+		  			 second.css("width",first.width());
+		  			second.empty();
+		  			second.append("<option value='0' >-----请选择-----</option>");
+		  		var items = $(data).find("item");
+		  		items.each(function(i){
+		  				var id = $(items[i]).attr("id");
+		  				var name = $(items[i]).attr("name");	
+		  				second.append("<option value='"+id+"'>"+name+"</option>");
+		  		
+		  		
+		  		});
+					},'xml');
+	 		 	third.val('0');
+	 		 	
+	 		 }); });
 </script>
    
    <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
 								<option value="0">-----请选择-----</option>					
-									  
-	</select>
+					  			
+					  				<option  value="1353318953319">Ⅰ级结构</option>	
+					  			
+					  				<option  value="1353318929919">集团</option>	
+					  			
+					  				<option  value="1353318937391">总部</option>	
+					  			
+					  </select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName">
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -194,27 +200,30 @@
 						 <script type="text/javascript"> 
 			$(function() {
 			 
-				var first=$("#firstKindId");
-				var second= $("#secondKindId");
-				var third=$("#thirdKindId");
-		 		 second.change(function(){
-					var secondval=$('#secondKindId option:selected').val();
-		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid='+secondval+'',
-			  			function(data){
-			  			third.css("width",second.width());
-			  			third.empty();
-			  			third.append("<option value='0' >-----请选择-----</option>");
-			  		   var str ='';
-			  		 <!--拿到三级集合-->
-			  		  var li=data.third;
-			          for(var i=0;i<li.length;i++){
-			        	  str += '<option name="thirdkindid" value='+li[i].thirdKindId+'>'+li[i].thirdKindName+'</option>';
-			          }
-			          $("#thirdKindId").append(str);
-						},);
-		 			third.val('0');
-		 		 });	
-				  });
+			var first=$("#firstKindId");
+			var second= $("#secondKindId");
+			var third=$("#thirdKindId");
+	 		 third.change(function(){ $("#newThirdKindName").val($('#thirdKindId option:selected').html());});
+	 		 second.change(function(){
+	 		 $("#newSecondKindName").val($('#secondKindId option:selected').html());
+	 		 	$.post('/HR_Fist/transfer/transferAction!findthree.action',{ 'configThird.firstKindId' : $('#firstKindId option:selected').val(),'configThird.secondKindId' : $('#secondKindId option:selected').val() },
+		  			function(data){
+		  			 third.css("width",second.width());
+		  			third.empty();
+		  			third.append("<option value='0' >-----请选择-----</option>");
+		  		var items = $(data).find("item");
+		  		items.each(function(i){
+		  				var id = $(items[i]).attr("id");
+		  				var name = $(items[i]).attr("name");	
+		  				third.append("<option value='"+id+"'>"+name+"</option>");
+		  		
+		  		
+		  		});
+					},'xml');
+	 		 
+	 		 });
+			
+			  });
 </script>
    <select style="width:160px" name="newSecondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
 								<option value="0">-----请选择-----</option>						
@@ -243,9 +252,15 @@
 					<td class="TD_STYLE2">
 						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">						
 								<option value="0">-----请选择-----</option>					
-					  			   <c:forEach items="${majorkinds}" var="m">
-					  			      <option  value="${m.majorKindId}">${m.majorKindName}</option>	
-					  			   </c:forEach>
+					  			
+					  				<option  value="01">销售</option>	
+					  			
+					  				<option  value="02">软件开发</option>	
+					  			
+					  				<option  value="03">人力资源</option>	
+					  			
+					  				<option  value="04">生产部</option>	
+					  			
 					  </select>
 					  <input type="hidden" name="newMajorKindName" id="newMajorKindName">
 					   <script type="text/javascript"> 
@@ -412,23 +427,4 @@
 			</table>
 		</form>
 	</body>
-	<script type="text/javascript">
-(function(){
-	$.ajax({
-		type:"POST",
-		url:'/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid',
-		contentType:"application/json;charset=utf-8",
-	    success:function(result){
-          var str ='';   
-          var li=result.first;
-          for(var i=0;i<li.length;i++){
-        	  str += '<option name="firstkindid" value='+li[i].firstKindId+'>'+li[i].firstKindName+'</option>';
-          }
-          $("#firstKindId").append(str);
-	  }
-	});
-})();
-</script>
 </html>
-
-		
