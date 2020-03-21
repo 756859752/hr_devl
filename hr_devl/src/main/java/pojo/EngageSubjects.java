@@ -200,4 +200,17 @@ public class EngageSubjects implements java.io.Serializable {
 		this.changeTime = changeTime;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageSubjects [subId=" + subId + ", firstKindId="
+				+ firstKindId + ", firstKindName=" + firstKindName
+				+ ", secondKindId=" + secondKindId + ", secondKindName="
+				+ secondKindName + ", register=" + register + ", registTime="
+				+ registTime + ", derivation=" + derivation + ", content="
+				+ content + ", keyA=" + keyA + ", keyB=" + keyB + ", keyC="
+				+ keyC + ", keyD=" + keyD + ", keyE=" + keyE + ", correctKey="
+				+ correctKey + ", changer=" + changer + ", changeTime="
+				+ changeTime + "]";
+	}
+	
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
+   <mapper namespace="dao.EngageAnswerDetailsMapper">
+   		<insert id="insertEngageAnswerDetails" parameterType="EngageAnswerDetails">
+   			insert into engage_answer_details(answer_number,subject_id,answer)
+   			values(#{answerNumber},#{subjectId},#{answer})
+   		</insert>
+   		<delete id="deleteEngageAnswerDetails" parameterType="_short">
+   			delete from engage_answer_details  where and_id=#{id}
+   		</delete>
+   		<update id="updateEngageAnswerDetails" parameterType="EngageAnswerDetails">
+   			update answer_number=#{answerNumber},subject_id=#{subjectId},answer=#{answer}
+   			where and_id=#{andId}
+   		</update>
+   		
+   		<resultMap type="EngageAnswerDetails" id="tid" >
+<id property="andId" column="and_id"/>
+<result property="answerNumber" column="answer_number"/>
+<result property="subjectId" column="subject_id"/>
+<result property="answer" column="answer"/>   </resultMap>
+
+   		<select id="selectEngageAnswerById" parameterType="_short" resultMap="tid">
+   			select * from   engage_answer_details where and_id=#{id}
+   		</select>
+   		<select id="selectAllEngageAnswer" resultMap="tid">
+   			select * from  engage_answer_details
+   		</select>
+   		<select id="selectEngageAnswerByCondition" parameterType="String" resultMap="tid">
+   			select * from  engage_answer_details where answer_number=#{_parameter,jdbcType=VARCHAR}
+   		</select>
+   		
+   		
+  </mapper>
+  

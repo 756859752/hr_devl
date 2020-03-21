@@ -48,6 +48,17 @@
    			from engage_exam group by 
    			 major_kind_id,major_id
    		</select>
+   		<select id="selectEngageExamByCondition" resultMap="tid" parameterType="hashmap" >
+   			select * from engage_exam
+   			<trim prefix="where" prefixOverrides="and|or">
+   				<if test="majorKindId!=''">
+   					and major_kind_id=#{majorKindId}
+   				</if>
+   				<if test="majorId!=''">
+   					and major_id=#{majorId}
+   				</if>
+   			</trim>
+   		</select>
    		
   </mapper>
   

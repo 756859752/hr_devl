@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -19,4 +20,6 @@ public interface EngageExamMapper {
 	public List<EngageExam> selectAllEngageExam();
 	
 	public  List<EngageExam> selectEngageGroupAndCount();
+	
+	public List<EngageExam> selectEngageExamByCondition(HashMap<String, String> hashmap);
 }

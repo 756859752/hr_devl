@@ -6,8 +6,7 @@
    <mapper namespace="dao.EngageExamDetailsMapper">
    		<insert id="insertEngageExamDetails" parameterType="EngageExamDetails">
    			insert into engage_exam_details(exam_number,first_kind_id,first_kind_name,second_kind_id,second_kind_name,question_amount)
-   			values #{examNumber},#{firstKindId},#{firstKindName},#{secondKindId},#{secondKindName},#{questionAmount}
-   			
+   			values (#{examNumber},#{firstKindId},#{firstKindName},#{secondKindId},#{secondKindName},#{questionAmount})
    		</insert>
    		<delete id="deleteEngageExamDetails" parameterType="_short">
    			delete from  engage_exam_details where exd_id=#{id}
@@ -31,6 +30,21 @@
    		</select>
    		<select id="selectAllEngageExamDetails" resultMap="tid">
    			select * from  engage_exam_details
+   		</select>
+   		
+   		<select id="selectEngageExamDetailsByCondition" parameterType="hashmap" resultMap="tid">
+   			select * from  engage_exam_details
+   			<trim prefix="where" prefixOverrides="and|or">
+   				<!-- <if test="firstKindId!=''">
+   					and first_kind_id=#{firstKindId}
+   				</if>
+   				<if test="secondKindId!=''">
+   					and first_kind_id=#{secondKindId}
+   				</if> -->
+   				<if test="examNumber!=''">
+   					and exam_number=#{examNumber}
+   				</if>
+   			</trim>
    		</select>
    		
   </mapper>

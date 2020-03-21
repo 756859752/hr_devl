@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,10 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
 		</script>
+		<script type="text/javascript">
+			function  mysubmit() {
+				document.fm.submit();
+			}
+		</script>
   </head>
   
   <body>
-  <form method="post" name="fm" action="ybcexam/examStartPeopleMassge.do">
+  <form method="post" name="fm" action="ybcexam/answersSubmit.do">
    <table width="100%">
 				<tr>
 					<td>
@@ -49,13 +55,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						考试编号
 					</td>
 					<td class="TD_STYLE2" width="30%">
+					<input type="hidden" name="examNumber" value="${ex.examNumber}">
 						${ex.examNumber }
 					</td>
 					<td class="TD_STYLE1" width="20%">
 						试题数量
 					</td>
 					<td class="TD_STYLE2" width="30%">
-						${ex.amout }
+						${subamount}
 					</td>
 				</tr>
 				<tr>
@@ -63,12 +70,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						姓名
 					</td>
 					<td class="TD_STYLE2" width="30%">
+						<input type="hidden" name="humanName" value="${re.humanName }">
 						${re.humanName }
 					</td>
 					<td class="TD_STYLE1" width="20%">
-						试题数量
+						身份证号码
 					</td>
 					<td class="TD_STYLE2" width="30%">
+					<input type="hidden" name="humanIdcard" value="${re.humanIdcard }"/>
+					<input type="hidden" name="resumeId" value="${re.resId}"/>
+					<input type="hidden" name="majorKindId" value="${re.humanMajorKindId}"/>
+					<input type="hidden" name="majorKindName" value="${re.humanMajorKindName}"/>
+					<input type="hidden" name="majorId" value="${re.humanMajorId}"/>
+					<input type="hidden" name="majorName" value="${re.humanMajorName}"/>
+					<input type="hidden" name="interviewId" value="${in.einId}"/>
 						${re.humanIdcard }
 					</td>
 				</tr>
@@ -83,10 +98,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						当前用时
 					</td>
 					<td class="TD_STYLE2" width="30%">
-						${ex.humanIdcard }
+						<input type="text"  name="useTime" id="useTime" class="INPUT_STYLE2" />
 					</td>
 				</tr>
-			
+				<c:forEach items="${slist }" var="sl" varStatus="it">
+					<tr>
+						<td class="TD_STYLE1" width="100%" colspan="4">
+							${sl[0].firstKindName }
+						</td>
+					</tr>
+					<c:forEach items="${sl}" var="s" varStatus="smit">
+						<tr>
+							<td class="TD_STYLE2" width="100%" colspan="4">
+								<div >
+									<input type="hidden" name="answers[${ind.indexsub }].subjectId" value="${s.subId }">
+									${it.index+1}.${smit.index+1 }.${s.content }</br>
+									<input type="radio" name="answers[${ind.indexsub }].answer" value="a">a.${s.keyA }</br>
+									<input type="radio" name="answers[${ind.indexsub }].answer" value="b">b.${s.keyB }</br>
+									<input type="radio" name="answers[${ind.indexsub }].answer" value="c">c.${s.keyC }</br>
+									<input type="radio" name="answers[${ind.indexsub }].answer" value="d">d.${s.keyD }</br>
+									<input type="radio" name="answers[${ind.indexsub}].answer" value="e">e.${s.keyE }</br>
+								</div>
+							</td>
+						</tr>
+					</c:forEach>
+				</c:forEach>
+				
 			</table>
   </form>
   </body>
