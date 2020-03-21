@@ -57,5 +57,11 @@ public class SalaryStandardServiceImpl implements SalaryStandardService{
 	public List<SalaryStandard> findStateSalaryStandards() {
 		return SalaryStandardMapper.seletStateSalaryStandard();
 	}
+
+	@Override
+	public SalaryStandard findSalaryStandardBySid(String sid) {
+		// TODO Auto-generated method stub
+		return SalaryStandardMapper.selectSalaryStandardBySid(sid);
+	}
 	
 }

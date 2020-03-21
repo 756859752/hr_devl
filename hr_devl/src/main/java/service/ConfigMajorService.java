@@ -4,11 +4,6 @@ import java.util.List;
 
 import pojo.ConfigMajor;
 
-
-
-
-
-
 public interface ConfigMajorService {
 	public void addConfigMajor(ConfigMajor ConfigMajor);
 
@@ -19,4 +14,6 @@ public interface ConfigMajorService {
 	public ConfigMajor findConfigMajorById(short id);
 
 	public List<ConfigMajor> findAllConfigMajor();
+//	根据分类id查询所有的分类
+	public List<ConfigMajor> findConfigMajorByMajorKindId(String kid);
 }

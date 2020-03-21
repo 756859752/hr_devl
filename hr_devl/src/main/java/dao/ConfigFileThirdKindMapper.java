@@ -11,7 +11,6 @@ import pojo.ConfigFileThirdKind;
 public interface ConfigFileThirdKindMapper {
 	public void insertConfigFileThirdKind(ConfigFileThirdKind ConfigFileThirdKind);
 
-	
 	public void deleteConfigFileThirdKind(short id);
 	
 	public void updateConfigFileThirdKind(ConfigFileThirdKind ConfigFileThirdKind);
@@ -20,5 +19,7 @@ public interface ConfigFileThirdKindMapper {
 
 	public List<ConfigFileThirdKind> selectAllConfigFileThirdKind();
 	
-	public void deleteConfigFileThirdKindByfirstkindid(String firstKindId );
+	public void deleteConfigFileThirdKindByfirstkindid(String firstKindId);
+	
+	public List<ConfigFileThirdKind> selectConfigFileThirdKindBySecondKindId(String kid);
 }

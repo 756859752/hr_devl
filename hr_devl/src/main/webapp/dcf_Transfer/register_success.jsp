@@ -4,7 +4,7 @@
 <html>
 	<head>		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="../../css/table.css"
+		<link rel="stylesheet" href="/hr_devl/css/table.css"
 			type="text/css"></link>
 		 
 	</head>
@@ -20,12 +20,11 @@
 				 <tr>
     <td width="49%"> 登记成功,待复核！</td>
     <td width="51%" align="right">
-			<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.location='register_list.html';" value="返回">
+			<input type="button" class="BUTTON_STYLE1" onclick="javascript:window.location='register_locate.jsp';" value="返回">
 		</td>
 		
 	</tr>
 			</table>
 		</form>
 	</body>
-
 </html>

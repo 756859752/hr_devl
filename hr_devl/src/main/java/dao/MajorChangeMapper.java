@@ -14,4 +14,6 @@ public interface MajorChangeMapper {
 	public MajorChange selectMajorChangeById(short id);
 
 	public List<MajorChange> selectAllMajorChange();
+//	查询所有需要审核的信息
+	public List<MajorChange> selectAllMajorChangeByCheckStatus();
 }

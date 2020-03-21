@@ -133,5 +133,27 @@
    			select * from human_file
    		</select>
    		
+   		<!-- 多条件筛选 -->
+   		<select id="selectHumanFileByConditions" parameterType="hashmap" resultMap="tid">
+   		      select * from human_file
+   		 <where>
+	       <if test="firstkindid!=null&amp;firstkindid!=''">
+	           and first_kind_id=#{firstkindid}
+	       </if>
+	       <if test="secondkindid!=null&amp;secondkindid!=''">
+	           and second_kind_id=#{secondkindid}
+	       </if>
+	       <if test="thirdkindid!=null&amp;thirdkindid!=''">
+	           and third_kind_id=#{thirdkindid}
+	       </if>
+	        <if test="mintime!=null">
+	         and regist_time &gt; #{mintime} 
+	       </if>
+	       <if test="maxtime!=null">
+	         and regist_time &lt; #{maxtime} 
+	       </if>
+	    </where>
+   		</select>
+   		
   </mapper>
   

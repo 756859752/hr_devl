@@ -10,4 +10,6 @@ public interface MajorChangeService{
 	public void alterMajorChange(MajorChange majorChange);
 	public MajorChange findMajorChangeById(short id);
 	public List<MajorChange> findAllMajorChange();
+//	查询所有未审核的信息
+	public List<MajorChange> findAllMajorChangeByCheckStatus();
 }

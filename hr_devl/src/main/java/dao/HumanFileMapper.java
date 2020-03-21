@@ -19,4 +19,7 @@ public interface HumanFileMapper {
 	public List<HumanFile> selectHumanFileByCheckStatus(short s);
 	//多条件查询
 	public List<HumanFile> selectByCondition(HumanFile HumanFile);
+	
+	//多条件筛选
+		public List<HumanFile> selectHumanFileByConditions(HashMap<String, Object> map);
 }

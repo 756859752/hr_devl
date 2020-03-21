@@ -18,4 +18,6 @@ public interface ConfigMajorMapper {
 	public ConfigMajor selectConfigMajorById(short id);
 
 	public List<ConfigMajor> selectAllConfigMajor();
+//	根据分类id查询所有的职位分类
+	public List<ConfigMajor> selectConfigMajorsByMajorKindid(String kid);
 }
