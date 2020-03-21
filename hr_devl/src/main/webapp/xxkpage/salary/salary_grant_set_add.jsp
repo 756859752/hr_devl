@@ -18,7 +18,7 @@
  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
  <script type="text/javascript">
   function save(){
-        $("#salarygrantset").submit();   
+        $("#salarygrantsetadd").submit();   
   }
   
                
@@ -27,7 +27,7 @@
  </head>
 <body>
                                                                   
-<form   id="salarygrantset"  name="salaryItem" method="post" action="xxk/addsalaryGrangSet.do">
+<form   id="salarygrantsetadd"  name="salaryItem" method="post" action="xxk/addsalaryGrangSet.do">
 <table width="100%" >
   <tr>
     <td>                                                      
@@ -44,11 +44,12 @@
      
 
 	 
-          <input type="hidden"   name="attributename"  value="薪酬发放方式"></td>
+          <input type="hidden"   name="attributekind"  value="薪酬发放方式设置"></td>
         
-       <!--    private int pbcid;
-	    private String attributename;
-	    private String attributename;
+       <!-- 
+       private int pbcid;
+	private String attributekind;
+	private String attributename;   
          --> 
  
           <tr>

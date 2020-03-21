@@ -17,7 +17,7 @@
 	</insert>
 	
    <delete id="deleteConfigPublicChar" parameterType="_int">
-    delete from config_public_char where pbc_id=#{id}
+    delete from config_public_char where pbc_id=#{pbcid}
    </delete>
    
    <update id="updateConfigPublicChar" parameterType="ConfigPublicChar">

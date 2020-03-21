@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,15 +29,14 @@ public class SalaryGangSetController {
    
   @RequestMapping("/addsalaryGrangSet.do")
    public String  addsalaryGrantSet(ConfigPublicChar c) {
-	  System.out.println(c);
-	  System.out.println("1");
+	
    configPublicCharService.addConfigPublicChar(c);
    return "redirect:/xxk/selectallsalaryGrantSet.do";
   }
    
-  
   @RequestMapping("/{id}/deletesalaryGrantSet.do")
-  public String deletesalaryGrantSet(@RequestParam("id") int id) {
+  public String deletesalaryGrantSet(@PathVariable("id") int id) {
+	    System.out.println(id);
 	configPublicCharService.removeConfigPublicChar(id);
   return "redirect:/xxk/selectallsalaryGrantSet.do";
   }
