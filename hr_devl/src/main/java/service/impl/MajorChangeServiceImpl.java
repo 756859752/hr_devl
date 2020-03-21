@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,12 @@ public class MajorChangeServiceImpl implements MajorChangeService{
 	public List<MajorChange> findAllMajorChangeByCheckStatus() {
 		// TODO Auto-generated method stub
 		return MajorChangeMapper.selectAllMajorChangeByCheckStatus();
+	}
+
+	@Override
+	public List<MajorChange> findMajorChangeByConditions(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return MajorChangeMapper.selectMajorChangeCoditions(map);
 	}
 	
 }

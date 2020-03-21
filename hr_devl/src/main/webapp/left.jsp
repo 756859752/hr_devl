@@ -374,7 +374,7 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="dcf_Transfer/register.jsp"
+							<td width="98%"><a href="dcf_Transfer/register_locate.jsp"
 								target="mainFrame">调动登记</td>
 						</tr>
 						<tr>
