@@ -37,5 +37,9 @@
 	<select id="selectAllConfigMajor" resultMap="tid">
 		select * from config_major
 	</select>
+	<!-- 根据类型id查询所有职位 -->
+	<select id="selectConfigMajorsByMajorKindid" parameterType="string" resultMap="tid">
+	    select * from config_major where major_kind_id=#{kid}
+	</select>
 </mapper>
   

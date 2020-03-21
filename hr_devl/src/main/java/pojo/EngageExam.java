@@ -19,7 +19,7 @@ public class EngageExam implements java.io.Serializable {
 	private String register;
 	private Timestamp registTime;
 	private Short limiteTime;
-
+	private int amout;
 	// Constructors
 
 	/** default constructor */
@@ -116,6 +116,14 @@ public class EngageExam implements java.io.Serializable {
 
 	public void setLimiteTime(Short limiteTime) {
 		this.limiteTime = limiteTime;
+	}
+
+	public int getAmout() {
+		return amout;
+	}
+
+	public void setAmout(int amout) {
+		this.amout = amout;
 	}
 
 	@Override

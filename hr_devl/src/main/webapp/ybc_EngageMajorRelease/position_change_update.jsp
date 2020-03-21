@@ -60,7 +60,7 @@
 				</tr>
 			 
 			</table>
-			当前可变更是职位发布总数：${count }例
+			
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">

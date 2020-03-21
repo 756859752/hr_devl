@@ -48,5 +48,11 @@ public class ConfigMajorServiceImpl implements ConfigMajorService {
 		return configMajorMapper.selectAllConfigMajor();
 	}
 
+	@Override
+	public List<ConfigMajor> findConfigMajorByMajorKindId(String kid) {
+		
+		return configMajorMapper.selectConfigMajorsByMajorKindid(kid);
+	}
+
 	
 }

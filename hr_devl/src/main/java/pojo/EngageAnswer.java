@@ -167,4 +167,16 @@ public class EngageAnswer implements java.io.Serializable {
 		this.totalPoint = totalPoint;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageAnswer [ansId=" + ansId + ", answerNumber="
+				+ answerNumber + ", examNumber=" + examNumber + ", resumeId="
+				+ resumeId + ", interviewId=" + interviewId + ", humanName="
+				+ humanName + ", humanIdcard=" + humanIdcard + ", majorKindId="
+				+ majorKindId + ", majorKindName=" + majorKindName
+				+ ", majorId=" + majorId + ", majorName=" + majorName
+				+ ", testTime=" + testTime + ", useTime=" + useTime
+				+ ", totalPoint=" + totalPoint + "]";
+	}
+
 }

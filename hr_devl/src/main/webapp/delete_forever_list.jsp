@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,42 +22,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript">
-		function toDel(id)
-		{
-			document.forms[0].action = document.forms[0].action + "?operate=toDelForever&id=" + id;
-			document.forms[0].submit();
-		}
-		</script>
+function toCheck(id)
+{
+	document.forms[0].action = document.forms[0].action + "?operate=toCheck&id=" + id;
+	document.forms[0].submit();
+}
+</script>
 </head>
 
 <body>
-	<form action="humanfile.do" method="post">
+	<form name="humanfileForm" method="post" action="/hr/humanfile.do">
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案删除管理--人力资源档案永久删除</font>
-				</td>
+				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案永久删除
+				</font></td>
 			</tr>
 			<tr>
-				<td>符合条件的人力资源档案总数：0例</td>
+				<td>当前等待删除的人力资源档案总数：${fn:length(humanFilelist)} 例</td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr class="TR_STYLE1">
-				<td width="14%" height="13" class="TD_STYLE1">档案编号</td>
-				<td width="11%" class="TD_STYLE1">姓名</td>
-				<td width="6%" class="TD_STYLE1">性别</td>
-				<td width="13%" class="TD_STYLE1">I级机构</td>
-				<td width="12%" class="TD_STYLE1">II级机构</td>
-				<td width="13%" class="TD_STYLE1">III级机构</td>
-				<td width="11%" class="TD_STYLE1">职位分类</td>
-				<td width="13%" class="TD_STYLE1">职位名称</td>
-				<td width="7%" class="TD_STYLE1">永久删除</td>
+				<td width="13%" class="TD_STYLE1">档案编号</td>
+				<td width="13%" class="TD_STYLE1">姓名</td>
+				<td width="11%" class="TD_STYLE1">性别</td>
+				<td width="14%" class="TD_STYLE1">I级机构</td>
+				<td width="14%" class="TD_STYLE1">II级机构</td>
+				<td width="14%" class="TD_STYLE1">III级机构</td>
+				<td width="14%" class="TD_STYLE1">职称</td>
+				<td width="7%" class="TD_STYLE1">变更</td>
 			</tr>
-
+			<c:forEach items="${humanFilelist }" var="h">
+				<tr>
+					<td class="TD_STYLE2">${h.hufId }</td>
+					<!--  --><td class="TD_STYLE2">${h.humanName }</td>
+					<td class="TD_STYLE2">${h.humanSex }</td>
+					<td class="TD_STYLE2">${h.firstKindName }</td>
+					<td class="TD_STYLE2">${h.secondKindName }</td>
+					<td class="TD_STYLE2">${h.thirdKindName }</td>
+					<td class="TD_STYLE2">${h.humanProDesignation }</td>
+					<td class="TD_STYLE2"><a href="cgp/${h.hufId }/humandeleteforever.do">永久删除</a></td>
+				</tr>
+			</c:forEach>
 		</table>
 		<p>
-			&nbsp;&nbsp;总数：0例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
+			&nbsp;&nbsp;总数：${fn:length(humanFilelist)}例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
 			&nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1>
 			页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18
 				border=0>

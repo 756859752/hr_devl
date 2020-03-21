@@ -44,5 +44,11 @@ public class MajorChangeServiceImpl implements MajorChangeService{
 		// TODO Auto-generated method stub
 		return MajorChangeMapper.selectAllMajorChange();
 	}
+
+	@Override
+	public List<MajorChange> findAllMajorChangeByCheckStatus() {
+		// TODO Auto-generated method stub
+		return MajorChangeMapper.selectAllMajorChangeByCheckStatus();
+	}
 	
 }

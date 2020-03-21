@@ -162,7 +162,7 @@ a {
 										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td><a href="xxk/selectallsalaryGrantSet.do" target="mainFrame">薪酬发放方式设置</a></td>
+											<td>薪酬发放方式设置</td>
 							
 										</tr>
 										<tr>
@@ -227,7 +227,7 @@ a {
 		</tr>
 
 		<!-- 人力资源档案管理设置 -->
-		<tr>
+			<tr>
 			<td><a onClick="noneORblock(human_file)"><img
 					src="images/plus22.gif"
 					onClick="plusORminus(human_file,human_file_pic)"
@@ -240,22 +240,22 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="human_register.html"
+							<td width="98%"><a href="cgp/queryjigou.do"
 								target="mainFrame">人力资源档案登记</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="check_list.html" target="mainFrame">人力资源档案登记复核</a>
+							<td><a href="cgp/humancheck.do" target="mainFrame">人力资源档案登记复核</a>
 							</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="query_locate.html" target="mainFrame">人力资源档案查询</a>
+							<td><a href="cgp/queryhuman.do" target="mainFrame">人力资源档案查询</a>
 							</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="change_locate.html" target="mainFrame">人力资源档案变更</a>
+							<td><a href="cgp/querychangelist.do" target="mainFrame">人力资源档案变更</a>
 							</td>
 						</tr>
 						<tr>
@@ -272,18 +272,21 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="delete_locate.html"
+											<td width="98%"><a href="cgp/deletehuman.do"
 												target="mainFrame">人力资源档案删除</a></td>
+												<!-- delete_locate.jsp -->
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="recovery_locate.html"
+											<td width="98%"><a href="cgp/huifuhuman.do"
 												target="mainFrame">档案删除恢复</a></td>
+												<!-- recovery_locate.jsp -->
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="delete_forever_list.html"
+											<td width="98%"><a href="cgp/foreverdelete.do"
 												target="mainFrame">人力资源档案永久删除</a></td>
+												<!-- delete_forever_list.jsp -->
 										</tr>
 									</table>
 							</span></td>
@@ -291,7 +294,6 @@ a {
 					</table>
 			</span></td>
 		</tr>
-
 		<!-- 薪酬标准管理 -->
 		<tr>
 			<td class="td_style"><a onClick="noneORblock(salary_standard)"><img
@@ -372,7 +374,7 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="dcf_Transfer/register_locate.jsp"
+							<td width="98%"><a href="dcf_Transfer/register.jsp"
 								target="mainFrame">调动登记</td>
 						</tr>
 						<tr>
@@ -605,14 +607,18 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%">
-											<a href="ybcexam/examRegisterSelect.do" target="mainFrame">>
+											<a href="ybcexam/examRegisterSelects.do" target="mainFrame">
 												考试出题
 											</a>
 											</td>
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">考试答题</td>
+											<td width="98%">
+											<a href="ybcexam/examstarttoAnswer.do" target="mainFrame">
+											考试答题
+											</a>
+											</td>
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>

@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -36,7 +38,7 @@ function toCheck(id)
 				</font></td>
 			</tr>
 			<tr>
-				<td>当前等待复核的人力资源档案总数： 1 例</td>
+				<td>当前等待复核的人力资源档案总数：${fn:length(humanFilelist)} 例</td>
 			</tr>
 		</table>
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
@@ -51,21 +53,21 @@ function toCheck(id)
 				<td width="14%" class="TD_STYLE1">职称</td>
 				<td width="7%" class="TD_STYLE1">复核</td>
 			</tr>
-
-			<tr>
-				<td class="TD_STYLE2">bt0101010001</td>
-				<td class="TD_STYLE2">fantia</td>
-				<td class="TD_STYLE2">女</td>
-				<td class="TD_STYLE2">Better集团</td>
-				<td class="TD_STYLE2">Better软件公司</td>
-				<td class="TD_STYLE2">外包组</td>
-				<td class="TD_STYLE2">经理</td>
-				<td class="TD_STYLE2"><a href="human_check.html">复核</a></td>
-			</tr>
-
+			<c:forEach items="${humanFilelist }" var="h">
+				<tr>
+					<td class="TD_STYLE2">${h.hufId }</td>
+					<!--  --><td class="TD_STYLE2">${h.humanName }</td>
+					<td class="TD_STYLE2">${h.humanSex }</td>
+					<td class="TD_STYLE2">${h.firstKindName }</td>
+					<td class="TD_STYLE2">${h.secondKindName }</td>
+					<td class="TD_STYLE2">${h.thirdKindName }</td>
+					<td class="TD_STYLE2">${h.humanProDesignation }</td>
+					<td class="TD_STYLE2"><a href="cgp/${h.hufId }/humancheckselect.do">复核</a></td>
+				</tr>
+			</c:forEach>
 		</table>
 		<p>
-			&nbsp;&nbsp;总数：1例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
+			&nbsp;&nbsp;总数：${fn:length(humanFilelist)}例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
 			&nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1>
 			页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18
 				border=0>

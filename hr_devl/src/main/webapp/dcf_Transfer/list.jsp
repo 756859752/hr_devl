@@ -57,7 +57,7 @@
 						杨阳
 						</td>
 						<td class="TD_STYLE2">
-							<a href="detail.jsp">
+							<a href="detail.html">
 							查看</a>
 						</td>
 					</tr>
@@ -79,7 +79,7 @@
 						杨阳
 						</td>
 						<td class="TD_STYLE2">
-							<a href="detail.jsp">
+							<a href="detail.html">
 							查看</a>
 						</td>
 					</tr>

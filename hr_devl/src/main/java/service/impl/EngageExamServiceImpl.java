@@ -44,5 +44,11 @@ public class EngageExamServiceImpl implements EngageExamService{
 		// TODO Auto-generated method stub
 		return engageExamMapper.selectAllEngageExam();
 	}
+
+	@Override
+	public List<EngageExam> findEngageGroupAndCount() {
+		// TODO Auto-generated method stub
+		return engageExamMapper.selectEngageGroupAndCount();
+	}
 	
 }

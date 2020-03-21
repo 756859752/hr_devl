@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.ConfigFileThirdKindMapper;
 import pojo.ConfigFileFirstKind;
+import pojo.ConfigFileSecondKind;
 import pojo.ConfigFileThirdKind;
 import service.ConfigFileThirdKindService;
 
@@ -58,11 +59,11 @@ public class ConfigFileThirdKindServiceImpl implements ConfigFileThirdKindServic
 		// TODO Auto-generated method stub
 		ConfigFileThirdKindMapper.updateConfigFileFirstKindBycffk(cffk);
 	}
-	
-//	根据二级机构id查询所有三级分类
+
 	@Override
-	public List<ConfigFileThirdKind> findConfigFileThirdKindBySecondKindId(String seconkindid) {	
-		return ConfigFileThirdKindMapper.selectConfigFileThirdKindBySecondKindId(seconkindid);
+	public List<ConfigFileThirdKind> findConfigFileThirdKindBySecondKindId(String kid) {
+		// TODO Auto-generated method stub
+		return ConfigFileThirdKindMapper.selectConfigFileThirdKindBySecondKindId(kid);
 	}
 
 

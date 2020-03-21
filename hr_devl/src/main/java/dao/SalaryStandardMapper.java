@@ -19,4 +19,8 @@ public interface SalaryStandardMapper {
 	public List<SalaryStandard> seletCoditionsSalaryStandard(HashMap<String, Object> map);
 //	通过状态位查询出未通过审核的薪酬标准
 	public List<SalaryStandard> seletStateSalaryStandard();
+	
+//	根据薪酬编号查询一个薪酬标准
+	public SalaryStandard selectSalaryStandardBySid(String sid);
+
 }

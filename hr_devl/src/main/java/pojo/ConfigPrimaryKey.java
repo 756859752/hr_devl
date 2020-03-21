@@ -70,10 +70,4 @@ public class ConfigPrimaryKey implements java.io.Serializable {
 		this.primaryKeyStatus = primaryKeyStatus;
 	}
 
-	@Override
-	public String toString() {
-		return "ConfigPrimaryKey [prkId=" + prkId + ", primaryKeyTable=" + primaryKeyTable + ", primaryKey="
-				+ primaryKey + ", keyName=" + keyName + ", primaryKeyStatus=" + primaryKeyStatus + "]";
-	}
-
 }

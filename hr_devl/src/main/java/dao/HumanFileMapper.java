@@ -16,6 +16,10 @@ public interface HumanFileMapper {
 
 	public List<HumanFile> selectAllHumanFile();
 	
-//	多条件筛选人员信息
-	public List<HumanFile> selectHumanFileByConditions(HashMap<String, Object> map);
+	public List<HumanFile> selectHumanFileByCheckStatus(short s);
+	//多条件查询
+	public List<HumanFile> selectByCondition(HumanFile HumanFile);
+	
+	//多条件筛选
+		public List<HumanFile> selectHumanFileByConditions(HashMap<String, Object> map);
 }

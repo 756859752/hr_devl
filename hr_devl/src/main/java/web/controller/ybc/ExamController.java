@@ -15,8 +15,11 @@ import pojo.ConfigMajor;
 import pojo.ConfigMajorKind;
 import pojo.ConfigQuestionFirstKind;
 import pojo.ConfigQuestionSecondKind;
+import pojo.EngageAnswer;
 import pojo.EngageExam;
 import pojo.EngageExamDetails;
+import pojo.EngageInterview;
+import pojo.EngageResume;
 import pojo.EngageSubjects;
 import service.ConfigMajorKindService;
 import service.ConfigMajorService;
@@ -24,6 +27,8 @@ import service.ConfigQuestionFirstKindService;
 import service.ConfigQuestionSecondKindService;
 import service.EngageExamDetailsService;
 import service.EngageExamService;
+import service.EngageInterviewService;
+import service.EngageResumeService;
 import service.EngageSubjectsService;
 import web.controller.ybc.dto.ExamsModel;
 import web.controller.ybc.dto.Helper;
@@ -46,7 +51,10 @@ public class ExamController {
 	EngageExamService engageExamService=null;
 	@Autowired
 	EngageExamDetailsService  engageExamDetailsService=null;
-	
+	@Autowired
+	EngageResumeService engageResumeService=null;
+	@Autowired
+	EngageInterviewService engageInterviewService =null;
 	//考试试题登记 
 	@RequestMapping("gototheSubjectRegister.do")
 	public String gototheSubjectRegister(Model model,String operate){
@@ -97,10 +105,18 @@ public class ExamController {
 		return "forward:/ybc_EngageMajorRelease/subject/subject_list.jsp";
 	}
 	
+	//查询套卷
+		@RequestMapping("examRegisterSelects.do")
+		public String examRegisterSelects(Model model){
+			List<EngageExam> resultlist=engageExamService.findEngageGroupAndCount();
+			System.out.println(resultlist);
+			model.addAttribute("resultlist", resultlist);
+			return "forward:/ybc_EngageMajorRelease/exam/exam_list.jsp";
+		}
 	
 	//进入生成套卷
 	@RequestMapping("examRegisterSelect.do")
-	public String examRegisterSelect( Model model){
+	public String examRegisterSelect( Model model,EngageExam e){
 		//加载职位登记页面的数据
 				List <ConfigMajorKind> mlist =configMajorKindService.findAllConfigMajorKind();
 				model.addAttribute("mlist",mlist);
@@ -123,7 +139,9 @@ public class ExamController {
 			}
 		}
 		model.addAttribute("flist", flist);
-		
+		if(e!=null){
+			System.out.println(e);
+		}
 		return "forward:/ybc_EngageMajorRelease/exam/exam_register.jsp";
 	}
 	//ajavx
@@ -140,9 +158,14 @@ public class ExamController {
 		return configMajorlist;
 	}
 	
+	
+	
+	
 	//创建套卷提交
 	@RequestMapping("examRegisterSubmit.do")
 	public String examRegisterSubmit(ExamsModel examdetails,EngageExam ee,Model model){
+		
+		System.out.println(examdetails.getExamdetails());
 		List<EngageExamDetails> list=examdetails.getExamdetails();
 			String examNumber =	Helper.getExamid();
 			ee.setExamNumber(examNumber);
@@ -154,6 +177,58 @@ public class ExamController {
 		model.addAttribute("msg", new Massage("出题成功","main.jsp"));
 		
 		return Massage.MSG_PAGE;
+	}
+	
+	//开始考试
+	
+	@RequestMapping("examstarttoAnswer.do")
+	public String examstarttoAnswer(Model model){
+		List <ConfigMajorKind> mklist=configMajorKindService.findAllConfigMajorKind();
+		model.addAttribute("mklist", mklist);
+		
+		return "forward:/ybc_EngageMajorRelease/exam/exam_answer.jsp";
+	}
+	
+	//提交考试人信息
+	@RequestMapping("examStartPeopleMassge.do")
+	public String examStartPeopleMassge(EngageAnswer ea,Model model){
+		//先通过身份证查出简历
+		HashMap<String, String> hashmap=new HashMap<>();
+		hashmap.put("humanIdcard", ea.getHumanIdcard());
+		List<EngageResume> erlist=engageResumeService.findAllEngageResumeByConditon(hashmap);
+		if(erlist.size()<1){
+			model.addAttribute("msg", new Massage("您还没有提交简历！", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
+		EngageResume er=erlist.get(1);
+		if(er.getCheckStatus()!=1){
+			model.addAttribute("msg", new Massage("您的简历还没有通过审核!", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
+		
+		
+		//再通过简历的id查出面试登记表
+		List<EngageInterview>  eilist=	engageInterviewService.findAllEngageInterview();
+		EngageInterview ei=null;
+		for (EngageInterview engageInterview : eilist) {
+			if(engageInterview.getResumeId()==er.getResId()){
+				ei=engageInterview;
+			}
+		}
+		if(ei==null){
+			model.addAttribute("msg", new Massage("您还没有通过面试!", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
+		if(ei.getCheckStatus()!=1){
+			model.addAttribute("msg", new Massage("您的面试还没有审核!", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
+		if(!"建议笔试".equals(ei.getResult())){
+			model.addAttribute("msg", new Massage("您的面试解结果是"+ei.getResult()+"!", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
+		System.out.println(ea);
+		return null;
 	}
 	
 }

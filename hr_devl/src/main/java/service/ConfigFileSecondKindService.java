@@ -21,4 +21,5 @@ public interface ConfigFileSecondKindService {
 	public List<ConfigFileSecondKind> findAllConfigFileSecondKind();
 	
 	public List<ConfigFileSecondKind> findAllConfigFileSecondKindByfisrtKindId(String firstKindId);
+	
 }

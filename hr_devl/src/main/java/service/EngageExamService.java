@@ -10,4 +10,5 @@ public interface EngageExamService {
 	public void alterEngageExam(EngageExam EngageExam);
 	public EngageExam findEngageExamById(short id);
 	public List<EngageExam> findAllEngageExam();
+	public  List<EngageExam> findEngageGroupAndCount();
 }

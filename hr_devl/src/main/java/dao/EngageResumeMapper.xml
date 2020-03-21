@@ -88,6 +88,9 @@
    				<if test="humanMajorId!=''">
    					and human_major_id=#{humanMajorId}
    				</if>
+   				<if test="humanIdcard!=''">
+   					and human_idcard=#{humanIdcard}
+   				</if>
    				<if test="startDate!=''">
    					and  unix_timestamp(regist_time)> unix_timestamp(#{startDate})
    				</if>

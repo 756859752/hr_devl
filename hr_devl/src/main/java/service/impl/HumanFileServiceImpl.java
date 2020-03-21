@@ -45,10 +45,23 @@ public class HumanFileServiceImpl implements HumanFileService{
 		// TODO Auto-generated method stub
 		return humanFileMapper.selectAllHumanFile();
 	}
-// 多条件选择人事档案
+
 	@Override
-	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map) {	
-		return  humanFileMapper.selectHumanFileByConditions(map);
+	public List<HumanFile> findHumanFileByCheckStatus(short s) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.selectHumanFileByCheckStatus(s);
+	}
+
+	@Override
+	public List<HumanFile> findByCondition(HumanFile HumanFile) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.selectByCondition(HumanFile);
+	}
+
+	@Override
+	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.selectHumanFileByConditions(map);
 	}
 
 }

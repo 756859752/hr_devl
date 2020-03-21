@@ -11,6 +11,8 @@ public interface HumanFileService {
 	public void alterHumanFile(HumanFile HumanFile);
 	public HumanFile findHumanFileById(short id);
 	public List<HumanFile> findAllHumanFile();
-//	多条件查询人事档案
+	public List<HumanFile> findHumanFileByCheckStatus(short s);
+	public List<HumanFile> findByCondition(HumanFile HumanFile);
+//	根据多条件筛选
 	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map);
 }

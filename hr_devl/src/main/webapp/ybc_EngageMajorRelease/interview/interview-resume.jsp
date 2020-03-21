@@ -47,7 +47,7 @@ function search() {
 function queryMajor(){
 	var mid = $("#humanMajorKind").val();
 	var humanmajorkindname = $("#humanMajorKind"+mid).html();
-	$("#humanMajorKindId").val(humanmajorkindname);
+	$("#humanMajorKindName").val(humanmajorkindname);
 	var majorSelect = $("#humanMajorId");
 	majorSelect.empty();
 	majorSelect.append("<option value=''>--请选择--</option>");
@@ -72,7 +72,8 @@ function queryMajor(){
 	<body>
 		<form name="interviewForm" method="post" action="interviewResultRegisterSelectStart.do" >
 			 <input type="hidden" name="engageResume.interviewStatus" value="false"/>
-			 <input type="hidden"  id="humanMajorKindId" name="humanMajorKindId" />
+			 <input type="hidden"  id="humanMajorKindName" name="humanMajorKindName" />
+			 <input type="hidden" id="humanMajorName" name="humanMajorName">
 			<table width="100%">
 				<tr>
 					<td>

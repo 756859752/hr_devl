@@ -7,11 +7,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet"
 			href="/hr_devl/css/table.css" type="text/css"></link>
-				<script type="text/javascript" src="/hr_devl//javascript/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="/hr_devl/javascript/jquery-1.7.2.js"></script>
 	</head>
 
 	<body>
-		<form action="register_success.html">
+		<form action="/hr_devl/dcf/transfer/addtransferinfo.do">
 			<table width="100%">
 				<tr>
 					<td>
@@ -99,7 +99,7 @@
 					<td class="TD_STYLE2">
 						<input type="text" name="majorKindName"
 							value="${humanfile.humanMajorKindName}" readonly="readonly"
-							value="" class="INPUT_STYLE2">
+				              class="INPUT_STYLE2">
 						<input type="hidden" name="majorKindId" value="${humanfile.humanMajorKindId}">
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -162,6 +162,7 @@
 				var third=$("#thirdKindId");			
 		 		 first.change(function(){
 		 			var firstval=$('#firstKindId option:selected').val();
+		 			$("#newFirstKindName").val($('#firstKindId option:selected').html());
 		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid='+firstval+'&secondkindid',
 			  			function(data){
 			  			 second.css("width",first.width());
@@ -180,7 +181,7 @@
 		 		 	third.val('0');
 		 		 }); });
 </script>
-   
+    
    <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
 								<option value="0">-----请选择-----</option>					
 									  
@@ -199,6 +200,7 @@
 				var third=$("#thirdKindId");
 		 		 second.change(function(){
 					var secondval=$('#secondKindId option:selected').val();
+					$("#newSecondKindName").val($('#secondKindId option:selected').html());
 		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid='+secondval+'',
 			  			function(data){
 			  			third.css("width",second.width());
@@ -225,6 +227,15 @@
 					<td class="TD_STYLE1" width="12%">
 						新三级机构名称
 					</td>
+					 <script type="text/javascript"> 
+			$(function() {
+				var third=$("#thirdKindId");
+				third.change(function(){
+					var secondval=$('#thirdKindId option:selected').html();
+					$("#newThirdKindName").val(secondval);
+		 		 });	
+				  });
+            </script>
 					<td class="TD_STYLE2">
 						 <select style="width:160px" name="newThirdKindId" id="thirdKindId" size="1" class="SELECT_STYLE2">		
 								<option value="0">-----请选择-----</option>						
@@ -250,30 +261,26 @@
 					  <input type="hidden" name="newMajorKindName" id="newMajorKindName">
 					   <script type="text/javascript"> 
 			$(function() {
-	 		$('#newMajorId').change(function(){ $("#newMajorName").val($('#newMajorId option:selected').html());});
-	 		var second=$('#newMajorKindId');
-	 		var third=$('#newMajorId');
+	 		$('#newMajorId').change(function(){
+	 			$("#newMajorName").val($('#newMajorId option:selected').html());
+	 			});
+	 		});
+	 		var second=$('#newMajorKindId');;
 	 		 second.change(function(){
-	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html());
-	 		  
-	 		 	$.post('/HR_Fist/transfer/transferAction!findMajor.action',{ 'majorChange.newMajorKindId' : $('#newMajorKindId option:selected').val() },
+	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html()); 
+	 		 	$.post('/hr_devl/dcf/transfer/querymajors/'+$('#newMajorKindId option:selected').val()+'.do',
 		  			function(data){
-		  			 third.css("width",second.width());
-		  			third.empty();
-		  			third.append("<option value='0' >-----请选择-----</option>");
-		  		var items = $(data).find("item");
-		  		items.each(function(i){
-		  				var id = $(items[i]).attr("id");
-		  				var name = $(items[i]).attr("name");	
-		  				third.append("<option value='"+id+"'>"+name+"</option>");
-		  		
-		  		
-		  		});
-					},'xml');
-	 		 
-	 		 });
-			
-			  });
+	 		 		$('#newMajorId').css("width",second.width());
+		  			$('#newMajorId').empty();
+		  			$('#newMajorId').append("<option value='0' >-----请选择-----</option>");
+		  		    var	str ='';
+		          for(var i=0;i<data.length;i++){ 
+		        	  str += '<option name="newMajorId" value='+data[i].majorId+'>'+data[i].majorName+'</option>';
+		          }
+		          $("#newMajorId").append(str);
+	 		 	},);
+	 		 	 $("#newMajorId").val('0');
+	 		 });	
 </script>
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -291,13 +298,9 @@
 					<td class="TD_STYLE2">
 						 <select style="width:160px" name="newSalaryStandardId" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">						
 								<option value="0">-----请选择-----</option>					
-					  			
-					  				<option  value="1353320063473">普通员工</option>	
-					  			
-					  				<option  value="1353320082662">经理级别</option>	
-					  			
-					  				<option  value="1353320112255">董事长</option>	
-					  			
+					  			    <c:forEach items="${salarystandard}" var="s">
+					  			        <option  value="${s.standardId}">${s.standardName }</option>
+					  			    </c:forEach>			  			
 					  </select>
 					  <input type="hidden" name="newSalaryStandardName" id="newSalaryStandardName">
 					  <SCRIPT type="text/javascript">
@@ -306,18 +309,13 @@
 					  	var standardname=$('#newSalaryStandardName');
 					  	var newSalarySum=$('#newSalarySum');
 					  	standardid.change(function(){
-					  		standardname.val($('#newSalaryStandardId option:selected').html());
-					  	$.post('/HR_Fist/transfer/transferAction!findSalarySum.action',{ 'majorChange.newSalaryStandardId' : $('#newSalaryStandardId option:selected').val() },
-		  			function(data){
-		  			  newSalarySum.val(data);
-		  		
-		  		}
-					,'html');
-					  	
-					  	
+					  	 standardname.val($('#newSalaryStandardId option:selected').html());
+					  	$.post('/hr_devl/dcf/transfer/querysumsalar/'+$('#newSalaryStandardId option:selected').val()+'.do',
+					  		function(data){
+					  		newSalarySum.val(data);     
+				 		 	},); 			     
+		  		         });
 					  	});
-					  
-					  });
 					  </SCRIPT>
 					</td>
 					<td class="TD_STYLE1">
@@ -381,7 +379,7 @@
  							ss="0"+ss;
  					}	
  					 
- 					tdate.value=y+"-"+moth+"-"+date+"- "+h+":"+m+":"+s;
+ 					tdate.value=y+"-"+moth+"-"+date+" "+h+":"+m+":"+s;
 					 
 
  				}
@@ -430,5 +428,3 @@
 })();
 </script>
 </html>
-
-		

@@ -30,14 +30,8 @@
    </delete>
    
    <update id="updateConfigPrimaryKey" parameterType="ConfigQuestionFirstKind">
-    update config_primary_key
+    update config_question_first_kind
     set prk_id=#{prkId},primary_key_table=#{primaryKeyTable},primary_key=#{primaryKey},key_name=#{keyName},primary_key_status=#{primaryKeyStatus}
-    where prk_id=#{prkId}
-   </update>
-   
-    <update id="updateConfigPrimaryKeyprimaryKeyStatus" parameterType="ConfigQuestionFirstKind">
-    update config_primary_key
-    set primary_key_status=#{primaryKeyStatus}
     where prk_id=#{prkId}
    </update>
    
