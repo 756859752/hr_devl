@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,12 @@ public class EngageExamServiceImpl implements EngageExamService{
 	public List<EngageExam> findEngageGroupAndCount() {
 		// TODO Auto-generated method stub
 		return engageExamMapper.selectEngageGroupAndCount();
+	}
+
+	@Override
+	public List<EngageExam> findEngageExamByCondition(HashMap<String, String> hashmap) {
+		// TODO Auto-generated method stub
+		return engageExamMapper.selectEngageExamByCondition(hashmap);
 	}
 	
 }

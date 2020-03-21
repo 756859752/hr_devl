@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function findscondkind(){//当第一个选择框改变
 			var mid = $("#firstKindId").val();//n拿到选择的id
 			var majorSelect = $("#secondKindId");//拿到第二个选择框
-			var majorkindname = $("#firstKindId"+mid).html();//拿到一级分类名
+			var majorkindname = $("#firstKindId_"+mid).html();//拿到一级分类名
 			 $("#firstKindName").val(majorkindname);//改变隐藏域里的一级分类名值
 			majorSelect.empty();
 			majorSelect.append("<option value=''>--请选择--</option>");
@@ -196,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						答案c
 					</td>
 					<td class="TD_STYLE2" colspan="7" >
-						 <textarea rows="3" name="keyc" cols="3"   class="TEXTAREA_STYLE1" style="resize:none"></textarea>
+						 <textarea rows="3" name="keyC" cols="3"   class="TEXTAREA_STYLE1" style="resize:none"></textarea>
 					</td>
 				</tr>
 				<tr >

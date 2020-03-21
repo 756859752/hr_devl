@@ -60,4 +60,11 @@ public class EngageAnswerDetails implements java.io.Serializable {
 		this.answer = answer;
 	}
 
+	@Override
+	public String toString() {
+		return "EngageAnswerDetails [andId=" + andId + ", answerNumber="
+				+ answerNumber + ", subjectId=" + subjectId + ", answer="
+				+ answer + "]";
+	}
+
 }

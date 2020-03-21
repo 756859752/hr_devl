@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import dao.EngageAnswerDetailsMapper;
 import pojo.EngageAnswerDetails;
+import pojo.EngageExamDetails;
 import service.EngageAnswerDetailsService;
 
 @Service
@@ -44,5 +46,14 @@ public class EngageAnswerDetailsServiceImpl implements EngageAnswerDetailsServic
 		// TODO Auto-generated method stub
 		return engageAnswerDetailsMapper.selectAllEngageAnswerDetails();
 	}
+
+	@Override
+	public List<EngageAnswerDetails> findEngageAnswerByCondition(
+			String answerNumber) {
+		// TODO Auto-generated method stub
+		return engageAnswerDetailsMapper.selectEngageAnswerByCondition(answerNumber);
+	}
+
+	
 	
 }
