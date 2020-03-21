@@ -62,10 +62,13 @@ public class InterviewResultRegisterController {
 	//面试结果登记(先查询 开始) 
 	
 	@RequestMapping("interviewResultRegisterSelectStart.do")
-	public String interviewResultRegisterSelectStart(@RequestParam String humanMajorId,
+	public String interviewResultRegisterSelectStart(
+			@RequestParam String humanMajorKindId,
+			@RequestParam String humanMajorId,
 			@RequestParam String primarKey,@RequestParam String startDate,
 			@RequestParam String endDate,Model model){
 		HashMap<String, String> hashmap=new HashMap<String, String> ();
+		hashmap.put("humanMajorKindId", humanMajorKindId);
 		hashmap.put("humanMajorId", humanMajorId);
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
@@ -85,6 +88,7 @@ public class InterviewResultRegisterController {
 	@RequestMapping("interviewResultRegister.do")
 	public String interviewResultRegister(Short resid,Model model){
 		EngageResume re= engageResumeService.findEngageResumeById(resid);
+		
 		model.addAttribute("re",re);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-register.jsp";
 	}
@@ -94,6 +98,16 @@ public class InterviewResultRegisterController {
 	public String interviewResultSubmit(EngageResume resume,EngageInterview interview,Model model){
 		System.out.println(resume);
 		System.out.println(interview);
+		List<EngageInterview> list=engageInterviewService.findAllEngageInterview();
+		for (EngageInterview engageInterview : list) {
+			if(engageInterview.getResumeId()==interview.getResumeId()){
+				interview.setInterviewAmount((short)(engageInterview.getInterviewAmount()+1));
+				interview.setEinId(engageInterview.getEinId());
+				engageInterviewService.alterEngageInterview(interview);
+				model.addAttribute("msg", new Massage("面试结果登记成功","main.jsp"));
+				return Massage.MSG_PAGE;
+			}
+		}
 		engageInterviewService.addEngageInterview(interview);
 		model.addAttribute("msg", new Massage("面试结果登记成功","main.jsp"));
 		return Massage.MSG_PAGE;
@@ -120,10 +134,26 @@ public class InterviewResultRegisterController {
 	//提交面试筛选
 	@RequestMapping("interviewResultShaixuanSubmit.do")
 	public String interviewResultShaixuanSubmit(EngageInterview interview,Model model){
-			short a=1;
+		short a=1;
+			if("建议面试".equals(interview.getResult())){
+				a=1;
+			}
+			if("建议笔试".equals(interview.getResult())){
+				a=2;
+				interview.setInterviewStatus(a);
+			 EngageResume er=	engageResumeService.findEngageResumeById(interview.getResumeId());
+			 er.setInterviewStatus(a);
+			 engageResumeService.alterEngageResume(er);
+			}
+			if("建议录用".equals(interview.getResult())){
+				a=3;
+			}
+			if("删除简历".equals(interview.getResult())){
+				a=4;
+			}
 			interview.setCheckStatus(a);
 		engageInterviewService.alterEngageInterview(interview);
-		model.addAttribute("msg", new Massage("操作成功","main.jsp"));
+		model.addAttribute("msg", new Massage("筛选成功","main.jsp"));
 		return Massage.MSG_PAGE;
 	}
 }

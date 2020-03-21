@@ -88,7 +88,7 @@
    				<if test="humanMajorId!=''">
    					and human_major_id=#{humanMajorId}
    				</if>
-   				<if test="humanIdcard!=''">
+   				<if test="humanIdcard!=null">
    					and human_idcard=#{humanIdcard}
    				</if>
    				<if test="startDate!=''">

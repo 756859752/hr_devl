@@ -195,12 +195,16 @@ public class ExamController {
 		//先通过身份证查出简历
 		HashMap<String, String> hashmap=new HashMap<>();
 		hashmap.put("humanIdcard", ea.getHumanIdcard());
+		hashmap.put("humanMajorKindId", "");
+		hashmap.put("humanMajorId", "");
+		hashmap.put("startDate", "");
+		hashmap.put("endDate", "");
 		List<EngageResume> erlist=engageResumeService.findAllEngageResumeByConditon(hashmap);
 		if(erlist.size()<1){
 			model.addAttribute("msg", new Massage("您还没有提交简历！", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
-		EngageResume er=erlist.get(1);
+		EngageResume er=erlist.get(0);
 		if(er.getCheckStatus()!=1){
 			model.addAttribute("msg", new Massage("您的简历还没有通过审核!", "main.jsp"));
 			return Massage.MSG_PAGE;
@@ -219,15 +223,13 @@ public class ExamController {
 			model.addAttribute("msg", new Massage("您还没有通过面试!", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
-		if(ei.getCheckStatus()!=1){
-			model.addAttribute("msg", new Massage("您的面试还没有审核!", "main.jsp"));
-			return Massage.MSG_PAGE;
-		}
-		if(!"建议笔试".equals(ei.getResult())){
+		if(ei.getCheckStatus()!=2){
 			model.addAttribute("msg", new Massage("您的面试解结果是"+ei.getResult()+"!", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
-		System.out.println(ea);
+		
+		//开始出题
+		
 		return null;
 	}
 	

@@ -62,7 +62,6 @@ public class ResumeRegisterController {
 	public List <ConfigMajor> engageResumefinMajorinAjax(String mid){
 		List <ConfigMajor> list=configMajorService.findAllConfigMajor();
 		List <ConfigMajor> mlist=new ArrayList<ConfigMajor>();
-		System.out.println("此时拿到mid是"+mid);
 		for (ConfigMajor configMajor : list) {
 			if(configMajor.getMajorKindId().equals(mid)){
 				mlist.add(configMajor);
@@ -137,7 +136,7 @@ public class ResumeRegisterController {
 	@RequestMapping("engageResumetuijianmianshi.do")
 	public String engageResumetuijianmianshi(EngageResume e,Model model){
 		engageResumeService.alterEngageResume(e);
-		model.addAttribute("msg", new Massage("推荐成功","index.jsp"));
+		model.addAttribute("msg", new Massage("推荐成功","main.jsp"));
 		return "forward:/ybc_EngageMajorRelease/massage.jsp";
 	}
 	
