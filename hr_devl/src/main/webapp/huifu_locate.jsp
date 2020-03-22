@@ -26,24 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="javascript/calendar/cal.js"></script>
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 <script type="text/javascript" src="javascript/comm/list.js"></script>
+<script type="text/javascript" src="/hr_devl//javascript/jquery-1.7.2.js"/></script>
 <script type="text/javascript">
-		var subcat = new Array(2);
-subcat[0] = ["1", "集团/软件公司","集团","集团/软件公司"];
-subcat[1] = ["2", "集团/生物科技有限公司","集团","集团/生物科技有限公司"];
-var subcat1 = new Array(2);
-subcat1[0] = ["1", "外包组", "集团/软件公司/外包组","集团/软件公司"];
-subcat1[1] = ["2", "药店", "集团/生物科技有限公司/药店","集团/生物科技有限公司"];
-var subcat2 = new Array(8);
-subcat2[0] = ["1", "区域经理", "销售/区域经理", "销售"];
-subcat2[1] = ["2", "总经理", "销售/总经理", "销售"];
-subcat2[2] = ["3", "项目经理", "软件开发/项目经理", "软件开发"];
-subcat2[3] = ["4", "程序员", "软件开发/程序员", "软件开发"];
-subcat2[4] = ["5", "人事经理", "人力资源/人事经理", "人力资源"];
-subcat2[5] = ["6", "专员", "人力资源/专员", "人力资源"];
-subcat2[6] = ["7", "主任", "生产部/主任", "生产部"];
-subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 
- 		function starthuifu()
+ 		function querylist()
 		{
 			//document.forms[0].action = document.forms[0].action + "?operate=list&method=delete&delete_status=1";
 			document.forms[0].action ="cgp/huifu.do";
@@ -55,20 +41,115 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 			document.forms[0].action ="query_keywords.html";
 			document.forms[0].submit();
 		}
+//下拉框联动
+		function findscondkind(){//当第一个选择框改变
+			var firstkindid = $("#firstKind").val();//拿到选择的id
+			var secondKind = $("#secondKind");//拿到第二个选择框
+			var firstKindname = $("#firstKindId"+firstkindid).html();//拿到一级分类名
+			$("#firstKindName").val(firstKindname);//改变隐藏域里的一级分类名值
+			secondKind.empty();
+			secondKind.append("<option value='0'></option>");
+			var thirdKind = $("#thirdKind");//拿到第3个选择框
+			thirdKind.empty();
+			thirdKind.append("<option value='0'></option>");
+			if(firstkindid != 0){
+				$.ajax({
+					url:'cgp/queryConditions.do?firstkindid='+firstkindid+'&secondkindid=2',//ajax地址
+					type:'post',
+					success:function(data){
+			 			for(var i=0;i<data.length;i++){
+							var eachMajor = data[i];
+							secondKind.append("<option id='secondkindid"+eachMajor.secondKindId+"' value='"+eachMajor.secondKindId+"'>"+eachMajor.secondKindName+"</option>");
+							}
+			 			}
+				});
+			}
+		}
+		function findthirdkind(){//当第2个选择框改变
+			var secondkindid = $("#secondKind").val();//拿到选择的id
+			var thirdKind = $("#thirdKind");//拿到第3个选择框
+			var secondkindname = $("#secondkindid"+secondkindid).html();//拿到一级分类名
+			$("#secondKindName").val(secondkindname);//改变隐藏域里的一级分类名值
+			thirdKind.empty();
+			thirdKind.append("<option value='0'></option>");
+			console.log("当前拿到的secondkindid"+secondkindid+secondkindname);
+			if(secondkindid != 0){
+				$.ajax({
+					url:'cgp/queryConditionstwo.do?secondkindid='+secondkindid,//ajax地址
+					type:'post',
+					success:function(data){
+			 			for(var i=0;i<data.length;i++){
+							var eachMajor = data[i];
+								thirdKind.append("<option id='thirdkindid"+eachMajor.thirdKindId+"' value='"+eachMajor.thirdKindId+"'>"+eachMajor.thirdKindName+"</option>");
+							}
+			 			}
+				});
+			}
+		}
+		//给隐藏域三级机构设值
+		function setthird(){
+			var thirdkindid = $("#thirdKind").val();//拿到选择的id
+			var thirdkindname = $("#thirdkindid"+thirdkindid).html();//拿到一级分类名
+			$("#thirdKindName").val(thirdkindname);//改变隐藏域里的一级分类名值
+			console.log("当前拿到的thirdkindid"+thirdkindid+thirdkindname);
+		}
+		
+		function findhumanmajor(){
+			
+			var humanmajorkindid = $("#humanMajorKindNameo").val();//拿到选择的id
+			var hunmamajorname = $("#hunmaMajorNameo");//拿到第3个选择框
+			var name = $("#majorKindId"+humanmajorkindid).html();//拿到一级分类名
+			$("#humanMajorKindName").val(name);//改变隐藏域里的一级分类名值
+			hunmamajorname.empty();
+			hunmamajorname.append("<option value='0'></option>");
+			if(humanmajorkindid != 0){
+				$.ajax({
+					url:'cgp/queryConditionsthree.do?humanmajorkindid='+humanmajorkindid,//ajax地址
+					type:'post',
+					success:function(data){
+			 			for(var i=0;i<data.length;i++){
+							var eachMajor = data[i];
+								hunmamajorname.append("<option id='hunmamajorid"+eachMajor.majorId+"' value='"+eachMajor.majorId+"'>"+eachMajor.majorName+"</option>");
+							}
+			 			}
+				});
+			}
+		}
+		
+		function setmajorname(){
+			var id = $("#hunmaMajorNameo").val();
+			var name = $("#hunmamajorid"+id).html();
+			$("#hunmaMajorName").val(name);
+		}
+ 		
+		function search()
+		{
+			//document.forms[0].action = document.forms[0].action + "?operate=toSearch&method=query";
+			document.forms[0].action ="query_keywords.jsp";
+			document.forms[0].submit();
+		}
+		function doExport(name)
+		{
+			//document.forms[0].action = "exportfile.do?operate=doExport&name="+name;
+			document.forms[0].action ="excel_locate.jsp";
+			document.forms[0].submit();
+		}
  		</script>
 </head>
 
 <body>
-	<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+	<!--  action="/hr/humanfile.do"-->
+	<form id="myfrm"  method="post" >
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案恢复</font>
-				</td>
+				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案恢复
+				</font></td>
 			</tr>
 			<tr>
-				<td align="right"><input type="button" value="开始"
-					class="BUTTON_STYLE1" onclick="javascript:starthuifu();"> <input
-					type="button" value="搜索" class="BUTTON_STYLE1" onclick="search();">
+				<td align="right">
+					<input type="button" value="EXCEL列表" class="BUTTON_STYLE1" onclick="javascript:doExport('excel');">
+					<input type="button" value="查询" class="BUTTON_STYLE1" onclick="javascript:querylist();"> 
+					<input type="button" value="搜索" class="BUTTON_STYLE1" onclick="search();">
 				</td>
 			</tr>
 		</table>
@@ -77,63 +158,55 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择员工所在I级机构</td>
 				<td width="84%" class="TD_STYLE2">
-				<select name="firstKindName" size="5"
-					onchange="changelocation(document.forms[0].elements['secondKindName'],document.forms[0].elements['firstKindName'].options[document.forms[0].elements['firstKindName'].selectedIndex].value)"
+				<select id="firstKind" size="5"
+					onchange="findscondkind();"
 					class="SELECT_STYLE2">
 					<option value="">&nbsp;</option>
-					<!-- <option value="01/集团">集团</option>
-					<option value="03/02">02</option></select></td> -->
-					<c:forEach items="${list1 }" var="l1">
-						<option value="${l1.firstKindName }">${l1.firstKindName }</option>
+					<c:forEach items="${list1 }" var="l">
+						<option id="firstKindId${l.firstKindId }" value="${l.firstKindId }">${l.firstKindName }</option>
 					</c:forEach>
+				</select>
 			</tr>
+			<input type="hidden" id="firstKindName" name="firstKindName" value="" />
 			<tr>
 				<td class="TD_STYLE1">请选择员工所在II级机构</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="secondKindName" size="5"
-						onchange="changelocation1(document.forms[0].elements['thirdKindName'],document.forms[0].elements['secondKindName'].options[document.forms[0].elements['secondKindName'].selectedIndex].value)"
+					<select id="secondKind" size="5"
+						onchange="findthirdkind();"
 						class="SELECT_STYLE2">
-						<script language="javascript"> changelocation(document.forms[0].elements["secondKindName"],document.forms[0].elements["firstKindName"].value)
-	    				</script>
 	    			</select>
 	    		</td>
 			</tr>
+			<input type="hidden" id="secondKindName" name="secondKindName" value="" />
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择员工所在III级机构</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="thirdKindName" size="5" class="SELECT_STYLE2">
-						<script language="javascript">
-							changelocation1(document.forms[0].elements["thirdKindName"],document.forms[0].elements["secondKindName"].value)
-						</script>
+					<select onchange="setthird();" id="thirdKind" size="5" class="SELECT_STYLE2">
 					</select>
 				</td>
 			</tr>
+			<input type="hidden" id="thirdKindName" name="thirdKindName" value="" />
 			<tr>
 				<td class="TD_STYLE1">请选择职位分类</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="humanMajorKindName" size="5"
-						onchange="changelocation2(document.forms[0].elements['hunmaMajorName'],document.forms[0].elements['humanMajorKindName'].options[document.forms[0].elements['humanMajorKindName'].selectedIndex].value)"
+					<select id="humanMajorKindNameo" size="5"
+						onchange="findhumanmajor();"
 						class="SELECT_STYLE2">
 						<option value="">&nbsp;</option>
-						<!-- <option value="销售">销售</option>
-						<option value="软件开发">软件开发</option>
-						<option value="人力资源">人力资源</option>
-						<option value="生产部">生产部</option> -->
-						<c:forEach items="${listmk }" var="l1">
-							<option value="${l1.majorKindName }">${l1.majorKindName }</option>
+						<c:forEach items="${listmk }" var="lmk">
+						 	<option id="majorKindId${lmk.majorKindId }" value="${lmk.majorKindId }">${lmk.majorKindName }</option>
 						</c:forEach>
 					</select>
 				</td>
+				<input type="hidden" id="humanMajorKindName" name="humanMajorKindName" value="" />
 			</tr>
 			<tr class="TR_STYLE1">
 				<td width="16%" class="TD_STYLE1">请选择职位名称</td>
 				<td width="84%" class="TD_STYLE2">
-					<select name="hunmaMajorName" size="5" class="SELECT_STYLE2">
-						<script language="javascript">
-							changelocation2(document.forms[0].elements["hunmaMajorName"],document.forms[0].elements["humanMajorKindName"].value)
-						</script>
+					<select id="hunmaMajorNameo" onchange="setmajorname();" size="5" class="SELECT_STYLE2">
 					</select>
 				</td>
+				<input type="hidden" id="hunmaMajorName" name="hunmaMajorName" value="" />
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">请输入建档时间</td>
@@ -151,4 +224,5 @@ subcat2[7] = ["8", "技术工人", "生产部/技术工人", "生产部"];
 	Calendar.setup ({inputField : "date_end", ifFormat : "%Y-%m-%d", showsTime : false, button : "date_end", singleClick : true, step : 1});
 	</script>
 </html>
+
 
