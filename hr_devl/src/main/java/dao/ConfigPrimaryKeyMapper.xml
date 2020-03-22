@@ -35,6 +35,12 @@
     where prk_id=#{prkId}
    </update>
    
+   <update id="updateConfigPrimaryKeyprimaryKeyStatus" parameterType="ConfigQuestionFirstKind">
+    update config_primary_key
+    set primary_key_status=#{primaryKeyStatus}
+    where prk_id=#{prkId}
+   </update>
+   
 	<select id="selectConfigPrimaryKey" parameterType="short" resultMap="tid">
 	select * from config_primary_key where mak_id=#{makId}
 	</select>
