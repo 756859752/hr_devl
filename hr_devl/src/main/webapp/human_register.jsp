@@ -25,45 +25,99 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="javascript/calendar/cal.js"></script>
 		<script type="text/javascript" src="javascript/comm/comm.js"></script>
 		<!-- <script type="text/javascript" src="javascript/comm/select.js"></script> -->
+		<script type="text/javascript" src="/hr_devl//javascript/jquery-1.7.2.js"/></script>
 		<script type="text/javascript">
-		/*
-		var subcat = new Array(2);
-		subcat[0] = ["1", "01/软件公司","01/集团","01/集团/01/软件公司"];
-		subcat[1] = ["2", "02/生物科技有限公司","01/集团","01/集团/02/生物科技有限公司"];
-		var subcat1 = new Array(2);
-		subcat1[0] = ["1", "01/外包组","01/集团/01/软件公司"];
-		subcat1[1] = ["2", "01/药店","01/集团/02/生物科技有限公司"];
-		var subcat2 = new Array(8);
-		subcat2[0] = ["1", "01/区域经理", "01/销售"];
-		subcat2[1] = ["2", "02/总经理", "01/销售"];
-		subcat2[2] = ["3", "01/项目经理", "02/软件开发"];
-		subcat2[3] = ["4", "02/程序员", "02/软件开发"];
-		subcat2[4] = ["5", "01/人事经理", "03/人力资源"];
-		subcat2[5] = ["6", "02/专员", "03/人力资源"];
-		subcat2[6] = ["7", "01/主任", "04/生产部"];
-		subcat2[7] = ["8", "02/技术工人", "04/生产部"];*/
+		//页面加载给时间设值
+		//window.onload =function()
+		//{
+		    //your code  
+		//}
+		
+		
 		//下拉框联动
 		function findscondkind(){//当第一个选择框改变
-			var mid = $("#firstKindId").val();//拿到选择的id
-			var majorSelect = $("#secondKindId");//拿到第二个选择框
-			var majorkindname = $("#firstKindId"+mid).html();//拿到一级分类名
-			 //$("#firstKindName").val(majorkindname);//改变隐藏域里的一级分类名值
-			majorSelect.empty();
-			majorSelect.append("<option value=''>--请选择--</option>");
-			console.log("当前拿到的mid"+mid);
-			if(mid != 0){
+			var firstkindid = $("#firstKind").val();//拿到选择的id
+			var secondKind = $("#secondKind");//拿到第二个选择框
+			//var arr = $("#firstKindId"+firstkindid).html().split("/");
+			var firstKindname = $("#firstKindId"+firstkindid).html();//拿到一级分类名
+			$("#firstKindName").val(firstKindname);//改变隐藏域里的一级分类名值
+			secondKind.empty();
+			secondKind.append("<option value='0'>--请选择--</option>");
+			console.log("当前拿到的firstkindid"+firstkindid+firstKindname);
+			var thirdKind = $("#thirdKind");//拿到第3个选择框
+			thirdKind.empty();
+			thirdKind.append("<option value='0'>--请选择--</option>");
+			if(firstkindid != 0){
 				$.ajax({
-					url:'cgp/xxx.do?mid='+mid,//ajax地址
-					type:'get',
+					url:'cgp/queryConditions.do?firstkindid='+firstkindid+'&secondkindid=2',//ajax地址
+					type:'post',
 					success:function(data){
 			 			for(var i=0;i<data.length;i++){
 							var eachMajor = data[i];
-							majorSelect.append("<option id='secondKindId_"+eachMajor.secondKindId+"' value='"+eachMajor.secondKindId+"'>"+eachMajor.secondKindName+"</option>");
-							
+							secondKind.append("<option id='secondkindid"+eachMajor.secondKindId+"' value='"+eachMajor.secondKindId+"'>"+eachMajor.secondKindId+"/"+eachMajor.secondKindName+"</option>");
 							}
 			 			}
 				});
 			}
+		}
+		function findthirdkind(){//当第2个选择框改变
+			var secondkindid = $("#secondKind").val();//拿到选择的id
+			var thirdKind = $("#thirdKind");//拿到第3个选择框
+			//var arr = $("#secondkindid"+secondkindid).html().split('/');
+			var secondkindname = $("#secondkindid"+secondkindid).html();//拿到一级分类名
+			$("#secondKindName").val(secondkindname);//改变隐藏域里的一级分类名值
+			thirdKind.empty();
+			thirdKind.append("<option value='0'>--请选择--</option>");
+			console.log("当前拿到的secondkindid"+secondkindid+secondkindname);
+			if(secondkindid != 0){
+				$.ajax({
+					url:'cgp/queryConditionstwo.do?secondkindid='+secondkindid,//ajax地址
+					type:'post',
+					success:function(data){
+			 			for(var i=0;i<data.length;i++){
+							var eachMajor = data[i];
+								thirdKind.append("<option id='thirdkindid"+eachMajor.thirdKindId+"' value='"+eachMajor.thirdKindId+"'>"+eachMajor.thirdKindId+"/"+eachMajor.thirdKindName+"</option>");
+							}
+			 			}
+				});
+			}
+		}
+		
+		//给隐藏域三级机构设值
+		function setthird(){
+			var thirdkindid = $("#thirdKind").val();//拿到选择的id
+			var thirdkindname = $("#thirdkindid"+thirdkindid).html();//拿到一级分类名
+			$("#thirdKindName").val(thirdkindname);//改变隐藏域里的一级分类名值
+			console.log("当前拿到的thirdkindid"+thirdkindid+thirdkindname);
+		}
+		
+		//职位分类联动
+		function findhumanmajor(){
+			var humanmajorkindid = $("#humanMajorKindNameo").val();//拿到选择的id
+			var hunmamajorname = $("#hunmaMajorNameo");//拿到下一个选择框
+			var humanMajorKindName = $("#majorKindId"+humanmajorkindid).html();//拿到一级分类名
+			$("#humanMajorKindName").val(humanMajorKindName);//改变隐藏域里的一级分类名值
+			hunmamajorname.empty();
+			hunmamajorname.append("<option value='0'>--请选择--</option>");
+			if(humanmajorkindid != 0){
+				$.ajax({
+					url:'cgp/queryConditionsthree.do?humanmajorkindid='+humanmajorkindid,//ajax地址
+					type:'post',
+					success:function(data){
+						console.log(data);
+			 			for(var i=0;i<data.length;i++){
+							var eachMajor = data[i];
+								hunmamajorname.append("<option id='hunmamajorid"+eachMajor.majorId+"' value='"+eachMajor.majorId+"'>"+eachMajor.majorId+"/"+eachMajor.majorName+"</option>");
+							}
+			 			}
+				});
+			}
+		}
+		
+		function setmajorname(){
+			var id = $("#hunmaMajorNameo").val();
+			var name = $("#hunmamajorid"+id).html();
+			$("#hunmaMajorName").val(name);
 		}
 		
 		//提交数据
@@ -85,7 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr>
 					<td align="right">
-						<input type="button" value="提交" class="BUTTON_STYLE1"
+						<input id="tijiao" type="button" value="提交" class="BUTTON_STYLE1"
 							onclick="javascript:humanregister();">
 						<input type="reset" value="清除" class="BUTTON_STYLE1">
 					</td>
@@ -99,41 +153,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						I级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select id="firstKindId" name="firstKindName" class="SELECT_STYLE1" onchange="findscondkind();"><!-- changelocation(document.forms[0].elements['secondKindName'],document.forms[0].elements['firstKindName'].options[document.forms[0].elements['firstKindName'].selectedIndex].value) -->
-						<option value="">&nbsp;</option>
+						<select id="firstKind" class="SELECT_STYLE1" onchange="findscondkind();">
+						<option value="0">&nbsp;</option>
 						<c:forEach items="${list1 }" var="l">
-						 	 <option value="firstKindId${l.firstKindId }">${l.firstKindName }</option>
+						 	 <option id="firstKindId${l.firstKindId }" value="${l.firstKindId }">${l.firstKindId }/${l.firstKindName }</option>
 						 </c:forEach>
-						<!-- 
-						<option value="01/集团">01/集团</option>
-						<option value="03/02">03/02</option>
-						 -->
-						 
 						</select>
 					</td>
+						<input type="hidden" id="firstKindName" name="firstKindName" value="" />
 					<td width="11%" class="TD_STYLE1">
 						II级机构
 					</td>
 					<td width="14%" class="TD_STYLE2">
-						<select id="secondKindId" name="secondKindName" class="SELECT_STYLE1" onchange="<!-- changelocation1(document.forms[0].elements['thirdKindName'],document.forms[0].elements['secondKindName'].options[document.forms[0].elements['secondKindName'].selectedIndex].value) -->">
-							<!-- 
-							<script language="javascript">
-								changelocation(document.forms[0].elements["secondKindName"],document.forms[0].elements["firstKindName"].value)
-	   						</script>
-	   						 -->
+						<select id="secondKind" class="SELECT_STYLE1" onchange="findthirdkind();">
    						</select>
+   						<input type="hidden" id="secondKindName" name="secondKindName" value="" />
 					</td>
 					<td width="11%" class="TD_STYLE1">
 						III级机构
 					</td>
 					<td class="TD_STYLE2" colspan="2">
-						<select name="thirdKindName" class="SELECT_STYLE1">
-							<script language="javascript">
-								<!-- 
-								changelocation1(document.forms[0].elements["thirdKindName"],document.forms[0].elements["secondKindName"].value)
-								-->
-							</script>
+						<select id="thirdKind" class="SELECT_STYLE1" onchange="setthird();">
 						</select>
+						<input type="hidden" id="thirdKindName" name="thirdKindName" value="" />
 					</td>
 					<td rowspan="5">
 						&nbsp;
@@ -144,39 +186,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						职位分类
 					</td>
 					<td class="TD_STYLE2">
-						<select name="humanMajorKindName" onchange="changelocation2(document.forms[0].elements['hunmaMajorName'],document.forms[0].elements['humanMajorKindName'].options[document.forms[0].elements['humanMajorKindName'].selectedIndex].value)" class="SELECT_STYLE1"><option value="">&nbsp;</option>
-							
-								<option value="01/销售">01/销售</option>
-							
-								<option value="02/软件开发">02/软件开发</option>
-							
-								<option value="03/人力资源">03/人力资源</option>
-							
-								<option value="04/生产部">04/生产部</option></select>
+						<select id="humanMajorKindNameo" 
+						onchange="findhumanmajor();" class="SELECT_STYLE1">
+							<option value="">&nbsp;</option>
+							<c:forEach items="${listmk }" var="lmk">
+							 	<option id="majorKindId${lmk.majorKindId }" value="${lmk.majorKindId }">${lmk.majorKindId }/${lmk.majorKindName }</option>
+							</c:forEach>
+						</select>
+						<input type="hidden" id="humanMajorKindName" name="humanMajorKindName" value="" />
 					</td>
 					<td class="TD_STYLE1">
 						职位名称
 					</td>
 					<td class="TD_STYLE2">
-						<select name="hunmaMajorName" class="SELECT_STYLE1"><script language="javascript">
-							changelocation2(document.forms[0].elements["hunmaMajorName"],document.forms[0].elements["humanMajorKindName"].value)
-							</script></select>
+						<select id="hunmaMajorNameo" onchange="setmajorname();" class="SELECT_STYLE1">
+						</select>
+						<input type="hidden" id="hunmaMajorName" name="hunmaMajorName" value="" />
 					</td>
 					<td class="TD_STYLE1">
 						职称
 					</td>
 					<td colspan="2" class="TD_STYLE2">
-						<select name="humanProDesignation" class="SELECT_STYLE1"><option value="工程师">工程师</option>
-							
-								<option value="经理">经理</option>
-							
-								<option value="助理">助理</option>
-							
-								<option value="教授">教授</option>
-							
-								<option value="讲师">讲师</option>
-							
-								<option value="技术支持">技术支持</option></select>
+						<select name="humanProDesignation" class="SELECT_STYLE1">
+							<c:forEach items="${listc }" var="c">
+							 	<option id="pbcid${c.attributekind }" value="${c.attributename }">${c.attributename }</option>
+							</c:forEach>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -332,7 +367,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						薪酬标准
 					</td>
 					<td class="TD_STYLE2">
-						<select name="salaryStandardName" class="SELECT_STYLE1"><option value="0/未定义">0/未定义</option></select>
+						<select name="salaryStandardName" class="SELECT_STYLE1">
+							<c:forEach items="${lists }" var="s">
+							 	<option id="standardId${s.standardId }" value="${s.standardId }/${s.standardName }">${s.standardId }/${s.standardName }</option>
+							</c:forEach>
+						</select>
 					</td>
 					<td class="TD_STYLE1">
 						开户行
@@ -351,6 +390,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					<td class="TD_STYLE2">
 						<input type="text" name="register" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+						<input type="hidden" name="register" value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 				</tr>
 				<tr>
@@ -358,7 +398,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						建档时间
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="str_registTime" value="2010-05-29 01:51:55" readonly="readonly" class="INPUT_STYLE2">
+						<!-- 2010-05-29 01:51:55 -->
+						<input type="text" disable="true" value="无需输入" readonly="readonly" class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">
 						特长

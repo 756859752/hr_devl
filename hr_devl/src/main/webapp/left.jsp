@@ -226,8 +226,7 @@ a {
 			</span></td>
 		</tr>
 
-		<!-- 人力资源档案管理设置 -->
-			<tr>
+		<tr>
 			<td><a onClick="noneORblock(human_file)"><img
 					src="images/plus22.gif"
 					onClick="plusORminus(human_file,human_file_pic)"
@@ -293,7 +292,7 @@ a {
 						</tr>
 					</table>
 			</span></td>
-		</tr>
+		</tr>				
 		<!-- 薪酬标准管理 -->
 		<tr>
 			<td class="td_style"><a onClick="noneORblock(salary_standard)"><img

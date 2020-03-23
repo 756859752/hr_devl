@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE2">${h.secondKindName }</td>
 					<td class="TD_STYLE2">${h.thirdKindName }</td>
 					<td class="TD_STYLE2">${h.humanMajorKindName }</td>
-					<td class="TD_STYLE2">${h.hunmaMajorName }</td>
+					<td class="TD_STYLE2">${h.humanProDesignation }</td>
 				</tr>
 			</c:forEach>
 		</table>

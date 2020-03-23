@@ -192,9 +192,15 @@
            </script>
    
    <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2" >						
-								<option  value="${onechang.newFirstKindId}" >${onechang.newFirstKindName}</option>	
+								
 								<c:forEach items="${configefirstkind}" var="f">
-								   <option value="${f.firstKindId}">${f.firstKindName}</option>	
+								       <c:if test="${f.firstKindId == onechang.newFirstKindId}">
+								         <option value="${f.firstKindId}" selected="selected">${f.firstKindName}</option>	
+								       </c:if>
+								         <c:if test="${f.firstKindId != onechang.newFirstKindId}">
+								         <option value="${f.firstKindId}">${f.firstKindName}</option>	
+								       </c:if>
+								  
 								</c:forEach>				
 									  
 	</select>
@@ -264,10 +270,14 @@
 						新职位分类
 					</td>
 					<td class="TD_STYLE2">
-						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">						
-								<option value="${onechang.newMajorKindId}">${onechang.newMajorKindName}</option>					
+						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">											
 					  			   <c:forEach items="${majorkinds}" var="m">
-					  			      <option  value="${m.majorKindId}">${m.majorKindName}</option>	
+					  			       <c:if test="${m.majorKindId == onechang.newMajorKindId}">
+					  			         <option value="${monechang.newMajorKindId}" selected="selected">${onechang.newMajorKindName}</option>
+					  			       </c:if>
+                                        <c:if test="${m.majorKindId != onechang.newMajorKindId}">
+					  			         <option value="${m.majorKindId }">${m.majorKindName}</option>
+					  			       </c:if>
 					  			   </c:forEach>
 					  </select>
 					  <input type="hidden" name="newMajorKindName" id="newMajorKindName" value="${onechang.newMajorKindName}">

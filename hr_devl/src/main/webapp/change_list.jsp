@@ -31,10 +31,10 @@ function toCheck(id)
 </head>
 
 <body>
-	<form name="humanfileForm" method="post" action="/hr/humanfile.do">
+	<form name="humanfileForm" method="post">
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案登记复核
+				<td><font color="#0000CC">您正在做的业务是：人力资源--人力资源档案管理--人力资源档案变更
 				</font></td>
 			</tr>
 			<tr>

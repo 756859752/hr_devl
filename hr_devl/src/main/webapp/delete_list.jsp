@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
+<script type="text/javascript" src="/hr_devl//javascript/jquery-1.7.2.js"/></script>
 <script type="text/javascript">
 function toCheck(id)
 {
