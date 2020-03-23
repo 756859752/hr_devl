@@ -104,6 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					url:'cgp/queryConditionsthree.do?humanmajorkindid='+humanmajorkindid,//ajax地址
 					type:'post',
 					success:function(data){
+						console.log(data);
 			 			for(var i=0;i<data.length;i++){
 							var eachMajor = data[i];
 								hunmamajorname.append("<option id='hunmamajorid"+eachMajor.majorId+"' value='"+eachMajor.majorId+"'>"+eachMajor.majorId+"/"+eachMajor.majorName+"</option>");

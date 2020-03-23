@@ -64,5 +64,35 @@ public class JiGouLianDongController implements CheckStatus{
 		}
 		return list2;
 	}
+	@RequestMapping("/queryConditions.do")//查询
+	@ResponseBody
+	public List<ConfigFileSecondKind> findsecondkind(@RequestParam String firstkindid,@RequestParam String secondkindid){
+		List<ConfigFileSecondKind> list = configFileSecondKindService.findAllConfigFileSecondKind();
+		List<ConfigFileSecondKind> list2 = new ArrayList<ConfigFileSecondKind>();
+		for (ConfigFileSecondKind c : list) {
+			if(c.getFirstKindId().toString().equals(firstkindid)){
+				list2.add(c);
+			}
+		}
+		return list2;
+	}
+//	queryConditionstwo
+	@RequestMapping("/queryConditionstwo.do")//查询
+	@ResponseBody
+	public List<ConfigFileThirdKind> findthirdkind(@RequestParam String secondkindid){
+		List<ConfigFileThirdKind> list=configFileThirdKindService.findConfigFileThirdKindBySecondKindId(secondkindid);
+		
+		return list;
+	}
+//	queryConditionsthree  通过职位分类，返回职位名称
+	@RequestMapping("/queryConditionsthree.do")//查询
+	@ResponseBody
+	public List<ConfigMajor> findmojarname(@RequestParam String humanmajorkindid){
+		List<ConfigMajor> list=configMajorService.findConfigMajorByMajorKindId(humanmajorkindid);
+		return list;
+	}
+
+	
+	
 	
 }
