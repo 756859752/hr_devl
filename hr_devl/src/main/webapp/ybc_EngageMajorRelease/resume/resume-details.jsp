@@ -355,7 +355,7 @@
 						推荐人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="checker"
+						<input type="text" name="register"
 							value="${userlogin.user_true_name }"
 							class="INPUT_STYLE2" />
 
@@ -375,7 +375,7 @@
 						个人履历
 					</td> 
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="humanhistoryrecords" rows="4" readonly="readonly"
+						<textarea name="humanHistoryRecords" rows="4" readonly="readonly"
 							class="TEXTAREA_STYLE1">${re.humanHistoryRecords }
 						</textarea>
 					</td>

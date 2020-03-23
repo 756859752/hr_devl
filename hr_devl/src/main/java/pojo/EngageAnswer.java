@@ -24,11 +24,19 @@ public class EngageAnswer implements java.io.Serializable {
 	private Timestamp testTime;
 	private String useTime;
 	private Double totalPoint;
-
+	private Short testStatus;
 	// Constructors
 
 	/** default constructor */
 	public EngageAnswer() {
+	}
+
+	public Short getTestStatus() {
+		return testStatus;
+	}
+
+	public void setTestStatus(Short testStatus) {
+		this.testStatus = testStatus;
 	}
 
 	/** minimal constructor */

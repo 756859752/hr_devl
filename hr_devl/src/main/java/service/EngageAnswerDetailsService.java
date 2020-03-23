@@ -13,4 +13,5 @@ public interface EngageAnswerDetailsService {
 	public EngageAnswerDetails findEngageAnswerDetailsById(short id);
 	public List<EngageAnswerDetails> findAllEngageAnswerDetails();
 	public List<EngageAnswerDetails> findEngageAnswerByCondition(String answerNumber);
+	public List<EngageAnswerDetails>  findEngageAnswerDetailsWithSubject(String answerNumber);
 }

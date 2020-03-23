@@ -1,114 +1,101 @@
-                             <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
+<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My JSP 'interview-list.jsp' starting page</title>
-		<link rel="stylesheet"
+  	  <link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
-		<link rel="stylesheet"
-			href="${pageContext.request.contextPath}/css/cwcalendar.css"
-			type="text/css">
+		<link rel="/stylesheet"
+			href="${pageContext.request.contextPath}/css/cwcalendar.css" type="text/css">
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
-	
-</script>
+		</script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/comm/list.js">
-	
-</script>
+		</script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
-	
-</script>
+		</script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
-	
-</script>
+		</script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/locate.js">
-	
-</script>
+		</script>
 		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/select.js">
-	
-</script>
+		</script> 
+		<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/jquery.messager.js"></script>
+	 
      </head>
 
 	<body>
-		<form method="post" action="/HR_Fist/recruit/recruitAction!findInterviewByUtilBean?str=list" name="fm">
-				<input type="hidden" name="utilBean.currPage" id="page"/>
-			<table width="100%">
-				<tr>
-					<td>
-						<font color="black">您正在做的业务是：人力资源--招聘管理--面试管理--面试结果登记--有效简历列表 
-						</font>
-					</td>
-				</tr>
-			  <tr>
-					<td align="right"> 
-						<input type="button" value="返回" class="BUTTON_STYLE1" onclick="history.back();">
-					</td>
-				</tr>
-			</table> 
+	<form action="/HR_Fist/recruit/recruitAction!toRegisterList" name="fm">
+	<input type="hidden" name="utilBean.currPage" id="page"/>
+		<table width="100%">
+			<tr>
+				<td>
+					<font color="black">您正在做的业务是：人力资源--招聘管理--录用管理--录用申请  </font>
+				</td>
+			</tr>
+			
+		</table>
 			<table width="100%" border="1" cellpadding=0 cellspacing=1
 				bordercolorlight=#848284 bordercolordark=#eeeeee
 				class="TABLE_STYLE1">
-				<tr>
-					<td width="10%" class="TD_STYLE1">
-						档案编号
-					</td>
-					<td width="15%" class="TD_STYLE1">
+				<tr class="TR_STYLE1">
+					<td class="TD_STYLE1">
 						姓名
 					</td>
-					<td width="15%" class="TD_STYLE1">
+					<td class="TD_STYLE1">
 						性别
 					</td>
-					<td width="20%" class="TD_STYLE1">
-						职位分类
+					<td class="TD_STYLE1">
+						年龄
 					</td>
-					<td width="15%" class="TD_STYLE1">
+					<td class="TD_STYLE1">
+						职位类别
+					</td>
+					<td class="TD_STYLE1">
 						职位名称
 					</td>
-					<td width="10%" class="TD_STYLE1">
-						电话号码
+					<td class="TD_STYLE1">
+						毕业院校
 					</td>
-					<td width="10%" class="TD_STYLE1">
-						面试状态
+					<td class="TD_STYLE1">
+						学历专业
 					</td>
-					<td width="15%" class="TD_STYLE1">
-						登记
+					<td class="TD_STYLE1">
+						申请
 					</td>
 				</tr>
-				<c:forEach items="${resultList}" var="re">
-					<tr>
+				<c:forEach items="${vlist}" var="v">
+					<tr class="TR_STYLE1">
 						<td class="TD_STYLE2">
-								${re.resId}
+							${v.humanName }
 						</td>
 						<td class="TD_STYLE2">
-							${re.humanName}
+							${v.humanSex }
 						</td>
 						<td class="TD_STYLE2">
-							${re.humanSex}
+							${v.humanAge }
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanMajorKindName}
+							${v.humanMajorKindName }
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanMajorName}
+							${v.humanMajorName }
 						</td>
 						<td class="TD_STYLE2">
-						${re.humanMobilephone}
+							${v.humanCollege }
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.interviewStatus == 1}">待面试</c:if>
-						<c:if test="${re.interviewStatus == 2}">不可面试</c:if>
+							${v.humanEducatedMajor }
 						</td>
 						<td class="TD_STYLE2">
-						<c:if test="${re.interviewStatus == 1}"><a href="interviewResultRegister.do?resid=${re.resId}">登记</a></c:if>
-						<c:if test="${re.interviewStatus == 2}">不可登记</c:if>
+							<a href="passRegist.do?resId=${v.resId }">申请</a>
 						</td>
 					</tr>
 				</c:forEach>

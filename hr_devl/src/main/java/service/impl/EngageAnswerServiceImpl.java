@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,13 @@ public class EngageAnswerServiceImpl implements EngageAnswerService{
 	public List<EngageAnswer> findAllEngageAnswer() {
 		// TODO Auto-generated method stub
 		return engageAnswerMapper.selectAllEngageAnswer();
+	}
+
+	@Override
+	public List<EngageAnswer> findEngageAnswerByCondition(
+			HashMap<String, String> hashmap) {
+		// TODO Auto-generated method stub
+		return engageAnswerMapper.selectEngageAnswerByCondition(hashmap);
 	}
 	
 }

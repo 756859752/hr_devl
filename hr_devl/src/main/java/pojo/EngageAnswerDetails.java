@@ -12,11 +12,19 @@ public class EngageAnswerDetails implements java.io.Serializable {
 	private String answerNumber;
 	private Short subjectId;
 	private String answer;
-
+	private EngageSubjects engageSubjects;
 	// Constructors
 
 	/** default constructor */
 	public EngageAnswerDetails() {
+	}
+
+	public EngageSubjects getEngageSubjects() {
+		return engageSubjects;
+	}
+
+	public void setEngageSubjects(EngageSubjects engageSubjects) {
+		this.engageSubjects = engageSubjects;
 	}
 
 	/** full constructor */
