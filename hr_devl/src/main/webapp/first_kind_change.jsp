@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   function save(){
       
         $("#configfilefirstkindForm").submit();  
+  
   }
  </script>
  </head>

@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-		<form action="/hr_devl/dcf/transfer/addtransferinfo.do">
+		<form action="/hr_devl/dcf/transfer/addtransferinfo.do" method="post">
 			<table width="100%">
 				<tr>
 					<td>
@@ -265,6 +265,7 @@
 	 			$("#newMajorName").val($('#newMajorId option:selected').html());
 	 			});
 	 		});
+			           
 	 		var second=$('#newMajorKindId');;
 	 		 second.change(function(){
 	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html()); 
@@ -404,7 +405,7 @@
 						调动原因
 					</td>
 					<td colspan="7" class="TD_STYLE2">
-						<textarea name="checkReason" rows="6" class="TEXTAREA_STYLE1"></textarea>
+						<textarea name="changeReason" rows="6" class="TEXTAREA_STYLE1"></textarea>
 					</td>
 				</tr>
 			</table>
@@ -428,3 +429,5 @@
 })();
 </script>
 </html>
+
+		

@@ -25,9 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="javascript/calendar/cal.js"></script>
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 <script language="javascript" src="javascript/winopen/winopenm.js"></script>
+<script type="text/javascript" src="/hr_devl//javascript/jquery-1.7.2.js"/></script>
 <script>
 	function humanCheck(){
-		humanfileForm.action = "cgp/humanCheckPass.do";
+		var hufid = $("#hufId").val();
+		humanfileForm.action = "cgp/humanCheckPass.do?hufid="+hufid;
 		humanfileForm.submit();
 	}
 </script>
@@ -53,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
-				<input type="hidden" name="hufId" value="${human.hufId }">
+				<input id="hufId" type="hidden" name="hufId" value="${human.hufId }">
 				<td class="TD_STYLE1" width="10%">档案编号</td>
 				<td colspan="6" class="TD_STYLE2" >${human.hufId }</td>
 				<td rowspan="6" width="13%"><img src=""></td>
@@ -78,22 +80,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td class="TD_STYLE2" name ="hunmaMajorName" value="${human.hunmaMajorName}">${human.hunmaMajorName}</td>
 				<input type="hidden" name ="hunmaMajorName" value="${human.hunmaMajorName}" />
 				<td class="TD_STYLE1">职称</td>
-				<td colspan="2" class="TD_STYLE2"><select
-					name="humanProDesignation" class="SELECT_STYLE1">
-					<option value="${human.humanProDesignation}" selected="selected">${human.humanProDesignation}</option>
-					<c:forEach items="${listc }" var="c">
-						<c:if test="${c.attributename ne 'human.humanProDesignation'}">
-							<option value="${c.attributename}">${c.attributename}</option>
-						</c:if>
-					</c:forEach>
-						<!-- 
-						<option value="工程师">工程师</option>
-						<option value="经理" selected="selected">经理</option>
-						<option value="助理">助理</option>
-						<option value="教授">教授</option>
-						<option value="讲师">讲师</option>
-						<option value="技术支持">技术支持</option></select></td>
-						 -->
+				<td colspan="2" class="TD_STYLE2">
+					<select name="humanProDesignation" class="SELECT_STYLE1">
+						<option value="${human.humanProDesignation}" selected="selected">${human.humanProDesignation}</option>
+						<c:forEach items="${listc }" var="c">
+							<c:if test="${c.attributename ne 'human.humanProDesignation'}">
+								<option value="${c.attributename}">${c.attributename}</option>
+							</c:if>
+						</c:forEach>
+					</select>
 			</tr>
 			<tr>
 				<td class="TD_STYLE1">姓名</td>

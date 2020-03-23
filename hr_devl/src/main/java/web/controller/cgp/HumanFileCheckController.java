@@ -31,7 +31,6 @@ import service.HumanFileService;
 import util.CheckStatus;
 import util.GenericPrimaryKey;
 
-
 @Controller
 @RequestMapping("/cgp")
 public class HumanFileCheckController implements CheckStatus{

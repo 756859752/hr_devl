@@ -162,7 +162,7 @@ a {
 										
 										<tr>
 											<td><img src="images/jt0.gif"></td>
-											<td>薪酬发放方式设置</td>
+											<td ><a href="xxk/selectallsalaryGrantSet.do" target="mainFrame">薪酬发放方式设置</a></td>
 							
 										</tr>
 										<tr>
@@ -226,8 +226,7 @@ a {
 			</span></td>
 		</tr>
 
-		<!-- 人力资源档案管理设置 -->
-			<tr>
+		<tr>
 			<td><a onClick="noneORblock(human_file)"><img
 					src="images/plus22.gif"
 					onClick="plusORminus(human_file,human_file_pic)"
@@ -293,7 +292,7 @@ a {
 						</tr>
 					</table>
 			</span></td>
-		</tr>
+		</tr>				
 		<!-- 薪酬标准管理 -->
 		<tr>
 			<td class="td_style"><a onClick="noneORblock(salary_standard)"><img
@@ -374,7 +373,7 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="dcf_Transfer/register.jsp"
+							<td width="98%"><a href="dcf_Transfer/register_locate.jsp"
 								target="mainFrame">调动登记</td>
 						</tr>
 						<tr>

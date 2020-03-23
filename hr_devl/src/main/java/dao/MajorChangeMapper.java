@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import pojo.MajorChange;
@@ -16,4 +17,6 @@ public interface MajorChangeMapper {
 	public List<MajorChange> selectAllMajorChange();
 //	查询所有需要审核的信息
 	public List<MajorChange> selectAllMajorChangeByCheckStatus();
+//	多条件筛选通过审核后的信息
+	public List<MajorChange> selectMajorChangeCoditions(HashMap<String, Object> map);
 }

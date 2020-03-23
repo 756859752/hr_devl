@@ -11,8 +11,10 @@ public interface HumanFileService {
 	public void alterHumanFile(HumanFile HumanFile);
 	public HumanFile findHumanFileById(short id);
 	public List<HumanFile> findAllHumanFile();
-	public List<HumanFile> findHumanFileByCheckStatus(short s);
+	public List<HumanFile> findHumanFileByCheckStatus(short s);	
+	//cgp多条件查询
 	public List<HumanFile> findByCondition(HumanFile HumanFile);
 //	根据多条件筛选
 	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map);
+
 }

@@ -53,6 +53,12 @@ public class ConfigPrimaryKeyServiceImpl implements ConfigPrimaryKeyService {
 		return configPrimaryKeyMapper.selectAllConfigPrimaryKeyByPrimaryKetTable(primaryKeyTable);
 	}
 
+	@Override
+	public void alterConfigPrimaryKeyprimaryKeyStatus(ConfigPrimaryKey ConfigPrimaryKey) {
+		// TODO Auto-generated method stub
+		configPrimaryKeyMapper.updateConfigPrimaryKeyprimaryKeyStatus(ConfigPrimaryKey);
+	}
+
 
 	
 }

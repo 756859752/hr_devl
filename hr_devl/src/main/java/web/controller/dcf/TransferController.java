@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import pojo.ConfigFileFirstKind;
 import pojo.ConfigMajor;
 import pojo.ConfigMajorKind;
 import pojo.HumanFile;
@@ -58,27 +59,12 @@ public class TransferController {
 //	插入人员调动信息,等待审核
 	@RequestMapping("/addtransferinfo.do")
 	public String addTransferInfo(@ModelAttribute MajorChange majorchange){
-	  System.out.println("收集到所有数据"+majorchange.getNewSalaryStandardName());
-	  System.out.println("收集到所有数据"+majorchange.getNewThirdKindName());
+		System.out.println("得到新分类名称"+majorchange.getNewMajorKindName());
 	  majorchange.setCheckStatus((short)0);
 	  mcs.addMajorChange(majorchange);
 		return "redirect:/dcf_Transfer/register_success.jsp";
 	}
 	
-		
-//	展示查询条件
-	@RequestMapping("/choseConditions.do")
-	@ResponseBody
-	public ChooseConditionsDto queryChoseConditions(){
-		ChooseConditionsDto ccd=new ChooseConditionsDto();
-//		ccd.setFirst(firstkind.findAllConfigFileFirstKind());
-//		ccd.setSecond(secondkind.findAllConfigFileSecondKind());
-//		ccd.setThird(thirdkind.findAllConfigFileThirdKind());
-//		ccd.setMajorkind(majorkind.findAllConfigMajorKind());
-//		ccd.setMajor(major.findAllConfigMajor());
-//		System.out.println("得到所有要展示的信息");
-		return ccd;
-	}
 //	机构联动查询
 	@RequestMapping("/queryConditions.do")
 	@ResponseBody
@@ -176,16 +162,26 @@ public class TransferController {
 		MajorChange majorchange=mcs.findMajorChangeById(Short.parseShort(mid));
 		List<ConfigMajorKind> majorkinds=majorkind.findAllConfigMajorKind();
 		List<SalaryStandard> salarystandard=sss.findAllSalaryStandard();
+//		查询所有一级机构
+		List<ConfigFileFirstKind> configefirstkind=firstkind.findAllConfigFileFirstKind();
+		model.addAttribute("configefirstkind",configefirstkind);
 		model.addAttribute("onechang", majorchange);
 		model.addAttribute("majorkinds",majorkinds);
 		model.addAttribute("salarystandard",salarystandard);
 		return "forward:/dcf_Transfer/check.jsp";
 	}
+	
 //	调动审核通过
 	@RequestMapping("/passonemajorchange.do")
 	public String passOneMajorChange(@ModelAttribute MajorChange majorchange) {
-		
-		return "forward:/dcf_Transfer/check_success.jsp";
+		System.out.println("审核情况"+majorchange.getCheckStatus());
+		System.out.println("拿到主键"+majorchange.getMchId());
+		if(majorchange.getCheckStatus()==1) {
+			mcs.alterMajorChange(majorchange);
+		}else {
+			mcs.removeMajorChange(majorchange.getMchId());	
+		}
+		return "redirect:/dcf_Transfer/check_success.jsp";
 	}
 	
 //	多条件查询通过审核的信息
@@ -193,7 +189,7 @@ public class TransferController {
 	public String showPassMajorChange(@RequestParam String firstkindid,@RequestParam String secondkindid,
 			@RequestParam String thirdkindid,@RequestParam String starttime,
 			@RequestParam String endtime,@RequestParam String majorKindId,
-			@RequestParam String majorId,HttpSession session){
+			@RequestParam String majorId,Model model){
 		System.out.println("得到一级机构id"+firstkindid);
 		System.out.println("得到二级机构id"+secondkindid);
 		System.out.println("得到三级机构id"+thirdkindid);
@@ -231,10 +227,22 @@ public class TransferController {
     	}else if(starttime!=""&&endtime=="") {
     		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
     	}
-		
-//		session.setAttribute("list", humanlits);
+		List<MajorChange> list=mcs.findMajorChangeByConditions(map);
+		for (MajorChange majorChange : list) {
+			System.out.println("得到主键"+majorChange.getMchId());
+		}
+	
+		model.addAttribute("list", list);
 		
 		return "forward:/dcf_Transfer/list.jsp";
+	}
+//	展示一个调动后所有信息
+	@RequestMapping("queryonechangeinfo/{mid}.do")
+	public String queryOneMajorChangeInfo(@PathVariable String mid,Model model) {
+		System.out.println("===="+mid);
+		MajorChange majorchange=mcs.findMajorChangeById(Short.parseShort(mid));
+		model.addAttribute("onechang", majorchange);
+		return "forward:/dcf_Transfer/detail.jsp";
 	}
 
 }

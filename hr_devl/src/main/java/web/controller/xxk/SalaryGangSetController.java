@@ -37,7 +37,7 @@ public class SalaryGangSetController {
    
   @RequestMapping("/{id}/deletesalaryGrantSet.do")
   public String deletesalaryGrantSet(@PathVariable("id") int id) {
-	    System.out.println(id);
+	
 	configPublicCharService.removeConfigPublicChar(id);
   return "redirect:/xxk/selectallsalaryGrantSet.do";
   }
