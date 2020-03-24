@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 import pojo.ConfigFileFirstKind;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
+import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -28,7 +30,7 @@ public class ConfigFileFirstKindController {
 	
 	@RequestMapping("/cffktoadd.do")
 	public String toadd(Model m){
-<<<<<<< HEAD
+
 
 	List<ConfigFileFirstKind>  list =configFileFirstKindService.findAllConfigFileFirstKind();
 	String  time =Myxxkutil.GrenericId(list,"firstKindId");      
@@ -36,13 +38,8 @@ public class ConfigFileFirstKindController {
 	m.addAttribute("myxxktime",time);
 	return "/first_kind_register";
 }
-=======
-		 Long  time	=System.currentTimeMillis();  
-	       m.addAttribute("myxxktime",time);
-		return "/first_kind_register";
-	}
->>>>>>> branch 'master' of https://github.com/756859752/hr_devl.git
-	
+
+	//我的改动
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){
