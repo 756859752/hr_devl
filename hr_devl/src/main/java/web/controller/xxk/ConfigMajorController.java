@@ -42,8 +42,7 @@ public class ConfigMajorController {
 	public String addconfigMajorprocess(Model m) {
 	List<ConfigMajorKind> list=configMajorKindService.findAllConfigMajorKind();
 	m.addAttribute("configMajorKind",list);
-	List<ConfigMajor>  listval =configMajorService.findAllConfigMajor();
-	String time=Myxxkutil.GrenericId(listval, "");
+	
 	return "/xxkpage/major_add";
 	}
 	

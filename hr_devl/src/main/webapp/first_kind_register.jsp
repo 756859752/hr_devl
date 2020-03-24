@@ -17,9 +17,7 @@
  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
  <script type="text/javascript">
   function save(){
-     
-    alert($("#firstKindName").val()) 
-    alert("o")
+   
     $("#configfilefirstkindForm").submit();   
   }
  </script>

@@ -16,6 +16,7 @@
 						http://www.springframework.org/schema/context/spring-context-3.1.xsd
 						http://www.springframework.org/schema/mvc 
 						http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+						
 
 
 
@@ -29,17 +30,14 @@
 	
 	<!-- 配置 拦截器 -->
 	
-  
+      <!--  
 	 <mvc:interceptors>	       
 	    <mvc:interceptor>
 		  <mvc:mapping path="/xxk/**" />
 		  <bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
 	     </mvc:interceptor>
-	   
-
-
-		<mvc:interceptor>
-		
+	  
+		<mvc:interceptor>		
 			<mvc:mapping path="/ybc*/*.do"/>
 			<bean class="web.interceptor.LoginIntercepter"></bean>
 		</mvc:interceptor>
@@ -55,8 +53,8 @@
 			<mvc:mapping path="/ybc/releasechangeselect.do"/>
 			<bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
 		</mvc:interceptor>
-	 </mvc:interceptors> -->
- 
+	 </mvc:interceptors>  -->
+     
 	<!--加载外部数据库连接信息 -->
 	<context:property-placeholder
 		location="classpath:jdbc.properties" />

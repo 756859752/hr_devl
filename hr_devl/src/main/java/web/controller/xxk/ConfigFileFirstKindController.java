@@ -39,10 +39,7 @@ public class ConfigFileFirstKindController {
 	return "/first_kind_register";
 }
 
-   
-	
 	//Ok好了 
-
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){
