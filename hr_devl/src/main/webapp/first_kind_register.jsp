@@ -17,7 +17,8 @@
  <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
  <script type="text/javascript">
   function save(){
-        $("#configfilefirstkindForm").submit();   
+   
+    $("#configfilefirstkindForm").submit();   
   }
  </script>
  </head>
@@ -43,15 +44,15 @@
   </tr>
   <tr>
     <td class="TD_STYLE1">I级机构名称</td>
-    <td class="TD_STYLE2"><input type="text" name="firstKindName" class="INPUT_STYLE1"></td>
+    <td class="TD_STYLE2"><input    id="firstKindName"   type="text" name="firstKindName" class="INPUT_STYLE1"></td>
   </tr>
   <tr>
     <td class="TD_STYLE1">薪酬发放责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-    <td class="TD_STYLE2"><textarea name="firstKindSalaryId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
+    <td class="TD_STYLE2"><textarea id="firstKindSalaryId" name="firstKindSalaryId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
   </tr>
   <tr>
     <td class="TD_STYLE1">销售责任人编号（多个编号之间请用"半角逗号"加"一个空格"隔开，如", "）</td>
-    <td class="TD_STYLE2"><textarea name="firstKindSaleId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
+    <td class="TD_STYLE2"><textarea id="firstKindSaleId"   name="firstKindSaleId" rows="4" class="TEXTAREA_STYLE1"></textarea></td>
   </tr>
 </table>
 </html>

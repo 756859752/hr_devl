@@ -1,3 +1,4 @@
+
 package web.controller.xxk;
 
 import java.util.List;
@@ -35,8 +36,7 @@ public class ProfessionDesignController {
    
    @RequestMapping("/{id}/deleteProfession.do")
    public String deleteProfession(@PathVariable("id") int id){
-	   configPublicCharService.removeConfigPublicChar(id);
-	   System.out.println("1");
+   configPublicCharService.removeConfigPublicChar(id);   
    return "redirect:/xxk/selecctallprofession.do";  
    } 
    

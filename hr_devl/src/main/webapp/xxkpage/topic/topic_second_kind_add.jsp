@@ -21,7 +21,10 @@
   }
   
   function change(){
+  
     var i=$("#firstKindId").val();
+  
+  
     var t= $("#f"+i).html();
    
     $("#firstKindName").val(t);       

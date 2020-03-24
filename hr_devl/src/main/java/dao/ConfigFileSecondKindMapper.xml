@@ -34,6 +34,7 @@
 		parameterType="ConfigFileSecondKind">
 		update config_file_second_kind set
 		first_kind_id=#{firstKindId},first_kind_name=#{firstKindName},second_kind_id=#{secondKindId},second_kind_name=#{secondKindName},
+		second_salary_id=#{secondSalaryId} ,second_sale_id=#{secondSaleId}
 		where fsk_id=#{fskId}
 	</update>
 	

@@ -74,7 +74,7 @@
           
           <tr>
           <td width="19%" class="TD_STYLE1">职位编号</td>
-          <td width="81%" class="TD_STYLE2"><input type="text" name="majorId"   class="INPUT_STYLE1"></td>
+          <td width="81%" class="TD_STYLE2"><input type="text"  name="majorId"   class="INPUT_STYLE1"></td>
           </tr>
           
           <tr>

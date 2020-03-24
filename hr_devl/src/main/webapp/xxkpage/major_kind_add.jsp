@@ -43,7 +43,7 @@
 	        private String majorKindName -->
           <tr>
           <td width="19%" class="TD_STYLE1">职位分类编号</td>
-          <td width="81%" class="TD_STYLE2"><input type="text" name="majorKindId"   class="INPUT_STYLE1"></td>
+          <td width="81%" class="TD_STYLE2"><input type="text" name="majorKindId"  readonly="readonly" value="${time}" class="INPUT_STYLE1"></td>
           </tr>
          
           <tr>

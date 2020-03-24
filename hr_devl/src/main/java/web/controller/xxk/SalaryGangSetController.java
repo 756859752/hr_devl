@@ -26,15 +26,15 @@ public class SalaryGangSetController {
    m.addAttribute("salaryGangSet", c);
    return "/xxkpage/salary/salary_grant_set"; 
    }
-   
+ 
    
   @RequestMapping("/addsalaryGrangSet.do")
    public String  addsalaryGrantSet(ConfigPublicChar c) {
-	
    configPublicCharService.addConfigPublicChar(c);
    return "redirect:/xxk/selectallsalaryGrantSet.do";
   }
    
+  
   @RequestMapping("/{id}/deletesalaryGrantSet.do")
   public String deletesalaryGrantSet(@PathVariable("id") int id) {
 	

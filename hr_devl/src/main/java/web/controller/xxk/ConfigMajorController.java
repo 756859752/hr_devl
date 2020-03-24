@@ -12,6 +12,7 @@ import pojo.ConfigMajor;
 import pojo.ConfigMajorKind;
 import service.ConfigMajorKindService;
 import service.ConfigMajorService;
+import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -36,10 +37,12 @@ public class ConfigMajorController {
 	return "redirect:/xxk/selectallconfigMajor.do";	
 	} 
 	
+	
 	@RequestMapping("/addconfigMajorprocess.do")
 	public String addconfigMajorprocess(Model m) {
 	List<ConfigMajorKind> list=configMajorKindService.findAllConfigMajorKind();
 	m.addAttribute("configMajorKind",list);
+	
 	return "/xxkpage/major_add";
 	}
 	

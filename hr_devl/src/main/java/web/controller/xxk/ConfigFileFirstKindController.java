@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 import pojo.ConfigFileFirstKind;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
+import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -28,11 +30,16 @@ public class ConfigFileFirstKindController {
 	
 	@RequestMapping("/cffktoadd.do")
 	public String toadd(Model m){
-		 Long  time	=System.currentTimeMillis();  
-	       m.addAttribute("myxxktime",time);
-		return "/first_kind_register";
-	}
+
+
+	List<ConfigFileFirstKind>  list =configFileFirstKindService.findAllConfigFileFirstKind();
+	String  time =Myxxkutil.GrenericId(list,"firstKindId");      
 	
+	m.addAttribute("myxxktime",time);
+	return "/first_kind_register";
+}
+
+	//Ok好了 
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){
@@ -44,8 +51,11 @@ public class ConfigFileFirstKindController {
    @RequestMapping("/{id}/cffkselectbyid.do")
    public String  seletbyid(@PathVariable("id") short id ,Model m ) {
    ConfigFileFirstKind c =configFileFirstKindService.findConfigFileFirstKindById(id);
-	 m.addAttribute("xxkconfigFileFirstKind", c); 
-	  return "/first_kind_change";
+
+
+     m.addAttribute("xxkconfigFileFirstKind", c); 
+     return "/first_kind_change";
+
      }
    
    //更新

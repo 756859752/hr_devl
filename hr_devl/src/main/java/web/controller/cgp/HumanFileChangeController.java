@@ -69,8 +69,14 @@ public class HumanFileChangeController implements CheckStatus{
 		List<ConfigFileThirdKind> list3 = configFileThirdKindService.findAllConfigFileThirdKind();
 		List<ConfigMajorKind> listmk = configMajorKindService.findAllConfigMajorKind();
 		List<ConfigMajor> listm = configMajorService.findAllConfigMajor();
-		List<ConfigPublicChar> listc = configPublicCharService.findAllConfigPublicChar();
 		List<SalaryStandard> lists= salaryStandardService.findAllSalaryStandard();
+		List<ConfigPublicChar> list = configPublicCharService.findAllConfigPublicChar();
+		List<ConfigPublicChar> listc = new ArrayList<ConfigPublicChar>();
+		for (ConfigPublicChar c : list) {
+			if(c.getAttributekind().equals("职称")){
+				listc.add(c);
+			}
+		}
 		model.addAttribute("list1",list1);
 		model.addAttribute("list2",list2);
 		model.addAttribute("list3",list3);
