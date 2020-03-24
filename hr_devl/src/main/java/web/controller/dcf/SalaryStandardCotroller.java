@@ -77,8 +77,8 @@ public class SalaryStandardCotroller {
     }
 // 展示一个薪酬标准   
     @RequestMapping("/queryone/{sid}.do")
-    public String queryOneSalaryStandard(@PathVariable int sid,HttpSession session) {
-    	SalaryStandard salaryStandard=sss.findSalaryStandardById((short)sid);
+    public String queryOneSalaryStandard(@PathVariable String sid,HttpSession session) {
+    	SalaryStandard salaryStandard=sss.findSalaryStandardBySid(sid);
     	ArrayList<SalaryStandardDetails> list=ssds.findManySalaryStandardDetails(String.valueOf(sid));
     	Salary s=new Salary();
     	s.setSs(salaryStandard);

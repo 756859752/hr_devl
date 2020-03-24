@@ -90,6 +90,7 @@
 			human_major_kind_name as humanMajorKindName,
 			hunma_major_name as hunmaMajorNamem,
 			human_file_status as humanFileStatus
+			human_pro_designation as humanProDesignation
 		</sql>
 		<!-- 多条件查询 -->
    		<select id="selectByCondition" resultType="HumanFile"  parameterType="HumanFile">

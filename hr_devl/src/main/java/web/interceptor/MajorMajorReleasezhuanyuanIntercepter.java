@@ -15,19 +15,14 @@ public class MajorMajorReleasezhuanyuanIntercepter extends HandlerInterceptorAda
 			HttpServletResponse response, Object handler) throws Exception {
 		//先拿到session中的登陆用户
 		UserLogin userlogin=	(UserLogin)request.getSession().getAttribute("userlogin");
-		if(userlogin!=null){
-			if("专员".equals(userlogin.getUser_role())){
+			if(("专员".equals(userlogin.getUser_role()))||"招聘经理".equals(userlogin.getUser_role())){
 				return true;
 			}else{
-				request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","main.jsp"));
+				request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","index.jsp"));
 				request.getRequestDispatcher("/ybc_EngageMajorRelease/massage.jsp").forward(request, response);
 				return false;
 			}
-		}else{
-			response.getWriter().print("<script>parent.window.location.href='/hr_devl/login.jsp'</script>");
-		}
 		
-		return false;
 	}
 
 	@Override

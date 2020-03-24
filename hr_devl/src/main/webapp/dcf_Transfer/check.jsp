@@ -238,7 +238,6 @@
 </script>
    <select style="width:160px" name="newSecondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
 								<option value="${onechang.newSecondKindId}">${onechang.newSecondKindName}</option>						
-					 		
 					  </select>
 					  <input type="hidden" name="newSecondKindName" id="newSecondKindName" value="${onechang.newSecondKindName}">
 					</td>

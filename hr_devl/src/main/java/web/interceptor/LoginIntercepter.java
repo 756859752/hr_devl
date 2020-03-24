@@ -9,26 +9,19 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import web.controller.ybc.dto.Massage;
 import web.controller.ybc.dto.UserLogin;
 
-public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapter{
-
+public class LoginIntercepter extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		UserLogin userlogin=	(UserLogin)request.getSession().getAttribute("userlogin");
-		String operate=(String)request.getParameter("operate");
-		System.out.println(operate);
-		if("list".equals(operate)){
-			return true;
+		System.out.println("进入了Login intercepter");
+		if(userlogin==null){
+			response.getWriter().print("<script>parent.window.location.href='/hr_devl/login.jsp'</script>");
+			return false;
 		}else{
-			
-			if("招聘经理".equals(userlogin.getUser_role())){
-					return true;
-				}else{
-					request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","index.jsp"));
-					request.getRequestDispatcher("/ybc_EngageMajorRelease/massage.jsp").forward(request, response);
-					return false;
-				}
-			}
+			return true;
+		}
+		
 	}
 
 	@Override
@@ -46,5 +39,4 @@ public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapte
 		// TODO Auto-generated method stub
 		super.afterCompletion(request, response, handler, ex);
 	}
-	
 }

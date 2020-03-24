@@ -19,5 +19,11 @@ public class UserLogin {
 	public void setUser_role(String user_role) {
 		this.user_role = user_role;
 	}
+
+	@Override
+	public String toString() {
+		return "UserLogin [user_true_name=" + user_true_name + ", user_role="
+				+ user_role + "]";
+	}
 	
 }

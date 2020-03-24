@@ -3,8 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -21,57 +20,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <link rel="stylesheet" href="table.css" type="text/css">
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
-<script type="text/javascript">
- function addconfigMajor(){
- window.location.href="xxk/addconfigMajorprocess.do";
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" >
+ function configMajorKindadd(){
+   window.location.href="xxkpage/major_kind_add.jsp";
  }
 </script>
 </head>
 
 <body>
-	<form method="post" action="configmajor.do">
+	<form method="post" >
 		<table width="100%">
 			<tr>
-				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--职位设置
+				<td><font color="#0000CC">您正在做的业务是：人力资源--客户化设置--人力资源档案管理设置--职位分类设置
 				</font></td>
 			</tr>
 			<tr>
 				<td align="right"><input type="button" value="添加"
-					class="BUTTON_STYLE1" onclick="addconfigMajor()"></td>
+					class="BUTTON_STYLE1" onclick="configMajorKindadd()"></td>
 			</tr>
 		</table>
+	  <!--  
+	   configMajorKind
+	   private Short mfkId;
+	   private String majorKindId;
+	   private String majorKindName;
+	   -->
+	   
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 			<tr>
-				<td width="22%" class="TD_STYLE1">职位分类编号</td>
-				<td width="23%" class="TD_STYLE1">职位分类名称</td>
-				<td width="26%" class="TD_STYLE1">职位编号</td>
-				<td width="24%" class="TD_STYLE1">职位名称</td>
+				<td width="46%" class="TD_STYLE1">职位分类编号</td>
+				<td width="47%" class="TD_STYLE1">职位分类名称</td>
 				<td width="5%" class="TD_STYLE1">删除</td>
 			</tr>
-          <c:forEach items="${configMajor }"  var="i">
+          <c:forEach items="${configMajorKind}" var="i">
 			<tr>
 				<td class="TD_STYLE2">${i.majorKindId}</td>
 				<td class="TD_STYLE2">${i.majorKindName}</td>
-				<td class="TD_STYLE2">${i.majorId}</td>
-				<td class="TD_STYLE2">${i.majorName}</td>
-				<td class="TD_STYLE2"><a href="xxk/${i.makId}/deleteconfigMajor.do">删除</a>
-				</td>
+				<td class="TD_STYLE2"><a href="xxk/${i.mfkId }/deleteconfigMajorKind.do">删除</a></td>
 			</tr>
-         </c:forEach>
-             
-             <!-- 
-             private Short makId;
-	         private String majorKindId;
-	         private String majorKindName;
-	         private String majorId;
-	         private String majorName;
-	         private Short testAmount;
-              -->
-             
+          </c:forEach>
+
 		</table>
 		<p>
-			&nbsp;&nbsp;总数：8例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
+			&nbsp;&nbsp;总数：4例 &nbsp;&nbsp;&nbsp;当前第 1 页 &nbsp;&nbsp;&nbsp;共 1 页
 			&nbsp;&nbsp;&nbsp;跳到第 <input name=page type=text class=input1 size=1>
 			页&nbsp;&nbsp;<input type=image src="images/go.bmp" width=18 height=18
 				border=0>

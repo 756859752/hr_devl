@@ -48,12 +48,14 @@ public class ConfigFileThirdKindController {
    @RequestMapping("/addconfigThirdKindProcess.do")
    public String  addconfigThirdKindProcess(Model m){   
    List<ConfigFileFirstKind> list =configFileFirstKindService.findAllConfigFileFirstKind(); 
+
    m.addAttribute("configFileFirstKind", list);
    
    List<ConfigFileThirdKind>  listval=configFileThirdKindService.findAllConfigFileThirdKind(); 
    String time	= Myxxkutil.GrenericId(listval,"thirdKindId");  
    m.addAttribute("time",time);
    
+
    return "/xxkpage/third_kind_register"; 
    } 
    
@@ -63,8 +65,7 @@ public class ConfigFileThirdKindController {
    m.addAttribute("configFileThirdKind",c);
    return "/xxkpage/third_kind_delete";   
    }
-   
-   @RequestMapping("/{id}/deleteconfigThirdKind.do")
+    @RequestMapping("/{id}/deleteconfigThirdKind.do")
    public String  deleteconfigThirdKind(@PathVariable("id") short id){
     	configFileThirdKindService.removeConfigFileThirdKind(id);
    return "redirect:/xxk/configFileThirdKindselectall.do";   
@@ -89,6 +90,4 @@ public class ConfigFileThirdKindController {
    configFileThirdKindService.alterConfigFileThirdKind(c);
 	return "redirect:/xxk/configFileThirdKindselectall.do";  
    }
-   
-   
 }
