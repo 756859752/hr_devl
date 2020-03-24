@@ -9,27 +9,19 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import web.controller.ybc.dto.Massage;
 import web.controller.ybc.dto.UserLogin;
 
-public class AdminCustomizationSettingsIntercepter extends HandlerInterceptorAdapter{
+public class LoginIntercepter extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		//先拿到session中的登陆用户
 		UserLogin userlogin=	(UserLogin)request.getSession().getAttribute("userlogin");
-		if(userlogin!=null){
-			if("管理员".equals(userlogin.getUser_role())){
-				
-				return true;
-			}else{
-				request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","main.jsp"));
-				request.getRequestDispatcher("/ybc_EngageMajorRelease/massage.jsp").forward(request, response);
-				
-				return false;
-			}
-		}else{
+		System.out.println("进入了Login intercepter");
+		if(userlogin==null){
 			response.getWriter().print("<script>parent.window.location.href='/hr_devl/login.jsp'</script>");
+			return false;
+		}else{
+			return true;
 		}
 		
-		return false;
 	}
 
 	@Override

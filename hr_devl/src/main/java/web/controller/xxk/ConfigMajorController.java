@@ -26,7 +26,7 @@ public class ConfigMajorController {
 	public String selectallconfigMajor(Model m) {
 	List<ConfigMajor> list	=configMajorService.findAllConfigMajor();
 	m.addAttribute("configMajor", list);
-	return "/xxkpage/major";
+	return "/major";
 	}
 	
 	
@@ -44,11 +44,12 @@ public class ConfigMajorController {
 	}
 	
 	
+	
 	@RequestMapping("/addconfigMajor.do")
 	public String addconfigMajor(ConfigMajor c) {
+	
 	configMajorService.addConfigMajor(c);	
 	return "redirect:/xxk/selectallconfigMajor.do";
 	}
-
 	
 }

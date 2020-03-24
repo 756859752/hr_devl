@@ -216,7 +216,7 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="xxkpage/primary_key.jsp"
+											<td width="98%"><a href="primary_key.jsp"
 												target="mainFrame">关键字查询设置</a></td>
 										</tr>
 									</table>
@@ -480,22 +480,26 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="engage_major_release">
 									<table width="100%" border="0">
-										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a
-												href="ybc/engagemajorrelease.do"
-												target="mainFrame">职位发布登记</a></td>
-										</tr>
-										<tr>
-											<td><img src="images/jt0.gif"></td>
-											<td><a href="ybc/releasechangeselect.do?operate=toEdit"
-												target="mainFrame">职位发布变更</a></td>
-										</tr>
-										<tr>
-											<td><img src="images/jt0.gif"></td>
-											<td><a href="ybc/releasechangeselect.do?operate=list"
-												target="mainFrame">职位发布查询</a></td>
-										</tr>
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
+											<tr>
+												<td width="2%"><img src="images/jt0.gif"></td>
+												<td width="98%"><a
+													href="ybc/engagemajorrelease.do"
+													target="mainFrame">职位发布登记</a></td>
+											</tr>
+									</c:if>
+										<c:if test="${userlogin.user_role=='招聘经理'}">
+											<tr>
+												<td><img src="images/jt0.gif"></td>
+												<td><a href="ybc/releasechangeselect.do?operate=toEdit"
+													target="mainFrame">职位发布变更</a></td>
+											</tr>
+										</c:if>
+											<tr>
+												<td><img src="images/jt0.gif"></td>
+												<td><a href="ybc/releasechangeselect.do?operate=list"
+													target="mainFrame">职位发布查询</a></td>
+											</tr>
 									</table>
 							</span></td>
 						</tr>

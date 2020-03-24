@@ -22,7 +22,7 @@ public class ConfigMajorKindController {
 	public String selectallconfigMagjorKind(Model m){
 		List<ConfigMajorKind>	list =ConfigMajorKindService.findAllConfigMajorKind();
 		m.addAttribute("configMajorKind", list);
-		return "/xxkpage/major_kind";
+		return "/major_kind";
 	}
 	
 	@RequestMapping("/addconfigMajorKind.do")
@@ -30,6 +30,7 @@ public class ConfigMajorKindController {
     ConfigMajorKindService.addConfigMajorKind(c);	
 	return "redirect:/xxk/selectallconfigMagjorKind.do";	
 	}
+	
 	
 	
    @RequestMapping("/{id}/deleteconfigMajorKind.do")	

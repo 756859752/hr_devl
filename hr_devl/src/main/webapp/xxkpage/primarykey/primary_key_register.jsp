@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  			   }
  		} 
  		
-		window.location.href="xxkpage/primary_key.jsp";     
+		window.location.href="primary_key.jsp";     
  	}
  	
  	

@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td class="TD_STYLE2">${i.thirdKindSaleId }</td>
 				<td class="TD_STYLE2">${i.thirdKindIsRetail }</td>
 				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/updateconfigFileThirdKindProcess.do">变更</a></td>
-				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/deleteconfigThirdKindProcess.do">删除</a></td>
+				<td class="TD_STYLE2"><a href="xxk/${i.ftkId}/deleteconfigThirdKind.do">删除</a></td>
 			  </tr>
 			</c:forEach>
 			

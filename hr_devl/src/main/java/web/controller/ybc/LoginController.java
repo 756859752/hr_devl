@@ -16,7 +16,6 @@ import web.controller.ybc.dto.Massage;
 import web.controller.ybc.dto.UserLogin;
 
 @Controller
-@RequestMapping("/ybclogin")
 public class LoginController {
 
 	@Autowired
@@ -33,6 +32,7 @@ public class LoginController {
 					UserLogin userlogin=new UserLogin();
 					userlogin.setUser_true_name(users.getuTrueName());
 					userlogin.setUser_role(users.getuMajorName());
+					System.out.println("登录人："+userlogin);
 					session.setAttribute("userlogin", userlogin);
 					return "redirect:/index.jsp";
 				}

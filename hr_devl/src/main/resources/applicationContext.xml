@@ -28,33 +28,25 @@
 	
 	<!-- 配置 拦截器 -->
 	
-     <mvc:interceptors>	
-	    <!-- 我的系统管理员拦截器 --> 
-	            
-	    <mvc:interceptor>
-		  <mvc:mapping path="/xxk/**" />
-		  <bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
-	    </mvc:interceptor>
-	    
-		<!-- 
+	<mvc:interceptors>	
 		<mvc:interceptor>
-			<mvc:mapping path="/demo/show.do" />
-			<bean class="web.interceptor.StudentInterceptor"></bean>
+			<mvc:mapping path="/ybc*/*.do"/>
+			<bean class="web.interceptor.LoginIntercepter"></bean><!--做登录拦截  -->
 		</mvc:interceptor>
-	
 		<mvc:interceptor>
-			<mvc:mapping path="/ybc/*"/>
-			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
+			<mvc:mapping path="/dcf*/*.do"/>
+			<bean class="web.interceptor.LoginIntercepter"></bean><!--做登录拦截  -->
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/ybc/engagemajorrelease.do"/>
+			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean><!-- 专员 -->
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/ybc/releasechangeselect.do"/>
-			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean>
+			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean><!-- 经理 -->
 		</mvc:interceptor>
-		 -->
 	</mvc:interceptors>
 
-    
-    
 	<!--加载外部数据库连接信息 -->
 	<context:property-placeholder
 		location="classpath:jdbc.properties" />

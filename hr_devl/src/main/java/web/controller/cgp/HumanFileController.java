@@ -57,19 +57,19 @@ public class HumanFileController implements CheckStatus{
 			if(hf.getFirstKindName().contains("/")){
 				String[] firstKind = hf.getFirstKindName().split("/");
 				hf.setFirstKindId(firstKind[0]);
-//				hf.setFirstKindName(firstKind[1]);
+				hf.setFirstKindName(firstKind[1]);
 			}
 			//二级机构
 			if(hf.getSecondKindName().contains("/")){
 				String[] secondKind = hf.getSecondKindName().split("/");
-				hf.setSecondKindId(secondKind[2]);
-//				hf.setSecondKindName(secondKind[3]);
+				hf.setSecondKindId(secondKind[0]);
+				hf.setSecondKindName(secondKind[1]);
 			}
 			//三级机构
 			if(hf.getThirdKindName().contains("/")){
 				String[] thirdKind = hf.getThirdKindName().split("/");
 				hf.setThirdKindId(thirdKind[0]);
-//				hf.setThirdKindName(thirdKind[1]);
+				hf.setThirdKindName(thirdKind[1]);
 			}
 			//职位分类
 			if(hf.getHumanMajorKindName().contains("/")){
@@ -81,13 +81,13 @@ public class HumanFileController implements CheckStatus{
 			if(hf.getHunmaMajorName().contains("/")){
 				String[] humanMajor = hf.getHunmaMajorName().split("/");
 				hf.setHumanMajorId(humanMajor[0]);
-//				hf.setHunmaMajorName(humanMajor[1]);
+				hf.setHunmaMajorName(humanMajor[1]);
 			}
 			//薪酬标准
 			if(hf.getSalaryStandardName().contains("/")){
 				String[] salaryStandardName = hf.getSalaryStandardName().split("/");
 				hf.setSalaryStandardId(salaryStandardName[0]);
-//				hf.setSalaryStandardName(salaryStandardName[1]);
+				hf.setSalaryStandardName(salaryStandardName[1]);
 			}
 			//审核状态和档案状态
 			hf.setCheckStatus(CheckStatus.DAISHENHE);
@@ -133,6 +133,16 @@ public class HumanFileController implements CheckStatus{
 //			forward:/query_locate.jsp
 			return "forward:/query_locate.jsp";
 		}
-		
+		@RequestMapping("deletehuman.do")
+		public String deletehuman(){
+			List<HumanFile> list=	humanFileService.findAllHumanFile();
+			List<HumanFile> listS=new ArrayList<>();
+			for (HumanFile humanFile : list) {
+				
+			}
+			
+			
+			return null;
+		}
 	
 }
