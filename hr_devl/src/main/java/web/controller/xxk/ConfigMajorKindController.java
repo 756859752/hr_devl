@@ -24,7 +24,7 @@ public class ConfigMajorKindController {
 	public String selectallconfigMagjorKind(Model m){
 		List<ConfigMajorKind>	list =ConfigMajorKindService.findAllConfigMajorKind();
 		m.addAttribute("configMajorKind", list);
-		return "/xxkpage/major_kind";
+		return "/major_kind";
 	}
 	
 	

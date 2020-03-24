@@ -23,7 +23,7 @@ public class ProfessionDesignController {
     public String  selectallProfession(Model m) {
      List<ConfigPublicChar>	 list =configPublicCharService.findselectConfigPublicCharByattributeKind("职称");
       m.addAttribute("profession", list);
-     return "/xxkpage/profession_design";
+     return "/profession_design";
     } 
     
     

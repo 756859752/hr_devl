@@ -31,6 +31,7 @@ public class TopicSecondKindController {
     return "/xxkpage/topic/topic_second_kind";
    }
 	
+   
     @RequestMapping("/addtopicSecondKindProcess.do")
 	public String addtopicSecondKindProcess(Model m){
     List<ConfigQuestionSecondKind>	list=configQuestionSecondKindService.findAllConfigQuestionSecondKind();

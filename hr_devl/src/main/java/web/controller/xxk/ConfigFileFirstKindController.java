@@ -41,9 +41,8 @@ public class ConfigFileFirstKindController {
 	String  time =Myxxkutil.GrenericId(list,"firstKindId");      
 	
 	m.addAttribute("myxxktime",time);
-	return "/xxkpage/first_kind_register";
+	return "/first_kind_register";
 }
-	
 	
 	//增加
    @RequestMapping("/cffkadd.do")
@@ -57,8 +56,8 @@ public class ConfigFileFirstKindController {
    public String  seletbyid(@PathVariable("id") short id ,Model m ) {
    ConfigFileFirstKind c =configFileFirstKindService.findConfigFileFirstKindById(id);
 
-   m.addAttribute("xxkconfigFileFirstKind", c); 
-    return "/xxkpage/first_kind_change";
+     m.addAttribute("xxkconfigFileFirstKind", c); 
+   return "/first_kind_change";
 
      }
    

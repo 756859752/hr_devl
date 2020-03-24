@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" >
  function configMajorKindadd(){
-   window.location.href="xxkpage/major_kind_add.jsp";
+   window.location.href="xxk/addconfigMajorKindProcess.do";
  }
 </script>
 </head>

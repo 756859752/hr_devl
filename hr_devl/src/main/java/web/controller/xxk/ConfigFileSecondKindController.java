@@ -61,6 +61,8 @@ public class ConfigFileSecondKindController {
 	
 	@RequestMapping("/cfskupdate.do")
 	public String update(ConfigFileSecondKind b){
+		System.out.println("ok");
+		System.out.println(b);
     ConfigFileSecondService.alterConfigFileSecondKind(b); 
       return "redirect:/xxk/cfskselectall.do";
 	} 

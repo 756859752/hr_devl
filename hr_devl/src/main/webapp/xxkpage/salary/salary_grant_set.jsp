@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 <script type="text/javascript">
   function addsalaryItem(){
-   window.location.href="xxkpage/salary/salary_item_add.jsp";
+   window.location.href="xxkpage/salary/salary_grant_set_add.jsp";
   }
 </script>
 </head>
