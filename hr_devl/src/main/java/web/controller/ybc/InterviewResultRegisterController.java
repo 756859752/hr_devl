@@ -73,13 +73,13 @@ public class InterviewResultRegisterController {
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
 		List<EngageResume> resultList=engageResumeService.findAllEngageResumeByConditon(hashmap);
-//		 Iterator<EngageResume> it =resultList.iterator();
-//		while(it.hasNext()){
-//			EngageResume e=it.next();
-//			if(e.getInterviewStatus()!=1){//如果是不可面试状态
-//				it.remove();
-//			}
-//		}
+		 Iterator<EngageResume> it =resultList.iterator();
+		while(it.hasNext()){
+			EngageResume e=it.next();
+			if(e.getCheckStatus()==4){//如果是
+				it.remove();
+			}
+		}
 		model.addAttribute("resultList", resultList);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-list.jsp";
 	}
@@ -127,6 +127,15 @@ public class InterviewResultRegisterController {
 	@RequestMapping("interviewResultShaixuan.do")
 	public String interviewResultShaixuan(Model model){
 		List<EngageInterview> vlist=engageInterviewService.findAllEngageInterview();
+		
+		 Iterator<EngageInterview> it =vlist.iterator();
+			while(it.hasNext()){
+				EngageInterview e=it.next();
+				EngageResume er=engageResumeService.findEngageResumeById(e.getResumeId());
+				if(er.getCheckStatus()==4){//如果是已经删除的简历
+					it.remove();
+				}
+			}
 		model.addAttribute("vlist", vlist);
 		return "forward:/ybc_EngageMajorRelease/interview/sift-list.jsp";
 	}

@@ -20,7 +20,7 @@ public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapte
 		if("list".equals(operate)){
 			return true;
 		}else{
-			
+			System.out.println(userlogin.getUser_role());
 			if("招聘经理".equals(userlogin.getUser_role())){
 					return true;
 				}else{

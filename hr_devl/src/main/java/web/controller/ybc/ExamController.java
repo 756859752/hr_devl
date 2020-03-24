@@ -148,6 +148,8 @@ public class ExamController {
 			}
 		}
 		model.addAttribute("flist", flist);
+		model.addAttribute("e", e);
+		
 		if(e!=null){
 			System.out.println(e);
 		}

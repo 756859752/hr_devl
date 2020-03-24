@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pojo.ConfigQuestionFirstKind;
 import service.ConfigQuestionFirstKindService;
 import service.ConfigQuestionSecondKindService;
-import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -31,10 +30,9 @@ public class TopicFirstKindController {
 	 
 	 @RequestMapping("/addtopicFirstKindProcess.do")
 	 public String  addtopicFirstKindProcess(Model m){
-	List<ConfigQuestionFirstKind>  list=ConfigQuestionFirstKindService.findAllConfigQuestionFirstKind();
-	 
-	String   time   = Myxxkutil.GrenericId(list, "firstKindId");  	 
-	  m.addAttribute("time", time); 
+	 String   time   = String.valueOf(System.currentTimeMillis());  	 
+	 m.addAttribute("time", time); 
+
 	 return "/xxkpage/topic/topic_first_kind_add";
 	 }
 	 

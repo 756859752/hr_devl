@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pojo.ConfigFileFirstKind;
 import pojo.ConfigFileSecondKind;
 import service.ConfigFileSecondKindService;
-import util.Myxxkutil;
 import service.ConfigFileFirstKindService;
 
 @Controller
@@ -34,8 +33,7 @@ public class ConfigFileSecondKindController {
 	//增加
 	@RequestMapping("/cfsktoadd.do")
 	public String toadd(Model m){
-	List<ConfigFileSecondKind> listval=ConfigFileSecondService.findAllConfigFileSecondKind();
-		String  time	=Myxxkutil.GrenericId(listval, "secondKindId");  
+		Long  time	=System.currentTimeMillis();  
 	    m.addAttribute("myxxktime",time);
 	    List<ConfigFileFirstKind>   list=ConfigFileFirstKindService.findAllConfigFileFirstKind();  
 	    m.addAttribute("myconfigFileFirstKind", list);
@@ -75,7 +73,7 @@ public class ConfigFileSecondKindController {
  
     @RequestMapping("/{id}/confingFileSeconddelete.do")
     public String delete(@PathVariable("id") short id){
-    	
+    	System.out.println(id);
     ConfigFileSecondService.removeConfigFileSecondKind(id); 
    
     return "redirect:/xxk/cfskselectall.do";

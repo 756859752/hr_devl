@@ -66,7 +66,7 @@
    <tr>
 	 <td width="19%" class="TD_STYLE1">II级机构编号</td>
 	 <td width="81%" class="TD_STYLE2">
-	 <input type="text" name="secondKindId" id="secondkindid"  readonly="readonly" value="${myxxktime}"  class="INPUT_STYLE1"></input> 
+	 <input type="text" name="secondKindId" id="secondkindid"  value="${myxxktime}"  class="INPUT_STYLE1"></input> 
 	 </td>
   </tr>
   
