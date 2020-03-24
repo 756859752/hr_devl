@@ -180,6 +180,9 @@ public class ExamController {
 			ee.setExamNumber(examNumber);
 			engageExamService.addEngageExam(ee);
 		for (EngageExamDetails engageExamDetails : list) {
+			if(engageExamDetails.getQuestionAmount()==null||engageExamDetails.getQuestionAmount().equals("")||engageExamDetails.getQuestionAmount()==0){
+				continue;
+			}
 			engageExamDetails.setExamNumber(examNumber);
 			engageExamDetailsService.addEngageExamDetails(engageExamDetails);
 		}
@@ -210,15 +213,18 @@ public class ExamController {
 		hashmap.put("endDate", "");
 		List<EngageResume> erlist=engageResumeService.findAllEngageResumeByConditon(hashmap);
 		if(erlist.size()<1){
-			model.addAttribute("msg", new Massage("您还没有提交简历！", "main.jsp"));
+			model.addAttribute("msg", new Massage("该身份证还没有提交简历！", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
 		EngageResume re=erlist.get(0);
-		if(re.getCheckStatus()!=1){
+		if(re.getCheckStatus()==0){
 			model.addAttribute("msg", new Massage("您的简历还没有通过审核!", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
-		
+		if(!(re.getHumanMajorKindId().equals(ea.getMajorKindId())&&re.getHumanMajorId().equals(ea.getMajorId()))){
+			model.addAttribute("msg", new Massage("你填写的职位信息与简历不符，请重新填写", "ybcexam/examstarttoAnswer.do"));
+			return Massage.MSG_PAGE;
+		}
 		
 		//再通过简历的id查出面试登记表
 		List<EngageInterview>  eilist=	engageInterviewService.findAllEngageInterview();
@@ -236,7 +242,10 @@ public class ExamController {
 			model.addAttribute("msg", new Massage("您的面试解结果是"+in.getResult()+"!", "main.jsp"));
 			return Massage.MSG_PAGE;
 		}
-		
+		if(re.getTestStatus()==2){
+			model.addAttribute("msg", new Massage("您的考试还没有经过审核!", "main.jsp"));
+			return Massage.MSG_PAGE;
+		}
 		
 		//通过选择的应聘类型挑选出题目
 		HashMap<String, String> hashmap2=new HashMap<>();
@@ -278,7 +287,7 @@ public class ExamController {
 		model.addAttribute("in", in);//面试登记
 		model.addAttribute("ex", ex);//套题
 		model.addAttribute("subamount", subamount);
-		model.addAttribute("ind", new Helper());
+		model.addAttribute("ind", new Helper());//为了做接受的索引
 		model.addAttribute("slist", slist);//得出的题目
 		
 		return "forward:/ybc_EngageMajorRelease/exam/exam_answer_start.jsp";
@@ -306,11 +315,113 @@ public class ExamController {
 		engageAnswerService.addEngageAnswer(ea);//考试表存库
 		
 		EngageResume  er=engageResumeService.findEngageResumeById(ea.getResumeId());
-		er.setTotalPoints(Double.valueOf(total));//简历改分数
-		engageResumeService.alterEngageResume(er);//update简历表
 		
+		//计算平均分数
+		HashMap<String, String> hashmap=new HashMap<>();
+		hashmap.put("humanIdcard", ea.getHumanIdcard());
+		List<EngageAnswer> listfortotal=engageAnswerService.findEngageAnswerByCondition(hashmap);
+		double db=0;
+		for (EngageAnswer engageAnswer : listfortotal) {
+			db+=engageAnswer.getTotalPoint();
+		}
+		db/=listfortotal.size();
+		er.setTotalPoints(db);//简历改分数
+		short a2;
+		if(er.getTestAmount()==null){//有可能是第一次考试   数据库的值为null
+			a2=1;
+		}else{
+		a2=er.getTestAmount();
+		a2+=1;
+		}
+		er.setTestAmount(a2);//考试次数加1
+		short b=2;
+		er.setTestStatus(b);//考试转台变为不可考试
+		engageResumeService.alterEngageResume(er);//update简历表
 		model.addAttribute("msg", new Massage("考试交卷成功！", "main.jsp"));
 		
 		return Massage.MSG_PAGE;
 	}
+	
+	//到考试筛选结果去
+	@RequestMapping("gotoThecheckTheAnswerDetailselect.do")
+	public String gotoThecheckTheAnswerDetailselect(){
+		return "forward:/ybc_EngageMajorRelease/exam/exam_answer_search.jsp";
+	}
+	
+	//考试筛选结果
+	@RequestMapping("checkTheAnswerDetailselect.do")
+	public String checkTheAnswerDetailselect(String humanIdcard,String primarKey,
+			String startDate,String endDate,Model model){
+		HashMap<String, String> hashmap=new HashMap<>();
+		hashmap.put("humanIdcard", humanIdcard);
+		hashmap.put("primarKey", primarKey);
+		hashmap.put("startDate", startDate);
+		hashmap.put("endDate", endDate);
+		List<EngageAnswer> resultList=	engageAnswerService.findEngageAnswerByCondition(hashmap);
+		for (EngageAnswer engageAnswer : resultList) {
+			EngageResume re=engageResumeService.findEngageResumeById(engageAnswer.getResumeId());
+			engageAnswer.setTestStatus(re.getTestStatus());
+		}
+		
+		model.addAttribute("resultList", resultList);
+		
+		return "forward:/ybc_EngageMajorRelease/exam/exam_answer_list.jsp";
+	}
+	
+	//阅卷 查看应试人的答题状况
+	@RequestMapping("checkTheAnswerDetails.do")
+	public String checkTheAnswerDetails(Short ansId,Model model){
+		EngageAnswer ex=	engageAnswerService.findEngageAnswerById(ansId);
+		List<EngageAnswerDetails> slist=engageAnswerDetailsService.findEngageAnswerDetailsWithSubject(ex.getAnswerNumber());
+		model.addAttribute("ex", ex);
+		model.addAttribute("slist", slist);
+		
+		return "forward:/ybc_EngageMajorRelease/exam/exam_answer_details.jsp";
+	}
+	
+	
+	//考试筛选查询结果
+	@RequestMapping("AnswerDetailstoShaixuan.do")
+	public String AnswerDetailstoShaixuan(Short ansId,Model model){
+		EngageAnswer ea=	engageAnswerService.findEngageAnswerById(ansId);
+		Short reid=ea.getResumeId();
+		 EngageResume re=engageResumeService.findEngageResumeById(reid);
+		model.addAttribute("ea", ea);
+		model.addAttribute("re", re);
+		model.addAttribute("ansId", ansId);
+		return "forward:/ybc_EngageMajorRelease/exam/exam_answer_sift.jsp";
+	}
+	
+	//筛选结果接收
+	@RequestMapping("AnswerDetailstoShaixuanSubmit.do")
+	public String AnswerDetailstoShaixuanSubmit(Short ansId,Short resId,String result,Model model){
+		EngageResume re=engageResumeService.findEngageResumeById(resId);
+		if("建议面试".equals(result)){
+			model.addAttribute("msg", new Massage("考试阶段不能回到面试阶段！","ybcexam/AnswerDetailstoShaixuan.do?ansId="+ansId));
+			return Massage.MSG_PAGE;
+		}
+		if("建议笔试".equals(result)){
+			short b=1;
+			re.setTestStatus(b);
+		}
+		if("建议录用".equals(result)){
+			short b=2;
+			re.setTestStatus(b);
+			b=3;
+			re.setCheckStatus(b);
+		}
+		if("删除简历".equals(result)){
+			short b=2;
+			re.setTestStatus(b);
+			b=4;
+			re.setCheckStatus(b);
+		}
+		
+		engageResumeService.alterEngageResume(re);//update
+		
+		model.addAttribute("msg", new Massage("筛选成功！","main.jsp"));
+		return Massage.MSG_PAGE;
+	}
 }
+
+

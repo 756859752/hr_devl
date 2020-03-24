@@ -155,7 +155,7 @@
 	 		<input type="hidden"  id="humanMajorKindId" name="humanMajorKindName" />
 	 		<input type="hidden"  id="humanMajorName" name="humanMajorName" />
 	 		
-	 		<input type="hidden"  name="interviewStatus" value="1"/>
+	 		<input type="hidden"  name="interviewStatus" value="2"/>
 	 		<input type="hidden" value="${userlogin.user_true_name }" name="register">
 			<table width="100%">
 				<tr>

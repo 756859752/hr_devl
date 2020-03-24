@@ -5,8 +5,8 @@
   <!-- 如果用省略dao层的实现层  命名空间是接口类的全路径 -->
    <mapper namespace="dao.EngageResumeMapper">
    		<insert id="insertEngageResume" parameterType="EngageResume">
-   			insert into engage_resume(human_name,engage_type,human_address,human_postcode,human_major_kind_id,human_major_kind_name,human_major_id,human_major_name,human_telephone,human_homephone,human_mobilephone,human_email,human_hobby,human_specility,human_sex,human_religion,human_party,human_nationality,human_race,human_birthday,human_age,human_educated_degree,human_educated_years,human_educated_major,human_college,human_idcard,human_birthplace,demand_salary_standard,human_history_records,remark,recomandation,human_picture,attachment_name,check_status,register,regist_time,checker,check_time,interview_status,total_points,test_amount,test_checker,test_check_time,pass_register,pass_regist_time,pass_checker,pass_check_time,pass_check_status,pass_checkComment,pass_passComment)
-   			values(#{humanName},#{engageType},#{humanAddress},#{humanPostcode},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{humanMajorName},#{humanTelephone},#{humanHomephone},#{humanMobilephone},#{humanEmail},#{humanHobby},#{humanSpecility},#{humanSex},#{humanReligion},#{humanParty},#{humanNationality},#{humanRace},#{humanBirthday},#{humanAge},#{humanEducatedDegree},#{humanEducatedYears},#{humanEducatedMajor},#{humanCollege},#{humanIdcard},#{humanBirthplace},#{demandSalaryStandard},#{humanHistoryRecords},#{remark},#{recomandation},#{humanPicture},#{attachmentName},#{checkStatus},#{register},#{registTime},#{checker},#{checkTime},#{interviewStatus},#{totalPoints},#{testAmount},#{testChecker},#{testCheckTime},#{passRegister},#{passRegistTime},#{passChecker},#{passCheckTime},#{passCheckStatus},#{passCheckComment},#{passPassComment})
+   			insert into engage_resume(human_name,engage_type,human_address,human_postcode,human_major_kind_id,human_major_kind_name,human_major_id,human_major_name,human_telephone,human_homephone,human_mobilephone,human_email,human_hobby,human_specility,human_sex,human_religion,human_party,human_nationality,human_race,human_birthday,human_age,human_educated_degree,human_educated_years,human_educated_major,human_college,human_idcard,human_birthplace,demand_salary_standard,human_history_records,remark,recomandation,human_picture,attachment_name,check_status,register,regist_time,checker,check_time,interview_status,total_points,test_amount,test_checker,test_check_time,pass_register,pass_regist_time,pass_checker,pass_check_time,pass_check_status,pass_checkComment,pass_passComment,test_Status)
+   			values(#{humanName},#{engageType},#{humanAddress},#{humanPostcode},#{humanMajorKindId},#{humanMajorKindName},#{humanMajorId},#{humanMajorName},#{humanTelephone},#{humanHomephone},#{humanMobilephone},#{humanEmail},#{humanHobby},#{humanSpecility},#{humanSex},#{humanReligion},#{humanParty},#{humanNationality},#{humanRace},#{humanBirthday},#{humanAge},#{humanEducatedDegree},#{humanEducatedYears},#{humanEducatedMajor},#{humanCollege},#{humanIdcard},#{humanBirthplace},#{demandSalaryStandard},#{humanHistoryRecords},#{remark},#{recomandation},#{humanPicture},#{attachmentName},#{checkStatus},#{register},#{registTime},#{checker},#{checkTime},#{interviewStatus},#{totalPoints},#{testAmount},#{testChecker},#{testCheckTime},#{passRegister},#{passRegistTime},#{passChecker},#{passCheckTime},#{passCheckStatus},#{passCheckComment},#{passPassComment},#{testStatus})
    		</insert>
    		
    		<delete id="deleteEngageResume" parameterType="_short">
@@ -14,7 +14,7 @@
    		</delete>
    		
    		<update id="updateEngageResume" parameterType="EngageResume">
-   			update engage_resume set human_name=#{humanName},engage_type=#{engageType},human_address=#{humanAddress},human_postcode=#{humanPostcode},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},human_major_name=#{humanMajorName},human_telephone=#{humanTelephone},human_homephone=#{humanHomephone},human_mobilephone=#{humanMobilephone},human_email=#{humanEmail},human_hobby=#{humanHobby},human_specility=#{humanSpecility},human_sex=#{humanSex},human_religion=#{humanReligion},human_party=#{humanParty},human_nationality=#{humanNationality},human_race=#{humanRace},human_birthday=#{humanBirthday},human_age=#{humanAge},human_educated_degree=#{humanEducatedDegree},human_educated_years=#{humanEducatedYears},human_educated_major=#{humanEducatedMajor},human_college=#{humanCollege},human_idcard=#{humanIdcard},human_birthplace=#{humanBirthplace},demand_salary_standard=#{demandSalaryStandard},human_history_records=#{humanHistoryRecords},remark=#{remark},recomandation=#{recomandation},human_picture=#{humanPicture},attachment_name=#{attachmentName},check_status=#{checkStatus},register=#{register},regist_time=#{registTime},checker=#{checker},check_time=#{checkTime},interview_status=#{interviewStatus},total_points=#{totalPoints},test_amount=#{testAmount},test_checker=#{testChecker},test_check_time=#{testCheckTime},pass_register=#{passRegister},pass_regist_time=#{passRegistTime},pass_checker=#{passChecker},pass_check_time=#{passCheckTime},pass_check_status=#{passCheckStatus},pass_checkComment=#{passCheckComment},pass_passComment=#{passPassComment}
+   			update engage_resume set human_name=#{humanName},engage_type=#{engageType},human_address=#{humanAddress},human_postcode=#{humanPostcode},human_major_kind_id=#{humanMajorKindId},human_major_kind_name=#{humanMajorKindName},human_major_id=#{humanMajorId},human_major_name=#{humanMajorName},human_telephone=#{humanTelephone},human_homephone=#{humanHomephone},human_mobilephone=#{humanMobilephone},human_email=#{humanEmail},human_hobby=#{humanHobby},human_specility=#{humanSpecility},human_sex=#{humanSex},human_religion=#{humanReligion},human_party=#{humanParty},human_nationality=#{humanNationality},human_race=#{humanRace},human_birthday=#{humanBirthday},human_age=#{humanAge},human_educated_degree=#{humanEducatedDegree},human_educated_years=#{humanEducatedYears},human_educated_major=#{humanEducatedMajor},human_college=#{humanCollege},human_idcard=#{humanIdcard},human_birthplace=#{humanBirthplace},demand_salary_standard=#{demandSalaryStandard},human_history_records=#{humanHistoryRecords},remark=#{remark},recomandation=#{recomandation},human_picture=#{humanPicture},attachment_name=#{attachmentName},check_status=#{checkStatus},register=#{register},regist_time=#{registTime},checker=#{checker},check_time=#{checkTime},interview_status=#{interviewStatus},total_points=#{totalPoints},test_amount=#{testAmount},test_checker=#{testChecker},test_check_time=#{testCheckTime},pass_register=#{passRegister},pass_regist_time=#{passRegistTime},pass_checker=#{passChecker},pass_check_time=#{passCheckTime},pass_check_status=#{passCheckStatus},pass_checkComment=#{passCheckComment},pass_passComment=#{passPassComment},test_status=#{testStatus}
    			where res_id=#{resId}
    		</update>
    		
@@ -69,7 +69,9 @@
 <result property="passCheckTime" column="pass_check_time"/>
 <result property="passCheckStatus" column="pass_check_status"/>
 <result property="passCheckComment" column="pass_checkComment"/>
-<result property="passPassComment" column="pass_passComment"/>   </resultMap>
+<result property="passPassComment" column="pass_passComment"/> 
+<result property="testStatus" column="test_status"/> 
+  </resultMap>
    		
    		<select id="selectEngageResumeById" parameterType="_short" resultMap="tid">
    			select * from  engage_resume where res_id=#{id}
@@ -96,7 +98,7 @@
    				</if>
    				<if test="endDate!=''">
 	   				<![CDATA[
-	   					and unix_timestamp(regist_time)<unix_timestamp(#{startDate})
+	   					and unix_timestamp(regist_time)<unix_timestamp(#{endDate})
 	  			 	]]>
    				</if>
    			</trim>

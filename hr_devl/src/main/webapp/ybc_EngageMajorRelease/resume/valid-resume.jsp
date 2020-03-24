@@ -65,6 +65,7 @@ function queryMajor(){
 			<input type="hidden" name="engageResume.humanMajorName" id="majorName" /> 
 			<input type="hidden" name="checkstatus" value="1" /> 
 			<input type="hidden"  id="humanMajorKindId" name="humanmajorkindname" />
+			<input type="hidden"  id="testAmount" name="0" />
 			<table width="100%">
 				<tr>
 					<td>

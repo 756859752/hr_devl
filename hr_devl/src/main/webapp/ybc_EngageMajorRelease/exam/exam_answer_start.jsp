@@ -20,19 +20,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	-->
-<link rel="stylesheet"
+	 	<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/table.css" type="text/css">
 		<link rel="stylesheet"
 			href="${pageContext.request.contextPath}/css/cwcalendar.css"
 			type="text/css">
-			<script type="text/javascript"
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/comm/comm.js">
+	
+</script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/comm/list.js">
+	
+</script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/calendar-ch.js">
+	
+</script>
+		<script type="text/javascript"
 			src="${pageContext.request.contextPath}/javascript/jquery-1.7.2.js">
-		</script>
+	
+</script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/locate.js">
+	
+</script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/select.js">
+	
+</script>
+	<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javascript/comm/time.js">
+			</script>
 		<script type="text/javascript">
+		
 			function  mysubmit() {
 				document.fm.submit();
 			}
+		$(window).load(function(){　
+			
+			var limiteTime=$("#limiteTime").val();
+			limiteTime=limiteTime*60;
+			var shi=0;
+			var fen=0;
+ 			var miao=0;
+ 			var timer=null;
+ 			console.log(limiteTime);
+ 			var usertimeinput=$("#useTime");
+ 			 timer = setInterval(function(){
+ 			 	var shijian=shi+"时"+fen+"分"+miao+"秒";
+ 			 	usertimeinput.val(shijian);
+ 			 	
+ 			 	miao++;
+ 			 	limiteTime--;
+ 			 	if(limiteTime<0){
+ 			 		alert("答题时限已到，考卷自动提交!")
+ 			 		document.fm.submit();
+ 			 		window.clearInterval(timer);
+ 			 	}
+ 			 	if(miao==60){
+ 			 		miao=0;
+ 			 		fen++;
+ 			 	}
+ 			 	if(fen==60){
+ 			 			fen=0;
+ 			 			shi++;
+ 			 	}
+ 			 },1000)
+ 			
+ 			});
 		</script>
   </head>
   
@@ -91,14 +147,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td class="TD_STYLE1" width="20%">
 						考试限时
 					</td>
-					<td class="TD_STYLE2" width="30%">
-						${ex.limiteTime }
+					<td  class="TD_STYLE2" width="30%">
+						<input type="hidden" id="limiteTime" value="${ex.limiteTime }"/>
+						${ex.limiteTime }(分钟)
 					</td>
 					<td class="TD_STYLE1" width="20%">
 						当前用时
 					</td>
 					<td class="TD_STYLE2" width="30%">
-						<input type="text"  name="useTime" id="useTime" class="INPUT_STYLE2" />
+						<input type="text"  name="useTime" id="useTime" class="INPUT_STYLE2" readonly="readonly" />
 					</td>
 				</tr>
 				<c:forEach items="${slist }" var="sl" varStatus="it">

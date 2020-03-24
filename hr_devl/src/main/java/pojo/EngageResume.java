@@ -61,11 +61,21 @@ public class EngageResume implements java.io.Serializable {
 	private Short passCheckStatus;
 	private String passCheckComment;
 	private String passPassComment;
-
+	private Short testStatus;
 	// Constructors
+
+	
 
 	/** default constructor */
 	public EngageResume() {
+	}
+
+	public Short getTestStatus() {
+		return testStatus;
+	}
+
+	public void setTestStatus(Short testStatus) {
+		this.testStatus = testStatus;
 	}
 
 	/** minimal constructor */

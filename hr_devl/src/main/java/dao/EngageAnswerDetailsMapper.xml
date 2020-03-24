@@ -22,16 +22,24 @@
 <result property="subjectId" column="subject_id"/>
 <result property="answer" column="answer"/>   </resultMap>
 
-   		<select id="selectEngageAnswerById" parameterType="_short" resultMap="tid">
+   		<select id="selectEngageAnswerDetailsById" parameterType="_short" resultMap="tid">
    			select * from   engage_answer_details where and_id=#{id}
    		</select>
-   		<select id="selectAllEngageAnswer" resultMap="tid">
+   		<select id="selectAllEngageAnswerDetails" resultMap="tid">
    			select * from  engage_answer_details
    		</select>
    		<select id="selectEngageAnswerByCondition" parameterType="String" resultMap="tid">
    			select * from  engage_answer_details where answer_number=#{_parameter,jdbcType=VARCHAR}
    		</select>
    		
+   		<resultMap type="EngageAnswerDetails" id="tidp" extends="tid">
+   			<association property="engageSubjects" column="subject_id" javaType="EngageSubjects" select="dao.EngageSubjectsMapper.selectEngageSubjectsById" ></association>
+   		</resultMap>
+   		
+   		
+   		<select id="selectEngageAnswerDetailsWithSubject" parameterType="String" resultMap="tidp">
+   			select * from  engage_answer_details where answer_number=#{_parameter,jdbcType=VARCHAR}
+   		</select>
    		
   </mapper>
   
