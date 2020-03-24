@@ -9,6 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
+
 <title>My JSP 'index.jsp' starting page</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -23,7 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript" >
  function configMajorKindadd(){
-   window.location.href="xxkpage/major_kind_add.jsp";
+   window.location.href="xxk/addconfigMajorKindProcess.do";
+   
  }
 </script>
 </head>
@@ -40,12 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					class="BUTTON_STYLE1" onclick="configMajorKindadd()"></td>
 			</tr>
 		</table>
-	  <!--  
-	   configMajorKind
-	   private Short mfkId;
-	   private String majorKindId;
-	   private String majorKindName;
-	   -->
+	 
 	   
 		<table width="100%" border="1" cellpadding=0 cellspacing=1
 			bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">

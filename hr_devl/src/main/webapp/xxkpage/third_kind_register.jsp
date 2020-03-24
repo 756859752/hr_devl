@@ -121,7 +121,7 @@
 					III级机构编号
 					</td>
 					<td width="81%" class="TD_STYLE2">
-					<input type="text" class="INPUT_STYLE1" name="thirdKindId"  value="${time }"/>
+					<input type="text" class="INPUT_STYLE1" name="thirdKindId"  readonly="readonly" value="${time }"/>
 					</td>
 				</tr>
 				

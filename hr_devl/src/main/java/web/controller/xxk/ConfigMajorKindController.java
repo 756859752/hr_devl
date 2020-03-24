@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pojo.ConfigMajorKind;
 import service.ConfigMajorKindService;
+import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -23,6 +24,15 @@ public class ConfigMajorKindController {
 		List<ConfigMajorKind>	list =ConfigMajorKindService.findAllConfigMajorKind();
 		m.addAttribute("configMajorKind", list);
 		return "/xxkpage/major_kind";
+	}
+	
+	
+	@RequestMapping("/addconfigMajorKindProcess.do")
+	public String addconfigMajorKindProcess(Model m) {
+    List<ConfigMajorKind>	 list     =  ConfigMajorKindService.findAllConfigMajorKind();
+   	String  time= Myxxkutil.GrenericId(list,"majorKindId");
+   	m.addAttribute("time",time);
+	return "/xxkpage/major_kind_add";	
 	}
 	
 	@RequestMapping("/addconfigMajorKind.do")

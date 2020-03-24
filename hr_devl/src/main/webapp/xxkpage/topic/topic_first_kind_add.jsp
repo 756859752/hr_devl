@@ -43,7 +43,7 @@
 	            private String firstKindName; -->
           <tr>
           <td width="19%" class="TD_STYLE1">题目分类编号</td>
-          <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindId"  value="${time}"   class="INPUT_STYLE1"></td>
+          <td width="81%" class="TD_STYLE2"><input type="text" name="firstKindId"  readonly="readonly" value="${time}"   class="INPUT_STYLE1"></td>
           </tr>
     
           <tr>

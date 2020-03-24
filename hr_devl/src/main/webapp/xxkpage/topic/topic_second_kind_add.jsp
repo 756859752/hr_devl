@@ -67,7 +67,7 @@
           
           <tr>
           <td width="19%" class="TD_STYLE1">II题目分类编号</td>
-          <td width="81%" class="TD_STYLE2"><input type="text" name="secondKindId"  value="${time}"   class="INPUT_STYLE1"></td>
+          <td width="81%" class="TD_STYLE2"><input type="text" name="secondKindId"  readonly="readonly"  value="${time}"   class="INPUT_STYLE1"></td>
           </tr>
     
           <tr>

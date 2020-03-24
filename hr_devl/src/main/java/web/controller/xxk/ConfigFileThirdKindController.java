@@ -15,6 +15,7 @@ import pojo.ConfigFileThirdKind;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
+import util.Myxxkutil;
 
 
 @Controller
@@ -45,12 +46,14 @@ public class ConfigFileThirdKindController {
    }
    
    @RequestMapping("/addconfigThirdKindProcess.do")
-   public String  addconfigThirdKindProcess(Model m){
-       
+   public String  addconfigThirdKindProcess(Model m){   
    List<ConfigFileFirstKind> list =configFileFirstKindService.findAllConfigFileFirstKind(); 
    m.addAttribute("configFileFirstKind", list);
-   Long  time	=System.currentTimeMillis();  
+   
+   List<ConfigFileThirdKind>  listval=configFileThirdKindService.findAllConfigFileThirdKind(); 
+   String time	= Myxxkutil.GrenericId(listval,"thirdKindId");  
    m.addAttribute("time",time);
+   
    return "/xxkpage/third_kind_register"; 
    } 
    

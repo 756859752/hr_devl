@@ -28,15 +28,17 @@
 	
 	<!-- 配置 拦截器 -->
 	
-     <mvc:interceptors>	
-	    <!-- 我的系统管理员拦截器 --> 
-	            
+	     
+    
+	    <!-- 第一个肖雪凯，系统管理员拦截器 -->
+	       <!--   
+	     <mvc:interceptors>	   
+	         
 	    <mvc:interceptor>
 		  <mvc:mapping path="/xxk/**" />
 		  <bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
-	    </mvc:interceptor>
-	    
-		<!-- 
+	     </mvc:interceptor>
+	   
 		<mvc:interceptor>
 			<mvc:mapping path="/demo/show.do" />
 			<bean class="web.interceptor.StudentInterceptor"></bean>
@@ -46,13 +48,13 @@
 			<mvc:mapping path="/ybc/*"/>
 			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
 		</mvc:interceptor>
+		
 		<mvc:interceptor>
 			<mvc:mapping path="/ybc/releasechangeselect.do"/>
 			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean>
 		</mvc:interceptor>
-		 -->
 	</mvc:interceptors>
-
+     -->   
     
     
 	<!--加载外部数据库连接信息 -->
