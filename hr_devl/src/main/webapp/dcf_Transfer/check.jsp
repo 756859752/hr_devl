@@ -66,8 +66,7 @@
 			</td>
 			<td class="TD_STYLE2" width="10%">
 				<input type="text" name="humanId" readonly="readonly"
-					value="${onechang.humanId}" class="INPUT_STYLE2">
-					
+					value="${onechang.humanId}" class="INPUT_STYLE2">	
 			</td>
 			<td class="TD_STYLE1" width="8%">
 				姓名
@@ -190,10 +189,7 @@
 			 		 	third.val('0');
 			 		 }); });
            </script>
-   
-   <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2" >												
-	  <option value="${onechang.newFirstKindId}" selected="selected">${onechang.newFirstKindName}</option>								      					  
-	</select>
+   <select style="width:160px"  id="firstKindId" name="newFirstKindId" class="SELECT_STYLE2"><option value="${onechang.newFirstKindId}">${onechang.newFirstKindName}</option></select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName" value="${onechang.newFirstKindName}">
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -437,7 +433,6 @@
 			 }
 		window.onload=load;
 			var out=window.setInterval(time, 1000);
-		 
 		</SCRIPT>
 		</table>
 	</form>

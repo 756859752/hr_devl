@@ -53,6 +53,8 @@ public class SalaryGrantController {
 			SalaryGrantDto sg=new SalaryGrantDto();
 			sg.setSgd(s);
 //			查询薪酬标准细节
+			
+//			ArrayList<SalaryStandardDetails> list2=ssds.findManySalaryStandardDetails("20200324201145");
 			ArrayList<SalaryStandardDetails> list2=ssds.findManySalaryStandardDetails(salaryGrant.getSalaryStandardId());
 			sg.setList(list2);
 			list.add(sg);

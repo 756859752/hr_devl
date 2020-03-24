@@ -15,18 +15,20 @@ public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapte
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		UserLogin userlogin=	(UserLogin)request.getSession().getAttribute("userlogin");
-		String operate=(String)request.getAttribute("operate");
+		String operate=(String)request.getParameter("operate");
+		System.out.println(operate);
 		if("list".equals(operate)){
 			return true;
-		}
-		if("人事经理".equals(userlogin.getUser_role())){
-			return true;
 		}else{
-			request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","main.jsp"));
-			request.getRequestDispatcher("/ybc_EngageMajorRelease/massage.jsp").forward(request, response);
-			return false;
-		}
-		
+			System.out.println(userlogin.getUser_role());
+			if("招聘经理".equals(userlogin.getUser_role())){
+					return true;
+				}else{
+					request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","index.jsp"));
+					request.getRequestDispatcher("/ybc_EngageMajorRelease/massage.jsp").forward(request, response);
+					return false;
+				}
+			}
 	}
 
 	@Override

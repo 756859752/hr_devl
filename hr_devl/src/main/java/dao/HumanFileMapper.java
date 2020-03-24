@@ -22,4 +22,7 @@ public interface HumanFileMapper {
 	
 	//多条件筛选
 		public List<HumanFile> selectHumanFileByConditions(HashMap<String, Object> map);
+		
+//   根据人员编号查找人员信息
+	public HumanFile selectHumanFileByHunamId(String hid);
 }

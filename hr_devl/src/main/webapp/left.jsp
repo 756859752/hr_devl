@@ -216,7 +216,7 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="xxkpage/primary_key.jsp"
+											<td width="98%"><a href="primary_key.jsp"
 												target="mainFrame">关键字查询设置</a></td>
 										</tr>
 									</table>
@@ -307,22 +307,22 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="salarystandard_register.jsp"
+							<td width="98%"><a href="/hr_devl/dcf/show/showSalaryStandard.do"
 								target="mainFrame">薪酬标准登记</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_check_list.jsp"
+							<td><a href="/hr_devl/dcf/show/showSalaryStandardCheckList.do"
 								target="mainFrame">薪酬标准登记复核</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_query_locate.jsp"
+							<td><a href="/hr_devl/dcf/show/showSalaryStandardQuerylocate.do"
 								target="mainFrame">薪酬标准查询</a></td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="salarystandard_change_locate.jsp"
+							<td><a href="/hr_devl/dcf/show/showSalaryStandardChangeLocate.do"
 								target="mainFrame">薪酬标准变更</a></td>
 						</tr>
 					</table>
@@ -342,17 +342,17 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="dcf_SalaryGrant/register_list.jsp"
+							<td width="98%"><a href="/hr_devl/dcf/show/showSalaryGrantRegisteList.do"
 								target="mainFrame">薪酬发放登记</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="dcf_SalaryGrant/check_list.jsp"
+							<td><a href="/hr_devl/dcf/show/showSalaryGrantCheckList.do"
 								target="mainFrame">薪酬发放登记复核</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="dcf_SalaryGrant/query_locate.jsp"
+							<td><a href="/hr_devl/dcf/show/showSalaryGrantQueryLocate.do"
 								target="mainFrame">薪酬发放查询</td>
 						</tr>
 					</table>
@@ -373,17 +373,17 @@ a {
 					<table width="100%" border="0">
 						<tr>
 							<td width="2%"><img src="images/jt0.gif"></td>
-							<td width="98%"><a href="dcf_Transfer/register_locate.jsp"
+							<td width="98%"><a href="/hr_devl/dcf/show/showTransferRegisterLocate.do"
 								target="mainFrame">调动登记</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="dcf_Transfer/check_list.jsp"
+							<td><a href="/hr_devl/dcf/show/showTransferCheckList.do"
 								target="mainFrame">调动审核</td>
 						</tr>
 						<tr>
 							<td><img src="images/jt0.gif"></td>
-							<td><a href="dcf_Transfer/query.jsp"
+							<td><a href="/hr_devl/dcf/show/showTransferQuery.do"
 								target="mainFrame">调动查询</td>
 						</tr>
 					</table>
@@ -480,22 +480,26 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="engage_major_release">
 									<table width="100%" border="0">
-										<tr>
-											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a
-												href="ybc/engagemajorrelease.do"
-												target="mainFrame">职位发布登记</a></td>
-										</tr>
-										<tr>
-											<td><img src="images/jt0.gif"></td>
-											<td><a href="ybc/releasechangeselect.do?operate=toEdit"
-												target="mainFrame">职位发布变更</a></td>
-										</tr>
-										<tr>
-											<td><img src="images/jt0.gif"></td>
-											<td><a href="ybc/releasechangeselect.do?operate=list"
-												target="mainFrame">职位发布查询</a></td>
-										</tr>
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
+											<tr>
+												<td width="2%"><img src="images/jt0.gif"></td>
+												<td width="98%"><a
+													href="ybc/engagemajorrelease.do"
+													target="mainFrame">职位发布登记</a></td>
+											</tr>
+									</c:if>
+										<c:if test="${userlogin.user_role=='招聘经理'}">
+											<tr>
+												<td><img src="images/jt0.gif"></td>
+												<td><a href="ybc/releasechangeselect.do?operate=toEdit"
+													target="mainFrame">职位发布变更</a></td>
+											</tr>
+										</c:if>
+											<tr>
+												<td><img src="images/jt0.gif"></td>
+												<td><a href="ybc/releasechangeselect.do?operate=list"
+													target="mainFrame">职位发布查询</a></td>
+											</tr>
 									</table>
 							</span></td>
 						</tr>

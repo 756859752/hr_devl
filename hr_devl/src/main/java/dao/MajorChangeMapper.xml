@@ -39,6 +39,7 @@
 		<result property="newMajorKindName" column="new_major_kind_name"/>
 		<result property="newMajorId" column="new_major_id"/>
 		<result property="newMajorName" column="new_major_name"/>
+		<result property="humanId" column="human_Id"/> 
 		<result property="humanName" column="human_name"/> 
 		<result property="salaryStandardId" column="salary_standard_id"/>
 		<result property="salaryStandardName" column="salary_standard_name"/>

@@ -38,15 +38,15 @@
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="humanId" readonly="readonly"
 							value="${humanfile.humanId}" class="INPUT_STYLE2">
-							
 					</td>
 					<td class="TD_STYLE1" width="8%">
 						姓名	
 					</td>
+					
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="humanName"
 							value="${humanfile.humanName}" readonly="readonly"
-							class="INPUT_STYLE2">
+							class="INPUT_STYLE2">	
 					</td>
 					<td class="TD_STYLE1" width="8%">
 					</td>
@@ -183,8 +183,7 @@
 </script>
     
    <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2">						
-								<option value="0">-----请选择-----</option>					
-									  
+								<option value="0">-----请选择-----</option>									  
 	</select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName">
 					</td>
@@ -333,7 +332,7 @@
 						登记人
 					</td>
 					<td class="TD_STYLE2">
-						<input type="text" name="register" readonly="readonly" value="better_admin"
+						<input type="text" name="register" readonly="readonly" value="${userlogin.user_true_name}"
 							class="INPUT_STYLE2">
 					</td>
 					<td class="TD_STYLE1">

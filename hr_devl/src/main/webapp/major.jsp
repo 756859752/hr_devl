@@ -59,7 +59,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 			</tr>
          </c:forEach>
-             
              <!-- 
              private Short makId;
 	         private String majorKindId;
@@ -67,6 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	         private String majorId;
 	         private String majorName;
 	         private Short testAmount;
+             
               -->
              
 		</table>

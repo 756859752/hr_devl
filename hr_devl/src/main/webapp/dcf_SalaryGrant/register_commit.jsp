@@ -57,7 +57,7 @@
 					
 					</td>
 					<td   style="text-align: right;">
-						登记人:<input type="text" name="checker" value="张三" size="8" readonly="readonly">
+						登记人:<input type="text" name="checker" value="${userlogin.user_true_name}" size="8" readonly="readonly">
 						登记时间：<span id="Tdate"></span>
 						<input type="hidden" name="checkTime" id="Tdate2" >
 					</td>
@@ -76,31 +76,12 @@
 					<td class="TD_STYLE1">
 						<span>姓名</span>
 					</td>
-					
+		<c:forEach items="${show}" var="s" varStatus="vs">
+		             <c:forEach items="${s.list}" var="a">
 						<td class="TD_STYLE1">
-							出差补助
+							${a.itemName }
 						</td>		
-						
-						<td class="TD_STYLE1">
-							交通补贴
-						</td>		
-						
-						<td class="TD_STYLE1">
-							住房补贴
-						</td>		
-						
-						<td class="TD_STYLE1">
-							基本工资
-						</td>		
-						
-						<td class="TD_STYLE1">
-							年终奖
-						</td>		
-						
-						<td class="TD_STYLE1">
-							误餐补助
-						</td>		
-										
+					</c:forEach>
 					<td class="TD_STYLE1" width="7%">
 						奖励金额
 					</td>
@@ -115,7 +96,7 @@
 					</td>
 				</tr>				
 				
-				<c:forEach items="${show}" var="s" varStatus="vs">
+				
 				     <input type="hidden" name="grantDetails[${vs.index }].grdId" value="${s.sgd.grdId}">
 					<input type="hidden" name="grantDetails[${vs.index }].salaryGrantId" value="${salarygrant.salaryGrantId}">
 				 	<input type="hidden" id="salaryStandardSum${vs.count }" name="grantDetails[${vs.index }].salaryStandardSum" value=""/>

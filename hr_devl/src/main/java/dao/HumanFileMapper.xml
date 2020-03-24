@@ -90,6 +90,7 @@
 			human_major_kind_name as humanMajorKindName,
 			hunma_major_name as hunmaMajorNamem,
 			human_file_status as humanFileStatus
+			human_pro_designation as humanProDesignation
 		</sql>
 		<!-- 多条件查询 -->
    		<select id="selectByCondition" resultType="HumanFile"  parameterType="HumanFile">
@@ -137,6 +138,9 @@
    		<select id="selectHumanFileByConditions" parameterType="hashmap" resultMap="tid">
    		      select * from human_file
    		 <where>
+   		   <if test="status!=null">
+   		       and human_file_status=#{status}
+   		   </if>
 	       <if test="firstkindid!=null&amp;firstkindid!=''">
 	           and first_kind_id=#{firstkindid}
 	       </if>
@@ -155,5 +159,9 @@
 	    </where>
    		</select>
    		
+   		<!-- 通过人员编号查询 -->
+   		<select id="selectHumanFileByHunamId" parameterType="string" resultMap="tid">
+   		   select * from human_file where human_id=#{hid}
+   		</select>
   </mapper>
   

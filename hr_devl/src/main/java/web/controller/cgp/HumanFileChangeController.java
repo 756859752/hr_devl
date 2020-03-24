@@ -25,6 +25,7 @@ import pojo.ConfigPublicChar;
 import pojo.EngageMajorRelease;
 import pojo.HumanFile;
 import pojo.HumanFileDig;
+import pojo.SalaryStandard;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
@@ -34,6 +35,7 @@ import service.ConfigPublicCharService;
 import service.EngageMajorReleaseService;
 import service.HumanFileDigService;
 import service.HumanFileService;
+import service.SalaryStandardService;
 import util.CheckStatus;
 import util.GenericPrimaryKey;
 
@@ -57,8 +59,8 @@ public class HumanFileChangeController implements CheckStatus{
 	ConfigMajorService configMajorService = null;
 	@Autowired
 	ConfigPublicCharService configPublicCharService = null;
-	
-	
+	@Autowired
+	SalaryStandardService salaryStandardService=null;
 	//注册登记的机构信息
 	@RequestMapping("/queryjigou.do")
 	public String liandong(Model model,HumanFile HumanFile){
@@ -68,12 +70,14 @@ public class HumanFileChangeController implements CheckStatus{
 		List<ConfigMajorKind> listmk = configMajorKindService.findAllConfigMajorKind();
 		List<ConfigMajor> listm = configMajorService.findAllConfigMajor();
 		List<ConfigPublicChar> listc = configPublicCharService.findAllConfigPublicChar();
+		List<SalaryStandard> lists= salaryStandardService.findAllSalaryStandard();
 		model.addAttribute("list1",list1);
 		model.addAttribute("list2",list2);
 		model.addAttribute("list3",list3);
 		model.addAttribute("listmk",listmk);
 		model.addAttribute("listm",listm);
 		model.addAttribute("listc",listc);
+		model.addAttribute("lists",lists);
 //		forward:/human_register.jsp
 		return "forward:/human_register.jsp";
 	}

@@ -96,11 +96,11 @@
 						</td>
 						<td class="TD_STYLE2">
 						<c:if test="${re.checkStatus == 0}">待复核</c:if>
-						<c:if test="${re.checkStatus == 1}">已复核</c:if>
+						<c:if test="${re.checkStatus != 0}">已复核</c:if>
 						</td>
 						<td class="TD_STYLE2">
 							<c:if test="${re.checkStatus == 0}"><a href="engageresumecheck.do?resId=${re.resId}">复核</a></c:if>
-							<c:if test="${re.checkStatus == 1}">复核</c:if>
+							<c:if test="${re.checkStatus !=0}">复核</c:if>
 					</tr>
 				</c:forEach>
 				
