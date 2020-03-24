@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import pojo.ConfigPrimaryKey;
+import pojo.ConfigPublicChar;
 import pojo.SalaryStandard;
 import pojo.SalaryStandardDetails;
+import service.ConfigPublicCharService;
 import service.SalaryStandardDetailsService;
 import service.SalaryStandardService;
 import web.controller.dcf.dto.Salary;
@@ -35,10 +38,13 @@ public class SalaryStandardCotroller {
     private SalaryStandardService sss=null;
     @Autowired
     private SalaryStandardDetailsService ssds=null;
+    @Autowired
+    private ConfigPublicCharService cpcs=null;
 //    保存一个薪酬标准
     @RequestMapping("/saveSalStan.do")
     public String saveSalaryStandard(@ModelAttribute Salary s) {
     	s.getSs().setCheckStatus((short)0);
+    	System.out.println("拿到"+s.getSs().getRegister());
     	sss.addSalaryStandard(s.getSs());
     	List<SalaryStandardDetails> ll=s.getList();
     	for (SalaryStandardDetails ss: ll) {
@@ -47,6 +53,14 @@ public class SalaryStandardCotroller {
 			ssds.addSalaryStandardDetails(ss);
 		}
     	return "redirect:/salarystandard_register_success.jsp";
+    }
+    
+//    展示所有薪酬项目选项
+    @RequestMapping("/showSalaryStandardItem.do")
+    @ResponseBody
+    public List<ConfigPublicChar> showSalaryStandardItem() {
+    	List<ConfigPublicChar> list=cpcs.findselectConfigPublicCharByattributeKind("薪酬设置");
+    	return list;
     }
     
 //查询现有通过审核的薪酬标准
@@ -77,8 +91,8 @@ public class SalaryStandardCotroller {
     }
 // 展示一个薪酬标准   
     @RequestMapping("/queryone/{sid}.do")
-    public String queryOneSalaryStandard(@PathVariable int sid,HttpSession session) {
-    	SalaryStandard salaryStandard=sss.findSalaryStandardById((short)sid);
+    public String queryOneSalaryStandard(@PathVariable String sid,HttpSession session) {
+    	SalaryStandard salaryStandard=sss.findSalaryStandardBySid(sid);
     	ArrayList<SalaryStandardDetails> list=ssds.findManySalaryStandardDetails(String.valueOf(sid));
     	Salary s=new Salary();
     	s.setSs(salaryStandard);
@@ -147,17 +161,14 @@ public class SalaryStandardCotroller {
     		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
     	}
     	List<SalaryStandard> list=sss.findCoditionsSalaryStandard(map);
-    	for (SalaryStandard s : list) {
-			System.out.println(s.getStandardName());
-		}
     	model.addAttribute("list", list);
     	return "forward:/salarystandard_change_list.jsp";
     }
     
 //    展示一个要修改薪酬标准
     @RequestMapping("/showupdateone/{sid}.do")
-    public String showUpdateOneSalaryStandard(@PathVariable int sid,HttpSession session) {
-    	SalaryStandard salaryStandard=sss.findSalaryStandardById((short)sid);
+    public String showUpdateOneSalaryStandard(@PathVariable String sid,HttpSession session) {
+    	SalaryStandard salaryStandard=sss.findSalaryStandardBySid(sid);
     	ArrayList<SalaryStandardDetails> list=ssds.findManySalaryStandardDetails(String.valueOf(sid));
     	Salary s=new Salary();
     	s.setSs(salaryStandard);

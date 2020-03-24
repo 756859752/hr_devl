@@ -50,18 +50,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					name="Ss.standardName" readonly="readonly" value="${salinfo.ss.standardName}" class="INPUT_STYLE2"></td>
 				<td width="11%" class="TD_STYLE1">薪酬总额</td>
 				<td width="17%" id="salesum" class="TD_STYLE2" name="Ss.salarySum">${salinfo.ss.salarySum}0</td>    
-				     <input id="updatesum" name="Ss.salarySum" type="hidden" value=""/>  
+				     <input id="updatesum" name="Ss.salarySum" type="hidden" value="${salinfo.ss.salarySum}"/>  
 				<td width="12%" class="TD_STYLE1">&nbsp;</td>
 				<td width="10%" class="TD_STYLE2">&nbsp;</td>
 			</tr>
 			<tr>
 			     <!-- 登记人 -->
+			     <input type="hidden" name="Ss.register" value="${salinfo.ss.register}">
+			     <input type="hidden" name="Ss.checker" value="${salinfo.ss.checker}">
 				<td class="TD_STYLE1">制定人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.designer"
 					value="${salinfo.ss.designer}" readonly="readonly" class="INPUT_STYLE2"></td>
 				<td class="TD_STYLE1">变更人</td>
-				<td class="TD_STYLE2"><input type="text" name="Ss.checker"
-					value="${salinfo.ss.changer}" readonly="readonly" class="INPUT_STYLE2">
+				<td class="TD_STYLE2"><input type="text" name="Ss.changer"
+					value="${userlogin.user_true_name}" readonly="readonly" class="INPUT_STYLE2">
 				</td>
 				<td class="TD_STYLE1">变更时间</td>
 				<td class="TD_STYLE2"><input type="text" id="timenow"

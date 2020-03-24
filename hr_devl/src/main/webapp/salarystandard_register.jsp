@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					value="" class="INPUT_STYLE2" id="chename"></td>
 				<td class="TD_STYLE1">登记人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.register"
-					value="better_wanghao" readonly="readonly" class="INPUT_STYLE2">
+					value="${userlogin.user_true_name}" readonly="readonly" class="INPUT_STYLE2">
 				</td>
 				<td class="TD_STYLE1">登记时间</td>
 				<td class="TD_STYLE2"><input id="timenow" type="text"
@@ -82,78 +82,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>金额</td>
 				<td colspan="3">&nbsp;</td>
 			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">1 <input type="hidden" name="List[0].itemId"
-					value="1">
-				</td>
-				<td colspan="3">出差补助 <input type="hidden"
-					name="List[0].itemName" value="出差补助">
-				</td>
-				<td><input type="text" name="List[0].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">2 <input type="hidden" name="List[1].itemId"
-					value="2">
-				</td>
-				<td colspan="3">交通补贴 <input type="hidden"
-					name="List[1].itemName" value="交通补贴">
-				</td>
-				<td><input type="text" name="List[1].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">3 <input type="hidden" name="List[2].itemId"
-					value="3">
-				</td>
-				<td colspan="3">住房补贴 <input type="hidden"
-					name="List[2].itemName" value="住房补贴">
-				</td>
-				<td><input type="text" name="List[2].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">4 <input type="hidden" name="List[3].itemId"
-					value="4">
-				</td>
-				<td colspan="3">基本工资 <input type="hidden"
-					name="List[3].itemName" value="基本工资">
-				</td>
-				<td><input type="text" name="List[3].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">5 <input type="hidden" name="List[4].itemId"
-					value="5">
-				</td>
-				<td colspan="3">年终奖 <input type="hidden"
-					name="List[4].itemName" value="年终奖">
-				</td>
-				<td><input type="text" name="List[4].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
-
-			<tr class="TD_STYLE2">
-				<td align="center">6<input type="hidden" name="List[5].itemId"
-					value="6">
-				</td>
-				<td colspan="3">误餐补助 <input type="hidden"
-					name="List[5].itemName" value="误餐补助">
-				</td>
-				<td><input type="text" name="List[5].salary" value=""
-					class="INPUT_STYLE2"></td>
-				<td colspan="3">&nbsp;</td>
-			</tr>
 		</table>
 		<p>&nbsp;</p>
 	</form>
@@ -162,6 +90,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 <!--生成薪酬编号-->
 (function(){
+	$.ajax({
+		url:'dcf/salarystandard/showSalaryStandardItem.do',	
+		type:"POST",
+		contentType:"application/json;charset=utf-8",
+	    success:function(result){
+          var str ='';
+          for(var i=0;i<result.length;i++){
+        	  str += '<tr class="TD_STYLE2"><td align="center">'+(i+1)+'<input type="hidden" name="List['+i+'].itemId" value='+(i+1)+'></td><td colspan="3">'+result[i].attributename+'<input type="hidden"name="List['+i+'].itemName" value='+result[i].attributename+'></td><td><input type="text" name="List['+i+'].salary" class="INPUT_STYLE2"></td><td colspan="3">&nbsp;</td></tr>';
+          }
+          $(".TABLE_STYLE1").append(str);
+          mathsum();
+	  }
+	});
+	
 	var tim=new Date();
 	var year=tim.getFullYear();
 	var month=(tim.getMonth()+1)<10 ? '0'+(tim.getMonth()+1):(tim.getMonth()+1);
@@ -170,6 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var min=tim.getMinutes()<10 ? '0'+tim.getMinutes() : tim.getMinutes();
 	var tt=tim.getSeconds()<10 ? '0'+tim.getSeconds() : tim.getSeconds();
 	$("#salnum").val((year+month+da+hour+min+tt));
+	
 })();
    $("#timenow").val(getTime());
 	function getTime(){
@@ -202,15 +145,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   }
 	   $(".salarystandardForm").submit();
    }
-   $(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2").blur(function(){
-	   var ff=$(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2");
-	   var sum=0;
-	   for (var i=0;i<ff.length;i++) {
-			if (ff[i].value!=null) {
-				sum=sum+ff[i].value*1;
-		}
-	   }
-	   $("#salesum").val(sum.toFixed(2));
-   })
+   function mathsum(){
+	   $(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2").blur(function(){
+		   var ff=$(".TABLE_STYLE1>tbody>.TD_STYLE2>td>.INPUT_STYLE2");
+		   var sum=0;
+		   for (var i=0;i<ff.length;i++) {
+				if (ff[i].value!=null) {
+					sum=sum+ff[i].value*1;
+			}
+		   }
+		   $("#salesum").val(sum.toFixed(2));
+	   })
+   };
+  
 
 </script>

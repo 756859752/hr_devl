@@ -191,18 +191,8 @@
 			 		 }); });
            </script>
    
-   <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2" >						
-								
-								<c:forEach items="${configefirstkind}" var="f">
-								       <c:if test="${f.firstKindId == onechang.newFirstKindId}">
-								         <option value="${f.firstKindId}" selected="selected">${f.firstKindName}</option>	
-								       </c:if>
-								         <c:if test="${f.firstKindId != onechang.newFirstKindId}">
-								         <option value="${f.firstKindId}">${f.firstKindName}</option>	
-								       </c:if>
-								  
-								</c:forEach>				
-									  
+   <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2" >												
+	  <option value="${onechang.newFirstKindId}" selected="selected">${onechang.newFirstKindName}</option>								      					  
 	</select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName" value="${onechang.newFirstKindName}">
 					</td>
