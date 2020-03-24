@@ -520,6 +520,7 @@ a {
 											<td width="98%"><a href="ybcresume/resumeregister.do?operate=toAdd"
 												target="mainFrame">简历登记</a></td>
 										</tr>
+										<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td><img src="images/jt0.gif"></td>
 											<td><a
@@ -532,6 +533,7 @@ a {
 												href="ybcresume/engageValidResumeSelect.do?operate=locate&method=query"
 												target="mainFrame">有效简历查询</a></td>
 										</tr>
+										</c:if>
 									</table>
 							</span></td>
 						</tr>
@@ -547,6 +549,7 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="engage_rinterview">
 									<table width="100%" border="0">
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
@@ -558,6 +561,7 @@ a {
 											<td><a href="ybcinterview/interviewResultShaixuan.do?operate=list"
 												target="mainFrame">面试筛选</a></td>
 										</tr>
+										</c:if>
 									</table>
 							</span></td>
 						</tr>
@@ -573,6 +577,7 @@ a {
 							<td width="98%"><span style="DISPLAY:none;"
 								id="engage_question">
 									<table width="100%" border="0">
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
@@ -593,6 +598,7 @@ a {
 												href="engagesubjects.do?operate=locate&param=change"
 												target="mainFrame">试题变更</a></td>
 										</tr>
+										</c:if>
 									</table>
 							</span></td>
 						</tr>
@@ -607,6 +613,7 @@ a {
 							<td width="2%"></td>
 							<td width="98%"><span style="DISPLAY:none;" id="engage_test">
 									<table width="100%" border="0">
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%">
@@ -615,6 +622,7 @@ a {
 											</a>
 											</td>
 										</tr>
+										</c:if>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%">
@@ -623,6 +631,7 @@ a {
 											</a>
 											</td>
 										</tr>
+										<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%">考试阅卷</td>
@@ -633,6 +642,7 @@ a {
 											<a href="ybcexam/gotoThecheckTheAnswerDetailselect.do" target="mainFrame">成绩查询筛选</a>
 											 </td>
 										</tr>
+										</c:if>
 									</table>
 							</span></td>
 						</tr>
@@ -647,24 +657,30 @@ a {
 							<td width="2%"></td>
 							<td width="98%"><span style="DISPLAY:none;" id="engage_pass">
 									<table width="100%" border="0">
+									<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
 												href="ybcpass/selectPassresume.do"
 												target="mainFrame">录用申请</a></td>
 										</tr>
+										</c:if>
+										<c:if test="${userlogin.user_role=='招聘经理'}">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
 												href="ybcpass/selectPassCheck.do"
 												target="mainFrame">录用审批</a></td>
 										</tr>
+										</c:if>
+										<c:if test="${userlogin.user_role=='招聘经理' or userlogin.user_role=='专员' }">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
 												href="ybcpass/passSearch.do"
 												target="mainFrame">录用查询</a></td>
 										</tr>
+										</c:if>
 									</table>
 							</span></td>
 						</tr>

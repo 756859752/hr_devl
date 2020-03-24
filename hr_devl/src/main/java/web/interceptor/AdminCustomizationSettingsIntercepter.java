@@ -20,7 +20,7 @@ public class AdminCustomizationSettingsIntercepter extends HandlerInterceptorAda
 		if("list".equals(operate)){
 			return true;
 		}else{
-			
+			System.out.println(userlogin.getUser_role());
 			if("管理员".equals(userlogin.getUser_role())){
 					return true;
 				}else{

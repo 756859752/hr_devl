@@ -1,4 +1,4 @@
-   package web.controller.xxk;
+package web.controller.xxk;
 
 import java.util.List;
 
@@ -13,7 +13,6 @@ import pojo.ConfigFileFirstKind;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
 import service.ConfigFileThirdKindService;
-import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -27,15 +26,9 @@ public class ConfigFileFirstKindController {
 	@Autowired
 	ConfigFileThirdKindService     configFileThirdKindService=null;
 	
-	//private short ffkId;
-	//private String firstKindId;
-	//private String firstKindName;
-	//private String firstKindSalaryId;
-	//private String firstKindSaleId;
-	
-	
 	@RequestMapping("/cffktoadd.do")
 	public String toadd(Model m){
+<<<<<<< HEAD
 
 	List<ConfigFileFirstKind>  list =configFileFirstKindService.findAllConfigFileFirstKind();
 	String  time =Myxxkutil.GrenericId(list,"firstKindId");      
@@ -43,12 +36,18 @@ public class ConfigFileFirstKindController {
 	m.addAttribute("myxxktime",time);
 	return "/first_kind_register";
 }
+=======
+		 Long  time	=System.currentTimeMillis();  
+	       m.addAttribute("myxxktime",time);
+		return "/first_kind_register";
+	}
+>>>>>>> branch 'master' of https://github.com/756859752/hr_devl.git
 	
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){
-   configFileFirstKindService.addConfigFileFirstKind(c);
-   return "redirect:/xxk/cffkselectall.do";  
+	 configFileFirstKindService.addConfigFileFirstKind(c);
+	return "redirect:/xxk/cffkselectall.do";  
    }   
   
   
@@ -56,8 +55,9 @@ public class ConfigFileFirstKindController {
    public String  seletbyid(@PathVariable("id") short id ,Model m ) {
    ConfigFileFirstKind c =configFileFirstKindService.findConfigFileFirstKindById(id);
 
+
      m.addAttribute("xxkconfigFileFirstKind", c); 
-   return "/first_kind_change";
+     return "/first_kind_change";
 
      }
    

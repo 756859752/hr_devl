@@ -133,7 +133,7 @@ public class HumanFileController implements CheckStatus{
 //			forward:/query_locate.jsp
 			return "forward:/query_locate.jsp";
 		}
-		@RequestMapping("deletehuman.do")
+		@RequestMapping("/deletehumans.do")
 		public String deletehuman(){
 			List<HumanFile> list=	humanFileService.findAllHumanFile();
 			List<HumanFile> listS=new ArrayList<>();
