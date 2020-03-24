@@ -625,7 +625,9 @@ a {
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%">成绩查询筛选</td>
+											<td width="98%">
+											<a href="ybcexam/gotoThecheckTheAnswerDetailselect.do" target="mainFrame">成绩查询筛选</a>
+											 </td>
 										</tr>
 									</table>
 							</span></td>
@@ -644,19 +646,19 @@ a {
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engageresume.do?operate=passList&method=register&passStatus=0"
+												href="ybcpass/selectPassresume.do"
 												target="mainFrame">录用申请</a></td>
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engageresume.do?operate=passList&method=check&passStatus=1"
+												href="ybcpass/selectPassCheck.do"
 												target="mainFrame">录用审批</a></td>
 										</tr>
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
 											<td width="98%"><a
-												href="engageresume.do?operate=passList&method=query&passStatus=2"
+												href="ybcpass/passSearch.do"
 												target="mainFrame">录用查询</a></td>
 										</tr>
 									</table>

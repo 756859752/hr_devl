@@ -73,13 +73,13 @@ public class InterviewResultRegisterController {
 		hashmap.put("startDate", startDate);
 		hashmap.put("endDate", endDate);
 		List<EngageResume> resultList=engageResumeService.findAllEngageResumeByConditon(hashmap);
-		 Iterator<EngageResume> it =resultList.iterator();
-		while(it.hasNext()){
-			EngageResume e=it.next();
-			if(e.getInterviewStatus()!=1){//如果还没有推荐面试
-				it.remove();
-			}
-		}
+//		 Iterator<EngageResume> it =resultList.iterator();
+//		while(it.hasNext()){
+//			EngageResume e=it.next();
+//			if(e.getInterviewStatus()!=1){//如果是不可面试状态
+//				it.remove();
+//			}
+//		}
 		model.addAttribute("resultList", resultList);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-list.jsp";
 	}
@@ -90,25 +90,35 @@ public class InterviewResultRegisterController {
 		EngageResume re= engageResumeService.findEngageResumeById(resid);
 		
 		model.addAttribute("re",re);
+		EngageInterview in=null;
+	List<EngageInterview> elist=	engageInterviewService.findAllEngageInterview();
+		for (EngageInterview engageInterview : elist) {
+			if(engageInterview.getResumeId()==resid){
+				in=engageInterview;
+			}
+		}
+		model.addAttribute("in", in);
 		return "forward:/ybc_EngageMajorRelease/interview/interview-register.jsp";
 	}
 	
 	//面试结果提交
 	@RequestMapping("interviewResultSubmit.do")
 	public String interviewResultSubmit(EngageResume resume,EngageInterview interview,Model model){
-		System.out.println(resume);
+		System.out.println(resume.getInterviewStatus());
 		System.out.println(interview);
 		List<EngageInterview> list=engageInterviewService.findAllEngageInterview();
 		for (EngageInterview engageInterview : list) {
-			if(engageInterview.getResumeId()==interview.getResumeId()){
+			if(engageInterview.getResumeId()==interview.getResumeId()){//如果已经面试过一次了
 				interview.setInterviewAmount((short)(engageInterview.getInterviewAmount()+1));
 				interview.setEinId(engageInterview.getEinId());
 				engageInterviewService.alterEngageInterview(interview);
+				engageResumeService.alterEngageResume(resume);//同步简历的面试状态
 				model.addAttribute("msg", new Massage("面试结果登记成功","main.jsp"));
 				return Massage.MSG_PAGE;
 			}
 		}
-		engageInterviewService.addEngageInterview(interview);
+		engageInterviewService.addEngageInterview(interview);//如果是第一次面试
+		engageResumeService.alterEngageResume(resume);//同步简历的面试状态
 		model.addAttribute("msg", new Massage("面试结果登记成功","main.jsp"));
 		return Massage.MSG_PAGE;
 	}
@@ -134,24 +144,41 @@ public class InterviewResultRegisterController {
 	//提交面试筛选
 	@RequestMapping("interviewResultShaixuanSubmit.do")
 	public String interviewResultShaixuanSubmit(EngageInterview interview,Model model){
+		EngageResume er=	engageResumeService.findEngageResumeById(interview.getResumeId());
 		short a=1;
 			if("建议面试".equals(interview.getResult())){
 				a=1;
+				short b=2;
+				er.setTestStatus(b);
+				b=1;
+				interview.setInterviewStatus(b);
 			}
 			if("建议笔试".equals(interview.getResult())){
 				a=2;
-				interview.setInterviewStatus(a);
-			 EngageResume er=	engageResumeService.findEngageResumeById(interview.getResumeId());
-			 er.setInterviewStatus(a);
-			 engageResumeService.alterEngageResume(er);
+				short b=1;
+				er.setTestStatus(b);
+				b=2;
+				interview.setInterviewStatus(b);
 			}
 			if("建议录用".equals(interview.getResult())){
 				a=3;
+				short b=2;
+				er.setTestStatus(b);
+				interview.setInterviewStatus(b);
 			}
 			if("删除简历".equals(interview.getResult())){
 				a=4;
+				short b=2;
+				er.setTestStatus(b);
+				interview.setInterviewStatus(b);
 			}
 			interview.setCheckStatus(a);
+			er.setCheckStatus(a);
+			//同步面表的审核状态
+		
+			er.setInterviewStatus(interview.getInterviewStatus());
+			engageResumeService.alterEngageResume(er);
+			
 		engageInterviewService.alterEngageInterview(interview);
 		model.addAttribute("msg", new Massage("筛选成功","main.jsp"));
 		return Massage.MSG_PAGE;

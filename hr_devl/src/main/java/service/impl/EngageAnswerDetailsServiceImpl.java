@@ -54,6 +54,13 @@ public class EngageAnswerDetailsServiceImpl implements EngageAnswerDetailsServic
 		return engageAnswerDetailsMapper.selectEngageAnswerByCondition(answerNumber);
 	}
 
+	@Override
+	public List<EngageAnswerDetails> findEngageAnswerDetailsWithSubject(
+			String answerNumber) {
+		// TODO Auto-generated method stub
+		return engageAnswerDetailsMapper.selectEngageAnswerDetailsWithSubject(answerNumber);
+	}
+
 	
 	
 }

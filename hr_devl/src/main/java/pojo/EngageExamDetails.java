@@ -15,7 +15,7 @@ public class EngageExamDetails implements java.io.Serializable {
 	private String secondKindId;
 	private String secondKindName;
 	private Short questionAmount;
-
+	
 	// Constructors
 
 	/** default constructor */

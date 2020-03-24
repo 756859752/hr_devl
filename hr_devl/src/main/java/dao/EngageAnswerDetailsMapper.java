@@ -16,4 +16,6 @@ public interface EngageAnswerDetailsMapper {
 	public List<EngageAnswerDetails> selectAllEngageAnswerDetails();
 	
 	public List<EngageAnswerDetails> selectEngageAnswerByCondition(String answerNumber);
+	
+	public List<EngageAnswerDetails>  selectEngageAnswerDetailsWithSubject(String answerNumber);
 }

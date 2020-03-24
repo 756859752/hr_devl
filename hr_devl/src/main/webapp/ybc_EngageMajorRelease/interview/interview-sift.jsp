@@ -188,7 +188,7 @@
 			<table width="100%">
 				<tr>
 					<td>
-						<font color="black">您正在做的业务是：人力资源--招聘管理--面试管理--面试筛选  </font>
+						<font color="black">您正在做的业务是：人力资源--招聘管理--招聘考试管理--成绩查询筛选--考试结果 </font>
 					</td>
 				</tr>
 				<tr>
