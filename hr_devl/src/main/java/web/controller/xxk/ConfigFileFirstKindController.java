@@ -30,7 +30,7 @@ public class ConfigFileFirstKindController {
 	public String toadd(Model m){
 		 Long  time	=System.currentTimeMillis();  
 	       m.addAttribute("myxxktime",time);
-		return "/first_kind_register";
+		return "/xxkpage/first_kind_register";
 	}
 	
 	//增加
@@ -45,7 +45,7 @@ public class ConfigFileFirstKindController {
    public String  seletbyid(@PathVariable("id") short id ,Model m ) {
    ConfigFileFirstKind c =configFileFirstKindService.findConfigFileFirstKindById(id);
 	 m.addAttribute("xxkconfigFileFirstKind", c); 
-	  return "/first_kind_change";
+	  return "/xxkpage/first_kind_change";
      }
    
    //更新
@@ -54,7 +54,7 @@ public class ConfigFileFirstKindController {
    configFileFirstKindService.alterConfigFileFirstKind(c); 
    configFileSecondKindService.alterConfigFileSecondKindBycffk(c);
    configFileThirdKindService.alterConfigFileThirdKindBycffk(c);
-   return "/first_kind_change_success";   
+   return "/xxkpage/first_kind_change_success";   
      }
    
    
@@ -68,7 +68,7 @@ public class ConfigFileFirstKindController {
    ConfigFileFirstKind  d = configFileFirstKindService.findConfigFileFirstKindById(id);
    m.addAttribute("deleteprocess", d); 
         
-   return "/first_kind_delete";   
+   return "/xxkpage/first_kind_delete";   
    } 
    
    //删除 
@@ -83,11 +83,12 @@ public class ConfigFileFirstKindController {
    return "redirect:/xxk/cffkselectall.do";
    }
    
+   
    @RequestMapping("/cffkselectall.do")
    public  String  selectall(Model m){
 	   List<ConfigFileFirstKind> list =configFileFirstKindService.findAllConfigFileFirstKind();
 	   m.addAttribute("configFileFirstKind", list);           
-	   return "/first_kind";   		
+	   return "/xxkpage/first_kind";   		
 	}
  }
 

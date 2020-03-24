@@ -22,9 +22,10 @@ public class ConfigPubilcCharController {
 	public String  selectallconfigPublicChar(Model m){
 	List<ConfigPublicChar>	list=ConfigPublicCharService.findAllConfigPublicChar();
 	m.addAttribute("configPubliChar", list);
-	return "/public_char";
+	return "/xxkpage/public_char";
 	}
 
+	
 	
 	@RequestMapping("/{id}/deleteconfigPublicChar.do")
 	public String deleteconfigPublicChar(@PathVariable("id") short id) {

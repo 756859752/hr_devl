@@ -62,15 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 <table width="100%" border="1" cellpadding=0 cellspacing=1
 		 	bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1">
 		 	
-		 	<tr>
-				<td width="19%" class="TD_STYLE1">I级机构编号</td>
-				<td width="81%" class="TD_STYLE2">
-				<input type="text" readonly="readonly"
-					name="firstKindId" value="${configFileThirdKind.firstKindId}" 
-					class="INPUT_STYLE1">
-					
-				</td>
-			 </tr>
+		 	
 			 
 			<tr>
 				<td width="19%" class="TD_STYLE1">I级机构名称</td>
@@ -82,13 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 			 </tr>
 			
-			<tr>
-				<td class="TD_STYLE1">II级机构编号</td>
-				<td class="TD_STYLE2"><input type="text"   readonly="readonly"
-				name="secondKindId" value="${configFileThirdKind.secondKindId}" 
-				class="INPUT_STYLE1"></td>
-			</tr>
-			
+		
 			<tr>
 				<td class="TD_STYLE1">II级机构名称</td>
 				<td class="TD_STYLE2"><input type="text"   readonly="readonly"

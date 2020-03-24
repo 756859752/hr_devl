@@ -216,7 +216,7 @@ a {
 									<table width="100%" border="0">
 										<tr>
 											<td width="2%"><img src="images/jt0.gif"></td>
-											<td width="98%"><a href="primary_key.jsp"
+											<td width="98%"><a href="xxkpage/primary_key.jsp"
 												target="mainFrame">关键字查询设置</a></td>
 										</tr>
 									</table>
