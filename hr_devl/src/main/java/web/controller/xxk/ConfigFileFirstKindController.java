@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 import pojo.ConfigFileFirstKind;
 import service.ConfigFileFirstKindService;
 import service.ConfigFileSecondKindService;
@@ -37,9 +38,11 @@ public class ConfigFileFirstKindController {
 	m.addAttribute("myxxktime",time);
 	return "/first_kind_register";
 }
+
    
 	
-	//Ok
+	//Ok好了 
+
 	//增加
    @RequestMapping("/cffkadd.do")
    public String add(ConfigFileFirstKind c){
