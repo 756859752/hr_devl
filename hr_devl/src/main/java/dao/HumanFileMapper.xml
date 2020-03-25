@@ -163,5 +163,17 @@
    		<select id="selectHumanFileByHunamId" parameterType="string" resultMap="tid">
    		   select * from human_file where human_id=#{hid}
    		</select>
+   	<!-- 根据机构查询人数 -->	
+   		<select id="selectHumanFileByMechchanism" parameterType="hashmap" resultMap="tid">
+   		    select * from human_file 
+   		    <where>
+   		       <if test="humfirst!=null">
+   		           and first_kind_id=#{humfirst}
+   		       </if>
+   		       <if test="humsecond!=null">
+   		           and second_kind_id=#{humsecond}
+   		       </if>
+   		    </where>
+   		</select>
   </mapper>
   

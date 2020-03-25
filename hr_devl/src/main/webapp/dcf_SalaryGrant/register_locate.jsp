@@ -5,13 +5,13 @@
 <html>
 <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="../css/table.css"
+		<link rel="stylesheet" href="/hr_devl/css/table.css"
 			type="text/css"></link>
 			 
 	</head>
 	
 	<body>
-		<form action="queryBysalaryid" method="post">
+		<form action="/hr_devl/dcf/salarygrant/querycondition.do" method="post">
 				<input type="hidden" name="page.startPage" value="0">
 			<table width="100%">
 				<tr>
@@ -37,7 +37,6 @@
 						<select name="submitType" class="INPUT_STYLE2">
 							<option value="1"  >一级机构发放方式</option>
 							<option value="2" >二级机构发放方式</option>
-							<option value="3">三级机构发放方式</option>
 						</select>
 					</td>
 					<td width="60%" class="TD_STYLE1"></td>

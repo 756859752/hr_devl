@@ -25,4 +25,7 @@ public interface HumanFileMapper {
 		
 //   根据人员编号查找人员信息
 	public HumanFile selectHumanFileByHunamId(String hid);
+	
+//	根据机构查询
+	public List<HumanFile> selectHumanFileByMechchanism(HashMap<String, Object> map);
 }

@@ -186,13 +186,13 @@ public class TransferController {
 			human.setSecondKindId(majorchange.getNewSecondKindId());
 			human.setSecondKindName(majorchange.getNewSecondKindName());
 			human.setThirdKindId(majorchange.getNewThirdKindId());
-			human.setThirdKindId(majorchange.getNewThirdKindName());
+			human.setThirdKindName(majorchange.getNewThirdKindName());
 			human.setHumanMajorKindId(majorchange.getNewMajorKindId());
 			human.setHumanMajorKindName(majorchange.getNewMajorKindName());
 			human.setHumanMajorId(majorchange.getNewMajorId());
 			human.setHunmaMajorName(majorchange.getNewMajorName());
-			human.setSalaryStandardId(majorchange.getSalaryStandardId());
-			human.setSalaryStandardName(majorchange.getSalaryStandardName());
+			human.setSalaryStandardId(majorchange.getNewSalaryStandardId());
+			human.setSalaryStandardName(majorchange.getNewSalaryStandardName());
 			human.setSalarySum(majorchange.getNewSalarySum());
 			if(human.getMajorChangeAmount()!=null) {
 				int count=human.getMajorChangeAmount();

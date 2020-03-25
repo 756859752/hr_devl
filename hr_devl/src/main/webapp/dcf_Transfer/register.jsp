@@ -82,7 +82,7 @@
 					</td>
 					<td class="TD_STYLE2" width="10%">
 						<input type="text" name="thirdKindName"
-							value="" readonly="readonly" value="${humanfile.thirdKindName}"
+						readonly="readonly" value="${humanfile.thirdKindName}"
 							class="INPUT_STYLE2">
 							<input type="hidden" name="thirdKindId" value="${humanfile.thirdKindId}">
 					</td>

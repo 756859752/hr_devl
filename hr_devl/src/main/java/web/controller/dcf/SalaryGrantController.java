@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import pojo.ConfigFileFirstKind;
+import pojo.HumanFile;
 import pojo.SalaryGrant;
 import pojo.SalaryGrantDetails;
 import pojo.SalaryStandard;
 import pojo.SalaryStandardDetails;
+import service.ConfigFileFirstKindService;
+import service.HumanFileService;
 import service.SalaryGrantDetailsService;
 import service.SalaryGrantService;
 import service.SalaryStandardDetailsService;
@@ -32,6 +36,8 @@ import web.controller.dcf.dto.SalaryGrantDto;
 @RequestMapping("dcf/salarygrant")
 public class SalaryGrantController {
 	@Autowired
+	private ConfigFileFirstKindService firstkind;
+	@Autowired
 	private SalaryGrantDetailsService sgds=null;
 	@Autowired
 	private SalaryGrantService sgs=null;
@@ -39,6 +45,8 @@ public class SalaryGrantController {
     private SalaryStandardService sss=null;
     @Autowired
     private SalaryStandardDetailsService ssds=null;
+    @Autowired
+    private HumanFileService hfs=null;
 	
 //展示要登记的薪酬发放
 	@RequestMapping("/querysalarygrant/{ssid}.do")
@@ -63,13 +71,30 @@ public class SalaryGrantController {
 		 model.addAttribute("salarygrant", salaryGrant);
 		return "forward:/dcf_SalaryGrant/register_commit.jsp";
 	}
-	
+
+//	拿到发放条件
+//	@RequestMapping("/querycondition.do")
+//	public String queryCondition(@RequestParam String submitType) {
+//		HashMap<String, Object> map=new HashMap<String, Object>();
+////		map.pu
+//		if(submitType.equals("1")) {
+//		 List<ConfigFileFirstKind> first=firstkind.findAllConfigFileFirstKind();
+//		 for (ConfigFileFirstKind configFileFirstKind : first) {
+//			   
+//		  }
+//		}else {
+//			
+//		}
+//		System.out.println("得到发放方式"+submitType);
+//		return "forward:/hr_devl/dcf_SalaryGrant/register_list.jsp";
+//	}
 	
 //展示所有未登记的	
 	@RequestMapping("/querysalarygrantpeoples.do")
 	@ResponseBody
-	public List<SalaryGrant> querySalaryGrantPeoples() {
-		List<SalaryGrant> list=sgs.findAllSalaryGrant();
+	public List<HumanFile> querySalaryGrantPeoples() {
+//		List<SalaryGrant> list=sgs.findAllSalaryGrant();
+		List<HumanFile> list=hfs.findAllHumanFile();
 		return list;
 	}
 //	登记薪酬标准进入待复核状态

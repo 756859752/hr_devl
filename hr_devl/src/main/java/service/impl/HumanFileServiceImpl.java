@@ -70,4 +70,10 @@ public class HumanFileServiceImpl implements HumanFileService{
 		return humanFileMapper.selectHumanFileByHunamId(hid);
 	}
 
+	@Override
+	public List<HumanFile> findHumanFileByMechchanism(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return humanFileMapper.selectHumanFileByMechchanism(map);
+	}
+
 }

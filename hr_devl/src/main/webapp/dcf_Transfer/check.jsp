@@ -171,23 +171,7 @@
 			 		 first.change(function(){
 			 			var firstval=$('#firstKindId option:selected').val();
 			 			$("#newFirstKindName").val($('#firstKindId option:selected').html());
-			 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid='+firstval+'&secondkindid',
-				  			function(data){
-				  			 second.css("width",first.width());
-				  			second.empty();
-				  			second.append("<option value='0' >-----请选择-----</option>");
-				  			third.empty();
-				  			third.append("<option value='0' >-----请选择-----</option>");
-				  		      var str =''; 
-				  		      <!--拿到二级集合-->
-					  		  var li=data.second;
-					          for(var i=0;i<li.length;i++){
-					        	  str += '<option name="secondkindid" value='+li[i].secondKindId+'>'+li[i].secondKindName+'</option>';
-					          }
-					          $("#secondKindId").append(str);
-						  },);
-			 		 	third.val('0');
-			 		 }); });
+			 	 });
            </script>
    <select style="width:160px"  id="firstKindId" name="newFirstKindId" class="SELECT_STYLE2"><option value="${onechang.newFirstKindId}">${onechang.newFirstKindName}</option></select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName" value="${onechang.newFirstKindName}">
@@ -205,20 +189,7 @@
 		 		 second.change(function(){
 					var secondval=$('#secondKindId option:selected').val();
 					$("#newSecondKindName").val($('#secondKindId option:selected').html());
-		 		 	$.post('/hr_devl/dcf/transfer/queryConditions.do?firstkindid&secondkindid='+secondval+'',
-			  			function(data){
-			  			third.css("width",second.width());
-			  			third.empty();
-			  			third.append("<option value='0' >-----请选择-----</option>");
-			  		   var str ='';
-			  		 <!--拿到三级集合-->
-			  		  var li=data.third;
-			          for(var i=0;i<li.length;i++){
-			        	  str += '<option name="thirdkindid" value='+li[i].thirdKindId+'>'+li[i].thirdKindName+'</option>';
-			          }
-			          $("#thirdKindId").append(str);
-						},);
-		 			third.val('0');
+		 	
 		 		 });	
 				  });
 </script>
@@ -256,15 +227,8 @@
 						新职位分类
 					</td>
 					<td class="TD_STYLE2">
-						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">											
-					  			   <c:forEach items="${majorkinds}" var="m">
-					  			       <c:if test="${m.majorKindId == onechang.newMajorKindId}">
-					  			         <option value="${monechang.newMajorKindId}" selected="selected">${onechang.newMajorKindName}</option>
-					  			       </c:if>
-                                        <c:if test="${m.majorKindId != onechang.newMajorKindId}">
-					  			         <option value="${m.majorKindId }">${m.majorKindName}</option>
-					  			       </c:if>
-					  			   </c:forEach>
+						 <select style="width:160px" name="newMajorKindId" id="newMajorKindId" size="1" class="SELECT_STYLE2">	
+						 <option value="${monechang.newMajorKindId}">${onechang.newMajorKindName}</option>									
 					  </select>
 					  <input type="hidden" name="newMajorKindName" id="newMajorKindName" value="${onechang.newMajorKindName}">
 					   <script type="text/javascript"> 
@@ -276,19 +240,7 @@
 	 		var second=$('#newMajorKindId');;
 	 		 second.change(function(){
 	 		 $("#newMajorKindName").val($('#newMajorKindId option:selected').html()); 
-	 		 	$.post('/hr_devl/dcf/transfer/querymajors/'+$('#newMajorKindId option:selected').val()+'.do',
-		  			function(data){
-	 		 		$('#newMajorId').css("width",second.width());
-		  			$('#newMajorId').empty();
-		  			$('#newMajorId').append("<option value='0' >-----请选择-----</option>");
-		  		    var	str ='';
-		          for(var i=0;i<data.length;i++){ 
-		        	  str += '<option name="newMajorId" value='+data[i].majorId+'>'+data[i].majorName+'</option>';
-		          }
-		          $("#newMajorId").append(str);
-	 		 	},);
-	 		 	 $("#newMajorId").val('0');
-	 		 });	
+	 		 	
 </script>
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -305,10 +257,7 @@
 					</td>
 					<td class="TD_STYLE2">
 						 <select style="width:160px" name="newSalaryStandardId" id="newSalaryStandardId" size="1" class="SELECT_STYLE2">						
-								<option value="${onechang.newSalaryStandardId}" selected>${onechang.newSalaryStandardName}</option>					
-					  			    <c:forEach items="${salarystandard}" var="s">
-					  			        <option  value="${s.standardId}">${s.standardName }</option>
-					  			    </c:forEach>			  			
+								<option value="${onechang.newSalaryStandardId}" selected>${onechang.newSalaryStandardName}</option>							  			
 					  </select>
 					  <input type="hidden" name="newSalaryStandardName" id="newSalaryStandardName" value="${onechang.newSalaryStandardName}">
 					  <SCRIPT type="text/javascript">
