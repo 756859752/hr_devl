@@ -28,4 +28,5 @@ public interface HumanFileMapper {
 	
 //	根据机构查询
 	public List<HumanFile> selectHumanFileByMechchanism(HashMap<String, Object> map);
+
 }

@@ -31,7 +31,6 @@ import service.ConfigMajorService;
 import service.HumanFileService;
 import service.MajorChangeService;
 import service.SalaryStandardService;
-import util.CheckStatus;
 import web.controller.dcf.dto.ChooseConditionsDto;
 
 @Controller
@@ -60,6 +59,7 @@ public class TransferController {
 //	插入人员调动信息,等待审核
 	@RequestMapping("/addtransferinfo.do")
 	public String addTransferInfo(@ModelAttribute MajorChange majorchange){
+		System.out.println("得到新分类名称"+majorchange.getNewMajorKindName());
 	  majorchange.setCheckStatus((short)0);
 	  mcs.addMajorChange(majorchange);
 		return "redirect:/dcf_Transfer/register_success.jsp";
@@ -106,8 +106,6 @@ public class TransferController {
 	public String queryTransferPeoples(@RequestParam String firstkindid,@RequestParam String secondkindid,
 			@RequestParam String thirdkindid,@RequestParam String starttime,@RequestParam String endtime,HttpSession session){
 		HashMap<String, Object> map=new HashMap<String, Object>();
-//		添加状态正常条件
-		map.put("status", CheckStatus.YISHENHEORYIHUIFU);
 		if(!firstkindid.equals("0")) {
 			map.put("firstkindid", firstkindid);
 		}
@@ -178,7 +176,6 @@ public class TransferController {
 	public String passOneMajorChange(@ModelAttribute MajorChange majorchange) {
 		System.out.println("审核情况"+majorchange.getCheckStatus());
 		System.out.println("拿到主键"+majorchange.getMchId());
-		System.out.println("拿到人员编号"+majorchange.getHumanId());
 		if(majorchange.getCheckStatus()==1) {
 			HumanFile human=humanfile.findHumanFileByHumanId(majorchange.getHumanId());
 			human.setFirstKindId(majorchange.getNewFirstKindId());
@@ -215,6 +212,13 @@ public class TransferController {
 			@RequestParam String thirdkindid,@RequestParam String starttime,
 			@RequestParam String endtime,@RequestParam String majorKindId,
 			@RequestParam String majorId,Model model){
+		System.out.println("得到一级机构id"+firstkindid);
+		System.out.println("得到二级机构id"+secondkindid);
+		System.out.println("得到三级机构id"+thirdkindid);
+		System.out.println("得到职位分类id"+majorKindId);
+		System.out.println("得到职位id"+majorId);
+		System.out.println("得到建档开始时间"+starttime);
+		System.out.println("得到职档结束时间"+endtime);
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("pass", 1);
 		if(!firstkindid.equals("0")) {
@@ -246,6 +250,10 @@ public class TransferController {
     		map.put("mintime",Timestamp.valueOf((starttime+" 00:00:00")));
     	}
 		List<MajorChange> list=mcs.findMajorChangeByConditions(map);
+		for (MajorChange majorChange : list) {
+			System.out.println("得到主键"+majorChange.getMchId());
+		}
+	
 		model.addAttribute("list", list);
 		
 		return "forward:/dcf_Transfer/list.jsp";
@@ -253,6 +261,7 @@ public class TransferController {
 //	展示一个调动后所有信息
 	@RequestMapping("queryonechangeinfo/{mid}.do")
 	public String queryOneMajorChangeInfo(@PathVariable String mid,Model model) {
+		System.out.println("===="+mid);
 		MajorChange majorchange=mcs.findMajorChangeById(Short.parseShort(mid));
 		model.addAttribute("onechang", majorchange);
 		return "forward:/dcf_Transfer/detail.jsp";

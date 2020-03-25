@@ -56,13 +56,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td width="10%" class="TD_STYLE2">&nbsp;</td>
 			</tr>
 			<tr>
-			      <input type="hidden" name="Ss.register" value="${moreSalary.ss.register}" />
 				<td class="TD_STYLE1">制定人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.designer"
 					value="${moreSalary.ss.designer}" readonly="readonly" class="INPUT_STYLE2"></td>
 				<td class="TD_STYLE1">复核人</td>
 				<td class="TD_STYLE2"><input type="text" name="Ss.checker"
-					value="${userlogin.user_true_name}" readonly="readonly" class="INPUT_STYLE2">
+					value="${moreSalary.ss.checker}" readonly="readonly" class="INPUT_STYLE2">
 				</td>
 				<td class="TD_STYLE1">复核时间</td>
 				<td class="TD_STYLE2"><input type="text" id="timenow"
@@ -71,7 +70,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td class="TD_STYLE1">&nbsp;</td>
 				<td class="TD_STYLE2">&nbsp;</td>
 			</tr>
-			<input type="hidden" name="Ss.changer" value="${moreSalary.ss.changer}">
 			<tr>
 				<td class="TD_STYLE1">复核意见</td>
 				   <input name="Ss.remark" type="hidden" value="${moreSalary.ss.remark}"/>

@@ -30,7 +30,6 @@
 	
 	<!-- 配置 拦截器 -->
 	
-      <!--  
 	 <mvc:interceptors>	       
 	    <mvc:interceptor>
 		  <mvc:mapping path="/xxk/**" />
@@ -55,7 +54,7 @@
 			<mvc:mapping path="/ybc/releasechangeselect.do"/>
 			<bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
 		</mvc:interceptor>
-	 </mvc:interceptors>  -->
+	 </mvc:interceptors>  
      
 	<!--加载外部数据库连接信息 -->
 	<context:property-placeholder
@@ -65,9 +64,9 @@
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${mydriver}"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/hr?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"></property> 
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/hr?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"></property> --> 
 		
-  	  	<!--  <property name="url" value="${myurl}"> </property> -->
+  	  	 <property name="url" value="${myurl}"> </property>
 		<property name="username" value="${myusename}"></property>
 		<property name="password" value="${myusepass}"></property>
 	</bean>

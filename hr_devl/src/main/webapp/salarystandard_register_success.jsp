@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="javascript/comm/comm.js"></script>
 </head>
 <body>
+	<form method="post" action="">
 		<table width="100%">
 			<tr>
 				<td colspan="2"><font color="#0000CC">您正在做的业务是：人力资源--薪酬标准管理--薪酬标准登记
@@ -34,5 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					class="BUTTON_STYLE1" onclick="javascript:toAdd();"></td>
 			</tr>
 		</table>
+
+	</form>
 </body>
 </html>

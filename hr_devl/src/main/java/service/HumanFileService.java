@@ -16,9 +16,9 @@ public interface HumanFileService {
 	public List<HumanFile> findByCondition(HumanFile HumanFile);
 //	根据多条件筛选
 	public List<HumanFile> findHumanFileByConditions(HashMap<String, Object> map);
+
 //	根据humanid查询一个
 	public HumanFile findHumanFileByHumanId(String hid);
 //	根据机构查询所有的人
 	public List<HumanFile> findHumanFileByMechchanism(HashMap<String, Object> map);
-
 }

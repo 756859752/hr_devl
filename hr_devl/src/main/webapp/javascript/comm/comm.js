@@ -57,7 +57,7 @@ function finish3()
 }
 function toAdd()
 {
-	window.location.href="main.jsp";
+	window.location.href="top.jsp";
 }
 
 function doAdd()

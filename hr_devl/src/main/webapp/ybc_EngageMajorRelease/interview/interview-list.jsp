@@ -104,11 +104,13 @@
 						</td>
 						<td class="TD_STYLE2">
 						<c:if test="${re.interviewStatus == 1}">待面试</c:if>
-						<c:if test="${re.interviewStatus == 2}">不可面试</c:if>
+						<c:if test="${re.interviewStatus == 2}">待筛选</c:if>
+						<c:if test="${re.interviewStatus == 3}">待笔试</c:if>
 						</td>
 						<td class="TD_STYLE2">
 						<c:if test="${re.interviewStatus == 1}"><a href="interviewResultRegister.do?resid=${re.resId}">登记</a></c:if>
 						<c:if test="${re.interviewStatus == 2}">不可登记</c:if>
+						<c:if test="${re.interviewStatus == 3}">不可登记</c:if>
 						</td>
 					</tr>
 				</c:forEach>
