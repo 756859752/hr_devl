@@ -64,10 +64,4 @@ public class HumanFileServiceImpl implements HumanFileService{
 		return humanFileMapper.selectHumanFileByConditions(map);
 	}
 
-	@Override
-	public HumanFile findHumanFileByHumanId(String hid) {
-		// TODO Auto-generated method stub
-		return humanFileMapper.selectHumanFileByHunamId(hid);
-	}
-
 }

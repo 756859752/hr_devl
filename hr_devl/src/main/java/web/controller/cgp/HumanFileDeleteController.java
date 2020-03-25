@@ -50,6 +50,8 @@ public class HumanFileDeleteController implements CheckStatus{
 	@Autowired
 	ConfigMajorService configMajorService = null;
 	
+	
+	//这里有问题
 	@RequestMapping("/deletehuman.do")
 	public String deletequery(Model model,HumanFile HumanFile){
 		List<ConfigFileFirstKind> list1 = configFileFirstKindService.findAllConfigFileFirstKind();

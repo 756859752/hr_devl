@@ -9,7 +9,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import web.controller.ybc.dto.Massage;
 import web.controller.ybc.dto.UserLogin;
 
-public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapter{
+public class AdminCustomizationSettingsIntercepter extends HandlerInterceptorAdapter{
 
 	@Override
 	public boolean preHandle(HttpServletRequest request,
@@ -20,8 +20,8 @@ public class MajorMajorReleasejingliIntercepter extends HandlerInterceptorAdapte
 		if("list".equals(operate)){
 			return true;
 		}else{
-			
-			if("招聘经理".equals(userlogin.getUser_role())){
+			System.out.println(userlogin.getUser_role());
+			if("管理员".equals(userlogin.getUser_role())){
 					return true;
 				}else{
 					request.setAttribute("msg", new Massage("您当前登陆用户权限不足！","index.jsp"));

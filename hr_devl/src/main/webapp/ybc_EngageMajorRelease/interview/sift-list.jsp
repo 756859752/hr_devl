@@ -107,7 +107,12 @@
 							${v.multiQualityDegree }
 						</td>
 						<td class="TD_STYLE2">
+						<c:if test="${v.interviewStatus==3 }">
+							待笔试
+						</c:if>
+						<c:if test="${v.interviewStatus!=3 }">
 							<a href="interviewResultShaixuanStart.do?einId=${v.einId }">筛选</a>
+						</c:if>
 						</td>
 					</tr>
 				</c:forEach>

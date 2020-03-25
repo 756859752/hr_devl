@@ -16,6 +16,8 @@
 						http://www.springframework.org/schema/context/spring-context-3.1.xsd
 						http://www.springframework.org/schema/mvc 
 						http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+						
+
 
 
 	<!-- 扫描所有spring的主键 -->
@@ -28,11 +30,17 @@
 	
 	<!-- 配置 拦截器 -->
 	
-	<mvc:interceptors>	
-		<mvc:interceptor>
+	 <mvc:interceptors>	       
+	    <mvc:interceptor>
+		  <mvc:mapping path="/xxk/**" />
+		  <bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
+	     </mvc:interceptor>
+	  
+		<mvc:interceptor>		
 			<mvc:mapping path="/ybc*/*.do"/>
-			<bean class="web.interceptor.LoginIntercepter"></bean><!--做登录拦截  -->
+			<bean class="web.interceptor.LoginIntercepter"></bean>
 		</mvc:interceptor>
+		
 	 	<mvc:interceptor>
 			<mvc:mapping path="/dcf/**/*.do"/>
 			<bean class="web.interceptor.LoginIntercepter"></bean>
@@ -40,14 +48,14 @@
 		 
 		<mvc:interceptor>
 			<mvc:mapping path="/ybc/engagemajorrelease.do"/>
-			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean><!-- 专员 -->
+			<bean class="web.interceptor.MajorMajorReleasezhuanyuanIntercepter"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/ybc/releasechangeselect.do"/>
-			<bean class="web.interceptor.MajorMajorReleasejingliIntercepter"></bean><!-- 经理 -->
+			<bean class="web.interceptor.AdminCustomizationSettingsIntercepter"></bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
-
+	 </mvc:interceptors>  
+     
 	<!--加载外部数据库连接信息 -->
 	<context:property-placeholder
 		location="classpath:jdbc.properties" />
@@ -56,9 +64,9 @@
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${mydriver}"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/hr?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"></property> 
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/hr?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"></property> --> 
 		
-  	  	<!--  <property name="url" value="${myurl}"> </property> -->
+  	  	 <property name="url" value="${myurl}"> </property>
 		<property name="username" value="${myusename}"></property>
 		<property name="password" value="${myusepass}"></property>
 	</bean>

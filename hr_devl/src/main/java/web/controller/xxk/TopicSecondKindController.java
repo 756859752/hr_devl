@@ -13,6 +13,7 @@ import pojo.ConfigQuestionFirstKind;
 import pojo.ConfigQuestionSecondKind;
 import service.ConfigQuestionFirstKindService;
 import service.ConfigQuestionSecondKindService;
+import util.Myxxkutil;
 
 @Controller
 @RequestMapping("/xxk")
@@ -32,8 +33,8 @@ public class TopicSecondKindController {
 	
     @RequestMapping("/addtopicSecondKindProcess.do")
 	public String addtopicSecondKindProcess(Model m){
-   
-    String   time   = String.valueOf(System.currentTimeMillis());  	 
+    List<ConfigQuestionSecondKind>	 list=configQuestionSecondKindService.findAllConfigQuestionSecondKind();
+    String   time   = Myxxkutil.GrenericId(list, "secondKindId");  	 
 	m.addAttribute("time", time); 
 	List<ConfigQuestionFirstKind> c =ConfigQuestionFirstKindService.findAllConfigQuestionFirstKind();   
 	m.addAttribute("configQuestionFirstKind", c) ;

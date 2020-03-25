@@ -29,6 +29,7 @@ import service.EngageMajorReleaseService;
 import service.HumanFileService;
 import util.CheckStatus;
 import util.GenericPrimaryKey;
+import web.controller.ybc.dto.Massage;
 
 @Controller
 @RequestMapping("/cgp")
@@ -50,7 +51,7 @@ public class HumanFileController implements CheckStatus{
 	
 	//登记
 		@RequestMapping("/humanregister.do")
-		public String registerHumanFile(@ModelAttribute HumanFile hf){
+		public String registerHumanFile(@ModelAttribute HumanFile hf,Model model){
 			//human-id
 			hf.setHumanId(GenericPrimaryKey.getPrimaryKey());
 			//一级机构
@@ -95,7 +96,9 @@ public class HumanFileController implements CheckStatus{
 			
 			
 			humanFileService.addHumanFile(hf);
-			return "redirect:/register_choose_picture.jsp";
+			
+			model.addAttribute("msg", new Massage("登记成功","main.jsp" ));
+			return Massage.MSG_PAGE;
 		}
 		
 		//上传照片，未完成
@@ -133,16 +136,14 @@ public class HumanFileController implements CheckStatus{
 //			forward:/query_locate.jsp
 			return "forward:/query_locate.jsp";
 		}
-//		@RequestMapping("deletehuman.do")
-//		public String deletehuman(){
-//			List<HumanFile> list=	humanFileService.findAllHumanFile();
-//			List<HumanFile> listS=new ArrayList<>();
-//			for (HumanFile humanFile : list) {
-//				
-//			}
-//			
-//			
-//			return null;
-//		}
-	
+		@RequestMapping("/deletehumans.do")
+		public String deletehuman(){
+			List<HumanFile> list=	humanFileService.findAllHumanFile();
+			List<HumanFile> listS=new ArrayList<>();
+			for (HumanFile humanFile : list) {
+				
+			}
+
+			return null;
+		}
 }

@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								${re.amout}
 						</td>
 						<td class="TD_STYLE2">
-								<a href="ybcexam/examRegisterSelect.do?majorKindId=${re.majorKindId}&majorKindName=${re.majorKindName}&majorId=${re.majorId}&majorname=${re.majorName}" >出题</a>
+								<a href="ybcexam/examRegisterSelect.do?majorKindId=${re.majorKindId}&majorId=${re.majorId}" >出题</a>
 						</td>
 					</tr>
 				</c:forEach>

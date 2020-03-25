@@ -14,7 +14,6 @@ public class LoginIntercepter extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		UserLogin userlogin=	(UserLogin)request.getSession().getAttribute("userlogin");
-		System.out.println("进入了Login intercepter");
 		if(userlogin==null){
 			response.getWriter().print("<script>parent.window.location.href='/hr_devl/login.jsp'</script>");
 			return false;

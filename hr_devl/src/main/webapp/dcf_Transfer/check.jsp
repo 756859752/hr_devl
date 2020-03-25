@@ -66,7 +66,8 @@
 			</td>
 			<td class="TD_STYLE2" width="10%">
 				<input type="text" name="humanId" readonly="readonly"
-					value="${onechang.humanId}" class="INPUT_STYLE2">	
+					value="${onechang.humanId}" class="INPUT_STYLE2">
+					
 			</td>
 			<td class="TD_STYLE1" width="8%">
 				姓名
@@ -189,7 +190,20 @@
 			 		 	third.val('0');
 			 		 }); });
            </script>
-   <select style="width:160px"  id="firstKindId" name="newFirstKindId" class="SELECT_STYLE2"><option value="${onechang.newFirstKindId}">${onechang.newFirstKindName}</option></select>
+   
+   <select style="width:160px" name="newFirstKindId" id="firstKindId" size="1" class="SELECT_STYLE2" >						
+								
+								<c:forEach items="${configefirstkind}" var="f">
+								       <c:if test="${f.firstKindId == onechang.newFirstKindId}">
+								         <option value="${f.firstKindId}" selected="selected">${f.firstKindName}</option>	
+								       </c:if>
+								         <c:if test="${f.firstKindId != onechang.newFirstKindId}">
+								         <option value="${f.firstKindId}">${f.firstKindName}</option>	
+								       </c:if>
+								  
+								</c:forEach>				
+									  
+	</select>
 		<input type="hidden" name="newFirstKindName" id="newFirstKindName" value="${onechang.newFirstKindName}">
 					</td>
 					<td class="TD_STYLE1" width="12%">
@@ -224,7 +238,6 @@
 </script>
    <select style="width:160px" name="newSecondKindId" id="secondKindId" size="1" class="SELECT_STYLE2">						
 								<option value="${onechang.newSecondKindId}">${onechang.newSecondKindName}</option>						
-					 		
 					  </select>
 					  <input type="hidden" name="newSecondKindName" id="newSecondKindName" value="${onechang.newSecondKindName}">
 					</td>
@@ -433,6 +446,7 @@
 			 }
 		window.onload=load;
 			var out=window.setInterval(time, 1000);
+		 
 		</SCRIPT>
 		</table>
 	</form>

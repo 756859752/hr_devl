@@ -113,6 +113,10 @@
  		 $.messager.show("消息提示","请填写招聘要求",2000);
  	       return ; 
  	  }   
+ 	  var das=$("#date_start").val();
+ 	  var da=$("#date_start");
+ 	  das=das+" 11:11:11"
+ 	  da.val(das)
 		  	document.humanfileForm.submit();
 	}
  	  function querysecondByFid(){
